@@ -22,10 +22,9 @@ header {
 }
 
 .logo {
-    width:180px;
+    width:120px;
+    height:auto;
 }
-
-
 /* HERO */
 
 .hero {

@@ -45,7 +45,8 @@ html, body{
 .hero{
 width:100%;
 height:100vh;
-background:#000 url("images/Hero-IMG.jpg") center center / contain no-repeat;
+background:#000 url("images/Hero-IMG.jpg") center center / auto no-repeat;
+}
 position:relative;
 }
 bottom:70px;

@@ -43,17 +43,19 @@ html, body{
     background:#000;
 }
 .hero{
-width:100vw%;
+width:100vw;
 height:56.25vw;
 max-height:900px;
 background:#000 url("images/Hero-IMG.jpg") center center / cover no-repeat;
-position:relative;}
-.hero-button{
 position:relative;
 }
+
+.hero-button{
+position:absolute;
 bottom:70px;
 left:60px;
 color:#ff0000;
+    
 border:2px solid #ff0000;
 padding:16px 35px;
 text-decoration:none;

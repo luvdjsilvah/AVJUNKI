@@ -42,16 +42,15 @@ nav a{
 
 
 /* HERO */
+
 .hero{
     width:100%;
-    overflow:hidden;
+    aspect-ratio:16 / 9;
+    background-image:url("images/Hero-IMG.jpg");
+    background-size:100% 100%;
+    background-position:center;
+    background-repeat:no-repeat;
     position:relative;
-}
-
-.hero img{
-    width:100%;
-    height:auto;
-    display:block;
 }
 body{
     overflow-x:hidden;

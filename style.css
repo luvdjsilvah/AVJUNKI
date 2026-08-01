@@ -1,73 +1,80 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body{
-background:#000;
-color:#fff;
-font-family:Arial,Helvetica,sans-serif;
+html, body{
+    width:100%;
+    min-height:100%;
+    background:#000;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
+
+/* HEADER */
 header{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:90px;
-display:flex;
-justify-content:flex-end;
-align-items:center;
-padding:0 40px;
-z-index:10;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:90px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding:0 40px;
+    z-index:10;
 }
 
 nav{
-display:flex;
-gap:40px;
+    display:flex;
+    gap:40px;
 }
 
 nav a{
-color:#ff0000;
-text-decoration:none;
-font-size:16px;
-letter-spacing:3px;
-font-weight:700;
+    color:#ff0000;
+    text-decoration:none;
+    font-size:16px;
+    letter-spacing:3px;
+    font-weight:700;
 }
-html, body{
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    background:#000;
-}
+
+
+/* HERO */
 .hero{
-width:100vw;
-height:56.25vw;
-max-height:900px;
-background:#000 url("images/Hero-IMG.jpg") center center / cover no-repeat;
-position:relative;
+    width:100%;
+    aspect-ratio:16 / 9;
+    background-color:#000;
+    background-image:url("images/Hero-IMG.jpg");
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    position:relative;
 }
 
+
+/* BUTTON */
 .hero-button{
-position:absolute;
-bottom:70px;
-left:60px;
-color:#ff0000;
-    
-border:2px solid #ff0000;
-padding:16px 35px;
-text-decoration:none;
-font-weight:700;
-letter-spacing:2px;
+    position:absolute;
+    bottom:50px;
+    left:60px;
+    color:#ff0000;
+    border:2px solid #ff0000;
+    padding:16px 35px;
+    text-decoration:none;
+    font-weight:700;
+    letter-spacing:2px;
 }
 
+
+/* SECTIONS */
 section:not(.hero){
-padding:80px 10%;
-text-align:center;
+    padding:80px 10%;
+    text-align:center;
 }
+
 
 h2{
-letter-spacing:5px;
+    letter-spacing:5px;
 }

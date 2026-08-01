@@ -43,7 +43,7 @@ html, body{
     background:#000;
 }
 .hero{
-width:130%;
+width:90%;
 height:80vh;
 background:#000 url("images/Hero-IMG.jpg") center center / contain no-repeat;
 position:relative;

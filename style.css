@@ -45,8 +45,8 @@ nav a{
 .hero{
     width:100vw;
     height:auto;
-    position:relative;
     overflow:hidden;
+    position:relative;
 }
 
 .hero img{
@@ -54,6 +54,7 @@ nav a{
     height:auto;
     display:block;
 }
+
 body{
     overflow-x:hidden;
 }

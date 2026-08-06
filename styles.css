@@ -362,7 +362,9 @@ select {
   object-fit: cover;
   transition: transform 0.45s ease;
 }
-
+.media-frame img {
+    object-position: center top;
+}
 .portfolio-item:hover .media-frame img {
   transform: scale(1.025);
 }

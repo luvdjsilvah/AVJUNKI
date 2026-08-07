@@ -221,10 +221,16 @@ select {
 }
 
 .hero-copy {
-  max-width: 650px;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: #dfdfdf;
-  margin-bottom: 34px;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 0;
 }
 
 .hero-actions {

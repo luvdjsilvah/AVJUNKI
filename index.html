@@ -162,22 +162,155 @@
             </div>
           </article>
 
-          <article class="portfolio-item" data-category="audio">
-            <div class="media-frame audio-card">
-              <div>
-                <span>PLAY</span>
-                <h3>Audio Sample</h3>
-                <audio controls preload="metadata">
-                  <source src="assets/videos/audio-sample.mp3" type="audio/mpeg" />
-                  Your browser does not support audio playback.
-                </audio>
-              </div>
+         <article class="portfolio-item dj-controller-card" data-category="audio">
+
+  <div class="avj-dj-controller">
+
+    <!-- LEFT DECK -->
+    <section class="avj-deck">
+      <div class="deck-display">
+        <span>DECK A</span>
+        <strong id="deck-a-title">Captain Of the Sea</strong>
+        <small id="deck-a-time">0:00 / 0:00</small>
+      </div>
+
+      <select id="deck-a-select" class="track-select">
+        <option value="0">Captain Of the Sea</option>
+        <option value="1">IS SHE</option>
+        <option value="2">Jolli Xs</option>
+        <option value="3">Podcast Him & Her</option>
+        <option value="4">SOAP</option>
+        <option value="5">True Luv X</option>
+      </select>
+
+      <div class="jog-wheel" id="deck-a-jog">
+        <div class="jog-ring">
+          <div class="jog-label">AV JUNKI</div>
+        </div>
+      </div>
+
+      <input id="deck-a-progress" class="deck-progress" type="range" min="0" max="100" value="0">
+
+      <div class="transport">
+        <button type="button" id="deck-a-cue" class="cue-button">CUE</button>
+        <button type="button" id="deck-a-play" class="play-button">PLAY</button>
+      </div>
+    </section>
+
+
+    <!-- CENTER MIXER -->
+    <section class="avj-mixer">
+
+      <div class="mixer-logo">
+        <img src="assets/images/avjunki-logo.png" alt="AV JUNKI">
+      </div>
+
+      <div class="mixer-channels">
+
+        <div class="channel-strip">
+          <span>CH 1</span>
+
+          <label>GAIN</label>
+          <input id="deck-a-gain" type="range" min="0" max="1" step="0.01" value="1">
+
+          <div class="vu-meter" id="vu-a">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+
+          <label>LEVEL</label>
+          <input id="deck-a-level" class="channel-fader" type="range" min="0" max="1" step="0.01" value="0.85">
+        </div>
+
+
+        <div class="master-strip">
+          <span>MASTER</span>
+
+          <div class="master-vu">
+            <div class="vu-meter" id="master-vu-left">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             </div>
-            <div class="portfolio-info">
-              <p>Audio Production</p>
-              <h3>Mixing or Live Audio Sample</h3>
+
+            <div class="vu-meter" id="master-vu-right">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             </div>
-          </article>
+          </div>
+
+          <label>MASTER</label>
+          <input id="master-volume" type="range" min="0" max="1" step="0.01" value="0.9">
+        </div>
+
+
+        <div class="channel-strip">
+          <span>CH 2</span>
+
+          <label>GAIN</label>
+          <input id="deck-b-gain" type="range" min="0" max="1" step="0.01" value="1">
+
+          <div class="vu-meter" id="vu-b">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+
+          <label>LEVEL</label>
+          <input id="deck-b-level" class="channel-fader" type="range" min="0" max="1" step="0.01" value="0.85">
+        </div>
+
+      </div>
+
+      <div class="crossfader-section">
+        <span>CROSSFADER</span>
+        <input id="crossfader" type="range" min="-1" max="1" step="0.01" value="0">
+        <div class="crossfader-labels">
+          <span>A</span>
+          <span>B</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- RIGHT DECK -->
+    <section class="avj-deck">
+      <div class="deck-display">
+        <span>DECK B</span>
+        <strong id="deck-b-title">Podcast Him & Her</strong>
+        <small id="deck-b-time">0:00 / 0:00</small>
+      </div>
+
+      <select id="deck-b-select" class="track-select">
+        <option value="0">Captain Of the Sea</option>
+        <option value="1">IS SHE</option>
+        <option value="2">Jolli Xs</option>
+        <option value="3" selected>Podcast Him & Her</option>
+        <option value="4">SOAP</option>
+        <option value="5">True Luv X</option>
+      </select>
+
+      <div class="jog-wheel" id="deck-b-jog">
+        <div class="jog-ring">
+          <div class="jog-label">AV JUNKI</div>
+        </div>
+      </div>
+
+      <input id="deck-b-progress" class="deck-progress" type="range" min="0" max="100" value="0">
+
+      <div class="transport">
+        <button type="button" id="deck-b-cue" class="cue-button">CUE</button>
+        <button type="button" id="deck-b-play" class="play-button">PLAY</button>
+      </div>
+    </section>
+
+
+    <audio id="deck-a-audio" preload="metadata"></audio>
+    <audio id="deck-b-audio" preload="metadata"></audio>
+
+  </div>
+
+  <div class="portfolio-info">
+    <p>Audio Production</p>
+    <h3>AV JUNKI DJ Mixes</h3>
+  </div>
+
+</article>
         </div>
       </div>
     </section>

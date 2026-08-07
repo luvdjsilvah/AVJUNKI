@@ -990,13 +990,42 @@
     }
 
 }
-/* AV JUNKI CUSTOM CONSOLE SKIN */
-.avj-dj-console {
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-        url("assets/images/console-art.png");
+/* =========================================
+   AV JUNKI FULL CONSOLE ART SKIN
+   ========================================= */
 
+.avj-dj-console {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Console artwork */
+.avj-dj-console::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("assets/images/console-art.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    opacity: 0.55;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Keep all controls above the artwork */
+.avj-dj-console > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make the console panels transparent enough to reveal the skin */
+.avj-dj-topbar,
+.avj-deck,
+.avj-mixer,
+.avj-library {
+    background: rgba(5, 5, 5, 0.58) !important;
 }

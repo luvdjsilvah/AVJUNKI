@@ -38,406 +38,889 @@ filterButtons.forEach((button) => {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
-/* ==================================
-   AV JUNKI DJ CONSOLE V2
-   ================================== */
+/* =========================================================
+   AV JUNKI DJ CONSOLE ENGINE
+   ========================================================= */
 
-const avjTracks = [
+(() => {
 
-    {
-        title: "Captain Of the Sea",
-        src: "assets/audio/Captain Of the Sea.mp3"
-    },
+    const tracks = [
+        {
+            title: "Captain Of the Sea",
+            src: "assets/audio/Captain Of the Sea.mp3"
+        },
+        {
+            title: "IS SHE",
+            src: "assets/audio/IS SHE.mp3"
+        },
+        {
+            title: "Jolli Xs",
+            src: "assets/audio/Jolli Xs.mp3"
+        },
+        {
+            title: "Podcast Him & Her",
+            src: "assets/audio/Podcast Him & Her.mp3"
+        },
+        {
+            title: "SOAP",
+            src: "assets/audio/SOAP.mp3"
+        },
+        {
+            title: "True Luv X",
+            src: "assets/audio/True Luv X.mp3"
+        }
+    ];
 
-    {
-        title: "IS SHE",
-        src: "assets/audio/IS SHE.mp3"
-    },
 
-    {
-        title: "Jolli Xs",
-        src: "assets/audio/Jolli Xs.mp3"
-    },
+    const AudioContextClass =
+        window.AudioContext ||
+        window.webkitAudioContext;
 
-    {
-        title: "Podcast Him & Her",
-        src: "assets/audio/Podcast Him & Her.mp3"
-    },
 
-    {
-        title: "SOAP",
-        src: "assets/audio/SOAP.mp3"
-    },
-
-    {
-        title: "True Luv X",
-        src: "assets/audio/True Luv X.mp3"
+    if (!AudioContextClass) {
+        console.error("Web Audio API is not supported.");
+        return;
     }
 
-];
 
+    const context =
+        new AudioContextClass();
 
-const AudioContextClass =
-    window.AudioContext ||
-    window.webkitAudioContext;
 
-const djAudioContext =
-    new AudioContextClass();
+    const masterGain =
+        context.createGain();
 
 
-function formatDJTime(seconds) {
+    masterGain.gain.value = 0.9;
 
-    if (!Number.isFinite(seconds)) {
-        return "0:00";
-    }
 
-    const minutes =
-        Math.floor(seconds / 60);
-
-    const secs =
-        Math.floor(seconds % 60)
-        .toString()
-        .padStart(2, "0");
-
-    return `${minutes}:${secs}`;
-}
-
-
-/* =============================
-   AUDIO GRAPH
-   ============================= */
-
-function createDJDeck(prefix) {
-
-    const audio =
-        document.getElementById(
-            `audio-${prefix}`
-        );
-
-    const source =
-        djAudioContext
-        .createMediaElementSource(audio);
-
-    const low =
-        djAudioContext
-        .createBiquadFilter();
-
-    low.type = "lowshelf";
-    low.frequency.value = 250;
-
-
-    const mid =
-        djAudioContext
-        .createBiquadFilter();
-
-    mid.type = "peaking";
-    mid.frequency.value = 1200;
-    mid.Q.value = 1;
-
-
-    const high =
-        djAudioContext
-        .createBiquadFilter();
-
-    high.type = "highshelf";
-    high.frequency.value = 4000;
-
-
-    const gain =
-        djAudioContext
-        .createGain();
-
-
-    const level =
-        djAudioContext
-        .createGain();
-
-
-    const crossfadeGain =
-        djAudioContext
-        .createGain();
-
-
-    const analyser =
-        djAudioContext
-        .createAnalyser();
-
-    analyser.fftSize = 256;
-
-
-    source
-        .connect(low)
-        .connect(mid)
-        .connect(high)
-        .connect(gain)
-        .connect(level)
-        .connect(crossfadeGain)
-        .connect(analyser);
-
-
-    return {
-
-        audio,
-
-        low,
-
-        mid,
-
-        high,
-
-        gain,
-
-        level,
-
-        crossfadeGain,
-
-        analyser,
-
-        title:
-            document.getElementById(
-                `${prefix}-title`
-            ),
-
-        current:
-            document.getElementById(
-                `${prefix}-current`
-            ),
-
-        duration:
-            document.getElementById(
-                `${prefix}-duration`
-            ),
-
-        select:
-            document.getElementById(
-                `${prefix}-track-select`
-            ),
-
-        play:
-            document.getElementById(
-                `${prefix}-play`
-            ),
-
-        cue:
-            document.getElementById(
-                `${prefix}-cue`
-            ),
-
-        platter:
-            document.getElementById(
-                `${prefix}-platter`
-            ),
-
-        waveform:
-            document.getElementById(
-                `${prefix}-waveform`
-            ),
-
-        tempo:
-            document.getElementById(
-                `${prefix}-tempo`
-            ),
-
-        tempoValue:
-            document.getElementById(
-                `${prefix}-tempo-value`
-            ),
-
-        gainControl:
-            document.getElementById(
-                `${prefix}-gain`
-            ),
-
-        highControl:
-            document.getElementById(
-                `${prefix}-high`
-            ),
-
-        midControl:
-            document.getElementById(
-                `${prefix}-mid`
-            ),
-
-        lowControl:
-            document.getElementById(
-                `${prefix}-low`
-            ),
-
-        levelControl:
-            document.getElementById(
-                `${prefix}-level`
-            ),
-
-        vuBars:
-            document.querySelectorAll(
-                `#${prefix}-vu i`
-            ),
-
-        waveformPeaks: []
-
-    };
-
-}
-
-
-const deckA =
-    createDJDeck("a");
-
-const deckB =
-    createDJDeck("b");
-
-
-const masterGain =
-    djAudioContext
-    .createGain();
-
-
-const masterAnalyser =
-    djAudioContext
-    .createAnalyser();
-
-
-masterAnalyser.fftSize = 256;
-
-
-deckA.analyser
-    .connect(masterGain);
-
-deckB.analyser
-    .connect(masterGain);
-
-
-masterGain
-    .connect(masterAnalyser)
-    .connect(djAudioContext.destination);
-
-
-/* =============================
-   TRACK LOADING
-   ============================= */
-
-async function loadDJTrack(
-    deck,
-    trackIndex
-) {
-
-    const track =
-        avjTracks[trackIndex];
-
-    deck.audio.pause();
-
-    deck.audio.src =
-        track.src;
-
-    deck.title.textContent =
-        track.title;
-
-    deck.select.value =
-        String(trackIndex);
-
-    deck.play.textContent =
-        "▶ PLAY";
-
-    deck.play.classList
-        .remove("active");
-
-    deck.platter.classList
-        .remove("playing");
-
-    deck.current.textContent =
-        "0:00";
-
-    deck.duration.textContent =
-        "0:00";
-
-    deck.audio.load();
-
-    await generateWaveform(
-        deck,
-        track.src
+    masterGain.connect(
+        context.destination
     );
 
-}
+
+    function formatTime(seconds) {
+
+        if (!Number.isFinite(seconds)) {
+            return "0:00";
+        }
+
+        const minutes =
+            Math.floor(
+                seconds / 60
+            );
 
 
-/* =============================
-   PLAY / CUE
-   ============================= */
+        const secs =
+            Math.floor(
+                seconds % 60
+            )
+            .toString()
+            .padStart(2, "0");
 
-async function toggleDJDeck(deck) {
 
-    if (
-        djAudioContext.state ===
-        "suspended"
-    ) {
-
-        await
-            djAudioContext.resume();
+        return `${minutes}:${secs}`;
 
     }
 
 
-    if (deck.audio.paused) {
+    async function resumeAudioContext() {
 
-        await deck.audio.play();
+        if (
+            context.state ===
+            "suspended"
+        ) {
+            await context.resume();
+        }
 
-        deck.play.textContent =
-            "❚❚ PAUSE";
+    }
 
-        deck.play.classList
-            .add("active");
 
-        deck.platter.classList
-            .add("playing");
+    function createDeck(prefix) {
 
-    } else {
+        const audio =
+            document.getElementById(
+                `avj-${prefix}-audio`
+            );
+
+
+        if (!audio) {
+            return null;
+        }
+
+
+        const source =
+            context.createMediaElementSource(
+                audio
+            );
+
+
+        /* LOW EQ */
+
+        const low =
+            context.createBiquadFilter();
+
+        low.type = "lowshelf";
+        low.frequency.value = 250;
+
+
+        /* MID EQ */
+
+        const mid =
+            context.createBiquadFilter();
+
+        mid.type = "peaking";
+        mid.frequency.value = 1200;
+        mid.Q.value = 1;
+
+
+        /* HIGH EQ */
+
+        const high =
+            context.createBiquadFilter();
+
+        high.type = "highshelf";
+        high.frequency.value = 4000;
+
+
+        /* GAIN */
+
+        const trim =
+            context.createGain();
+
+
+        /* CHANNEL FADER */
+
+        const channel =
+            context.createGain();
+
+
+        /* CROSSFADER */
+
+        const cross =
+            context.createGain();
+
+
+        /* VU ANALYSER */
+
+        const analyser =
+            context.createAnalyser();
+
+
+        analyser.fftSize = 256;
+        analyser.smoothingTimeConstant = 0.72;
+
+
+        source
+            .connect(low)
+            .connect(mid)
+            .connect(high)
+            .connect(trim)
+            .connect(channel)
+            .connect(cross)
+            .connect(analyser)
+            .connect(masterGain);
+
+
+        trim.gain.value = 1;
+        channel.gain.value = 0.85;
+        cross.gain.value = 1;
+
+
+        return {
+
+            prefix,
+            audio,
+            low,
+            mid,
+            high,
+            trim,
+            channel,
+            cross,
+            analyser,
+
+            title:
+                document.getElementById(
+                    `avj-${prefix}-title`
+                ),
+
+            current:
+                document.getElementById(
+                    `avj-${prefix}-current`
+                ),
+
+            duration:
+                document.getElementById(
+                    `avj-${prefix}-duration`
+                ),
+
+            rate:
+                document.getElementById(
+                    `avj-${prefix}-rate`
+                ),
+
+            select:
+                document.getElementById(
+                    `avj-${prefix}-select`
+                ),
+
+            play:
+                document.getElementById(
+                    `avj-${prefix}-play`
+                ),
+
+            cue:
+                document.getElementById(
+                    `avj-${prefix}-cue`
+                ),
+
+            seek:
+                document.getElementById(
+                    `avj-${prefix}-seek`
+                ),
+
+            tempo:
+                document.getElementById(
+                    `avj-${prefix}-tempo`
+                ),
+
+            pitchUp:
+                document.getElementById(
+                    `avj-${prefix}-pitch-up`
+                ),
+
+            pitchDown:
+                document.getElementById(
+                    `avj-${prefix}-pitch-down`
+                ),
+
+            platter:
+                document.getElementById(
+                    `avj-${prefix}-platter`
+                ),
+
+            waveform:
+                document.getElementById(
+                    `avj-${prefix}-wave`
+                ),
+
+            gainControl:
+                document.getElementById(
+                    `avj-${prefix}-gain`
+                ),
+
+            highControl:
+                document.getElementById(
+                    `avj-${prefix}-high`
+                ),
+
+            midControl:
+                document.getElementById(
+                    `avj-${prefix}-mid`
+                ),
+
+            lowControl:
+                document.getElementById(
+                    `avj-${prefix}-low`
+                ),
+
+            levelControl:
+                document.getElementById(
+                    `avj-${prefix}-level`
+                ),
+
+            meterBars:
+                document.querySelectorAll(
+                    `#avj-${prefix}-meter i`
+                ),
+
+            peaks: []
+
+        };
+
+    }
+
+
+    const deckA =
+        createDeck("a");
+
+
+    const deckB =
+        createDeck("b");
+
+
+    if (!deckA || !deckB) {
+        return;
+    }
+
+
+    /* =====================================================
+       WAVEFORM
+       ===================================================== */
+
+    async function generateWaveform(
+        deck,
+        url
+    ) {
+
+        try {
+
+            const response =
+                await fetch(url);
+
+
+            if (!response.ok) {
+                throw new Error(
+                    `Could not load ${url}`
+                );
+            }
+
+
+            const arrayBuffer =
+                await response.arrayBuffer();
+
+
+            const decoded =
+                await context.decodeAudioData(
+                    arrayBuffer.slice(0)
+                );
+
+
+            const data =
+                decoded.getChannelData(0);
+
+
+            const numberOfBars = 150;
+
+
+            const blockSize =
+                Math.max(
+                    1,
+                    Math.floor(
+                        data.length /
+                        numberOfBars
+                    )
+                );
+
+
+            const peaks = [];
+
+
+            for (
+                let bar = 0;
+                bar < numberOfBars;
+                bar++
+            ) {
+
+                const start =
+                    bar * blockSize;
+
+
+                const end =
+                    Math.min(
+                        start + blockSize,
+                        data.length
+                    );
+
+
+                let peak = 0;
+
+
+                for (
+                    let sample = start;
+                    sample < end;
+                    sample += 20
+                ) {
+
+                    peak =
+                        Math.max(
+                            peak,
+                            Math.abs(
+                                data[sample]
+                            )
+                        );
+
+                }
+
+
+                peaks.push(
+                    peak
+                );
+
+            }
+
+
+            deck.peaks = peaks;
+
+
+            drawWaveform(
+                deck
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Waveform error:",
+                error
+            );
+
+        }
+
+    }
+
+
+    function drawWaveform(deck) {
+
+        const canvas =
+            deck.waveform;
+
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        const width =
+            canvas.width;
+
+
+        const height =
+            canvas.height;
+
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        if (!deck.peaks.length) {
+            return;
+        }
+
+
+        const progress =
+            deck.audio.duration
+            ?
+            deck.audio.currentTime /
+            deck.audio.duration
+            :
+            0;
+
+
+        const barWidth =
+            width /
+            deck.peaks.length;
+
+
+        deck.peaks.forEach(
+            (peak, index) => {
+
+                const barHeight =
+                    Math.max(
+                        3,
+                        peak *
+                        height *
+                        1.7
+                    );
+
+
+                const x =
+                    index *
+                    barWidth;
+
+
+                const completed =
+                    index /
+                    deck.peaks.length
+                    <= progress;
+
+
+                ctx.fillStyle =
+                    completed
+                    ?
+                    "#e21b23"
+                    :
+                    "#797979";
+
+
+                ctx.fillRect(
+                    x,
+                    (height - barHeight) / 2,
+                    Math.max(
+                        1,
+                        barWidth - 1
+                    ),
+                    barHeight
+                );
+
+            }
+        );
+
+
+        /* PLAYHEAD */
+
+        const playheadX =
+            progress *
+            width;
+
+
+        ctx.fillStyle =
+            "#ffffff";
+
+
+        ctx.fillRect(
+            playheadX,
+            0,
+            2,
+            height
+        );
+
+    }
+
+
+    /* =====================================================
+       TRACK LOADING
+       ===================================================== */
+
+    async function loadTrack(
+        deck,
+        index
+    ) {
+
+        const track =
+            tracks[index];
+
 
         deck.audio.pause();
+
+
+        deck.audio.src =
+            track.src;
+
+
+        deck.audio.load();
+
+
+        deck.title.textContent =
+            track.title;
+
+
+        deck.select.value =
+            String(index);
+
+
+        deck.current.textContent =
+            "0:00";
+
+
+        deck.duration.textContent =
+            "0:00";
+
+
+        deck.seek.value = 0;
+
 
         deck.play.textContent =
             "▶ PLAY";
 
-        deck.play.classList
-            .remove("active");
 
-        deck.platter.classList
-            .remove("playing");
+        deck.play.classList.remove(
+            "avj-playing"
+        );
+
+
+        deck.platter.classList.remove(
+            "avj-spinning"
+        );
+
+
+        deck.peaks = [];
+
+
+        drawWaveform(
+            deck
+        );
+
+
+        generateWaveform(
+            deck,
+            track.src
+        );
 
     }
 
-}
+
+    /* =====================================================
+       PLAY / PAUSE
+       ===================================================== */
+
+    async function togglePlay(deck) {
+
+        await resumeAudioContext();
 
 
-function cueDJDeck(deck) {
+        if (deck.audio.paused) {
 
-    deck.audio.pause();
+            try {
 
-    deck.audio.currentTime = 0;
-
-    deck.play.textContent =
-        "▶ PLAY";
-
-    deck.play.classList
-        .remove("active");
-
-    deck.platter.classList
-        .remove("playing");
-
-}
+                await deck.audio.play();
 
 
-/* =============================
-   EQ / LEVEL
-   ============================= */
+                deck.play.textContent =
+                    "❚❚ PAUSE";
 
-function setupMixerControls(deck) {
 
-    deck.gainControl
-        .addEventListener(
+                deck.play.classList.add(
+                    "avj-playing"
+                );
+
+
+                deck.platter.classList.add(
+                    "avj-spinning"
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Playback failed:",
+                    error
+                );
+
+            }
+
+        } else {
+
+            deck.audio.pause();
+
+
+            deck.play.textContent =
+                "▶ PLAY";
+
+
+            deck.play.classList.remove(
+                "avj-playing"
+            );
+
+
+            deck.platter.classList.remove(
+                "avj-spinning"
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CUE
+       ===================================================== */
+
+    function cueDeck(deck) {
+
+        deck.audio.pause();
+
+
+        deck.audio.currentTime = 0;
+
+
+        deck.seek.value = 0;
+
+
+        deck.play.textContent =
+            "▶ PLAY";
+
+
+        deck.play.classList.remove(
+            "avj-playing"
+        );
+
+
+        deck.platter.classList.remove(
+            "avj-spinning"
+        );
+
+
+        drawWaveform(
+            deck
+        );
+
+    }
+
+
+    /* =====================================================
+       TEMPO
+       ===================================================== */
+
+    function setTempo(
+        deck,
+        value
+    ) {
+
+        const rate =
+            Math.max(
+                0.88,
+                Math.min(
+                    1.12,
+                    Number(value)
+                )
+            );
+
+
+        deck.tempo.value =
+            rate;
+
+
+        deck.audio.playbackRate =
+            rate;
+
+
+        const percentage =
+            (rate - 1) *
+            100;
+
+
+        deck.rate.textContent =
+            `${percentage >= 0 ? "+" : ""}${percentage.toFixed(1)}%`;
+
+    }
+
+
+    /* =====================================================
+       DECK CONTROLS
+       ===================================================== */
+
+    function setupDeck(deck) {
+
+        deck.play.addEventListener(
+            "click",
+            () => {
+                togglePlay(deck);
+            }
+        );
+
+
+        deck.cue.addEventListener(
+            "click",
+            () => {
+                cueDeck(deck);
+            }
+        );
+
+
+        deck.select.addEventListener(
+            "change",
+            () => {
+
+                loadTrack(
+                    deck,
+                    Number(
+                        deck.select.value
+                    )
+                );
+
+            }
+        );
+
+
+        deck.seek.addEventListener(
             "input",
             () => {
 
-                deck.gain.gain.value =
+                if (!deck.audio.duration) {
+                    return;
+                }
+
+
+                deck.audio.currentTime =
+                    Number(
+                        deck.seek.value
+                    )
+                    / 100
+                    *
+                    deck.audio.duration;
+
+
+                drawWaveform(
+                    deck
+                );
+
+            }
+        );
+
+
+        deck.audio.addEventListener(
+            "loadedmetadata",
+            () => {
+
+                deck.duration.textContent =
+                    formatTime(
+                        deck.audio.duration
+                    );
+
+            }
+        );
+
+
+        deck.audio.addEventListener(
+            "timeupdate",
+            () => {
+
+                deck.current.textContent =
+                    formatTime(
+                        deck.audio.currentTime
+                    );
+
+
+                if (deck.audio.duration) {
+
+                    deck.seek.value =
+                        deck.audio.currentTime
+                        /
+                        deck.audio.duration
+                        *
+                        100;
+
+                }
+
+
+                drawWaveform(
+                    deck
+                );
+
+            }
+        );
+
+
+        deck.audio.addEventListener(
+            "ended",
+            () => {
+
+                deck.play.textContent =
+                    "▶ PLAY";
+
+
+                deck.play.classList.remove(
+                    "avj-playing"
+                );
+
+
+                deck.platter.classList.remove(
+                    "avj-spinning"
+                );
+
+            }
+        );
+
+
+        /* REAL GAIN */
+
+        deck.gainControl.addEventListener(
+            "input",
+            () => {
+
+                deck.trim.gain.value =
                     Number(
                         deck.gainControl.value
                     );
@@ -446,8 +929,9 @@ function setupMixerControls(deck) {
         );
 
 
-    deck.highControl
-        .addEventListener(
+        /* REAL HIGH EQ */
+
+        deck.highControl.addEventListener(
             "input",
             () => {
 
@@ -460,8 +944,9 @@ function setupMixerControls(deck) {
         );
 
 
-    deck.midControl
-        .addEventListener(
+        /* REAL MID EQ */
+
+        deck.midControl.addEventListener(
             "input",
             () => {
 
@@ -474,8 +959,9 @@ function setupMixerControls(deck) {
         );
 
 
-    deck.lowControl
-        .addEventListener(
+        /* REAL LOW EQ */
+
+        deck.lowControl.addEventListener(
             "input",
             () => {
 
@@ -488,12 +974,13 @@ function setupMixerControls(deck) {
         );
 
 
-    deck.levelControl
-        .addEventListener(
+        /* REAL CHANNEL FADER */
+
+        deck.levelControl.addEventListener(
             "input",
             () => {
 
-                deck.level.gain.value =
+                deck.channel.gain.value =
                     Number(
                         deck.levelControl.value
                     );
@@ -502,104 +989,118 @@ function setupMixerControls(deck) {
         );
 
 
-    deck.tempo
-        .addEventListener(
+        deck.tempo.addEventListener(
             "input",
             () => {
 
-                const rate =
-                    Number(
-                        deck.tempo.value
-                    );
-
-                deck.audio.playbackRate =
-                    rate;
-
-                const percent =
-                    Math.round(
-                        (rate - 1) * 100
-                    );
-
-                deck.tempoValue
-                    .textContent =
-                    `${percent > 0 ? "+" : ""}${percent}%`;
+                setTempo(
+                    deck,
+                    deck.tempo.value
+                );
 
             }
         );
 
-}
 
+        deck.pitchUp.addEventListener(
+            "click",
+            () => {
 
-/* =============================
-   CROSSFADER
-   ============================= */
+                setTempo(
+                    deck,
+                    Number(
+                        deck.tempo.value
+                    ) + .01
+                );
 
-const djCrossfader =
-    document.getElementById(
-        "dj-crossfader"
-    );
-
-
-function updateCrossfader() {
-
-    const position =
-        Number(
-            djCrossfader.value
+            }
         );
 
 
-    const gainA =
-        Math.cos(
-            position *
-            0.5 *
-            Math.PI
+        deck.pitchDown.addEventListener(
+            "click",
+            () => {
+
+                setTempo(
+                    deck,
+                    Number(
+                        deck.tempo.value
+                    ) - .01
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       REAL CROSSFADER
+       ===================================================== */
+
+    const crossfader =
+        document.getElementById(
+            "avj-crossfader"
         );
 
 
-    const gainB =
-        Math.cos(
-            (1 - position) *
-            0.5 *
-            Math.PI
-        );
+    function updateCrossfader() {
+
+        const position =
+            Number(
+                crossfader.value
+            );
 
 
-    deckA.crossfadeGain
-        .gain.value =
-        gainA;
+        /* CONSTANT POWER CROSSFADER */
+
+        const gainA =
+            Math.cos(
+                position *
+                Math.PI /
+                2
+            );
 
 
-    deckB.crossfadeGain
-        .gain.value =
-        gainB;
+        const gainB =
+            Math.sin(
+                position *
+                Math.PI /
+                2
+            );
 
-}
+
+        deckA.cross.gain.value =
+            gainA;
 
 
-djCrossfader
-    .addEventListener(
+        deckB.cross.gain.value =
+            gainB;
+
+    }
+
+
+    crossfader.addEventListener(
         "input",
         updateCrossfader
     );
 
 
-/* =============================
-   MASTER VOLUME
-   ============================= */
+    /* =====================================================
+       MASTER VOLUME
+       ===================================================== */
 
-const masterVolume =
-    document.getElementById(
-        "master-volume"
-    );
+    const masterVolume =
+        document.getElementById(
+            "avj-master-volume"
+        );
 
 
-masterVolume
-    .addEventListener(
+    masterVolume.addEventListener(
         "input",
         () => {
 
-            masterGain
-                .gain.value =
+            masterGain.gain.value =
                 Number(
                     masterVolume.value
                 );
@@ -608,539 +1109,317 @@ masterVolume
     );
 
 
-/* =============================
-   TIME / PROGRESS
-   ============================= */
-
-function setupPlayback(deck) {
-
-    deck.play.addEventListener(
-        "click",
-        () =>
-            toggleDJDeck(deck)
-    );
-
-
-    deck.cue.addEventListener(
-        "click",
-        () =>
-            cueDJDeck(deck)
-    );
-
-
-    deck.select.addEventListener(
-        "change",
-        () =>
-            loadDJTrack(
-                deck,
-                Number(
-                    deck.select.value
-                )
-            )
-    );
-
-
-    deck.audio.addEventListener(
-        "loadedmetadata",
-        () => {
-
-            deck.duration
-                .textContent =
-                formatDJTime(
-                    deck.audio.duration
-                );
-
-        }
-    );
-
-
-    deck.audio.addEventListener(
-        "timeupdate",
-        () => {
-
-            deck.current
-                .textContent =
-                formatDJTime(
-                    deck.audio.currentTime
-                );
-
-            drawWaveform(deck);
-
-        }
-    );
-
-
-    deck.audio.addEventListener(
-        "ended",
-        () => {
-
-            deck.play.textContent =
-                "▶ PLAY";
-
-            deck.play.classList
-                .remove("active");
-
-            deck.platter.classList
-                .remove("playing");
-
-        }
-    );
-
-}
-
-
-/* =============================
-   REAL WAVEFORM
-   ============================= */
-
-async function generateWaveform(
-    deck,
-    url
-) {
-
-    try {
-
-        const response =
-            await fetch(url);
-
-        const arrayBuffer =
-            await response
-            .arrayBuffer();
-
-        const decoded =
-            await djAudioContext
-            .decodeAudioData(
-                arrayBuffer
-            );
-
-        const data =
-            decoded
-            .getChannelData(0);
-
-        const bars = 100;
-
-        const block =
-            Math.floor(
-                data.length /
-                bars
-            );
-
-        const peaks = [];
-
-
-        for (
-            let i = 0;
-            i < bars;
-            i++
-        ) {
-
-            let peak = 0;
-
-            const start =
-                i * block;
-
-            const end =
-                start + block;
-
-
-            for (
-                let j = start;
-                j < end;
-                j++
-            ) {
-
-                const value =
-                    Math.abs(
-                        data[j]
-                    );
-
-                if (
-                    value >
-                    peak
-                ) {
-
-                    peak =
-                        value;
-
-                }
-
-            }
-
-            peaks.push(
-                peak
-            );
-
-        }
-
-
-        deck.waveformPeaks =
-            peaks;
-
-        drawWaveform(deck);
-
-    } catch (error) {
-
-        console.error(
-            "Waveform error:",
-            error
-        );
-
-    }
-
-}
-
-
-function drawWaveform(deck) {
-
-    const canvas =
-        deck.waveform;
-
-    const ctx =
-        canvas
-        .getContext("2d");
-
-    const width =
-        canvas.width;
-
-    const height =
-        canvas.height;
-
-
-    ctx.clearRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-
-    if (
-        !deck.waveformPeaks.length
+    /* =====================================================
+       REAL VU METERS
+       ===================================================== */
+
+    function getAudioLevel(
+        analyser
     ) {
 
-        return;
-
-    }
-
-
-    const progress =
-        deck.audio.duration
-        ?
-        deck.audio.currentTime /
-        deck.audio.duration
-        :
-        0;
+        const data =
+            new Uint8Array(
+                analyser.frequencyBinCount
+            );
 
 
-    const barWidth =
-        width /
-        deck.waveformPeaks.length;
-
-
-    deck.waveformPeaks
-        .forEach(
-            (peak, index) => {
-
-                const h =
-                    Math.max(
-                        3,
-                        peak *
-                        height *
-                        1.8
-                    );
-
-                const x =
-                    index *
-                    barWidth;
-
-
-                ctx.fillStyle =
-                    index /
-                    deck.waveformPeaks.length
-                    <= progress
-                    ?
-                    "#e21b23"
-                    :
-                    "#777";
-
-
-                ctx.fillRect(
-                    x,
-                    (height - h) / 2,
-                    Math.max(
-                        1,
-                        barWidth - 1
-                    ),
-                    h
-                );
-
-            }
-        );
-
-}
-
-
-/* =============================
-   VU METERS
-   ============================= */
-
-const masterL =
-    document.querySelectorAll(
-        "#master-vu-l i"
-    );
-
-const masterR =
-    document.querySelectorAll(
-        "#master-vu-r i"
-    );
-
-
-function getAnalyserLevel(
-    analyser
-) {
-
-    const data =
-        new Uint8Array(
-            analyser
-            .frequencyBinCount
-        );
-
-
-    analyser
-        .getByteFrequencyData(
+        analyser.getByteFrequencyData(
             data
         );
 
 
-    let total = 0;
+        let total = 0;
 
 
-    for (
-        let i = 0;
-        i < data.length;
-        i++
-    ) {
+        for (
+            let i = 0;
+            i < data.length;
+            i++
+        ) {
 
-        total += data[i];
+            total += data[i];
+
+        }
+
+
+        return (
+            total /
+            data.length /
+            255
+        );
 
     }
 
 
-    return (
-        total /
-        data.length /
-        255
-    );
+    function paintMeter(
+        bars,
+        level
+    ) {
 
-}
-
-
-function paintMeter(
-    bars,
-    level
-) {
-
-    const activeBars =
-        Math.round(
-            level *
-            bars.length *
-            2
-        );
+        const active =
+            Math.min(
+                bars.length,
+                Math.round(
+                    level *
+                    bars.length *
+                    2.4
+                )
+            );
 
 
-    bars.forEach(
-        (bar, index) => {
+        bars.forEach(
+            (bar, index) => {
 
-            bar.classList
-                .remove(
-                    "active",
-                    "warning",
-                    "peak"
+                bar.classList.remove(
+                    "avj-meter-green",
+                    "avj-meter-yellow",
+                    "avj-meter-red"
                 );
 
 
-            if (
-                index <
-                activeBars
-            ) {
+                if (index >= active) {
+                    return;
+                }
+
 
                 if (
                     index >=
                     bars.length - 2
                 ) {
 
-                    bar.classList
-                        .add("peak");
+                    bar.classList.add(
+                        "avj-meter-red"
+                    );
 
                 } else if (
                     index >=
                     bars.length - 4
                 ) {
 
-                    bar.classList
-                        .add("warning");
+                    bar.classList.add(
+                        "avj-meter-yellow"
+                    );
 
                 } else {
 
-                    bar.classList
-                        .add("active");
+                    bar.classList.add(
+                        "avj-meter-green"
+                    );
 
                 }
 
             }
+        );
 
-        }
-    );
-
-}
+    }
 
 
-function runMeters() {
-
-    const levelA =
-        getAnalyserLevel(
-            deckA.analyser
+    const masterLeft =
+        document.querySelectorAll(
+            "#avj-master-l i"
         );
 
 
-    const levelB =
-        getAnalyserLevel(
-            deckB.analyser
+    const masterRight =
+        document.querySelectorAll(
+            "#avj-master-r i"
         );
 
 
-    paintMeter(
-        deckA.vuBars,
-        levelA
-    );
+    function meterLoop() {
+
+        const leftLevel =
+            getAudioLevel(
+                deckA.analyser
+            );
 
 
-    paintMeter(
-        deckB.vuBars,
-        levelB
-    );
+        const rightLevel =
+            getAudioLevel(
+                deckB.analyser
+            );
 
 
-    paintMeter(
-        masterL,
-        levelA
-    );
+        paintMeter(
+            deckA.meterBars,
+            leftLevel
+        );
 
 
-    paintMeter(
-        masterR,
-        levelB
-    );
+        paintMeter(
+            deckB.meterBars,
+            rightLevel
+        );
 
 
-    requestAnimationFrame(
-        runMeters
-    );
+        paintMeter(
+            masterLeft,
+            leftLevel
+        );
 
-}
+
+        paintMeter(
+            masterRight,
+            rightLevel
+        );
 
 
-/* =============================
-   TRACK LIBRARY
-   ============================= */
+        requestAnimationFrame(
+            meterLoop
+        );
 
-document
-    .querySelectorAll(
-        "[data-load-a]"
-    )
-    .forEach(
-        button => {
+    }
 
-            button
-                .addEventListener(
+
+    /* =====================================================
+       LIBRARY LOAD BUTTONS
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            "[data-avj-load-a]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
                     "click",
                     () => {
 
-                        loadDJTrack(
+                        loadTrack(
                             deckA,
                             Number(
                                 button.dataset
-                                    .loadA
+                                    .avjLoadA
                             )
                         );
 
                     }
                 );
 
-        }
-    );
+            }
+        );
 
 
-document
-    .querySelectorAll(
-        "[data-load-b]"
-    )
-    .forEach(
-        button => {
+    document
+        .querySelectorAll(
+            "[data-avj-load-b]"
+        )
+        .forEach(
+            button => {
 
-            button
-                .addEventListener(
+                button.addEventListener(
                     "click",
                     () => {
 
-                        loadDJTrack(
+                        loadTrack(
                             deckB,
                             Number(
                                 button.dataset
-                                    .loadB
+                                    .avjLoadB
                             )
                         );
 
                     }
                 );
 
-        }
+            }
+        );
+
+
+    /* =====================================================
+       SEARCH
+       ===================================================== */
+
+    const search =
+        document.getElementById(
+            "avj-track-search"
+        );
+
+
+    const trackRows =
+        document.querySelectorAll(
+            ".avj-track-row"
+        );
+
+
+    if (search) {
+
+        search.addEventListener(
+            "input",
+            () => {
+
+                const term =
+                    search.value
+                    .toLowerCase()
+                    .trim();
+
+
+                trackRows.forEach(
+                    row => {
+
+                        const text =
+                            row.textContent
+                            .toLowerCase();
+
+
+                        row.style.display =
+                            text.includes(term)
+                            ?
+                            "grid"
+                            :
+                            "none";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       INITIALIZE
+       ===================================================== */
+
+    setupDeck(
+        deckA
     );
 
 
-/* =============================
-   STARTUP
-   ============================= */
-
-setupMixerControls(
-    deckA
-);
-
-setupMixerControls(
-    deckB
-);
-
-setupPlayback(
-    deckA
-);
-
-setupPlayback(
-    deckB
-);
+    setupDeck(
+        deckB
+    );
 
 
-loadDJTrack(
-    deckA,
-    0
-);
-
-loadDJTrack(
-    deckB,
-    3
-);
+    setTempo(
+        deckA,
+        1
+    );
 
 
-masterGain.gain.value =
-    0.9;
+    setTempo(
+        deckB,
+        1
+    );
 
 
-deckA.level.gain.value =
-    0.85;
-
-deckB.level.gain.value =
-    0.85;
+    updateCrossfader();
 
 
-updateCrossfader();
+    loadTrack(
+        deckA,
+        0
+    );
 
-runMeters();
+
+    loadTrack(
+        deckB,
+        3
+    );
+
+
+    meterLoop();
+
+})();

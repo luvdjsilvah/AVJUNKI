@@ -163,74 +163,176 @@
           </article>
 
 
-<article class="portfolio-item avj-player-card" data-category="audio">
+<!-- =========================
+     AV JUNKI DJ CONSOLE
+========================= -->
 
-  <div class="avj-console">
+<article class="portfolio-item avj-dj-card" data-category="audio">
 
-    <div class="avj-console-top">
+  <div class="avj-dj-console">
+
+    <!-- TOP BRAND BAR -->
+    <div class="avj-dj-topbar">
+
+      <div class="avj-top-status">
+        <span class="avj-led"></span>
+        AV JUNKI AUDIO
+      </div>
+
+      <img
+        class="avj-dj-logo"
+        src="assets/images/avjunki-logo.png"
+        alt="AV JUNKI"
+      >
+
+      <div class="avj-master-title">
+        DUAL DECK PERFORMANCE CONSOLE
+      </div>
+
+    </div>
+
+
+    <!-- MAIN CONTROLLER -->
+    <div class="avj-controller-main">
+
 
       <!-- ================= DECK A ================= -->
-      <section class="console-deck">
 
-        <div class="deck-heading">
-          <span>DECK A</span>
-        </div>
+      <section class="avj-deck avj-deck-a">
 
-        <div class="deck-display">
-          <div class="deck-track-meta">
-            <h3 id="a-title">Captain Of the Sea</h3>
+        <div class="avj-deck-screen">
 
-            <div class="deck-time-row">
-              <span id="a-current">0:00</span>
-              <span id="a-duration">0:00</span>
-            </div>
+          <div class="avj-deck-number">
+            DECK A
           </div>
 
-          <canvas
-            id="a-waveform"
-            class="deck-waveform"
-            width="700"
-            height="75">
-          </canvas>
-        </div>
+          <div class="avj-track-title" id="avj-a-title">
+            Captain Of the Sea
+          </div>
 
-        <select id="a-track-select" class="deck-selector">
-          <option value="0">Captain Of the Sea</option>
-          <option value="1">IS SHE</option>
-          <option value="2">Jolli Xs</option>
-          <option value="3">Podcast Him & Her</option>
-          <option value="4">SOAP</option>
-          <option value="5">True Luv X</option>
-        </select>
+          <div class="avj-screen-meta">
 
-        <div class="deck-main">
+            <span id="avj-a-current">
+              0:00
+            </span>
 
-          <div class="deck-side-controls">
-            <label>TEMPO</label>
+            <span id="avj-a-rate">
+              0.0%
+            </span>
+
+            <span id="avj-a-duration">
+              0:00
+            </span>
+
+          </div>
+
+          <div class="avj-wave-wrap">
+
+            <canvas
+              id="avj-a-wave"
+              class="avj-wave"
+              width="800"
+              height="95">
+            </canvas>
 
             <input
-              id="a-tempo"
-              class="tempo-fader"
+              id="avj-a-seek"
+              class="avj-wave-seek"
               type="range"
-              min="0.85"
-              max="1.15"
+              min="0"
+              max="100"
+              step="0.01"
+              value="0"
+              aria-label="Deck A track position"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="avj-deck-select-row">
+
+          <select
+            id="avj-a-select"
+            class="avj-track-select">
+
+            <option value="0">
+              Captain Of the Sea
+            </option>
+
+            <option value="1">
+              IS SHE
+            </option>
+
+            <option value="2">
+              Jolli Xs
+            </option>
+
+            <option value="3">
+              Podcast Him & Her
+            </option>
+
+            <option value="4">
+              SOAP
+            </option>
+
+            <option value="5">
+              True Luv X
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="avj-deck-hardware">
+
+          <div class="avj-pitch-strip">
+
+            <span>PITCH</span>
+
+            <button
+              id="avj-a-pitch-up"
+              type="button">
+              +
+            </button>
+
+            <input
+              id="avj-a-tempo"
+              class="avj-pitch-slider"
+              type="range"
+              min="0.88"
+              max="1.12"
               step="0.01"
               value="1"
             >
 
-            <span id="a-tempo-value">0%</span>
+            <button
+              id="avj-a-pitch-down"
+              type="button">
+              −
+            </button>
+
           </div>
 
-          <div class="platter-shell">
 
-            <div class="platter" id="a-platter">
+          <div class="avj-platter-frame">
+
+            <div
+              class="avj-platter"
+              id="avj-a-platter">
 
               <img
                 src="assets/images/platter-image.jpg"
-                alt="AV JUNKI platter artwork"
+                alt="Deck A platter artwork"
               >
 
-              <div class="platter-spindle"></div>
+              <div class="avj-platter-ring"></div>
+
+              <div class="avj-spindle"></div>
+
+              <div class="avj-position-dot"></div>
 
             </div>
 
@@ -238,19 +340,41 @@
 
         </div>
 
-        <div class="deck-transport">
+
+        <div class="avj-performance-pads">
+
+          <button type="button">
+            HOT CUE 1
+          </button>
+
+          <button type="button">
+            HOT CUE 2
+          </button>
+
+          <button type="button">
+            HOT CUE 3
+          </button>
+
+          <button type="button">
+            HOT CUE 4
+          </button>
+
+        </div>
+
+
+        <div class="avj-transport">
 
           <button
-            type="button"
-            id="a-cue"
-            class="console-button cue-button">
+            id="avj-a-cue"
+            class="avj-cue"
+            type="button">
             CUE
           </button>
 
           <button
-            type="button"
-            id="a-play"
-            class="console-button play-button">
+            id="avj-a-play"
+            class="avj-play"
+            type="button">
             ▶ PLAY
           </button>
 
@@ -259,10 +383,12 @@
       </section>
 
 
-      <!-- ================= MIXER ================= -->
-      <section class="console-mixer">
 
-        <div class="console-brand">
+      <!-- ================= MIXER ================= -->
+
+      <section class="avj-mixer">
+
+        <div class="avj-mixer-brand">
 
           <img
             src="assets/images/avjunki-logo.png"
@@ -272,54 +398,81 @@
         </div>
 
 
-        <div class="mixer-main">
+        <div class="avj-mixer-grid">
 
-          <!-- CHANNEL 1 -->
-          <div class="mixer-channel">
 
-            <h4>CH 1</h4>
+          <!-- CHANNEL A -->
 
-            <label>GAIN</label>
+          <div class="avj-channel">
+
+            <h4>
+              CH 1
+            </h4>
+
+            <label>
+              GAIN
+            </label>
+
             <input
-              id="a-gain"
+              id="avj-a-gain"
+              class="avj-control"
               type="range"
               min="0"
-              max="1.4"
+              max="1.5"
               step="0.01"
               value="1"
             >
 
-            <label>HIGH</label>
+
+            <label>
+              HIGH
+            </label>
+
             <input
-              id="a-high"
+              id="avj-a-high"
+              class="avj-control"
               type="range"
-              min="-12"
-              max="12"
+              min="-18"
+              max="18"
               step="0.5"
               value="0"
             >
 
-            <label>MID</label>
+
+            <label>
+              MID
+            </label>
+
             <input
-              id="a-mid"
+              id="avj-a-mid"
+              class="avj-control"
               type="range"
-              min="-12"
-              max="12"
+              min="-18"
+              max="18"
               step="0.5"
               value="0"
             >
 
-            <label>LOW</label>
+
+            <label>
+              LOW
+            </label>
+
             <input
-              id="a-low"
+              id="avj-a-low"
+              class="avj-control"
               type="range"
-              min="-12"
-              max="12"
+              min="-18"
+              max="18"
               step="0.5"
               value="0"
             >
 
-            <div class="deck-vu" id="a-vu">
+
+            <div
+              class="avj-channel-meter"
+              id="avj-a-meter">
+
               <i></i>
               <i></i>
               <i></i>
@@ -330,13 +483,19 @@
               <i></i>
               <i></i>
               <i></i>
+              <i></i>
+              <i></i>
+
             </div>
 
-            <label>LEVEL</label>
+
+            <label>
+              LEVEL
+            </label>
 
             <input
-              id="a-level"
-              class="channel-level"
+              id="avj-a-level"
+              class="avj-channel-fader"
               type="range"
               min="0"
               max="1"
@@ -347,29 +506,61 @@
           </div>
 
 
+
           <!-- MASTER -->
-          <div class="master-channel">
 
-            <h4>MASTER</h4>
+          <div class="avj-master">
 
-            <div class="master-meter">
+            <h4>
+              MASTER
+            </h4>
 
-              <div id="master-vu-l" class="master-vu-column">
-                <i></i><i></i><i></i><i></i><i></i>
-                <i></i><i></i><i></i><i></i><i></i>
+            <div class="avj-master-meter">
+
+              <div id="avj-master-l">
+
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+
               </div>
 
-              <div id="master-vu-r" class="master-vu-column">
-                <i></i><i></i><i></i><i></i><i></i>
-                <i></i><i></i><i></i><i></i><i></i>
+              <div id="avj-master-r">
+
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+
               </div>
 
             </div>
 
-            <label>MASTER VOL</label>
+
+            <label>
+              MASTER
+            </label>
 
             <input
-              id="master-volume"
+              id="avj-master-volume"
+              class="avj-control"
               type="range"
               min="0"
               max="1"
@@ -380,52 +571,79 @@
           </div>
 
 
-          <!-- CHANNEL 2 -->
-          <div class="mixer-channel">
 
-            <h4>CH 2</h4>
+          <!-- CHANNEL B -->
 
-            <label>GAIN</label>
+          <div class="avj-channel">
+
+            <h4>
+              CH 2
+            </h4>
+
+            <label>
+              GAIN
+            </label>
+
             <input
-              id="b-gain"
+              id="avj-b-gain"
+              class="avj-control"
               type="range"
               min="0"
-              max="1.4"
+              max="1.5"
               step="0.01"
               value="1"
             >
 
-            <label>HIGH</label>
+
+            <label>
+              HIGH
+            </label>
+
             <input
-              id="b-high"
+              id="avj-b-high"
+              class="avj-control"
               type="range"
-              min="-12"
-              max="12"
+              min="-18"
+              max="18"
               step="0.5"
               value="0"
             >
 
-            <label>MID</label>
+
+            <label>
+              MID
+            </label>
+
             <input
-              id="b-mid"
+              id="avj-b-mid"
+              class="avj-control"
               type="range"
-              min="-12"
-              max="12"
+              min="-18"
+              max="18"
               step="0.5"
               value="0"
             >
 
-            <label>LOW</label>
+
+            <label>
+              LOW
+            </label>
+
             <input
-              id="b-low"
+              id="avj-b-low"
+              class="avj-control"
               type="range"
-              min="-12"
-              max="12"
+              min="-18"
+              max="18"
               step="0.5"
               value="0"
             >
 
-            <div class="deck-vu" id="b-vu">
+
+            <div
+              class="avj-channel-meter"
+              id="avj-b-meter">
+
               <i></i>
               <i></i>
               <i></i>
@@ -436,13 +654,19 @@
               <i></i>
               <i></i>
               <i></i>
+              <i></i>
+              <i></i>
+
             </div>
 
-            <label>LEVEL</label>
+
+            <label>
+              LEVEL
+            </label>
 
             <input
-              id="b-level"
-              class="channel-level"
+              id="avj-b-level"
+              class="avj-channel-fader"
               type="range"
               min="0"
               max="1"
@@ -455,14 +679,17 @@
         </div>
 
 
-        <!-- REAL CROSSFADER -->
 
-        <div class="crossfader-area">
+        <!-- CROSSFADER -->
 
-          <span>CROSSFADER</span>
+        <div class="avj-crossfader">
+
+          <span>
+            CROSSFADER
+          </span>
 
           <input
-            id="dj-crossfader"
+            id="avj-crossfader"
             type="range"
             min="0"
             max="1"
@@ -470,9 +697,16 @@
             value="0.5"
           >
 
-          <div class="crossfader-labels">
-            <span>A</span>
-            <span>B</span>
+          <div>
+
+            <span>
+              A
+            </span>
+
+            <span>
+              B
+            </span>
+
           </div>
 
         </div>
@@ -480,101 +714,197 @@
       </section>
 
 
+
       <!-- ================= DECK B ================= -->
-      <section class="console-deck">
 
-        <div class="deck-heading">
-          <span>DECK B</span>
-        </div>
+      <section class="avj-deck avj-deck-b">
 
-        <div class="deck-display">
+        <div class="avj-deck-screen">
 
-          <div class="deck-track-meta">
+          <div class="avj-deck-number">
+            DECK B
+          </div>
 
-            <h3 id="b-title">Podcast Him & Her</h3>
+          <div
+            class="avj-track-title"
+            id="avj-b-title">
 
-            <div class="deck-time-row">
-              <span id="b-current">0:00</span>
-              <span id="b-duration">0:00</span>
-            </div>
+            Podcast Him & Her
 
           </div>
 
-          <canvas
-            id="b-waveform"
-            class="deck-waveform"
-            width="700"
-            height="75">
-          </canvas>
+          <div class="avj-screen-meta">
+
+            <span id="avj-b-current">
+              0:00
+            </span>
+
+            <span id="avj-b-rate">
+              0.0%
+            </span>
+
+            <span id="avj-b-duration">
+              0:00
+            </span>
+
+          </div>
+
+          <div class="avj-wave-wrap">
+
+            <canvas
+              id="avj-b-wave"
+              class="avj-wave"
+              width="800"
+              height="95">
+            </canvas>
+
+            <input
+              id="avj-b-seek"
+              class="avj-wave-seek"
+              type="range"
+              min="0"
+              max="100"
+              step="0.01"
+              value="0"
+              aria-label="Deck B track position"
+            >
+
+          </div>
 
         </div>
 
-        <select id="b-track-select" class="deck-selector">
 
-          <option value="0">Captain Of the Sea</option>
-          <option value="1">IS SHE</option>
-          <option value="2">Jolli Xs</option>
+        <div class="avj-deck-select-row">
 
-          <option value="3" selected>
-            Podcast Him & Her
-          </option>
+          <select
+            id="avj-b-select"
+            class="avj-track-select">
 
-          <option value="4">SOAP</option>
-          <option value="5">True Luv X</option>
+            <option value="0">
+              Captain Of the Sea
+            </option>
 
-        </select>
+            <option value="1">
+              IS SHE
+            </option>
 
-        <div class="deck-main">
+            <option value="2">
+              Jolli Xs
+            </option>
 
-          <div class="platter-shell">
+            <option value="3" selected>
+              Podcast Him & Her
+            </option>
 
-            <div class="platter" id="b-platter">
+            <option value="4">
+              SOAP
+            </option>
+
+            <option value="5">
+              True Luv X
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="avj-deck-hardware">
+
+          <div class="avj-platter-frame">
+
+            <div
+              class="avj-platter"
+              id="avj-b-platter">
 
               <img
                 src="assets/images/platter-image.jpg"
-                alt="AV JUNKI platter artwork"
+                alt="Deck B platter artwork"
               >
 
-              <div class="platter-spindle"></div>
+              <div class="avj-platter-ring"></div>
+
+              <div class="avj-spindle"></div>
+
+              <div class="avj-position-dot"></div>
 
             </div>
 
           </div>
 
-          <div class="deck-side-controls">
 
-            <label>TEMPO</label>
+          <div class="avj-pitch-strip">
+
+            <span>
+              PITCH
+            </span>
+
+            <button
+              id="avj-b-pitch-up"
+              type="button">
+              +
+            </button>
 
             <input
-              id="b-tempo"
-              class="tempo-fader"
+              id="avj-b-tempo"
+              class="avj-pitch-slider"
               type="range"
-              min="0.85"
-              max="1.15"
+              min="0.88"
+              max="1.12"
               step="0.01"
               value="1"
             >
 
-            <span id="b-tempo-value">0%</span>
+            <button
+              id="avj-b-pitch-down"
+              type="button">
+              −
+            </button>
 
           </div>
 
         </div>
 
-        <div class="deck-transport">
+
+        <div class="avj-performance-pads">
+
+          <button type="button">
+            HOT CUE 1
+          </button>
+
+          <button type="button">
+            HOT CUE 2
+          </button>
+
+          <button type="button">
+            HOT CUE 3
+          </button>
+
+          <button type="button">
+            HOT CUE 4
+          </button>
+
+        </div>
+
+
+        <div class="avj-transport">
 
           <button
-            type="button"
-            id="b-cue"
-            class="console-button cue-button">
+            id="avj-b-cue"
+            class="avj-cue"
+            type="button">
+
             CUE
+
           </button>
 
           <button
-            type="button"
-            id="b-play"
-            class="console-button play-button">
+            id="avj-b-play"
+            class="avj-play"
+            type="button">
+
             ▶ PLAY
+
           </button>
 
         </div>
@@ -584,100 +914,187 @@
     </div>
 
 
-    <!-- ================= TRACK LIBRARY ================= -->
 
-    <div class="dj-library">
+    <!-- =========================
+         TRACK BROWSER
+    ========================== -->
 
-      <div class="library-header">
+    <div class="avj-library">
+
+      <div class="avj-library-toolbar">
+
+        <strong>
+          TRACK LIBRARY
+        </strong>
+
+        <input
+          id="avj-track-search"
+          type="search"
+          placeholder="Search tracks..."
+        >
+
+      </div>
+
+
+      <div class="avj-library-header">
 
         <span>#</span>
         <span>TRACK</span>
-        <span>LOAD</span>
+        <span>DECK A</span>
+        <span>DECK B</span>
 
       </div>
 
 
-      <div class="library-row">
+      <div class="avj-track-row">
+
         <span>01</span>
-        <strong>Captain Of the Sea</strong>
 
-        <div>
-          <button type="button" data-load-a="0">A</button>
-          <button type="button" data-load-b="0">B</button>
-        </div>
+        <strong>
+          Captain Of the Sea
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="0">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="0">
+          LOAD
+        </button>
+
       </div>
 
 
-      <div class="library-row">
+      <div class="avj-track-row">
+
         <span>02</span>
-        <strong>IS SHE</strong>
 
-        <div>
-          <button type="button" data-load-a="1">A</button>
-          <button type="button" data-load-b="1">B</button>
-        </div>
+        <strong>
+          IS SHE
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="1">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="1">
+          LOAD
+        </button>
+
       </div>
 
 
-      <div class="library-row">
+      <div class="avj-track-row">
+
         <span>03</span>
-        <strong>Jolli Xs</strong>
 
-        <div>
-          <button type="button" data-load-a="2">A</button>
-          <button type="button" data-load-b="2">B</button>
-        </div>
+        <strong>
+          Jolli Xs
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="2">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="2">
+          LOAD
+        </button>
+
       </div>
 
 
-      <div class="library-row">
+      <div class="avj-track-row">
+
         <span>04</span>
-        <strong>Podcast Him & Her</strong>
 
-        <div>
-          <button type="button" data-load-a="3">A</button>
-          <button type="button" data-load-b="3">B</button>
-        </div>
+        <strong>
+          Podcast Him & Her
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="3">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="3">
+          LOAD
+        </button>
+
       </div>
 
 
-      <div class="library-row">
+      <div class="avj-track-row">
+
         <span>05</span>
-        <strong>SOAP</strong>
 
-        <div>
-          <button type="button" data-load-a="4">A</button>
-          <button type="button" data-load-b="4">B</button>
-        </div>
+        <strong>
+          SOAP
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="4">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="4">
+          LOAD
+        </button>
+
       </div>
 
 
-      <div class="library-row">
-        <span>06</span>
-        <strong>True Luv X</strong>
+      <div class="avj-track-row">
 
-        <div>
-          <button type="button" data-load-a="5">A</button>
-          <button type="button" data-load-b="5">B</button>
-        </div>
+        <span>06</span>
+
+        <strong>
+          True Luv X
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="5">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="5">
+          LOAD
+        </button>
+
       </div>
 
     </div>
 
 
-    <audio id="audio-a" preload="metadata"></audio>
-    <audio id="audio-b" preload="metadata"></audio>
+    <audio
+      id="avj-a-audio"
+      preload="metadata">
+    </audio>
 
-  </div>
-
-
-  <div class="portfolio-info">
-
-    <p>Audio Production</p>
-
-    <h3>
-      AV JUNKI DJ Mixes
-    </h3>
+    <audio
+      id="avj-b-audio"
+      preload="metadata">
+    </audio>
 
   </div>
 

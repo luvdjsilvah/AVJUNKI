@@ -162,19 +162,38 @@
             </div>
           </article>
 
-         <article class="portfolio-item dj-controller-card" data-category="audio">
 
-  <div class="avj-dj-controller">
+<article class="portfolio-item avj-player-card" data-category="audio">
 
-    <!-- LEFT DECK -->
-    <section class="avj-deck">
-      <div class="deck-display">
+  <div class="avj-controller">
+
+    <!-- DECK A -->
+    <section class="avj-deck" id="deck-a">
+
+      <div class="deck-header">
         <span>DECK A</span>
-        <strong id="deck-a-title">Captain Of the Sea</strong>
-        <small id="deck-a-time">0:00 / 0:00</small>
       </div>
 
-      <select id="deck-a-select" class="track-select">
+      <div class="deck-screen">
+        <div>
+          <strong id="a-title">Captain Of the Sea</strong>
+          <div class="deck-times">
+            <span id="a-current">0:00</span>
+            <span id="a-duration">0:00</span>
+          </div>
+        </div>
+      </div>
+
+      <input
+        id="a-progress"
+        class="waveform-slider"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+      >
+
+      <select id="a-track-select" class="deck-track-select">
         <option value="0">Captain Of the Sea</option>
         <option value="1">IS SHE</option>
         <option value="2">Jolli Xs</option>
@@ -183,78 +202,232 @@
         <option value="5">True Luv X</option>
       </select>
 
-      <div class="jog-wheel" id="deck-a-jog">
-        <div class="jog-ring">
-          <div class="jog-label">AV JUNKI</div>
+      <div class="deck-body">
+
+        <div class="pitch-column">
+          <span>PITCH</span>
+          <button type="button" id="a-pitch-down">−</button>
+          <button type="button" id="a-pitch-up">+</button>
+
+          <label>TEMPO</label>
+          <input
+            id="a-tempo"
+            class="tempo-slider"
+            type="range"
+            min="0.8"
+            max="1.2"
+            step="0.01"
+            value="1"
+          >
         </div>
+
+        <div class="platter-area">
+          <div class="full-platter" id="a-platter">
+            <img
+              src="assets/images/platter-image.jpg"
+              alt="AV JUNKI platter artwork"
+            >
+            <div class="spindle"></div>
+          </div>
+        </div>
+
       </div>
 
-      <input id="deck-a-progress" class="deck-progress" type="range" min="0" max="100" value="0">
-
-      <div class="transport">
-        <button type="button" id="deck-a-cue" class="cue-button">CUE</button>
-        <button type="button" id="deck-a-play" class="play-button">PLAY</button>
+      <div class="deck-buttons">
+        <button type="button" class="cue-btn" id="a-cue">CUE</button>
+        <button type="button" class="play-btn" id="a-play">▶ PLAY</button>
       </div>
+
     </section>
 
 
-    <!-- CENTER MIXER -->
-    <section class="avj-mixer">
+    <!-- MIXER -->
+    <section class="avj-center-mixer">
 
-      <div class="mixer-logo">
-        <img src="assets/images/avjunki-logo.png" alt="AV JUNKI">
+      <div class="controller-logo">
+        <img
+          src="assets/images/avjunki-logo.png"
+          alt="AV JUNKI"
+        >
       </div>
 
-      <div class="mixer-channels">
+      <div class="mixer-columns">
 
-        <div class="channel-strip">
+        <div class="channel">
           <span>CH 1</span>
 
           <label>GAIN</label>
-          <input id="deck-a-gain" type="range" min="0" max="1" step="0.01" value="1">
+          <input id="a-gain" type="range" min="0" max="1" step="0.01" value="1">
 
-          <div class="vu-meter" id="vu-a">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
+          <label>HIGH</label>
+          <input type="range" min="-1" max="1" step="0.01" value="0">
+
+          <label>MID</label>
+          <input type="range" min="-1" max="1" step="0.01" value="0">
+
+          <label>LOW</label>
+          <input type="range" min="-1" max="1" step="0.01" value="0">
 
           <label>LEVEL</label>
-          <input id="deck-a-level" class="channel-fader" type="range" min="0" max="1" step="0.01" value="0.85">
+          <input id="a-level" type="range" min="0" max="1" step="0.01" value="0.85">
         </div>
 
 
-        <div class="master-strip">
+        <div class="master-section">
+
           <span>MASTER</span>
 
-          <div class="master-vu">
-            <div class="vu-meter" id="master-vu-left">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="dual-vu">
+            <div class="vu-column" id="master-left">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             </div>
 
-            <div class="vu-meter" id="master-vu-right">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <div class="vu-column" id="master-right">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             </div>
           </div>
 
-          <label>MASTER</label>
-          <input id="master-volume" type="range" min="0" max="1" step="0.01" value="0.9">
+          <label>MASTER VOL</label>
+          <input
+            id="master-volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.9"
+          >
+
         </div>
 
 
-        <div class="channel-strip">
+        <div class="channel">
           <span>CH 2</span>
 
           <label>GAIN</label>
-          <input id="deck-b-gain" type="range" min="0" max="1" step="0.01" value="1">
+          <input id="b-gain" type="range" min="0" max="1" step="0.01" value="1">
 
-          <div class="vu-meter" id="vu-b">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
+          <label>HIGH</label>
+          <input type="range" min="-1" max="1" step="0.01" value="0">
+
+          <label>MID</label>
+          <input type="range" min="-1" max="1" step="0.01" value="0">
+
+          <label>LOW</label>
+          <input type="range" min="-1" max="1" step="0.01" value="0">
 
           <label>LEVEL</label>
-          <input id="deck-b-level" class="channel-fader" type="range" min="0" max="1" step="0.01" value="0.85">
+          <input id="b-level" type="range" min="0" max="1" step="0.01" value="0.85">
         </div>
 
       </div>
+
+
+      <div class="crossfader-panel">
+        <span>CROSSFADER</span>
+
+        <input
+          id="crossfader"
+          type="range"
+          min="-1"
+          max="1"
+          step="0.01"
+          value="0"
+        >
+
+        <div class="xfade-labels">
+          <span>A</span>
+          <span>B</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- DECK B -->
+    <section class="avj-deck" id="deck-b">
+
+      <div class="deck-header">
+        <span>DECK B</span>
+      </div>
+
+      <div class="deck-screen">
+        <div>
+          <strong id="b-title">Podcast Him & Her</strong>
+          <div class="deck-times">
+            <span id="b-current">0:00</span>
+            <span id="b-duration">0:00</span>
+          </div>
+        </div>
+      </div>
+
+      <input
+        id="b-progress"
+        class="waveform-slider"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+      >
+
+      <select id="b-track-select" class="deck-track-select">
+        <option value="0">Captain Of the Sea</option>
+        <option value="1">IS SHE</option>
+        <option value="2">Jolli Xs</option>
+        <option value="3" selected>Podcast Him & Her</option>
+        <option value="4">SOAP</option>
+        <option value="5">True Luv X</option>
+      </select>
+
+      <div class="deck-body">
+
+        <div class="platter-area">
+          <div class="full-platter" id="b-platter">
+            <img
+              src="assets/images/platter-image.jpg"
+              alt="AV JUNKI platter artwork"
+            >
+            <div class="spindle"></div>
+          </div>
+        </div>
+
+        <div class="pitch-column">
+          <span>PITCH</span>
+          <button type="button" id="b-pitch-down">−</button>
+          <button type="button" id="b-pitch-up">+</button>
+
+          <label>TEMPO</label>
+          <input
+            id="b-tempo"
+            class="tempo-slider"
+            type="range"
+            min="0.8"
+            max="1.2"
+            step="0.01"
+            value="1"
+          >
+        </div>
+
+      </div>
+
+      <div class="deck-buttons">
+        <button type="button" class="cue-btn" id="b-cue">CUE</button>
+        <button type="button" class="play-btn" id="b-play">▶ PLAY</button>
+      </div>
+
+    </section>
+
+
+    <audio id="audio-a" preload="metadata"></audio>
+    <audio id="audio-b" preload="metadata"></audio>
+
+  </div>
+
+  <div class="portfolio-info">
+    <p>Audio Production</p>
+    <h3>AV JUNKI DJ Mixes</h3>
+  </div>
+
+</article>
 
       <div class="crossfader-section">
         <span>CROSSFADER</span>
@@ -309,7 +482,6 @@
     <p>Audio Production</p>
     <h3>AV JUNKI DJ Mixes</h3>
   </div>
-
 </article>
         </div>
       </div>

@@ -650,3 +650,12 @@ select {
 .hero-overlay {
     display: none;
 }
+.media-frame:has(.original-height) {
+    aspect-ratio: auto;
+}
+
+.media-frame img.original-height {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}

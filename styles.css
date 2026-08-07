@@ -467,16 +467,26 @@ select {
   font-weight: 600;
 }
 
-.contact-details a:hover,
-.social-links a:hover {
-  color: var(--red);
-}
+
 
 .social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  color: var(--gray);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 50px;
+}
+
+.social-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--red);
+    transform: translateY(-2px);
 }
 
 .contact-form {

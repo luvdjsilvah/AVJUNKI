@@ -659,3 +659,298 @@ select {
     height: auto;
     object-fit: contain;
 }
+/* =========================
+   AV JUNKI DJ CONTROLLER
+   ========================= */
+
+.dj-controller-card {
+  grid-column: 1 / -1;
+}
+
+.avj-dj-controller {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 0.72fr 1fr;
+  gap: 12px;
+  padding: 22px;
+  background:
+    linear-gradient(145deg, #191919, #080808);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.65),
+    inset 0 0 40px rgba(255,255,255,0.025);
+}
+
+.avj-deck,
+.avj-mixer {
+  background:
+    linear-gradient(145deg, #171717, #090909);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 20px;
+  box-shadow:
+    inset 0 0 22px rgba(0,0,0,0.9);
+}
+
+.deck-display {
+  min-height: 95px;
+  padding: 14px;
+  margin-bottom: 12px;
+  background: #020202;
+  border: 1px solid rgba(226,27,35,0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.deck-display span {
+  color: var(--red);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.deck-display strong {
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 4px 0;
+}
+
+.deck-display small {
+  color: #8d8d8d;
+  font-size: 0.7rem;
+}
+
+.track-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  background: #0a0a0a;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.jog-wheel {
+  width: min(100%, 310px);
+  aspect-ratio: 1;
+  margin: 0 auto 18px;
+  padding: 12px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      #252525 0,
+      #252525 3px,
+      #111111 4px,
+      #111111 7px
+    );
+  border: 4px solid #373737;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.7),
+    inset 0 0 35px #000000;
+}
+
+.jog-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 5px solid #090909;
+  background:
+    radial-gradient(circle, #242424 0 25%, #111111 26% 48%, #080808 49% 100%);
+}
+
+.jog-label {
+  width: 44%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: #050505;
+  border: 2px solid var(--red);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+.jog-wheel.spinning .jog-ring {
+  animation: avj-spin 2.5s linear infinite;
+}
+
+@keyframes avj-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.deck-progress {
+  width: 100%;
+  accent-color: var(--red);
+  margin: 8px 0 18px;
+}
+
+.transport {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.transport button {
+  min-height: 54px;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cue-button {
+  background: #151515;
+}
+
+.play-button {
+  background: var(--red);
+}
+
+.transport button:hover {
+  transform: translateY(-2px);
+  border-color: var(--red);
+}
+
+.avj-mixer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mixer-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.mixer-logo img {
+  width: min(170px, 80%);
+  height: auto;
+  object-fit: contain;
+}
+
+.mixer-channels {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+
+.channel-strip,
+.master-strip {
+  background: #090909;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.channel-strip > span,
+.master-strip > span,
+.crossfader-section > span {
+  display: block;
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.channel-strip label,
+.master-strip label {
+  display: block;
+  color: #777777;
+  font-size: 0.58rem;
+  margin: 10px 0 5px;
+}
+
+.channel-strip input,
+.master-strip input {
+  width: 100%;
+  accent-color: var(--red);
+}
+
+.vu-meter {
+  height: 125px;
+  margin: 14px auto;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 3px;
+}
+
+.vu-meter i {
+  flex: 1;
+  display: block;
+  background: #202020;
+  border-radius: 1px;
+}
+
+.vu-meter i.active {
+  background: var(--red);
+  box-shadow: 0 0 8px rgba(226,27,35,0.8);
+}
+
+.master-vu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.crossfader-section {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+#crossfader {
+  width: 100%;
+  accent-color: var(--red);
+}
+
+.crossfader-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #888888;
+  font-size: 0.65rem;
+}
+
+@media (max-width: 1000px) {
+  .avj-dj-controller {
+    grid-template-columns: 1fr;
+  }
+
+  .avj-mixer {
+    order: 2;
+  }
+
+  .mixer-channels {
+    min-height: 320px;
+  }
+
+  .jog-wheel {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .avj-dj-controller {
+    padding: 10px;
+  }
+
+  .avj-deck,
+  .avj-mixer {
+    padding: 14px;
+  }
+
+  .mixer-channels {
+    grid-template-columns: 1fr 0.8fr 1fr;
+    gap: 6px;
+  }
+}

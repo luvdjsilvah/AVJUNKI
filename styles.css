@@ -1352,3 +1352,33 @@ select {
     grid-template-columns: 1fr;
   }
 }
+/* SERVICES CARD FINAL ALIGNMENT */
+
+.service-card {
+  padding: 0;
+}
+
+.service-image {
+  width: 100%;
+  margin: 0;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-card-content {
+  padding: 24px 28px 30px;
+}
+
+.service-number {
+  margin-bottom: 22px;
+}
+
+.service-card-content h3 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}

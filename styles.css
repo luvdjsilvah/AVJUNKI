@@ -1357,6 +1357,7 @@ select {
 .service-card {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .service-image {

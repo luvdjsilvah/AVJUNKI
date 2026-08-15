@@ -107,11 +107,11 @@ button {
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 0.92fr 1.55fr;
+  grid-template-columns: 0.98fr 1.5fr;
   align-items: end;
-  gap: 10px;
+  gap: 6px;
 
-  min-height: 760px;
+  min-height: 820px;
 
   position: relative;
 }
@@ -123,18 +123,21 @@ button {
 
 .gallery-intro {
   position: relative;
-  min-height: 760px;
+  min-height: 820px;
+  height: 820px;
 
   display: flex;
   align-items: flex-end;
+
+  overflow: visible;
 }
 
 .gallery-copy {
   position: absolute;
   left: 0;
-  top: 105px;
+  top: 95px;
 
-  width: 300px;
+  width: 285px;
   z-index: 8;
 }
 
@@ -146,7 +149,7 @@ button {
 }
 
 .gallery-copy h1 {
-  font-size: clamp(2rem, 2.8vw, 3.35rem);
+  font-size: clamp(2rem, 2.7vw, 3.25rem);
   line-height: 1.02;
   text-transform: uppercase;
   letter-spacing: -0.04em;
@@ -159,7 +162,7 @@ button {
 
 .gallery-instructions {
   margin-top: 30px;
-  max-width: 240px;
+  max-width: 230px;
 
   color: #d8d8d8;
   font-size: 1rem;
@@ -171,44 +174,50 @@ button {
 }
 
 .gallery-model-wrap {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 165px;
+  right: -30px;
+  top: 0;
+  bottom: 0;
 
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: center;
 
-  position: relative;
   z-index: 3;
+
+  overflow: visible;
 }
 
 .gallery-model-wrap::before {
   content: "";
   position: absolute;
 
-  width: 70%;
-  height: 80%;
+  width: 72%;
+  height: 78%;
 
-  right: 2%;
+  right: 5%;
   bottom: 0;
 
   background:
-    radial-gradient(circle at center, rgba(132, 46, 210, 0.5), transparent 62%);
+    radial-gradient(circle at center, rgba(132, 46, 210, 0.52), transparent 62%);
 
-  filter: blur(36px);
+  filter: blur(38px);
   z-index: -1;
 }
 
 .gallery-model {
-  width: min(86%, 690px);
-  height: auto;
+  width: auto;
+  height: 92%;
+  max-height: 760px;
+  max-width: none;
 
   object-fit: contain;
   object-position: bottom center;
 
   filter:
     drop-shadow(0 30px 50px rgba(0, 0, 0, 0.75))
-    drop-shadow(0 0 20px rgba(115, 28, 180, 0.25));
+    drop-shadow(0 0 22px rgba(115, 28, 180, 0.28));
 }
 
 
@@ -225,7 +234,7 @@ button {
 .camera-wrap {
   position: relative;
   width: 100%;
-  max-width: 1325px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -280,6 +289,7 @@ button {
 .camera-hotspot {
   position: absolute;
   z-index: 12;
+
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -321,7 +331,7 @@ button {
    ========================= */
 
 .gallery-controls {
-  width: min(76%, 840px);
+  width: min(76%, 860px);
   margin: 8px auto 0;
 
   display: grid;
@@ -450,15 +460,26 @@ button {
 @media (max-width: 1250px) {
 
   .gallery-stage {
-    grid-template-columns: 0.95fr 1.35fr;
+    grid-template-columns: 1fr 1.35fr;
+  }
+
+  .gallery-intro {
+    min-height: 720px;
+    height: 720px;
   }
 
   .gallery-model {
-    width: min(82%, 590px);
+    height: 88%;
+    max-height: 640px;
+  }
+
+  .gallery-model-wrap {
+    left: 145px;
+    right: -20px;
   }
 
   .camera-wrap {
-    max-width: 1120px;
+    max-width: 1150px;
   }
 }
 
@@ -482,7 +503,8 @@ button {
   }
 
   .gallery-intro {
-    min-height: 650px;
+    min-height: 690px;
+    height: 690px;
   }
 
   .gallery-copy {
@@ -490,8 +512,14 @@ button {
     top: 40px;
   }
 
+  .gallery-model-wrap {
+    left: 120px;
+    right: 0;
+  }
+
   .gallery-model {
-    width: min(68%, 500px);
+    height: 88%;
+    max-height: 610px;
   }
 
   .camera-gallery {
@@ -523,7 +551,8 @@ button {
   }
 
   .gallery-intro {
-    min-height: 570px;
+    min-height: 590px;
+    height: 590px;
   }
 
   .gallery-copy {
@@ -534,15 +563,14 @@ button {
   }
 
   .gallery-model-wrap {
-    position: absolute;
-    inset: 0;
-    align-items: flex-end;
-    justify-content: flex-end;
+    left: 70px;
+    right: -20px;
   }
 
   .gallery-model {
-    width: 78%;
-    opacity: 0.84;
+    height: 83%;
+    max-height: 500px;
+    opacity: 0.86;
   }
 
   .gallery-copy h1 {

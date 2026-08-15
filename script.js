@@ -39,6 +39,71 @@ filterButtons.forEach((button) => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 /* =========================================================
+   SERVICE CARD NAVIGATION
+   ========================================================= */
+
+const serviceCards = document.querySelectorAll(".service-card");
+
+serviceCards.forEach((card) => {
+
+  const title = card.querySelector("h3");
+
+  if (!title) return;
+
+
+  /* AUDIO PRODUCTION */
+
+  if (title.textContent.trim() === "Audio Production") {
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", () => {
+
+      const audioFilter =
+        document.querySelector(
+          '.filter-button[data-filter="audio"]'
+        );
+
+      const djConsole =
+        document.querySelector(".avj-dj-card");
+
+
+      if (audioFilter) {
+        audioFilter.click();
+      }
+
+
+      if (djConsole) {
+
+        requestAnimationFrame(() => {
+
+          const headerHeight =
+            header
+              ? header.offsetHeight
+              : 0;
+
+          const consolePosition =
+            djConsole.getBoundingClientRect().top
+            + window.scrollY
+            - headerHeight
+            - 24;
+
+
+          window.scrollTo({
+            top: consolePosition,
+            behavior: "smooth"
+          });
+
+        });
+
+      }
+
+    });
+
+  }
+
+});
+/* =========================================================
    AV JUNKI DJ CONSOLE ENGINE
    ========================================================= */
 

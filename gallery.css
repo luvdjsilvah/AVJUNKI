@@ -137,7 +137,6 @@ button {
 
   margin: 0 auto;
 
-  width: min(97%, 1900px);
   height: 100%;
   min-height: 0;
 
@@ -235,11 +234,11 @@ button {
 .gallery-model-wrap {
   position: absolute;
 
-  left: 185px;
-  right: -45px;
+  left: 145px;
+  right: -70px;
 
-  top: 0;
-  bottom: 0;
+  top: -80px;
+  bottom: -10px;
 
   display: flex;
 
@@ -256,20 +255,20 @@ button {
 
   position: absolute;
 
-  width: 78%;
-  height: 84%;
+  width: 82%;
+  height: 88%;
 
-  right: 2%;
+  right: 0;
   bottom: 0;
 
   background:
     radial-gradient(
       circle at center,
-      rgba(132, 46, 210, 0.52),
+      rgba(132, 46, 210, 0.54),
       transparent 63%
     );
 
-  filter: blur(40px);
+  filter: blur(42px);
 
   z-index: -1;
 }
@@ -277,9 +276,9 @@ button {
 .gallery-model {
   width: auto;
 
-  height: 98%;
+  height: 118%;
 
-  max-height: 830px;
+  max-height: 980px;
   max-width: none;
 
   object-fit: contain;
@@ -606,14 +605,17 @@ button {
   }
 
   .gallery-model-wrap {
-    left: 155px;
-    right: -25px;
+    left: 125px;
+    right: -45px;
+
+    top: -60px;
+    bottom: -8px;
   }
 
   .gallery-model {
-    height: 94%;
+    height: 110%;
 
-    max-height: 700px;
+    max-height: 850px;
   }
 
   .camera-wrap {
@@ -673,14 +675,17 @@ button {
   }
 
   .gallery-model-wrap {
-    left: 125px;
-    right: 0;
+    left: 100px;
+    right: -20px;
+
+    top: -30px;
+    bottom: 0;
   }
 
   .gallery-model {
-    height: 90%;
+    height: 100%;
 
-    max-height: 630px;
+    max-height: 700px;
   }
 
   .camera-gallery {
@@ -732,12 +737,15 @@ button {
   .gallery-model-wrap {
     left: 70px;
     right: -20px;
+
+    top: 0;
+    bottom: 0;
   }
 
   .gallery-model {
-    height: 84%;
+    height: 88%;
 
-    max-height: 505px;
+    max-height: 540px;
 
     opacity: 0.86;
   }

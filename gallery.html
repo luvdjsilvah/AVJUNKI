@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
@@ -11,34 +17,67 @@
 
   <title>AV Junki | Photography Gallery</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="gallery.css">
+  <link
+    rel="stylesheet"
+    href="gallery.css"
+  >
+
 </head>
+
 
 <body>
 
+
+  <!-- =========================
+       HEADER
+       ========================= -->
+
   <header class="gallery-header">
 
-    <a class="gallery-brand" href="index.html">
+    <a
+      class="gallery-brand"
+      href="index.html"
+    >
       AV JUNKI
     </a>
 
-    <nav class="gallery-nav" aria-label="Gallery navigation">
 
-      <a href="index.html#services">Services</a>
+    <nav
+      class="gallery-nav"
+      aria-label="Gallery navigation"
+    >
 
-      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#services">
+        Services
+      </a>
 
-      <a href="index.html#about">About</a>
+      <a href="index.html#portfolio">
+        Portfolio
+      </a>
 
-      <a href="index.html#contact">Contact</a>
+      <a href="index.html#about">
+        About
+      </a>
+
+      <a href="index.html#contact">
+        Contact
+      </a>
 
       <a
         class="gallery-book-button"
@@ -54,14 +93,22 @@
   </header>
 
 
+
+  <!-- =========================
+       MAIN GALLERY
+       ========================= -->
+
   <main class="gallery-page">
 
     <section class="gallery-stage">
 
 
-      <!-- LEFT SIDE: WELCOME / MODEL -->
+      <!-- =========================
+           LEFT SIDE
+           ========================= -->
 
       <div class="gallery-intro">
+
 
         <div class="gallery-copy">
 
@@ -69,20 +116,37 @@
             Hello,
           </p>
 
+
           <h1>
+
             Welcome to the
-            <span>AV Junki</span>
+
+            <span>
+              AV Junki
+            </span>
+
             Photography Gallery.
+
           </h1>
 
+
           <p class="gallery-instructions">
+
             Click the
-            <strong>PLAY</strong>
+
+            <strong>
+              PLAY
+            </strong>
+
             button on the camera to get started.
+
           </p>
 
         </div>
 
+
+
+        <!-- MODEL -->
 
         <div class="gallery-model-wrap">
 
@@ -97,11 +161,18 @@
       </div>
 
 
-      <!-- RIGHT SIDE: CAMERA -->
+
+      <!-- =========================
+           RIGHT SIDE / CAMERA
+           ========================= -->
 
       <div class="camera-gallery">
 
+
         <div class="camera-wrap">
+
+
+          <!-- CAMERA BODY -->
 
           <img
             class="camera-body"
@@ -110,9 +181,13 @@
           >
 
 
-          <!-- PHOTO DISPLAY AREA -->
+
+          <!-- =========================
+               CAMERA LCD
+               ========================= -->
 
           <div class="camera-screen">
+
 
             <img
               id="gallery-photo"
@@ -120,44 +195,65 @@
               alt="AV Junki photography slideshow image"
             >
 
+
+            <!-- CLICK LCD TO ENLARGE -->
+
+            <button
+              id="gallery-enlarge"
+              class="gallery-enlarge-hotspot"
+              type="button"
+              aria-label="View full photograph"
+              title="Click to view full photograph"
+            >
+            </button>
+
+
           </div>
 
 
-          <!-- CLICKABLE CAMERA PLAY BUTTON -->
+
+          <!-- =========================
+               CAMERA HOTSPOTS
+               ========================= -->
+
 
           <button
             id="camera-play-button"
             class="camera-hotspot camera-play-hotspot"
             type="button"
             aria-label="Play photography slideshow"
-          ></button>
+          >
+          </button>
 
-
-          <!-- OPTIONAL CAMERA PREVIOUS CONTROL -->
 
           <button
             id="camera-prev-button"
             class="camera-hotspot camera-prev-hotspot"
             type="button"
             aria-label="Previous photograph"
-          ></button>
+          >
+          </button>
 
-
-          <!-- OPTIONAL CAMERA NEXT CONTROL -->
 
           <button
             id="camera-next-button"
             class="camera-hotspot camera-next-hotspot"
             type="button"
             aria-label="Next photograph"
-          ></button>
+          >
+          </button>
+
 
         </div>
 
 
-        <!-- VISIBLE GALLERY CONTROLS -->
+
+        <!-- =========================
+             VISIBLE CONTROLS
+             ========================= -->
 
         <div class="gallery-controls">
+
 
           <button
             id="gallery-prev"
@@ -166,6 +262,7 @@
           >
             ← Prev
           </button>
+
 
           <button
             id="gallery-play"
@@ -176,6 +273,7 @@
             ▶
           </button>
 
+
           <button
             id="gallery-next"
             class="gallery-control-button"
@@ -184,12 +282,14 @@
             Next →
           </button>
 
+
         </div>
 
 
         <p class="gallery-status">
           Click Play to Start Gallery
         </p>
+
 
       </div>
 
@@ -198,7 +298,13 @@
   </main>
 
 
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
   <footer class="gallery-footer">
+
 
     <div class="gallery-footer-logo">
 
@@ -210,9 +316,13 @@
     </div>
 
 
+
     <div class="gallery-social">
 
-      <span>Follow AV Junki</span>
+      <span>
+        Follow AV Junki
+      </span>
+
 
       <a
         href="https://www.instagram.com/luvdjsilvah/"
@@ -222,6 +332,7 @@
         Instagram
       </a>
 
+
       <a
         href="https://www.facebook.com/Luvdjsilvah"
         target="_blank"
@@ -230,6 +341,7 @@
         Facebook
       </a>
 
+
       <a
         href="https://www.tiktok.com/@luvdjsilvah?lang=en"
         target="_blank"
@@ -237,6 +349,7 @@
       >
         TikTok
       </a>
+
 
       <a
         href="https://www.youtube.com/@Luvdjsilvah"
@@ -249,6 +362,7 @@
     </div>
 
 
+
     <a
       class="gallery-domain"
       href="index.html"
@@ -256,10 +370,108 @@
       AVJUNKI.COM
     </a>
 
+
   </footer>
+
+
+
+  <!-- ==================================================
+       FULL IMAGE LIGHTBOX
+       HIDDEN UNTIL LCD PHOTO IS CLICKED
+       ================================================== -->
+
+  <div
+    id="gallery-lightbox"
+    class="gallery-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Full size photograph viewer"
+    hidden
+  >
+
+
+    <!-- CLICK BACKGROUND TO CLOSE -->
+
+    <button
+      id="lightbox-background"
+      class="lightbox-background"
+      type="button"
+      aria-label="Close full photograph"
+    >
+    </button>
+
+
+
+    <!-- CLOSE BUTTON -->
+
+    <button
+      id="lightbox-close"
+      class="lightbox-close"
+      type="button"
+      aria-label="Close full photograph"
+    >
+      ×
+    </button>
+
+
+
+    <!-- PREVIOUS -->
+
+    <button
+      id="lightbox-prev"
+      class="lightbox-arrow lightbox-prev"
+      type="button"
+      aria-label="Previous photograph"
+    >
+      ‹
+    </button>
+
+
+
+    <!-- FULL ORIGINAL PHOTO -->
+
+    <div class="lightbox-image-wrap">
+
+      <img
+        id="lightbox-image"
+        src="assets/images/V-pic-1.jpg"
+        alt="Full size AV Junki photograph"
+      >
+
+    </div>
+
+
+
+    <!-- NEXT -->
+
+    <button
+      id="lightbox-next"
+      class="lightbox-arrow lightbox-next"
+      type="button"
+      aria-label="Next photograph"
+    >
+      ›
+    </button>
+
+
+
+    <!-- PHOTO COUNTER -->
+
+    <div
+      id="lightbox-counter"
+      class="lightbox-counter"
+    >
+      1 / 24
+    </div>
+
+
+  </div>
+
 
 
   <script src="gallery.js"></script>
 
+
 </body>
+
 </html>

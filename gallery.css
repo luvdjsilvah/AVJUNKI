@@ -69,9 +69,7 @@ button {
 
 .gallery-header {
   width: min(95%, 1880px);
-
   margin: 0 auto;
-
   min-height: 92px;
 
   display: flex;
@@ -99,7 +97,6 @@ button {
 .gallery-nav a {
   font-size: 0.86rem;
   font-weight: 700;
-
   transition: 0.25s ease;
 }
 
@@ -109,13 +106,11 @@ button {
 
 .gallery-book-button {
   background: var(--red);
-
   padding: 13px 22px;
 }
 
 .gallery-book-button:hover {
   background: #b80f16;
-
   color: #fff !important;
 }
 
@@ -126,19 +121,16 @@ button {
 
 .gallery-page {
   width: 100%;
-
   min-height: 0;
-
   display: grid;
 }
 
 .gallery-stage {
   width: min(97%, 1900px);
-
-  margin: 0 auto;
-
   height: 100%;
   min-height: 0;
+
+  margin: 0 auto;
 
   display: grid;
 
@@ -164,7 +156,6 @@ button {
   min-height: 720px;
 
   display: flex;
-
   align-items: flex-end;
 
   overflow: visible;
@@ -206,7 +197,6 @@ button {
 
 .gallery-copy h1 span {
   display: block;
-
   color: var(--white);
 }
 
@@ -218,7 +208,6 @@ button {
   color: #d8d8d8;
 
   font-size: 1rem;
-
   line-height: 1.55;
 }
 
@@ -234,11 +223,11 @@ button {
 .gallery-model-wrap {
   position: absolute;
 
-  left: 145px;
-  right: -70px;
+  left: 150px;
+  right: -90px;
 
-  top: -80px;
-  bottom: -10px;
+  top: 0;
+  bottom: 0;
 
   display: flex;
 
@@ -274,15 +263,18 @@ button {
 }
 
 .gallery-model {
-  width: auto;
+  width: auto !important;
 
-  height: 118%;
+  height: clamp(
+    700px,
+    76dvh,
+    900px
+  ) !important;
 
-  max-height: 980px;
-  max-width: none;
+  max-height: none !important;
+  max-width: none !important;
 
   object-fit: contain;
-
   object-position: bottom center;
 
   filter:
@@ -303,7 +295,6 @@ button {
 
 .camera-gallery {
   position: relative;
-
   align-self: center;
 }
 
@@ -311,7 +302,6 @@ button {
   position: relative;
 
   width: 100%;
-
   max-width: 1400px;
 
   margin: 0 auto;
@@ -333,11 +323,23 @@ button {
 .camera-screen {
   position: absolute;
 
+  /*
+    LCD position stays inside
+    the physical camera screen.
+  */
+
   left: 16.55%;
   top: 43.6%;
 
   width: 52.9%;
-  height: 28.2%;
+
+  /*
+    Increased from 28.2%.
+    This fills the physical LCD
+    vertically to the bottom.
+  */
+
+  height: 50.2%;
 
   overflow: hidden;
 
@@ -350,9 +352,13 @@ button {
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
+  /*
+    Fill LCD completely.
+    No side bars.
+  */
 
-  object-position: center bottom;
+  object-fit: cover;
+  object-position: center center;
 
   display: block;
 
@@ -418,7 +424,7 @@ button {
 
 
 /* =========================
-   CONTROLS
+   GALLERY CONTROLS
    ========================= */
 
 .gallery-controls {
@@ -607,15 +613,14 @@ button {
   .gallery-model-wrap {
     left: 125px;
     right: -45px;
-
-    top: -60px;
-    bottom: -8px;
   }
 
   .gallery-model {
-    height: 110%;
-
-    max-height: 850px;
+    height: clamp(
+      620px,
+      72dvh,
+      820px
+    ) !important;
   }
 
   .camera-wrap {
@@ -670,22 +675,16 @@ button {
 
   .gallery-copy {
     width: 42%;
-
     top: 40px;
   }
 
   .gallery-model-wrap {
     left: 100px;
     right: -20px;
-
-    top: -30px;
-    bottom: 0;
   }
 
   .gallery-model {
-    height: 100%;
-
-    max-height: 700px;
+    height: 630px !important;
   }
 
   .camera-gallery {
@@ -737,15 +736,10 @@ button {
   .gallery-model-wrap {
     left: 70px;
     right: -20px;
-
-    top: 0;
-    bottom: 0;
   }
 
   .gallery-model {
-    height: 88%;
-
-    max-height: 540px;
+    height: 505px !important;
 
     opacity: 0.86;
   }
@@ -766,23 +760,4 @@ button {
   .gallery-footer-logo img {
     width: 130px;
   }
-}
-/* =========================
-   MODEL SCALE FIX
-   ========================= */
-
-.gallery-model-wrap {
-  left: 150px;
-  right: -90px;
-  top: 0;
-  bottom: 0;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.gallery-model {
-  width: auto !important;
-  height: clamp(700px, 76dvh, 900px) !important;
-  max-height: none !important;
-  max-width: none !important;
 }

@@ -21,8 +21,8 @@ html {
 body {
   font-family: "Montserrat", Arial, sans-serif;
   background:
-    radial-gradient(circle at 30% 48%, rgba(116, 33, 170, 0.22), transparent 30%),
-    linear-gradient(180deg, #050505 0%, #090909 100%);
+    radial-gradient(circle at 31% 46%, rgba(116, 33, 170, 0.25), transparent 28%),
+    linear-gradient(180deg, #030303 0%, #080808 100%);
   color: var(--white);
   min-height: 100vh;
   overflow-x: hidden;
@@ -48,7 +48,7 @@ button {
    ========================= */
 
 .gallery-header {
-  width: min(94%, 1700px);
+  width: min(95%, 1780px);
   margin: 0 auto;
   min-height: 92px;
 
@@ -70,7 +70,7 @@ button {
 .gallery-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 30px;
 }
 
 .gallery-nav a {
@@ -89,13 +89,13 @@ button {
 }
 
 .gallery-book-button:hover {
-  color: #fff !important;
   background: #b80f16;
+  color: #fff !important;
 }
 
 
 /* =========================
-   MAIN STAGE
+   PAGE
    ========================= */
 
 .gallery-page {
@@ -103,15 +103,15 @@ button {
 }
 
 .gallery-stage {
-  width: min(96%, 1800px);
+  width: min(96%, 1840px);
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 0.9fr 1.45fr;
-  align-items: center;
-  gap: 22px;
+  grid-template-columns: 0.92fr 1.55fr;
+  align-items: end;
+  gap: 10px;
 
-  min-height: calc(100vh - 120px);
+  min-height: 760px;
 
   position: relative;
 }
@@ -123,7 +123,7 @@ button {
 
 .gallery-intro {
   position: relative;
-  min-height: 820px;
+  min-height: 760px;
 
   display: flex;
   align-items: flex-end;
@@ -132,10 +132,10 @@ button {
 .gallery-copy {
   position: absolute;
   left: 0;
-  top: 90px;
+  top: 105px;
 
-  width: 310px;
-  z-index: 5;
+  width: 300px;
+  z-index: 8;
 }
 
 .gallery-hello {
@@ -146,10 +146,10 @@ button {
 }
 
 .gallery-copy h1 {
-  font-size: clamp(2rem, 3vw, 3.6rem);
-  line-height: 1.03;
+  font-size: clamp(2rem, 2.8vw, 3.35rem);
+  line-height: 1.02;
   text-transform: uppercase;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
 }
 
 .gallery-copy h1 span {
@@ -158,8 +158,8 @@ button {
 }
 
 .gallery-instructions {
-  margin-top: 28px;
-  max-width: 250px;
+  margin-top: 30px;
+  max-width: 240px;
 
   color: #d8d8d8;
   font-size: 1rem;
@@ -179,7 +179,7 @@ button {
   justify-content: flex-end;
 
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .gallery-model-wrap::before {
@@ -187,44 +187,45 @@ button {
   position: absolute;
 
   width: 70%;
-  height: 76%;
+  height: 80%;
 
-  right: 1%;
+  right: 2%;
   bottom: 0;
 
   background:
-    radial-gradient(circle at center, rgba(132, 46, 210, 0.45), transparent 62%);
+    radial-gradient(circle at center, rgba(132, 46, 210, 0.5), transparent 62%);
 
-  filter: blur(32px);
+  filter: blur(36px);
   z-index: -1;
 }
 
 .gallery-model {
-  width: min(88%, 680px);
+  width: min(86%, 690px);
   height: auto;
 
   object-fit: contain;
   object-position: bottom center;
 
   filter:
-    drop-shadow(0 28px 45px rgba(0, 0, 0, 0.7))
-    drop-shadow(0 0 18px rgba(115, 28, 180, 0.22));
+    drop-shadow(0 30px 50px rgba(0, 0, 0, 0.75))
+    drop-shadow(0 0 20px rgba(115, 28, 180, 0.25));
 }
 
 
 /* =========================
-   CAMERA
+   CAMERA AREA
    ========================= */
 
 .camera-gallery {
   position: relative;
-  align-self: center;
+  align-self: end;
+  padding-bottom: 18px;
 }
 
 .camera-wrap {
   position: relative;
   width: 100%;
-  max-width: 1250px;
+  max-width: 1325px;
   margin: 0 auto;
 }
 
@@ -236,17 +237,17 @@ button {
 
 
 /* =========================
-   CAMERA LCD
+   LCD SCREEN
    ========================= */
 
 .camera-screen {
   position: absolute;
 
-  left: 15.6%;
-  top: 41.9%;
+  left: 16.55%;
+  top: 43.6%;
 
-  width: 61.2%;
-  height: 38.6%;
+  width: 52.9%;
+  height: 28.2%;
 
   overflow: hidden;
   background: #060606;
@@ -273,46 +274,45 @@ button {
 
 
 /* =========================
-   INVISIBLE CAMERA HOTSPOTS
+   CAMERA HOTSPOTS
    ========================= */
 
 .camera-hotspot {
   position: absolute;
   z-index: 12;
-
   border: 0;
   background: transparent;
   cursor: pointer;
 }
 
 .camera-play-hotspot {
-  right: 4.6%;
-  bottom: 8.7%;
+  right: 4.8%;
+  bottom: 8.5%;
 
-  width: 6.2%;
-  height: 7.5%;
+  width: 5.5%;
+  height: 6.8%;
 
   border-radius: 50%;
 }
 
 .camera-play-hotspot:hover {
-  box-shadow: 0 0 25px rgba(139, 44, 255, 0.75);
+  box-shadow: 0 0 26px rgba(139, 44, 255, 0.75);
 }
 
 .camera-prev-hotspot {
-  right: 12.5%;
-  bottom: 16%;
+  right: 11.5%;
+  bottom: 15.5%;
 
-  width: 5%;
-  height: 7%;
+  width: 4.5%;
+  height: 6%;
 }
 
 .camera-next-hotspot {
-  right: 5%;
-  bottom: 16%;
+  right: 4.8%;
+  bottom: 15.5%;
 
-  width: 5%;
-  height: 7%;
+  width: 4.5%;
+  height: 6%;
 }
 
 
@@ -321,8 +321,8 @@ button {
    ========================= */
 
 .gallery-controls {
-  width: min(84%, 820px);
-  margin: 20px auto 0;
+  width: min(76%, 840px);
+  margin: 8px auto 0;
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -364,7 +364,7 @@ button {
   border-radius: 50%;
   border: 2px solid #d6a7ff;
 
-  background: rgba(116, 33, 170, 0.15);
+  background: rgba(116, 33, 170, 0.16);
   color: var(--white);
 
   font-size: 1.8rem;
@@ -372,7 +372,7 @@ button {
 
   box-shadow:
     0 0 12px rgba(139, 44, 255, 0.8),
-    0 0 35px rgba(139, 44, 255, 0.4);
+    0 0 34px rgba(139, 44, 255, 0.4);
 
   transition: 0.25s ease;
 }
@@ -383,7 +383,7 @@ button {
 
 .gallery-status {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 8px;
 
   font-size: 0.8rem;
   font-weight: 700;
@@ -399,10 +399,10 @@ button {
    ========================= */
 
 .gallery-footer {
-  width: min(96%, 1800px);
-  margin: 18px auto 0;
+  width: min(96%, 1840px);
+  margin: 0 auto;
 
-  min-height: 120px;
+  min-height: 112px;
 
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -413,7 +413,7 @@ button {
 }
 
 .gallery-footer-logo img {
-  width: 175px;
+  width: 165px;
 }
 
 .gallery-social {
@@ -447,26 +447,18 @@ button {
    RESPONSIVE
    ========================= */
 
-@media (max-width: 1180px) {
+@media (max-width: 1250px) {
 
   .gallery-stage {
-    grid-template-columns: 0.95fr 1.25fr;
-  }
-
-  .gallery-intro {
-    min-height: 700px;
-  }
-
-  .gallery-copy {
-    top: 50px;
+    grid-template-columns: 0.95fr 1.35fr;
   }
 
   .gallery-model {
-    width: min(82%, 560px);
+    width: min(82%, 590px);
   }
 
   .camera-wrap {
-    max-width: 1050px;
+    max-width: 1120px;
   }
 }
 
@@ -490,11 +482,12 @@ button {
   }
 
   .gallery-intro {
-    min-height: 680px;
+    min-height: 650px;
   }
 
   .gallery-copy {
     width: 42%;
+    top: 40px;
   }
 
   .gallery-model {
@@ -502,7 +495,7 @@ button {
   }
 
   .camera-gallery {
-    margin-top: 20px;
+    margin-top: 18px;
   }
 
   .gallery-footer {
@@ -524,17 +517,13 @@ button {
     width: 92%;
   }
 
-  .gallery-nav {
-    font-size: 0.75rem;
-  }
-
   .gallery-book-button {
     width: 100%;
     text-align: center;
   }
 
   .gallery-intro {
-    min-height: 580px;
+    min-height: 570px;
   }
 
   .gallery-copy {

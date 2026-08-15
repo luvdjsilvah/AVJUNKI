@@ -1,1 +1,254 @@
+/* =========================================================
+   AV JUNKI
+   DJ SERVICES PAGE
+   ========================================================= */
 
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #000;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   DJ PAGE
+   ========================================================= */
+
+.dj-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: #000;
+}
+
+
+/* =========================================================
+   MASTER 16:9 STAGE
+   ========================================================= */
+
+.dj-stage {
+  position: relative;
+
+  width: 100%;
+  max-width: 1920px;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #000;
+}
+
+
+/* =========================================================
+   ALL IMAGE LAYERS
+   ========================================================= */
+
+.dj-layer {
+  position: absolute;
+
+  display: block;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.dj-background {
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   SPEAKERS
+   ========================================================= */
+
+.dj-speaker {
+  top: 12.7%;
+
+  width: 11.4%;
+  height: 70%;
+
+  object-fit: fill;
+
+  z-index: 3;
+}
+
+
+/* LEFT */
+
+.dj-speaker-left {
+  left: 19.7%;
+}
+
+
+/* RIGHT */
+
+.dj-speaker-right {
+  right: 19.7%;
+}
+
+
+/* =========================================================
+   CHARLES
+   ========================================================= */
+
+.dj-charles {
+  left: 50%;
+  top: 21.2%;
+
+  width: 18%;
+
+  height: 29%;
+
+  object-fit: fill;
+
+  transform: translateX(-50%);
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   VIDEO INSIDE DJ BOOTH
+   ========================================================= */
+
+.dj-video-wrap {
+  position: absolute;
+
+  left: 35.4%;
+  top: 54%;
+
+  width: 29.2%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #050505;
+
+  z-index: 5;
+}
+
+.dj-video {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   DJ BOOTH
+   ========================================================= */
+
+.dj-booth {
+  left: 31.4%;
+  top: 46.7%;
+
+  width: 35.2%;
+  height: 37.3%;
+
+  object-fit: fill;
+
+  z-index: 6;
+}
+
+
+/* =========================================================
+   LIGHTS
+   ========================================================= */
+
+.dj-light {
+  top: 3%;
+
+  width: 16.2%;
+  height: 73%;
+
+  object-fit: fill;
+
+  z-index: 7;
+}
+
+
+/* LEFT LIGHT */
+
+.dj-light-left {
+  left: 2.6%;
+}
+
+
+/* RIGHT LIGHT */
+
+.dj-light-right {
+  right: 2.6%;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .dj-page {
+    min-height: auto;
+  }
+
+  .dj-stage {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}

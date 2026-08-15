@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta
+    name="description"
+    content="AV Junki Photography Gallery featuring professional photography by AV Junki."
+  >
+
+  <title>AV Junki | Photography Gallery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="gallery.css">
+</head>
+
+<body>
+
+  <header class="gallery-header">
+
+    <a class="gallery-brand" href="index.html">
+      AV JUNKI
+    </a>
+
+    <nav class="gallery-nav" aria-label="Gallery navigation">
+
+      <a href="index.html#services">Services</a>
+
+      <a href="index.html#portfolio">Portfolio</a>
+
+      <a href="index.html#about">About</a>
+
+      <a href="index.html#contact">Contact</a>
+
+      <a
+        class="gallery-book-button"
+        href="https://calendly.com/luvdjsilvah/av-junki-consultation"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Book Consultation
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <main class="gallery-page">
+
+    <section class="gallery-stage">
+
+
+      <!-- LEFT SIDE: WELCOME / MODEL -->
+
+      <div class="gallery-intro">
+
+        <div class="gallery-copy">
+
+          <p class="gallery-hello">
+            Hello,
+          </p>
+
+          <h1>
+            Welcome to the
+            <span>AV Junki</span>
+            Photography Gallery.
+          </h1>
+
+          <p class="gallery-instructions">
+            Click the
+            <strong>PLAY</strong>
+            button on the camera to get started.
+          </p>
+
+        </div>
+
+
+        <div class="gallery-model-wrap">
+
+          <img
+            class="gallery-model"
+            src="assets/images/gallery-model.png"
+            alt="AV Junki photography gallery host"
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT SIDE: CAMERA -->
+
+      <div class="camera-gallery">
+
+        <div class="camera-wrap">
+
+          <img
+            class="camera-body"
+            src="assets/images/camera-back.png"
+            alt="Camera used as interactive AV Junki photo gallery"
+          >
+
+
+          <!-- PHOTO DISPLAY AREA -->
+
+          <div class="camera-screen">
+
+            <img
+              id="gallery-photo"
+              src="assets/images/gallery/photo-01.jpg"
+              alt="AV Junki photography slideshow image"
+            >
+
+          </div>
+
+
+          <!-- CLICKABLE CAMERA PLAY BUTTON -->
+
+          <button
+            id="camera-play-button"
+            class="camera-hotspot camera-play-hotspot"
+            type="button"
+            aria-label="Play photography slideshow"
+          ></button>
+
+
+          <!-- OPTIONAL CAMERA PREVIOUS CONTROL -->
+
+          <button
+            id="camera-prev-button"
+            class="camera-hotspot camera-prev-hotspot"
+            type="button"
+            aria-label="Previous photograph"
+          ></button>
+
+
+          <!-- OPTIONAL CAMERA NEXT CONTROL -->
+
+          <button
+            id="camera-next-button"
+            class="camera-hotspot camera-next-hotspot"
+            type="button"
+            aria-label="Next photograph"
+          ></button>
+
+        </div>
+
+
+        <!-- VISIBLE GALLERY CONTROLS -->
+
+        <div class="gallery-controls">
+
+          <button
+            id="gallery-prev"
+            class="gallery-control-button"
+            type="button"
+          >
+            ← Prev
+          </button>
+
+          <button
+            id="gallery-play"
+            class="gallery-main-play"
+            type="button"
+            aria-label="Play slideshow"
+          >
+            ▶
+          </button>
+
+          <button
+            id="gallery-next"
+            class="gallery-control-button"
+            type="button"
+          >
+            Next →
+          </button>
+
+        </div>
+
+
+        <p class="gallery-status">
+          Click Play to Start Gallery
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="gallery-footer">
+
+    <div class="gallery-footer-logo">
+
+      <img
+        src="assets/images/avjunki-logo.png"
+        alt="AV Junki"
+      >
+
+    </div>
+
+
+    <div class="gallery-social">
+
+      <span>Follow AV Junki</span>
+
+      <a
+        href="https://www.instagram.com/luvdjsilvah/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://www.facebook.com/Luvdjsilvah"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://www.tiktok.com/@luvdjsilvah?lang=en"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        TikTok
+      </a>
+
+      <a
+        href="https://www.youtube.com/@Luvdjsilvah"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        YouTube
+      </a>
+
+    </div>
+
+
+    <a
+      class="gallery-domain"
+      href="index.html"
+    >
+      AVJUNKI.COM
+    </a>
+
+  </footer>
+
+
+  <script src="gallery.js"></script>
+
+</body>
+</html>

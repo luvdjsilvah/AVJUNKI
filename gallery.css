@@ -767,3 +767,22 @@ button {
     width: 130px;
   }
 }
+/* =========================
+   MODEL SCALE FIX
+   ========================= */
+
+.gallery-model-wrap {
+  left: 150px;
+  right: -90px;
+  top: 0;
+  bottom: 0;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.gallery-model {
+  width: auto !important;
+  height: clamp(700px, 76dvh, 900px) !important;
+  max-height: none !important;
+  max-width: none !important;
+}

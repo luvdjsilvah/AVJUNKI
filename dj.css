@@ -387,3 +387,8 @@ body {
     padding: 9px 11px !important;
   }
 }
+/* TEMPORARY — calibrate the clean master first */
+.dj-lighting,
+.dj-fog-zone {
+  display: none;
+}

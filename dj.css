@@ -1,0 +1,389 @@
+/* =========================================================
+   AV JUNKI — DJ PAGE
+   Fresh isolated build. Does not affect index.html/styles.css.
+   ========================================================= */
+
+:root {
+  --black: #050505;
+  --white: #ffffff;
+  --red: #e51b23;
+
+  /*
+    MASTER IMAGE CALIBRATION
+    All overlay coordinates are percentages of the 16:9 master.
+    We can fine-tune these after your first browser screenshot.
+  */
+
+  /* Video screen */
+  --screen-left: 35.75%;
+  --screen-top: 30.05%;
+  --screen-width: 28.55%;
+  --screen-height: 18.55%;
+
+  /* Left platter */
+  --platter-left-x: 27.85%;
+  --platter-left-y: 84.35%;
+  --platter-left-size: 9.10%;
+
+  /* Right platter */
+  --platter-right-x: 63.95%;
+  --platter-right-y: 84.35%;
+  --platter-right-size: 9.10%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--black);
+  color: var(--white);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.dj-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(18px, 3vw, 52px);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.84) 0%,
+      rgba(0, 0, 0, 0.34) 72%,
+      rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.dj-home,
+.dj-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dj-home {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.dj-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 30px);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.dj-nav a {
+  opacity: 0.92;
+  transition: opacity 180ms ease;
+}
+
+.dj-nav a:hover,
+.dj-nav a:focus-visible {
+  opacity: 1;
+}
+
+.dj-nav .dj-book {
+  padding: 11px 16px;
+  background: var(--red);
+  border-radius: 4px;
+  opacity: 1;
+}
+
+/* =========================================================
+   16:9 IMMERSIVE STAGE
+
+   IMPORTANT:
+   The stage itself always stays 16:9.
+   That keeps every overlay aligned with your 3840x2160 master.
+   ========================================================= */
+
+.dj-page,
+.dj-experience {
+  min-height: 100vh;
+}
+
+.dj-experience {
+  display: grid;
+  place-items: center;
+  background: #000;
+}
+
+.dj-stage {
+  position: relative;
+  width: min(100vw, 177.7777778vh);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  isolation: isolate;
+  background: #000;
+}
+
+.dj-master {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================================================
+   VIDEO SCREEN
+   ========================================================= */
+
+.dj-screen {
+  position: absolute;
+  z-index: 4;
+  left: var(--screen-left);
+  top: var(--screen-top);
+  width: var(--screen-width);
+  height: var(--screen-height);
+  overflow: hidden;
+  background: #000;
+}
+
+.dj-screen video {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /*
+    "cover" fills the physical screen completely.
+    Because the screen in the artwork is wider than 16:9,
+    a normal 16:9 video will crop at the top/bottom.
+
+    If you prefer NO crop, change cover to contain.
+  */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================================
+   SOFT COLOR-CHANGING LIGHTS
+   Slow fades only — NO FLASHING / NO STROBING.
+   ========================================================= */
+
+.dj-lighting {
+  position: absolute;
+  z-index: 6;
+  inset: -12%;
+  pointer-events: none;
+  opacity: 0.13;
+  mix-blend-mode: screen;
+  filter: blur(70px);
+  will-change: opacity, transform;
+}
+
+.dj-lighting-a {
+  background:
+    radial-gradient(circle at 22% 27%, rgba(0, 198, 255, 0.76), transparent 24%),
+    radial-gradient(circle at 76% 22%, rgba(185, 60, 255, 0.76), transparent 26%),
+    radial-gradient(circle at 55% 63%, rgba(255, 55, 145, 0.46), transparent 28%);
+  animation: avjLightA 18s ease-in-out infinite alternate;
+}
+
+.dj-lighting-b {
+  background:
+    radial-gradient(circle at 70% 35%, rgba(255, 50, 50, 0.50), transparent 23%),
+    radial-gradient(circle at 30% 62%, rgba(50, 120, 255, 0.56), transparent 26%),
+    radial-gradient(circle at 50% 14%, rgba(170, 55, 255, 0.44), transparent 24%);
+  animation: avjLightB 24s ease-in-out infinite alternate;
+}
+
+@keyframes avjLightA {
+  0% {
+    opacity: 0.08;
+    transform: translate3d(-2%, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 0.10;
+    transform: translate3d(2%, 1%, 0) scale(1.04);
+  }
+}
+
+@keyframes avjLightB {
+  0% {
+    opacity: 0.05;
+    transform: translate3d(2%, -1%, 0) scale(1.04);
+  }
+  100% {
+    opacity: 0.11;
+    transform: translate3d(-2%, 2%, 0) scale(1);
+  }
+}
+
+/* =========================================================
+   DANCE FLOOR FOG
+   Confined to the center floor so it does not cover the DJ.
+   ========================================================= */
+
+.dj-fog-zone {
+  position: absolute;
+  z-index: 7;
+  left: 24%;
+  top: 43%;
+  width: 52%;
+  height: 32%;
+  overflow: hidden;
+  pointer-events: none;
+
+  /* Perspective-shaped floor zone */
+  clip-path: polygon(13% 0%, 87% 0%, 100% 100%, 0% 100%);
+}
+
+.dj-fog {
+  position: absolute;
+  width: 125%;
+  height: 56%;
+  left: -25%;
+  bottom: 8%;
+  opacity: 0.20;
+  filter: blur(18px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  background:
+    radial-gradient(ellipse at 15% 55%, rgba(255,255,255,.34) 0 10%, transparent 32%),
+    radial-gradient(ellipse at 38% 45%, rgba(210,170,255,.30) 0 12%, transparent 34%),
+    radial-gradient(ellipse at 62% 57%, rgba(255,255,255,.26) 0 11%, transparent 31%),
+    radial-gradient(ellipse at 84% 47%, rgba(190,145,255,.30) 0 10%, transparent 30%);
+}
+
+.dj-fog-one {
+  animation: avjFogDriftOne 28s linear infinite;
+}
+
+.dj-fog-two {
+  bottom: 18%;
+  opacity: 0.13;
+  transform: scaleY(0.78);
+  animation: avjFogDriftTwo 36s linear infinite;
+}
+
+@keyframes avjFogDriftOne {
+  0%   { transform: translate3d(-12%, 0, 0) scale(1.02); opacity: 0.12; }
+  35%  { opacity: 0.22; }
+  70%  { opacity: 0.18; }
+  100% { transform: translate3d(25%, -2%, 0) scale(1.08); opacity: 0.12; }
+}
+
+@keyframes avjFogDriftTwo {
+  0%   { transform: translate3d(18%, 0, 0) scaleY(.78); }
+  100% { transform: translate3d(-24%, 2%, 0) scaleY(.86); }
+}
+
+/*
+.dj-fog-image {
+  position: absolute;
+  z-index: 7;
+  left: 22%;
+  top: 44%;
+  width: 56%;
+  height: 31%;
+  object-fit: fill;
+  opacity: 0.20;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: avjFogImage 30s ease-in-out infinite alternate;
+}
+*/
+
+/* =========================================================
+   ROTATING PLATTERS
+
+   Export the platter SURFACES as transparent PNGs.
+   Keep the PNG canvas tight around each platter.
+   ========================================================= */
+
+.dj-platter {
+  position: absolute;
+  z-index: 10;
+  display: block;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  animation: avjPlatterSpin 1.8s linear infinite;
+  will-change: transform;
+}
+
+.dj-platter-left {
+  left: var(--platter-left-x);
+  top: var(--platter-left-y);
+  width: var(--platter-left-size);
+}
+
+.dj-platter-right {
+  left: var(--platter-right-x);
+  top: var(--platter-right-y);
+  width: var(--platter-right-size);
+}
+
+@keyframes avjPlatterSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide missing optional platter assets cleanly */
+.dj-platter.is-missing {
+  display: none;
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .dj-lighting,
+  .dj-fog,
+  .dj-platter {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .dj-header {
+    min-height: 58px;
+    padding: 10px 14px;
+  }
+
+  .dj-home {
+    font-size: 0.82rem;
+  }
+
+  .dj-nav a:not(.dj-book) {
+    display: none;
+  }
+
+  .dj-book {
+    font-size: 0.72rem;
+    padding: 9px 11px !important;
+  }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AV Junki DJ experience">
+  <title>AV Junki | DJ Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dj.css">
+</head>
+
+<body>
+
+  <header class="dj-header">
+    <a class="dj-home" href="index.html" aria-label="Back to AV Junki home">AV JUNKI</a>
+
+    <nav class="dj-nav" aria-label="DJ page navigation">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#contact">Contact</a>
+      <a
+        class="dj-book"
+        href="https://calendly.com/luvdjsilvah/av-junki-consultation"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Book Consultation
+      </a>
+    </nav>
+  </header>
+
+  <main class="dj-page">
+    <section class="dj-experience" aria-label="AV Junki immersive DJ experience">
+
+      <div class="dj-stage" id="dj-stage">
+
+        <!-- FINAL 3840 × 2160 MASTER -->
+        <img
+          class="dj-master"
+          src="assets/images/dj-hero.jpg"
+          alt="AV Junki DJ experience"
+          draggable="false"
+        >
+
+        <!-- 4K VIDEO INSERT -->
+        <div class="dj-screen" aria-label="AV Junki video display">
+          <video
+            id="dj-screen-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source src="assets/videos/dj-screen.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- SLOW COLOR LIGHTING -->
+        <div class="dj-lighting dj-lighting-a" aria-hidden="true"></div>
+        <div class="dj-lighting dj-lighting-b" aria-hidden="true"></div>
+
+        <!-- DANCE FLOOR FOG -->
+        <div class="dj-fog-zone" aria-hidden="true">
+          <div class="dj-fog dj-fog-one"></div>
+          <div class="dj-fog dj-fog-two"></div>
+        </div>
+
+        <!--
+          OPTIONAL REAL FOG IMAGE:
+          If you later upload assets/images/dj-fog.png,
+          uncomment this line and the matching CSS block.
+        -->
+        <!-- <img class="dj-fog-image" src="assets/images/dj-fog.png" alt=""> -->
+
+        <!-- ROTATING PLATTER OVERLAYS
+             Export ONLY each platter surface as a transparent PNG.
+             The base image underneath stays untouched. -->
+        <img
+          class="dj-platter dj-platter-left"
+          src="assets/images/platter-left.png"
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+        >
+
+        <img
+          class="dj-platter dj-platter-right"
+          src="assets/images/platter-right.png"
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+        >
+
+      </div>
+
+    </section>
+  </main>
+
+  <script src="dj.js"></script>
+</body>
+</html>

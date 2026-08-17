@@ -371,7 +371,7 @@ body {
 .smoke-one {
   left: -52%;
   bottom: -1%;
-  opacity: 0.58;
+  opacity: 0.38;
   animation: smokeMoveRight 8s linear infinite;
 }
 
@@ -387,8 +387,7 @@ body {
   width: 64%;
   height: 80%;
 
-  opacity: 0.46;
-
+  opacity: 0.38;
   animation: smokeCenterDrift 6.5s ease-in-out infinite alternate;
 }
 
@@ -401,7 +400,7 @@ body {
   right: -52%;
   bottom: 1%;
 
-  opacity: 0.52;
+  opacity: 0.38;
 
   animation: smokeMoveLeft 9s linear infinite;
 }
@@ -517,7 +516,7 @@ body {
       translate3d(28%, -12px, 0)
       scaleX(1.10)
       scaleY(0.88);
-    opacity: 0.42;
+    opacity: 0.38;
   }
 }
 

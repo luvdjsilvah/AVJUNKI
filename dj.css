@@ -586,3 +586,27 @@ body {
     animation: none !important;
   }
 }
+/* =========================
+   LIGHT TEST — TEMPORARY
+   ========================= */
+
+.dj-lighting {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 30 !important;
+  opacity: 0.45 !important;
+  filter: none !important;
+  mix-blend-mode: screen !important;
+  pointer-events: none !important;
+}
+
+.dj-lighting-a {
+  display: block !important;
+  background: rgba(255, 0, 0, 0.45) !important;
+  animation: none !important;
+}
+
+.dj-lighting-b {
+  display: none !important;
+}

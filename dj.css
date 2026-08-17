@@ -587,101 +587,72 @@ body {
   }
 }
 /* =========================================================
-   AV JUNKI — VISIBLE SLOW COLOR LIGHTS
+   AV JUNKI — 5 SECOND ROOM LIGHT CHANGES
    ========================================================= */
 
 .dj-lighting {
   display: block !important;
   position: absolute !important;
   inset: 0 !important;
-  z-index: 8 !important;
+  z-index: 30 !important;
   pointer-events: none !important;
-  mix-blend-mode: screen !important;
+  filter: none !important;
 }
 
-/* LEFT SIDE / CEILING */
+/* MAIN COLOR WASH */
 .dj-lighting-a {
   display: block !important;
+  opacity: 0.26 !important;
+  mix-blend-mode: soft-light !important;
 
-  background:
-    radial-gradient(
-      circle at 18% 20%,
-      rgba(0, 170, 255, 0.75) 0%,
-      rgba(0, 170, 255, 0.35) 18%,
-      transparent 43%
-    ),
-    radial-gradient(
-      circle at 48% 18%,
-      rgba(185, 40, 255, 0.60) 0%,
-      transparent 38%
-    ) !important;
-
-  opacity: 0.38;
-  filter: blur(35px);
-
-  animation: avjColorShiftA 20s ease-in-out infinite alternate !important;
+  animation: avjRoomLights 20s ease-in-out infinite !important;
 }
 
-
-/* RIGHT SIDE / ROOM */
+/* SECONDARY LIGHT DEPTH */
 .dj-lighting-b {
   display: block !important;
+  opacity: 0.18 !important;
+  mix-blend-mode: screen !important;
 
   background:
     radial-gradient(
-      circle at 82% 24%,
-      rgba(255, 30, 120, 0.70) 0%,
-      rgba(255, 30, 120, 0.30) 18%,
-      transparent 43%
+      circle at 18% 22%,
+      rgba(255,255,255,0.30),
+      transparent 26%
     ),
     radial-gradient(
-      circle at 62% 42%,
-      rgba(40, 110, 255, 0.55) 0%,
-      transparent 38%
+      circle at 82% 22%,
+      rgba(255,255,255,0.25),
+      transparent 26%
     ) !important;
-
-  opacity: 0.34;
-  filter: blur(35px);
-
-  animation: avjColorShiftB 25s ease-in-out infinite alternate !important;
 }
 
 
-@keyframes avjColorShiftA {
+/*
+  20-second total cycle.
+  Roughly one new color every 5 seconds.
+  All transitions are smooth — no flashing.
+*/
+
+@keyframes avjRoomLights {
+
   0% {
-    opacity: 0.28;
-    filter: blur(35px) hue-rotate(0deg);
-    transform: translateX(-1%);
+    background: rgba(0, 150, 255, 0.55);
+  }
+
+  25% {
+    background: rgba(175, 35, 255, 0.55);
   }
 
   50% {
-    opacity: 0.48;
-    filter: blur(35px) hue-rotate(35deg);
+    background: rgba(255, 30, 110, 0.50);
+  }
+
+  75% {
+    background: rgba(0, 220, 190, 0.50);
   }
 
   100% {
-    opacity: 0.32;
-    filter: blur(35px) hue-rotate(75deg);
-    transform: translateX(2%);
-  }
-}
-
-
-@keyframes avjColorShiftB {
-  0% {
-    opacity: 0.26;
-    filter: blur(35px) hue-rotate(0deg);
-    transform: translateX(2%);
-  }
-
-  50% {
-    opacity: 0.44;
-    filter: blur(35px) hue-rotate(-35deg);
-  }
-
-  100% {
-    opacity: 0.30;
-    filter: blur(35px) hue-rotate(-75deg);
-    transform: translateX(-2%);
+    background: rgba(0, 150, 255, 0.55);
   }
 }

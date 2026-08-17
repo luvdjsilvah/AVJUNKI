@@ -59,19 +59,13 @@ body {
 .dj-header {
   position: fixed;
   inset: 0 0 auto 0;
-
   z-index: 50;
-
   min-height: 72px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 24px;
-
   padding: 14px clamp(18px, 3vw, 52px);
-
   background:
     linear-gradient(
       180deg,
@@ -95,9 +89,7 @@ body {
 .dj-nav {
   display: flex;
   align-items: center;
-
   gap: clamp(14px, 2vw, 30px);
-
   font-size: 0.82rem;
   font-weight: 600;
 }
@@ -114,11 +106,8 @@ body {
 
 .dj-nav .dj-book {
   padding: 11px 16px;
-
   background: var(--red);
-
   border-radius: 4px;
-
   opacity: 1;
 }
 
@@ -135,7 +124,6 @@ body {
 .dj-experience {
   display: grid;
   place-items: center;
-
   background: #000000;
 }
 
@@ -146,15 +134,10 @@ body {
 
 .dj-stage {
   position: relative;
-
   width: min(100vw, 177.7777778vh);
-
   aspect-ratio: 16 / 9;
-
   overflow: hidden;
-
   isolation: isolate;
-
   background: #000000;
 }
 
@@ -165,16 +148,11 @@ body {
 
 .dj-master {
   position: absolute;
-
   inset: 0;
-
   z-index: 1;
-
   width: 100%;
   height: 100%;
-
   object-fit: contain;
-
   user-select: none;
   pointer-events: none;
 }
@@ -186,26 +164,19 @@ body {
 
 .dj-screen {
   position: absolute;
-
   z-index: 4;
-
   left: var(--screen-left);
   top: var(--screen-top);
-
   width: var(--screen-width);
   height: var(--screen-height);
-
   overflow: hidden;
-
   background: #000000;
 }
 
 .dj-screen video {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center;
 }
@@ -217,55 +188,41 @@ body {
 
 .dj-lighting {
   display: block;
-
   position: absolute;
-
   inset: 0;
-
   z-index: 8;
-
   pointer-events: none;
 }
-
 
 /* MAIN COLOR LIGHT */
 
 .dj-lighting-a {
   mix-blend-mode: color;
-
   background-color: rgb(0, 145, 255);
-
-  animation:
-    avjRoomColor 30s ease-in-out infinite;
+  animation: avjRoomColor 30s ease-in-out infinite;
 }
-
 
 /* SECONDARY ROOM GLOW */
 
 .dj-lighting-b {
   mix-blend-mode: screen;
-
   background:
     radial-gradient(
       circle at 15% 20%,
       rgba(255, 255, 255, 0.46),
       transparent 26%
     ),
-
     radial-gradient(
       circle at 85% 22%,
       rgba(255, 255, 255, 0.40),
       transparent 26%
     ),
-
     radial-gradient(
       circle at 50% 15%,
       rgba(255, 255, 255, 0.23),
       transparent 31%
     );
-
-  animation:
-    avjLightDepth 30s ease-in-out infinite;
+  animation: avjLightDepth 30s ease-in-out infinite;
 }
 
 
@@ -274,60 +231,38 @@ body {
    ========================================================= */
 
 @keyframes avjRoomColor {
-
-  /* BLUE */
-
   0% {
     background-color: rgb(0, 145, 255);
     opacity: 0.58;
   }
-
-
-  /* PURPLE */
 
   16.66% {
     background-color: rgb(175, 20, 255);
     opacity: 0.58;
   }
 
-
-  /* LIGHTS OFF — ORIGINAL HERO */
-
   33.33% {
     opacity: 0;
   }
-
-
-  /* PINK / RED */
 
   50% {
     background-color: rgb(255, 25, 95);
     opacity: 0.58;
   }
 
-
-  /* AQUA */
-
   66.66% {
     background-color: rgb(0, 220, 185);
     opacity: 0.58;
   }
 
-
-  /* LIGHTS OFF — ORIGINAL HERO */
-
   83.33% {
     opacity: 0;
   }
-
-
-  /* RETURN TO BLUE */
 
   100% {
     background-color: rgb(0, 145, 255);
     opacity: 0.58;
   }
-
 }
 
 
@@ -336,7 +271,6 @@ body {
    ========================================================= */
 
 @keyframes avjLightDepth {
-
   0% {
     opacity: 0.42;
   }
@@ -364,35 +298,27 @@ body {
   100% {
     opacity: 0.42;
   }
-
 }
 
 
 /* =========================================================
    MOVING DANCE-FLOOR SMOKE
-   WIDER COVERAGE
+   EXTRA WIDE / LOWER OPACITY
    ========================================================= */
 
 .dj-smoke {
   display: block;
-
   position: absolute;
 
-  /*
-     Wider than previous version.
-     Spreads almost wall-to-wall across the dance floor.
-  */
-
-  left: 4%;
+  /* Wider spread across the dance floor */
+  left: -4%;
   top: 49%;
 
-  width: 92%;
-  height: 27%;
+  width: 108%;
+  height: 28%;
 
   z-index: 5;
-
   overflow: visible;
-
   pointer-events: none;
 }
 
@@ -403,62 +329,50 @@ body {
 
 .smoke-cloud {
   display: block;
-
   position: absolute;
 
-  width: 54%;
-  height: 72%;
+  width: 58%;
+  height: 76%;
 
   border-radius: 50%;
 
   background:
-
     radial-gradient(
       ellipse at 22% 55%,
-      rgba(255, 255, 255, 0.82) 0%,
-      rgba(240, 225, 255, 0.60) 18%,
-      rgba(215, 185, 245, 0.30) 40%,
-      transparent 70%
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(240, 225, 255, 0.50) 18%,
+      rgba(215, 185, 245, 0.22) 42%,
+      transparent 72%
     ),
-
     radial-gradient(
       ellipse at 52% 42%,
-      rgba(255, 255, 255, 0.70) 0%,
-      rgba(225, 200, 250, 0.38) 24%,
-      transparent 67%
+      rgba(255, 255, 255, 0.60) 0%,
+      rgba(225, 200, 250, 0.28) 24%,
+      transparent 68%
     ),
-
     radial-gradient(
       ellipse at 80% 60%,
-      rgba(235, 215, 255, 0.52) 0%,
-      rgba(210, 175, 240, 0.25) 28%,
-      transparent 70%
+      rgba(235, 215, 255, 0.42) 0%,
+      rgba(210, 175, 240, 0.18) 28%,
+      transparent 72%
     );
 
-  filter: blur(30px);
-
+  filter: blur(34px);
   pointer-events: none;
-
-  will-change:
-    transform,
-    opacity;
+  will-change: transform, opacity;
 }
 
 
 /* =========================================================
    LEFT / MAIN SMOKE
-   79% OPACITY
+   58% OPACITY
    ========================================================= */
 
 .smoke-one {
-  left: -46%;
-
-  bottom: 0;
-
-  opacity: 0.79;
-
-  animation:
-    smokeMoveRight 7s linear infinite;
+  left: -52%;
+  bottom: -1%;
+  opacity: 0.58;
+  animation: smokeMoveRight 8s linear infinite;
 }
 
 
@@ -467,17 +381,15 @@ body {
    ========================================================= */
 
 .smoke-two {
-  left: 22%;
+  left: 18%;
+  bottom: -10%;
 
-  bottom: -8%;
+  width: 64%;
+  height: 80%;
 
-  width: 58%;
-  height: 76%;
+  opacity: 0.46;
 
-  opacity: 0.58;
-
-  animation:
-    smokeCenterDrift 6s ease-in-out infinite alternate;
+  animation: smokeCenterDrift 6.5s ease-in-out infinite alternate;
 }
 
 
@@ -486,14 +398,12 @@ body {
    ========================================================= */
 
 .smoke-three {
-  right: -46%;
+  right: -52%;
+  bottom: 1%;
 
-  bottom: 2%;
+  opacity: 0.52;
 
-  opacity: 0.70;
-
-  animation:
-    smokeMoveLeft 8s linear infinite;
+  animation: smokeMoveLeft 9s linear infinite;
 }
 
 
@@ -502,46 +412,40 @@ body {
    ========================================================= */
 
 @keyframes smokeMoveRight {
-
   0% {
     transform:
       translate3d(0, 5px, 0)
-      scaleX(1.05)
+      scaleX(1.04)
       scaleY(0.88);
   }
 
-
   25% {
     transform:
-      translate3d(65%, -2px, 0)
-      scaleX(1.18)
-      scaleY(0.94);
+      translate3d(70%, -2px, 0)
+      scaleX(1.16)
+      scaleY(0.93);
   }
-
 
   50% {
     transform:
-      translate3d(130%, -7px, 0)
-      scaleX(1.26)
-      scaleY(1);
+      translate3d(140%, -7px, 0)
+      scaleX(1.24)
+      scaleY(0.98);
   }
-
 
   75% {
     transform:
-      translate3d(195%, -3px, 0)
-      scaleX(1.18)
-      scaleY(0.95);
+      translate3d(210%, -3px, 0)
+      scaleX(1.16)
+      scaleY(0.94);
   }
-
 
   100% {
     transform:
-      translate3d(260%, 3px, 0)
-      scaleX(1.08)
+      translate3d(280%, 3px, 0)
+      scaleX(1.06)
       scaleY(0.90);
   }
-
 }
 
 
@@ -550,46 +454,40 @@ body {
    ========================================================= */
 
 @keyframes smokeMoveLeft {
-
   0% {
     transform:
       translate3d(0, 3px, 0)
-      scaleX(1.04)
-      scaleY(0.90);
+      scaleX(1.03)
+      scaleY(0.89);
   }
-
 
   25% {
     transform:
-      translate3d(-65%, -2px, 0)
-      scaleX(1.16)
-      scaleY(0.95);
+      translate3d(-70%, -2px, 0)
+      scaleX(1.15)
+      scaleY(0.94);
   }
-
 
   50% {
     transform:
-      translate3d(-130%, -8px, 0)
-      scaleX(1.24)
-      scaleY(1);
+      translate3d(-140%, -8px, 0)
+      scaleX(1.23)
+      scaleY(0.99);
   }
-
 
   75% {
     transform:
-      translate3d(-195%, -3px, 0)
-      scaleX(1.17)
-      scaleY(0.95);
+      translate3d(-210%, -3px, 0)
+      scaleX(1.15)
+      scaleY(0.94);
   }
-
 
   100% {
     transform:
-      translate3d(-260%, 2px, 0)
-      scaleX(1.07)
+      translate3d(-280%, 2px, 0)
+      scaleX(1.05)
       scaleY(0.90);
   }
-
 }
 
 
@@ -598,36 +496,29 @@ body {
    ========================================================= */
 
 @keyframes smokeCenterDrift {
-
   0% {
     transform:
-      translate3d(-25%, 10px, 0)
-      scaleX(1)
+      translate3d(-28%, 10px, 0)
+      scaleX(1.02)
       scaleY(0.82);
-
-    opacity: 0.48;
+    opacity: 0.38;
   }
-
 
   50% {
     transform:
       translate3d(0, -5px, 0)
-      scaleX(1.22)
+      scaleX(1.24)
       scaleY(0.96);
-
-    opacity: 0.60;
+    opacity: 0.50;
   }
-
 
   100% {
     transform:
-      translate3d(25%, -12px, 0)
-      scaleX(1.08)
+      translate3d(28%, -12px, 0)
+      scaleX(1.10)
       scaleY(0.88);
-
-    opacity: 0.52;
+    opacity: 0.42;
   }
-
 }
 
 
@@ -646,28 +537,21 @@ body {
    ========================================================= */
 
 @media (max-width: 760px) {
-
   .dj-header {
     min-height: 58px;
-
     padding: 10px 14px;
   }
-
 
   .dj-home {
     font-size: 0.82rem;
   }
 
-
   .dj-nav a:not(.dj-book) {
     display: none;
   }
 
-
   .dj-book {
     font-size: 0.72rem;
-
     padding: 9px 11px !important;
   }
-
 }

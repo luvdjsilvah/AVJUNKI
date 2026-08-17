@@ -21,14 +21,13 @@
   --screen-height: 18.55%;
 
   /* Left platter */
-  --platter-left-x: 27.85%;
-  --platter-left-y: 84.35%;
-  --platter-left-size: 9.10%;
+--platter-left-x: 28.45%;
+--platter-left-y: 84.05%;
+--platter-left-size: 8.35%;
 
-  /* Right platter */
-  --platter-right-x: 63.95%;
-  --platter-right-y: 84.35%;
-  --platter-right-size: 9.10%;
+--platter-right-x: 63.20%;
+--platter-right-y: 84.05%;
+--platter-right-size: 8.35%;
 }
 
 * {

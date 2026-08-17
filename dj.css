@@ -587,86 +587,101 @@ body {
   }
 }
 /* =========================================================
-   AV JUNKI — REAL SLOW LIGHTING
+   AV JUNKI — VISIBLE SLOW COLOR LIGHTS
    ========================================================= */
 
 .dj-lighting {
   display: block !important;
   position: absolute !important;
   inset: 0 !important;
-  z-index: 6 !important;
+  z-index: 8 !important;
   pointer-events: none !important;
-
   mix-blend-mode: screen !important;
-  filter: blur(55px);
 }
 
-/* LEFT / CENTER LIGHT */
+/* LEFT SIDE / CEILING */
 .dj-lighting-a {
+  display: block !important;
+
   background:
     radial-gradient(
-      ellipse at 18% 24%,
-      rgba(0, 180, 255, 0.55) 0%,
-      rgba(0, 180, 255, 0.20) 20%,
-      transparent 48%
+      circle at 18% 20%,
+      rgba(0, 170, 255, 0.75) 0%,
+      rgba(0, 170, 255, 0.35) 18%,
+      transparent 43%
     ),
     radial-gradient(
-      ellipse at 52% 18%,
-      rgba(190, 40, 255, 0.42) 0%,
-      transparent 42%
-    );
+      circle at 48% 18%,
+      rgba(185, 40, 255, 0.60) 0%,
+      transparent 38%
+    ) !important;
 
-  animation: avjLightOne 18s ease-in-out infinite alternate !important;
+  opacity: 0.38;
+  filter: blur(35px);
+
+  animation: avjColorShiftA 20s ease-in-out infinite alternate !important;
 }
 
-/* RIGHT / ROOM LIGHT */
+
+/* RIGHT SIDE / ROOM */
 .dj-lighting-b {
   display: block !important;
 
   background:
     radial-gradient(
-      ellipse at 82% 28%,
-      rgba(255, 45, 120, 0.48) 0%,
-      rgba(255, 45, 120, 0.16) 22%,
-      transparent 48%
+      circle at 82% 24%,
+      rgba(255, 30, 120, 0.70) 0%,
+      rgba(255, 30, 120, 0.30) 18%,
+      transparent 43%
     ),
     radial-gradient(
-      ellipse at 58% 48%,
-      rgba(65, 85, 255, 0.34) 0%,
-      transparent 42%
-    );
+      circle at 62% 42%,
+      rgba(40, 110, 255, 0.55) 0%,
+      transparent 38%
+    ) !important;
 
-  animation: avjLightTwo 24s ease-in-out infinite alternate !important;
+  opacity: 0.34;
+  filter: blur(35px);
+
+  animation: avjColorShiftB 25s ease-in-out infinite alternate !important;
 }
 
-@keyframes avjLightOne {
+
+@keyframes avjColorShiftA {
   0% {
-    opacity: 0.10;
+    opacity: 0.28;
+    filter: blur(35px) hue-rotate(0deg);
     transform: translateX(-1%);
   }
 
   50% {
-    opacity: 0.22;
+    opacity: 0.48;
+    filter: blur(35px) hue-rotate(35deg);
   }
 
   100% {
-    opacity: 0.12;
+    opacity: 0.32;
+    filter: blur(35px) hue-rotate(75deg);
     transform: translateX(2%);
   }
 }
 
-@keyframes avjLightTwo {
+
+@keyframes avjColorShiftB {
   0% {
-    opacity: 0.08;
+    opacity: 0.26;
+    filter: blur(35px) hue-rotate(0deg);
     transform: translateX(2%);
   }
 
   50% {
-    opacity: 0.18;
+    opacity: 0.44;
+    filter: blur(35px) hue-rotate(-35deg);
   }
 
   100% {
-    opacity: 0.10;
+    opacity: 0.30;
+    filter: blur(35px) hue-rotate(-75deg);
     transform: translateX(-2%);
   }
 }

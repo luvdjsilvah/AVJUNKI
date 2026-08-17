@@ -1,6 +1,11 @@
 /* =========================================================
    AV JUNKI — DJ PAGE
-   CLEAN BUILD
+   COMPLETE CLEAN REPLACEMENT
+   ========================================================= */
+
+
+/* =========================================================
+   MASTER SETTINGS
    ========================================================= */
 
 :root {
@@ -8,11 +13,13 @@
   --white: #ffffff;
   --red: #e51b23;
 
+  /* VIDEO SCREEN */
   --screen-left: 35.75%;
   --screen-top: 30.05%;
   --screen-width: 28.55%;
   --screen-height: 18.55%;
 
+  /* PLATTERS — PAUSED FOR NOW */
   --platter-left-x: 28.45%;
   --platter-left-y: 84.05%;
   --platter-left-size: 8.35%;
@@ -22,7 +29,14 @@
   --platter-right-size: 8.35%;
 }
 
-* { box-sizing: border-box; }
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -33,18 +47,31 @@ body {
   font-family: "Montserrat", Arial, sans-serif;
 }
 
-body { overflow-x: hidden; }
+body {
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .dj-header {
   position: fixed;
   inset: 0 0 auto 0;
+
   z-index: 50;
+
   min-height: 72px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 24px;
+
   padding: 14px clamp(18px, 3vw, 52px);
+
   background:
     linear-gradient(
       180deg,
@@ -54,176 +81,287 @@ body { overflow-x: hidden; }
     );
 }
 
+
 .dj-home,
 .dj-nav a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
 }
+
 
 .dj-home {
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
+
 .dj-nav {
   display: flex;
   align-items: center;
+
   gap: clamp(14px, 2vw, 30px);
+
   font-size: 0.82rem;
   font-weight: 600;
 }
 
+
 .dj-nav a {
   opacity: 0.92;
-  transition: opacity 180ms ease;
+
+  transition:
+    opacity 180ms ease;
 }
 
-.dj-nav a:hover,
-.dj-nav a:focus-visible { opacity: 1; }
 
-.dj-nav .dj-book {
-  padding: 11px 16px;
-  background: var(--red);
-  border-radius: 4px;
+.dj-nav a:hover,
+.dj-nav a:focus-visible {
   opacity: 1;
 }
 
+
+.dj-nav .dj-book {
+  padding: 11px 16px;
+
+  background: var(--red);
+
+  border-radius: 4px;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
 .dj-page,
-.dj-experience { min-height: 100vh; }
+.dj-experience {
+  min-height: 100vh;
+}
+
 
 .dj-experience {
   display: grid;
   place-items: center;
-  background: #000;
+
+  background: #000000;
 }
+
+
+/* =========================================================
+   16:9 MASTER STAGE
+   ========================================================= */
 
 .dj-stage {
   position: relative;
+
   width: min(100vw, 177.7777778vh);
+
   aspect-ratio: 16 / 9;
+
   overflow: hidden;
+
   isolation: isolate;
-  background: #000;
+
+  background: #000000;
 }
+
+
+/* =========================================================
+   MASTER HERO IMAGE
+   ========================================================= */
 
 .dj-master {
   position: absolute;
+
   inset: 0;
+
   z-index: 1;
+
   width: 100%;
   height: 100%;
+
   object-fit: contain;
+
   user-select: none;
   pointer-events: none;
 }
 
+
+/* =========================================================
+   VIDEO SCREEN
+   ========================================================= */
+
 .dj-screen {
   position: absolute;
+
   z-index: 4;
+
   left: var(--screen-left);
   top: var(--screen-top);
+
   width: var(--screen-width);
   height: var(--screen-height);
+
   overflow: hidden;
-  background: #000;
+
+  background: #000000;
 }
 
+
 .dj-screen video {
+  display: block;
+
   width: 100%;
   height: 100%;
-  display: block;
+
   object-fit: cover;
   object-position: center;
 }
 
-/* =========================================================
-   COLOR-CHANGING ROOM LIGHTS
 
-   20-second full cycle:
-   Blue -> Purple -> Pink/Red -> Aqua -> Blue
-   One new color about every 5 seconds.
-   Strong on purpose so the movement is easy to see.
+/* =========================================================
+   AV JUNKI COLOR-CHANGING LIGHTS
    ========================================================= */
+
+/*
+   30 SECOND TOTAL CYCLE
+
+   0 sec   = BLUE
+   5 sec   = PURPLE
+   10 sec  = LIGHTS OFF / ORIGINAL HERO
+   15 sec  = PINK / RED
+   20 sec  = AQUA
+   25 sec  = LIGHTS OFF / ORIGINAL HERO
+   30 sec  = BLUE
+
+   NO BLACK OVERLAY IS USED.
+
+   During the OFF stages,
+   opacity becomes 0 and the ORIGINAL hero is revealed.
+*/
+
 
 .dj-lighting {
   display: block;
+
   position: absolute;
+
   inset: 0;
+
   z-index: 8;
+
   pointer-events: none;
-}
-
-/* =========================================================
-   AV JUNKI — LIGHT CYCLE WITH TRUE LIGHTS-OFF PHASE
-   The hero image NEVER changes.
-   Only the added lighting overlays fade in/out.
-   ========================================================= */
-
-.dj-lighting-a {
-  mix-blend-mode: color;
-  background-color: rgb(0, 145, 255);
-  animation: avjRoomColor 30s ease-in-out infinite;
-}
-
-.dj-lighting-b {
-  mix-blend-mode: screen;
-
-  background:
-    radial-gradient(circle at 16% 20%, rgba(255,255,255,0.40), transparent 24%),
-    radial-gradient(circle at 84% 22%, rgba(255,255,255,0.34), transparent 24%),
-    radial-gradient(circle at 48% 15%, rgba(255,255,255,0.20), transparent 30%);
-
-  animation: avjLightDepth 30s ease-in-out infinite;
 }
 
 
 /* MAIN COLOR LIGHT */
 
+.dj-lighting-a {
+  mix-blend-mode: color;
+
+  background-color: rgb(0, 145, 255);
+
+  animation:
+    avjRoomColor 30s ease-in-out infinite;
+}
+
+
+/* SECONDARY ROOM GLOW */
+
+.dj-lighting-b {
+  mix-blend-mode: screen;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 255, 255, 0.46),
+      transparent 26%
+    ),
+
+    radial-gradient(
+      circle at 85% 22%,
+      rgba(255, 255, 255, 0.40),
+      transparent 26%
+    ),
+
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255, 255, 255, 0.23),
+      transparent 31%
+    );
+
+  animation:
+    avjLightDepth 30s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MAIN COLOR CYCLE
+   ========================================================= */
+
 @keyframes avjRoomColor {
 
   /* BLUE */
+
   0% {
     background-color: rgb(0, 145, 255);
     opacity: 0.58;
   }
 
+
   /* PURPLE */
+
   16.66% {
     background-color: rgb(175, 20, 255);
     opacity: 0.58;
   }
 
-  /* LIGHTS OFF — ORIGINAL HERO SHOWS */
+
+  /* LIGHTS OFF */
+
   33.33% {
     opacity: 0;
   }
 
+
   /* PINK / RED */
+
   50% {
     background-color: rgb(255, 25, 95);
     opacity: 0.58;
   }
 
+
   /* AQUA */
+
   66.66% {
     background-color: rgb(0, 220, 185);
     opacity: 0.58;
   }
 
-  /* LIGHTS OFF — ORIGINAL HERO SHOWS */
+
+  /* LIGHTS OFF */
+
   83.33% {
     opacity: 0;
   }
 
-  /* BLUE */
+
+  /* RETURN TO BLUE */
+
   100% {
     background-color: rgb(0, 145, 255);
     opacity: 0.58;
   }
+
 }
 
 
-/* SECONDARY GLOW */
+/* =========================================================
+   SECONDARY LIGHT CYCLE
+   ========================================================= */
 
 @keyframes avjLightDepth {
 
@@ -231,186 +369,327 @@ body { overflow-x: hidden; }
     opacity: 0.42;
   }
 
+
   16.66% {
     opacity: 0.42;
   }
 
+
   /* OFF */
+
   33.33% {
     opacity: 0;
   }
+
 
   50% {
     opacity: 0.42;
   }
 
+
   66.66% {
     opacity: 0.42;
   }
 
+
   /* OFF */
+
   83.33% {
     opacity: 0;
   }
 
+
   100% {
     opacity: 0.42;
   }
+
 }
 
 
-/* PLATTERS PAUSED WHILE LIGHTS / FOG ARE TUNED */
-.dj-platter { display: none; }
-
-@media (max-width: 760px) {
-  .dj-header {
-    min-height: 58px;
-    padding: 10px 14px;
-  }
-
-  .dj-home { font-size: 0.82rem; }
-
-  .dj-nav a:not(.dj-book) { display: none; }
-
-  .dj-book {
-    font-size: 0.72rem;
-    padding: 9px 11px !important;
-  }
-}
 /* =========================================================
-   AV JUNKI — MOVING DANCE FLOOR SMOKE
+   AV JUNKI MOVING DANCE-FLOOR SMOKE
    ========================================================= */
 
+/*
+   IMPORTANT:
+
+   No clip-path.
+   No rectangular gradient mask.
+   No hard edges.
+
+   Smoke begins BELOW the video screen.
+
+   It is intentionally strong right now so we can
+   SEE IT MOVING first.
+
+   After it works, we can lower the opacity.
+*/
+
+
 .dj-smoke {
+  display: block;
+
   position: absolute;
 
-  left: 18%;
-  top: 52%;
-  width: 64%;
-  height: 22%;
+  left: 12%;
+  top: 50%;
 
-  z-index: 3;
+  width: 76%;
+  height: 24%;
+
+  /*
+     Master image = 1
+     Video = 4
+     Smoke = 5
+     Lighting = 8
+  */
+
+  z-index: 5;
 
   overflow: visible;
+
   pointer-events: none;
 }
 
 
-/* INDIVIDUAL SMOKE CLOUDS */
+/* =========================================================
+   SHARED SMOKE CLOUD
+   ========================================================= */
 
 .smoke-cloud {
+  display: block;
+
   position: absolute;
 
-  width: 38%;
-  height: 55%;
+  width: 46%;
+  height: 68%;
 
   border-radius: 50%;
 
   background:
+
     radial-gradient(
-      ellipse at center,
-      rgba(245, 235, 255, 0.55) 0%,
-      rgba(225, 205, 255, 0.35) 28%,
-      rgba(205, 175, 240, 0.18) 50%,
-      transparent 72%
+      ellipse at 30% 55%,
+      rgba(255, 255, 255, 0.90) 0%,
+      rgba(240, 225, 255, 0.66) 18%,
+      rgba(215, 185, 245, 0.34) 38%,
+      transparent 68%
+    ),
+
+    radial-gradient(
+      ellipse at 65% 42%,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(220, 195, 250, 0.40) 22%,
+      transparent 65%
+    ),
+
+    radial-gradient(
+      ellipse at 50% 72%,
+      rgba(235, 215, 255, 0.54) 0%,
+      rgba(210, 175, 240, 0.27) 27%,
+      transparent 66%
     );
 
-  filter: blur(35px);
+  filter: blur(26px);
 
   pointer-events: none;
-  will-change: transform;
+
+  will-change:
+    transform,
+    opacity;
 }
 
 
-/* LEFT SMOKE */
+/* =========================================================
+   LEFT SMOKE
+   ========================================================= */
 
 .smoke-one {
-  left: -15%;
-  bottom: 5%;
+  left: -38%;
 
-  opacity: 0.60;
+  bottom: 2%;
 
-  animation: smokeRight 6s ease-in-out infinite alternate;
+  opacity: 0.82;
+
+  animation:
+    smokeMoveRight 6s linear infinite;
 }
 
 
-/* CENTER SMOKE */
+/* =========================================================
+   CENTER SMOKE
+   ========================================================= */
 
 .smoke-two {
-  left: 31%;
-  bottom: 0;
+  left: 27%;
 
-  width: 42%;
-  opacity: 0.45;
+  bottom: -6%;
 
-  animation: smokeCenter 5s ease-in-out infinite alternate;
+  width: 48%;
+  height: 72%;
+
+  opacity: 0.64;
+
+  animation:
+    smokeCenterDrift 5s ease-in-out infinite alternate;
 }
 
 
-/* RIGHT SMOKE */
+/* =========================================================
+   RIGHT SMOKE
+   ========================================================= */
 
 .smoke-three {
-  right: -15%;
-  bottom: 8%;
+  right: -38%;
 
-  opacity: 0.55;
+  bottom: 5%;
 
-  animation: smokeLeft 7s ease-in-out infinite alternate;
+  opacity: 0.76;
+
+  animation:
+    smokeMoveLeft 7s linear infinite;
 }
 
 
-@keyframes smokeRight {
+/* =========================================================
+   LEFT TO RIGHT
+   ========================================================= */
 
-  from {
+@keyframes smokeMoveRight {
+
+  0% {
     transform:
-      translateX(0)
-      translateY(6px)
-      scale(1);
+      translate3d(0, 4px, 0)
+      scaleX(1)
+      scaleY(0.90);
   }
 
-  to {
+
+  50% {
     transform:
-      translateX(115%)
-      translateY(-8px)
-      scale(1.15);
+      translate3d(120%, -5px, 0)
+      scaleX(1.14)
+      scaleY(1);
   }
 
-}
 
-
-@keyframes smokeLeft {
-
-  from {
+  100% {
     transform:
-      translateX(0)
-      translateY(4px)
-      scale(1);
-  }
-
-  to {
-    transform:
-      translateX(-115%)
-      translateY(-8px)
-      scale(1.15);
+      translate3d(240%, 1px, 0)
+      scaleX(1.05)
+      scaleY(0.94);
   }
 
 }
 
 
-@keyframes smokeCenter {
+/* =========================================================
+   RIGHT TO LEFT
+   ========================================================= */
 
-  from {
+@keyframes smokeMoveLeft {
+
+  0% {
     transform:
-      translateX(-15%)
-      translateY(5px)
-      scale(0.95);
+      translate3d(0, 2px, 0)
+      scaleX(1)
+      scaleY(0.92);
   }
 
-  to {
+
+  50% {
     transform:
-      translateX(15%)
-      translateY(-10px)
-      scale(1.18);
+      translate3d(-120%, -7px, 0)
+      scaleX(1.12)
+      scaleY(1);
+  }
+
+
+  100% {
+    transform:
+      translate3d(-240%, 1px, 0)
+      scaleX(1.04)
+      scaleY(0.94);
+  }
+
+}
+
+
+/* =========================================================
+   CENTER SMOKE MOVEMENT
+   ========================================================= */
+
+@keyframes smokeCenterDrift {
+
+  0% {
+    transform:
+      translate3d(-20%, 10px, 0)
+      scaleX(0.92)
+      scaleY(0.82);
+
+    opacity: 0.48;
+  }
+
+
+  50% {
+    transform:
+      translate3d(0, -4px, 0)
+      scaleX(1.08)
+      scaleY(0.94);
+
+    opacity: 0.72;
+  }
+
+
+  100% {
+    transform:
+      translate3d(20%, -12px, 0)
+      scaleX(1.18)
+      scaleY(1);
+
+    opacity: 0.58;
+  }
+
+}
+
+
+/* =========================================================
+   PLATTERS
+   PAUSED UNTIL LIGHTS + SMOKE ARE FINISHED
+   ========================================================= */
+
+.dj-platter {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .dj-header {
+    min-height: 58px;
+
+    padding: 10px 14px;
+  }
+
+
+  .dj-home {
+    font-size: 0.82rem;
+  }
+
+
+  .dj-nav a:not(.dj-book) {
+    display: none;
+  }
+
+
+  .dj-book {
+    font-size: 0.72rem;
+
+    padding: 9px 11px !important;
   }
 
 }

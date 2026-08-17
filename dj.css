@@ -153,34 +153,109 @@ body { overflow-x: hidden; }
   pointer-events: none;
 }
 
+/* =========================================================
+   AV JUNKI — LIGHT CYCLE WITH TRUE LIGHTS-OFF PHASE
+   The hero image NEVER changes.
+   Only the added lighting overlays fade in/out.
+   ========================================================= */
+
 .dj-lighting-a {
-  opacity: 0.58;
   mix-blend-mode: color;
   background-color: rgb(0, 145, 255);
-  animation: avjRoomColor 20s ease-in-out infinite;
+  animation: avjRoomColor 30s ease-in-out infinite;
 }
 
 .dj-lighting-b {
-  opacity: 0.42;
   mix-blend-mode: screen;
+
   background:
     radial-gradient(circle at 16% 20%, rgba(255,255,255,0.40), transparent 24%),
     radial-gradient(circle at 84% 22%, rgba(255,255,255,0.34), transparent 24%),
     radial-gradient(circle at 48% 15%, rgba(255,255,255,0.20), transparent 30%);
-  animation: avjLightPulse 10s ease-in-out infinite alternate;
+
+  animation: avjLightDepth 30s ease-in-out infinite;
 }
+
+
+/* MAIN COLOR LIGHT */
 
 @keyframes avjRoomColor {
-  0%   { background-color: rgb(0, 145, 255); }
-  25%  { background-color: rgb(175, 20, 255); }
-  50%  { background-color: rgb(255, 25, 95); }
-  75%  { background-color: rgb(0, 220, 185); }
-  100% { background-color: rgb(0, 145, 255); }
+
+  /* BLUE */
+  0% {
+    background-color: rgb(0, 145, 255);
+    opacity: 0.58;
+  }
+
+  /* PURPLE */
+  16.66% {
+    background-color: rgb(175, 20, 255);
+    opacity: 0.58;
+  }
+
+  /* LIGHTS OFF — ORIGINAL HERO SHOWS */
+  33.33% {
+    opacity: 0;
+  }
+
+  /* PINK / RED */
+  50% {
+    background-color: rgb(255, 25, 95);
+    opacity: 0.58;
+  }
+
+  /* AQUA */
+  66.66% {
+    background-color: rgb(0, 220, 185);
+    opacity: 0.58;
+  }
+
+  /* LIGHTS OFF — ORIGINAL HERO SHOWS */
+  83.33% {
+    opacity: 0;
+  }
+
+  /* BLUE */
+  100% {
+    background-color: rgb(0, 145, 255);
+    opacity: 0.58;
+  }
 }
 
-@keyframes avjLightPulse {
-  0%   { opacity: 0.24; transform: scale(1); }
-  100% { opacity: 0.46; transform: scale(1.025); }
+
+/* SECONDARY GLOW */
+
+@keyframes avjLightDepth {
+
+  0% {
+    opacity: 0.42;
+  }
+
+  16.66% {
+    opacity: 0.42;
+  }
+
+  /* OFF */
+  33.33% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.42;
+  }
+
+  66.66% {
+    opacity: 0.42;
+  }
+
+  /* OFF */
+  83.33% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.42;
+  }
 }
 
 /* =========================================================

@@ -331,7 +331,7 @@ body {
   display: block;
   position: absolute;
 
-  width: 58%;
+  width: 88%;
   height: 76%;
 
   border-radius: 50%;
@@ -371,7 +371,7 @@ body {
 .smoke-one {
   left: -52%;
   bottom: -1%;
-  opacity: 0.38;
+  opacity: 0.18;
   animation: smokeMoveRight 8s linear infinite;
 }
 
@@ -384,7 +384,7 @@ body {
   left: 18%;
   bottom: -10%;
 
-  width: 64%;
+  width: 84%;
   height: 80%;
 
   opacity: 0.38;
@@ -400,7 +400,7 @@ body {
   right: -52%;
   bottom: 1%;
 
-  opacity: 0.38;
+  opacity: 0.18;
 
   animation: smokeMoveLeft 9s linear infinite;
 }
@@ -500,7 +500,7 @@ body {
       translate3d(-28%, 10px, 0)
       scaleX(1.02)
       scaleY(0.82);
-    opacity: 0.38;
+    opacity: 0.18;
   }
 
   50% {
@@ -508,7 +508,7 @@ body {
       translate3d(0, -5px, 0)
       scaleX(1.24)
       scaleY(0.96);
-    opacity: 0.50;
+    opacity: 0.18;
   }
 
   100% {
@@ -516,7 +516,7 @@ body {
       translate3d(28%, -12px, 0)
       scaleX(1.10)
       scaleY(0.88);
-    opacity: 0.38;
+    opacity: 0.18;
   }
 }
 

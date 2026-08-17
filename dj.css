@@ -262,54 +262,201 @@ body { overflow-x: hidden; }
    DANCE-FLOOR FOG
    ========================================================= */
 
+/* =========================================================
+   AV JUNKI — MOVING DANCE FLOOR FOG
+   Strong first pass so movement is clearly visible.
+   ========================================================= */
+
 .dj-fog-zone {
   display: block;
   position: absolute;
+
+  /* Dance floor only */
+  left: 19%;
+  top: 43%;
+  width: 62%;
+  height: 25%;
+
   z-index: 9;
-  left: 22%;
-  top: 43.5%;
-  width: 56%;
-  height: 21%;
   overflow: hidden;
   pointer-events: none;
-  clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%);
+
+  /*
+    Perspective shape with a center notch.
+    This helps keep fog from washing across the DJ's body.
+  */
+  clip-path: polygon(
+    10% 0%,
+    90% 0%,
+    100% 100%,
+    65% 100%,
+    58% 62%,
+    42% 62%,
+    35% 100%,
+    0% 100%
+  );
 }
+
+
+/* BOTH FOG LAYERS */
 
 .dj-fog {
   position: absolute;
-  left: -35%;
+  left: -40%;
   bottom: 0;
-  width: 150%;
+
+  width: 165%;
   height: 100%;
-  opacity: 0.20;
-  filter: blur(18px);
+
+  filter: blur(20px);
   mix-blend-mode: screen;
+
   background:
-    radial-gradient(ellipse at 12% 58%, rgba(255,255,255,0.42), transparent 27%),
-    radial-gradient(ellipse at 39% 45%, rgba(220,185,255,0.36), transparent 30%),
-    radial-gradient(ellipse at 68% 62%, rgba(255,255,255,0.34), transparent 28%),
-    radial-gradient(ellipse at 92% 48%, rgba(205,165,255,0.34), transparent 29%);
-  will-change: transform;
+    radial-gradient(
+      ellipse at 8% 58%,
+      rgba(255,255,255,0.70) 0%,
+      rgba(230,205,255,0.42) 18%,
+      transparent 40%
+    ),
+
+    radial-gradient(
+      ellipse at 30% 40%,
+      rgba(220,170,255,0.62) 0%,
+      rgba(210,160,255,0.30) 20%,
+      transparent 43%
+    ),
+
+    radial-gradient(
+      ellipse at 53% 63%,
+      rgba(255,255,255,0.58) 0%,
+      rgba(225,205,255,0.28) 19%,
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 76% 44%,
+      rgba(215,165,255,0.60) 0%,
+      rgba(205,155,255,0.28) 20%,
+      transparent 43%
+    ),
+
+    radial-gradient(
+      ellipse at 96% 60%,
+      rgba(255,255,255,0.62) 0%,
+      rgba(230,205,255,0.30) 18%,
+      transparent 40%
+    );
+
+  will-change: transform, opacity;
 }
+
+
+/* FRONT / MAIN FOG */
 
 .dj-fog-one {
-  animation: avjFogLeftToRight 12s linear infinite;
+  opacity: 0.38;
+
+  animation:
+    avjFogLeftToRight 8s ease-in-out infinite alternate,
+    avjFogBreathe 5s ease-in-out infinite alternate;
 }
+
+
+/* SECOND, THINNER FOG LAYER */
 
 .dj-fog-two {
-  bottom: 12%;
-  opacity: 0.13;
-  animation: avjFogRightToLeft 15s linear infinite;
+  bottom: 15%;
+  opacity: 0.24;
+
+  transform: scaleY(0.72);
+
+  animation:
+    avjFogRightToLeft 10s ease-in-out infinite alternate,
+    avjFogBreatheTwo 6s ease-in-out infinite alternate;
 }
+
+
+/* LEFT -> RIGHT */
 
 @keyframes avjFogLeftToRight {
-  from { transform: translateX(-10%); }
-  to   { transform: translateX(28%); }
+
+  0% {
+    transform:
+      translate3d(-12%, 2%, 0)
+      scaleX(1.02)
+      scaleY(0.88);
+  }
+
+  50% {
+    transform:
+      translate3d(8%, -2%, 0)
+      scaleX(1.08)
+      scaleY(0.94);
+  }
+
+  100% {
+    transform:
+      translate3d(27%, 1%, 0)
+      scaleX(1.04)
+      scaleY(0.90);
+  }
+
 }
 
+
+/* RIGHT -> LEFT */
+
 @keyframes avjFogRightToLeft {
-  from { transform: translateX(22%); }
-  to   { transform: translateX(-18%); }
+
+  0% {
+    transform:
+      translate3d(22%, 0, 0)
+      scaleX(1.05)
+      scaleY(0.72);
+  }
+
+  50% {
+    transform:
+      translate3d(2%, -3%, 0)
+      scaleX(1.10)
+      scaleY(0.78);
+  }
+
+  100% {
+    transform:
+      translate3d(-23%, 1%, 0)
+      scaleX(1.03)
+      scaleY(0.74);
+  }
+
+}
+
+
+/* SLIGHT DENSITY CHANGE */
+
+@keyframes avjFogBreathe {
+
+  0% {
+    opacity: 0.28;
+  }
+
+  100% {
+    opacity: 0.42;
+  }
+
+}
+
+
+@keyframes avjFogBreatheTwo {
+
+  0% {
+    opacity: 0.16;
+  }
+
+  100% {
+    opacity: 0.28;
+  }
+
 }
 
 /* PLATTERS PAUSED WHILE LIGHTS / FOG ARE TUNED */

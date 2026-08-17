@@ -263,198 +263,109 @@ body { overflow-x: hidden; }
    ========================================================= */
 
 /* =========================================================
-   AV JUNKI — MOVING DANCE FLOOR FOG
-   Strong first pass so movement is clearly visible.
+   AV JUNKI — CLEAR MOVING FLOOR FOG
    ========================================================= */
 
 .dj-fog-zone {
   display: block;
   position: absolute;
 
-  /* Dance floor only */
-  left: 19%;
-  top: 43%;
-  width: 62%;
-  height: 25%;
+  left: 20%;
+  top: 44%;
+  width: 60%;
+  height: 22%;
 
   z-index: 9;
   overflow: hidden;
   pointer-events: none;
 
-  /*
-    Perspective shape with a center notch.
-    This helps keep fog from washing across the DJ's body.
-  */
+  /* Keeps fog mainly on the dance floor */
   clip-path: polygon(
-    10% 0%,
-    90% 0%,
+    8% 0%,
+    92% 0%,
     100% 100%,
-    65% 100%,
-    58% 62%,
-    42% 62%,
-    35% 100%,
+    67% 100%,
+    59% 60%,
+    41% 60%,
+    33% 100%,
     0% 100%
   );
 }
 
 
-/* BOTH FOG LAYERS */
+/* SHARED FOG LOOK */
 
 .dj-fog {
   position: absolute;
-  left: -40%;
-  bottom: 0;
 
-  width: 165%;
-  height: 100%;
+  top: 15%;
+  width: 75%;
+  height: 75%;
 
-  filter: blur(20px);
+  border-radius: 50%;
+
+  filter: blur(24px);
   mix-blend-mode: screen;
 
   background:
     radial-gradient(
-      ellipse at 8% 58%,
-      rgba(255,255,255,0.70) 0%,
-      rgba(230,205,255,0.42) 18%,
-      transparent 40%
-    ),
-
-    radial-gradient(
-      ellipse at 30% 40%,
-      rgba(220,170,255,0.62) 0%,
-      rgba(210,160,255,0.30) 20%,
-      transparent 43%
-    ),
-
-    radial-gradient(
-      ellipse at 53% 63%,
-      rgba(255,255,255,0.58) 0%,
-      rgba(225,205,255,0.28) 19%,
-      transparent 42%
-    ),
-
-    radial-gradient(
-      ellipse at 76% 44%,
-      rgba(215,165,255,0.60) 0%,
-      rgba(205,155,255,0.28) 20%,
-      transparent 43%
-    ),
-
-    radial-gradient(
-      ellipse at 96% 60%,
-      rgba(255,255,255,0.62) 0%,
-      rgba(230,205,255,0.30) 18%,
-      transparent 40%
+      ellipse at center,
+      rgba(255,255,255,0.75) 0%,
+      rgba(220,175,255,0.50) 24%,
+      rgba(190,130,255,0.24) 48%,
+      transparent 72%
     );
 
-  will-change: transform, opacity;
+  will-change: transform;
 }
 
 
-/* FRONT / MAIN FOG */
+/* LEFT TO RIGHT CLOUD */
 
 .dj-fog-one {
-  opacity: 0.38;
+  left: -55%;
+  opacity: 0.48;
 
-  animation:
-    avjFogLeftToRight 8s ease-in-out infinite alternate,
-    avjFogBreathe 5s ease-in-out infinite alternate;
+  animation: fogTravelRight 6s linear infinite;
 }
 
 
-/* SECOND, THINNER FOG LAYER */
+/* RIGHT TO LEFT CLOUD */
 
 .dj-fog-two {
-  bottom: 15%;
-  opacity: 0.24;
+  right: -55%;
+  opacity: 0.34;
+  top: 32%;
 
-  transform: scaleY(0.72);
-
-  animation:
-    avjFogRightToLeft 10s ease-in-out infinite alternate,
-    avjFogBreatheTwo 6s ease-in-out infinite alternate;
+  animation: fogTravelLeft 8s linear infinite;
 }
 
 
-/* LEFT -> RIGHT */
+/* CLEAR LEFT -> RIGHT MOVEMENT */
 
-@keyframes avjFogLeftToRight {
+@keyframes fogTravelRight {
 
   0% {
-    transform:
-      translate3d(-12%, 2%, 0)
-      scaleX(1.02)
-      scaleY(0.88);
-  }
-
-  50% {
-    transform:
-      translate3d(8%, -2%, 0)
-      scaleX(1.08)
-      scaleY(0.94);
+    transform: translateX(0);
   }
 
   100% {
-    transform:
-      translate3d(27%, 1%, 0)
-      scaleX(1.04)
-      scaleY(0.90);
+    transform: translateX(210%);
   }
 
 }
 
 
-/* RIGHT -> LEFT */
+/* CLEAR RIGHT -> LEFT MOVEMENT */
 
-@keyframes avjFogRightToLeft {
+@keyframes fogTravelLeft {
 
   0% {
-    transform:
-      translate3d(22%, 0, 0)
-      scaleX(1.05)
-      scaleY(0.72);
-  }
-
-  50% {
-    transform:
-      translate3d(2%, -3%, 0)
-      scaleX(1.10)
-      scaleY(0.78);
+    transform: translateX(0);
   }
 
   100% {
-    transform:
-      translate3d(-23%, 1%, 0)
-      scaleX(1.03)
-      scaleY(0.74);
-  }
-
-}
-
-
-/* SLIGHT DENSITY CHANGE */
-
-@keyframes avjFogBreathe {
-
-  0% {
-    opacity: 0.28;
-  }
-
-  100% {
-    opacity: 0.42;
-  }
-
-}
-
-
-@keyframes avjFogBreatheTwo {
-
-  0% {
-    opacity: 0.16;
-  }
-
-  100% {
-    opacity: 0.28;
+    transform: translateX(-210%);
   }
 
 }

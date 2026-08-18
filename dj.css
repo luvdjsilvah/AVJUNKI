@@ -348,7 +348,7 @@ a { color: inherit; }
   left: 50%;
   right: auto;
   bottom: 2.8%;
-  width: 43.5%;
+  width: 53.5%;
   transform: translateX(-50%);
 }
 
@@ -456,7 +456,7 @@ a { color: inherit; }
     left: 50%;
     right: auto;
     bottom: 2%;
-    width: 43.5%;
+    width: 53.5%;
     transform: translateX(-50%);
   }
 }

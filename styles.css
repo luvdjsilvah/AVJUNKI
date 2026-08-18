@@ -751,9 +751,9 @@ select {
     height: 2px;
   }
 
-  .hero-dj-name {
-    font-size: clamp(1.15rem, 5vw, 1.55rem);
-  }
+ .hero-dj-logo {
+  width: 160px;
+}
 
   .portfolio-grid,
   .service-grid,

@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AV Junki provides professional audio, video, photography, and DJ services." />
+  <title>AV Junki | Audio, Video, Photography & DJ Services</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="dj-player.css">
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="AV Junki home">
+        <img src="assets/images/avjunki-logo.png" alt="AV JUNKI logo">
+      </a>
+
+      <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+       <a href="https://calendly.com/luvdjsilvah/av-junki-consultation"
+   class="button button-primary"
+   target="_blank"
+   rel="noopener noreferrer">
+   Book Consultation
+</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="AV Junki introduction">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <div class="hero-copy">
+          <h1 class="hero-title">
+            <span>CREATE.</span>
+            <span>CAPTURE.</span>
+            <span class="hero-title-accent">EXPERIENCE.</span>
+          </h1>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Send Inquiry</a>
+            <a class="button button-outline" href="#portfolio">View Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What We Do</p>
+          <h2>Services</h2>
+          <p>From planning to final delivery, AV Junki brings the technical skill and creative vision your project deserves.</p>
+        </div>
+
+        <div class="service-grid">
+
+  <article class="service-card">
+  <div class="service-image">
+    <img src="assets/images/audio-production.jpg"
+         alt="AV Junki audio production"
+         loading="lazy">
+           alt="AV Junki audio production"
+           loading="lazy">
+    </div>
+    <div class="service-card-content">
+      <span class="service-number">01</span>
+      <h3>Audio Production</h3>
+      <p>Live sound, recording, mixing, event audio support, podcast audio, and professional sound solutions.</p>
+    </div>
+  </article>
+
+  <article class="service-card">
+    <div class="service-image">
+      <img src="assets/images/video-production.jpg"
+           alt="AV Junki video production"
+           loading="lazy">
+    </div>
+    <div class="service-card-content">
+      <span class="service-number">02</span>
+      <h3>Video Production</h3>
+      <p>4K video production, interviews, event coverage, promotional videos, music videos, and branded content.</p>
+    </div>
+  </article>
+
+  <article class="service-card" onclick="window.location.href='gallery.html';" style="cursor:pointer;">
+    <div class="service-image">
+      <img src="assets/images/photography.jpg"
+           alt="AV Junki photography"
+           loading="lazy">
+    </div>
+    <div class="service-card-content">
+      <span class="service-number">03</span>
+      <h3>Photography</h3>
+      <p>Events, portraits, branding, lifestyle photography, product photography, and social media content.</p>
+    </div>
+  </article>
+
+<article class="service-card" onclick="window.location.href='dj.html';" style="cursor:pointer;">
+    <div class="service-image">
+      <img src="assets/images/dj-services.jpg"
+           alt="AV Junki DJ services"
+           loading="lazy">
+    </div>
+    <div class="service-card-content">
+      <span class="service-number">04</span>
+      <h3>DJ Services</h3>
+      <p>Professional DJ entertainment for private events, corporate functions, celebrations, and special occasions.</p>
+    </div>
+  </article>
+
+</div>
+      </div>
+    </section>
+
+    <section class="section section-black" id="portfolio">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Portfolio</h2>
+          <p>Replace the sample files below with your own photos and 4K videos.</p>
+        </div>
+
+        <div class="portfolio-filters" role="group" aria-label="Portfolio filters">
+          <button class="filter-button active" data-filter="all">All</button>
+          <button class="filter-button" data-filter="video">Video</button>
+          <button class="filter-button" data-filter="photo" onclick="window.location.href='gallery.html';">Photography</button>
+          <button class="filter-button" data-filter="dj">DJ</button>
+          <button class="filter-button" data-filter="audio">Audio</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-item" data-category="video">
+            <div class="media-frame">
+              <video controls preload="metadata" poster="assets/images/video-poster-1.jpg">
+                <source src="assets/videos/video-1.mp4" type="video/mp4" />
+                Your browser does not support HTML video.
+              </video>
+            </div>
+            <div class="portfolio-info">
+              <p>Video Production</p>
+              <h3>Featured Video Project</h3>
+            </div>
+          </article>
+
+          <article class="portfolio-item" data-category="photo" onclick="window.location.href='gallery.html';" style="cursor:pointer;">
+            <div class="media-frame">
+            <img class="original-height" src="assets/images/V-pic-1.jpg" alt="Professional photography project" loading="lazy" />
+            </div>
+            <div class="portfolio-info">
+              <p>Photography</p>
+              <h3>Portrait or Event Gallery</h3>
+            </div>
+          </article>
+
+          <article class="portfolio-item" data-category="dj">
+            <div class="media-frame">
+          <img class="original-height" src="assets/images/dj-1.jpg" alt="DJ performance at an event" loading="lazy" />
+            </div>
+            <div class="portfolio-info">
+              <p>DJ Services</p>
+              <h3>Live Event Experience</h3>
+            </div>
+          </article>
+
+          <article class="portfolio-item" data-category="video">
+            <div class="media-frame">
+              <video controls preload="metadata" poster="assets/images/video-poster-2.jpg">
+                <source src="assets/videos/video-2.mp4" type="video/mp4" />
+                Your browser does not support HTML video.
+              </video>
+            </div>
+            <div class="portfolio-info">
+              <p>Video Production</p>
+              <h3>Commercial or Promo Video</h3>
+            </div>
+          </article>
+
+          <article class="portfolio-item" data-category="photo">
+            <div class="media-frame">
+             <img src="assets/images/V-pic-13.jpg" alt="Creative photography project" loading="lazy" />
+            </div>
+            <div class="portfolio-info">
+              <p>Photography</p>
+              <h3>Creative Session</h3>
+            </div>
+          </article>
+
+
+<!-- =========================
+     AV JUNKI DJ CONSOLE
+========================= -->
+
+<article class="portfolio-item avj-dj-card" data-category="audio">
+
+  <div class="avj-dj-console">
+
+    <!-- TOP BRAND BAR -->
+    <div class="avj-dj-topbar">
+
+      <div class="avj-top-status">
+        <span class="avj-led"></span>
+        AV JUNKI AUDIO
+      </div>
+
+      <img
+        class="avj-dj-logo"
+        src="assets/images/avjunki-logo.png"
+        alt="AV JUNKI"
+      >
+
+      <div class="avj-master-title">
+        DUAL DECK PERFORMANCE CONSOLE
+      </div>
+
+    </div>
+
+
+    <!-- MAIN CONTROLLER -->
+    <div class="avj-controller-main">
+
+
+      <!-- ================= DECK A ================= -->
+
+      <section class="avj-deck avj-deck-a">
+
+        <div class="avj-deck-screen">
+
+          <div class="avj-deck-number">
+            DECK A
+          </div>
+
+          <div class="avj-track-title" id="avj-a-title">
+            Captain Of the Sea
+          </div>
+
+          <div class="avj-screen-meta">
+
+            <span id="avj-a-current">
+              0:00
+            </span>
+
+            <span id="avj-a-rate">
+              0.0%
+            </span>
+
+            <span id="avj-a-duration">
+              0:00
+            </span>
+
+          </div>
+
+          <div class="avj-wave-wrap">
+
+            <canvas
+              id="avj-a-wave"
+              class="avj-wave"
+              width="800"
+              height="95">
+            </canvas>
+
+            <input
+              id="avj-a-seek"
+              class="avj-wave-seek"
+              type="range"
+              min="0"
+              max="100"
+              step="0.01"
+              value="0"
+              aria-label="Deck A track position"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="avj-deck-select-row">
+
+          <select
+            id="avj-a-select"
+            class="avj-track-select">
+
+            <option value="0">
+              Captain Of the Sea
+            </option>
+
+            <option value="1">
+              IS SHE
+            </option>
+
+            <option value="2">
+              Jolli Xs
+            </option>
+
+            <option value="3">
+              Podcast Him & Her
+            </option>
+
+            <option value="4">
+              SOAP
+            </option>
+
+            <option value="5">
+              True Luv X
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="avj-deck-hardware">
+
+          <div class="avj-pitch-strip">
+
+            <span>PITCH</span>
+
+            <button
+              id="avj-a-pitch-up"
+              type="button">
+              +
+            </button>
+
+            <input
+              id="avj-a-tempo"
+              class="avj-pitch-slider"
+              type="range"
+              min="0.88"
+              max="1.12"
+              step="0.01"
+              value="1"
+            >
+
+            <button
+              id="avj-a-pitch-down"
+              type="button">
+              −
+            </button>
+
+          </div>
+
+
+          <div class="avj-platter-frame">
+
+            <div
+              class="avj-platter"
+              id="avj-a-platter">
+
+              <img
+                src="assets/images/platter-art.png"
+                alt="Deck A platter artwork"
+              >
+
+              <div class="avj-platter-ring"></div>
+
+              <div class="avj-spindle"></div>
+
+              <div class="avj-position-dot"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="avj-performance-pads">
+
+          <button type="button">
+            HOT CUE 1
+          </button>
+
+          <button type="button">
+            HOT CUE 2
+          </button>
+
+          <button type="button">
+            HOT CUE 3
+          </button>
+
+          <button type="button">
+            HOT CUE 4
+          </button>
+
+        </div>
+
+
+        <div class="avj-transport">
+
+          <button
+            id="avj-a-cue"
+            class="avj-cue"
+            type="button">
+            CUE
+          </button>
+
+          <button
+            id="avj-a-play"
+            class="avj-play"
+            type="button">
+            ▶ PLAY
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================= MIXER ================= -->
+
+      <section class="avj-mixer">
+
+        
+
+
+        <div class="avj-mixer-grid">
+
+
+          <!-- CHANNEL A -->
+
+          <div class="avj-channel">
+
+            <h4>
+              CH 1
+            </h4>
+
+            <label>
+              GAIN
+            </label>
+
+            <input
+              id="avj-a-gain"
+              class="avj-control"
+              type="range"
+              min="0"
+              max="1.5"
+              step="0.01"
+              value="1"
+            >
+
+
+            <label>
+              HIGH
+            </label>
+
+            <input
+              id="avj-a-high"
+              class="avj-control"
+              type="range"
+              min="-18"
+              max="18"
+              step="0.5"
+              value="0"
+            >
+
+
+            <label>
+              MID
+            </label>
+
+            <input
+              id="avj-a-mid"
+              class="avj-control"
+              type="range"
+              min="-18"
+              max="18"
+              step="0.5"
+              value="0"
+            >
+
+
+            <label>
+              LOW
+            </label>
+
+            <input
+              id="avj-a-low"
+              class="avj-control"
+              type="range"
+              min="-18"
+              max="18"
+              step="0.5"
+              value="0"
+            >
+
+
+            <div
+              class="avj-channel-meter"
+              id="avj-a-meter">
+
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+
+            </div>
+
+
+            <label>
+              LEVEL
+            </label>
+
+            <input
+              id="avj-a-level"
+              class="avj-channel-fader"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.85"
+            >
+
+          </div>
+
+
+
+          <!-- MASTER -->
+
+          <div class="avj-master">
+
+            <h4>
+              MASTER
+            </h4>
+
+            <div class="avj-master-meter">
+
+              <div id="avj-master-l">
+
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+
+              </div>
+
+              <div id="avj-master-r">
+
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+
+              </div>
+
+            </div>
+
+
+            <label>
+              MASTER
+            </label>
+
+            <input
+              id="avj-master-volume"
+              class="avj-control"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.9"
+            >
+
+          </div>
+
+
+
+          <!-- CHANNEL B -->
+
+          <div class="avj-channel">
+
+            <h4>
+              CH 2
+            </h4>
+
+            <label>
+              GAIN
+            </label>
+
+            <input
+              id="avj-b-gain"
+              class="avj-control"
+              type="range"
+              min="0"
+              max="1.5"
+              step="0.01"
+              value="1"
+            >
+
+
+            <label>
+              HIGH
+            </label>
+
+            <input
+              id="avj-b-high"
+              class="avj-control"
+              type="range"
+              min="-18"
+              max="18"
+              step="0.5"
+              value="0"
+            >
+
+
+            <label>
+              MID
+            </label>
+
+            <input
+              id="avj-b-mid"
+              class="avj-control"
+              type="range"
+              min="-18"
+              max="18"
+              step="0.5"
+              value="0"
+            >
+
+
+            <label>
+              LOW
+            </label>
+
+            <input
+              id="avj-b-low"
+              class="avj-control"
+              type="range"
+              min="-18"
+              max="18"
+              step="0.5"
+              value="0"
+            >
+
+
+            <div
+              class="avj-channel-meter"
+              id="avj-b-meter">
+
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+
+            </div>
+
+
+            <label>
+              LEVEL
+            </label>
+
+            <input
+              id="avj-b-level"
+              class="avj-channel-fader"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.85"
+            >
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CROSSFADER -->
+
+        <div class="avj-crossfader">
+
+          <span>
+            CROSSFADER
+          </span>
+
+          <input
+            id="avj-crossfader"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.5"
+          >
+
+          <div>
+
+            <span>
+              A
+            </span>
+
+            <span>
+              B
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================= DECK B ================= -->
+
+      <section class="avj-deck avj-deck-b">
+
+        <div class="avj-deck-screen">
+
+          <div class="avj-deck-number">
+            DECK B
+          </div>
+
+          <div
+            class="avj-track-title"
+            id="avj-b-title">
+
+            Podcast Him & Her
+
+          </div>
+
+          <div class="avj-screen-meta">
+
+            <span id="avj-b-current">
+              0:00
+            </span>
+
+            <span id="avj-b-rate">
+              0.0%
+            </span>
+
+            <span id="avj-b-duration">
+              0:00
+            </span>
+
+          </div>
+
+          <div class="avj-wave-wrap">
+
+            <canvas
+              id="avj-b-wave"
+              class="avj-wave"
+              width="800"
+              height="95">
+            </canvas>
+
+            <input
+              id="avj-b-seek"
+              class="avj-wave-seek"
+              type="range"
+              min="0"
+              max="100"
+              step="0.01"
+              value="0"
+              aria-label="Deck B track position"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="avj-deck-select-row">
+
+          <select
+            id="avj-b-select"
+            class="avj-track-select">
+
+            <option value="0">
+              Captain Of the Sea
+            </option>
+
+            <option value="1">
+              IS SHE
+            </option>
+
+            <option value="2">
+              Jolli Xs
+            </option>
+
+            <option value="3" selected>
+              Podcast Him & Her
+            </option>
+
+            <option value="4">
+              SOAP
+            </option>
+
+            <option value="5">
+              True Luv X
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="avj-deck-hardware">
+
+          <div class="avj-platter-frame">
+
+            <div
+              class="avj-platter"
+              id="avj-b-platter">
+
+              <img
+               src="assets/images/platter-art.png"
+                alt="Deck B platter artwork"
+              >
+
+              <div class="avj-platter-ring"></div>
+
+              <div class="avj-spindle"></div>
+
+              <div class="avj-position-dot"></div>
+
+            </div>
+
+          </div>
+
+
+          <div class="avj-pitch-strip">
+
+            <span>
+              PITCH
+            </span>
+
+            <button
+              id="avj-b-pitch-up"
+              type="button">
+              +
+            </button>
+
+            <input
+              id="avj-b-tempo"
+              class="avj-pitch-slider"
+              type="range"
+              min="0.88"
+              max="1.12"
+              step="0.01"
+              value="1"
+            >
+
+            <button
+              id="avj-b-pitch-down"
+              type="button">
+              −
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="avj-performance-pads">
+
+          <button type="button">
+            HOT CUE 1
+          </button>
+
+          <button type="button">
+            HOT CUE 2
+          </button>
+
+          <button type="button">
+            HOT CUE 3
+          </button>
+
+          <button type="button">
+            HOT CUE 4
+          </button>
+
+        </div>
+
+
+        <div class="avj-transport">
+
+          <button
+            id="avj-b-cue"
+            class="avj-cue"
+            type="button">
+
+            CUE
+
+          </button>
+
+          <button
+            id="avj-b-play"
+            class="avj-play"
+            type="button">
+
+            ▶ PLAY
+
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+
+    <!-- =========================
+         TRACK BROWSER
+    ========================== -->
+
+    <div class="avj-library">
+
+      <div class="avj-library-toolbar">
+
+        <strong>
+          TRACK LIBRARY
+        </strong>
+
+        <input
+          id="avj-track-search"
+          type="search"
+          placeholder="Search tracks..."
+        >
+
+      </div>
+
+
+      <div class="avj-library-header">
+
+        <span>#</span>
+        <span>TRACK</span>
+        <span>DECK A</span>
+        <span>DECK B</span>
+
+      </div>
+
+
+      <div class="avj-track-row">
+
+        <span>01</span>
+
+        <strong>
+          Captain Of the Sea
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="0">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="0">
+          LOAD
+        </button>
+
+      </div>
+
+
+      <div class="avj-track-row">
+
+        <span>02</span>
+
+        <strong>
+          IS SHE
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="1">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="1">
+          LOAD
+        </button>
+
+      </div>
+
+
+      <div class="avj-track-row">
+
+        <span>03</span>
+
+        <strong>
+          Jolli Xs
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="2">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="2">
+          LOAD
+        </button>
+
+      </div>
+
+
+      <div class="avj-track-row">
+
+        <span>04</span>
+
+        <strong>
+          Podcast Him & Her
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="3">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="3">
+          LOAD
+        </button>
+
+      </div>
+
+
+      <div class="avj-track-row">
+
+        <span>05</span>
+
+        <strong>
+          SOAP
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="4">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="4">
+          LOAD
+        </button>
+
+      </div>
+
+
+      <div class="avj-track-row">
+
+        <span>06</span>
+
+        <strong>
+          True Luv X
+        </strong>
+
+        <button
+          type="button"
+          data-avj-load-a="5">
+          LOAD
+        </button>
+
+        <button
+          type="button"
+          data-avj-load-b="5">
+          LOAD
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <audio
+      id="avj-a-audio"
+      preload="metadata">
+    </audio>
+
+    <audio
+      id="avj-b-audio"
+      preload="metadata">
+    </audio>
+
+  </div>
+
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow red-text">About AV Junki</p>
+          <h2>Creative vision. Technical precision. Professional results.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            AV Junki is a full-service creative media company specializing in audio, video, photography, and DJ entertainment.
+            We help individuals, businesses, brands, and event organizers capture moments, tell stories, and create memorable experiences.
+          </p>
+          <p>
+            Every project is approached with care, creativity, and attention to detail—from the first conversation to the final delivery.
+          </p>
+
+          <div class="stats">
+            <div>
+              <strong>4K</strong>
+              <span>Video Production</span>
+            </div>
+            <div>
+              <strong>30 FPS</strong>
+              <span>Professional Footage</span>
+            </div>
+            <div>
+              <strong>4</strong>
+              <span>Creative Services</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Let’s Connect</p>
+          <h2>Contact</h2>
+          <p>Tell us about your event, brand, production, photography session, or DJ needs.</p>
+
+          <div class="contact-details">
+           <a href="mailto:luvdjsilvah@gmail.com">luvdjsilvah@gmail.com</a>
+          <a href="tel:+17023711030">(702) 371-1030</a>
+          </div>
+
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://www.instagram.com/luvdjsilvah/" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+<a href="https://www.facebook.com/Luvdjsilvah" target="_blank" rel="noopener noreferrer">Facebook</a>
+
+<a href="https://www.tiktok.com/@luvdjsilvah?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a>
+
+<a href="https://www.youtube.com/@luvdjsilvah" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+        </div>
+
+      <form class="contact-form" action="https://formspree.io/f/mbgrlzjn" method="POST">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Phone
+            <input type="tel" name="phone" />
+          </label>
+
+          <label>
+            Service
+            <select name="service">
+              <option value="">Select a service</option>
+              <option>Audio Production</option>
+              <option>Video Production</option>
+              <option>Photography</option>
+              <option>DJ Services</option>
+              <option>Multiple Services</option>
+            </select>
+          </label>
+
+          <label class="full-width">
+            Project Details
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+
+          <button class="button button-primary full-width" type="submit">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+      <div class="container booking-content">
+        <p class="eyebrow">Ready to Start?</p>
+        <h2>Book Your Consultation</h2>
+        <p>Let’s discuss your vision, timeline, location, and the services you need.</p>
+        
+         <a class="button button-white"
+   href="https://calendly.com/luvdjsilvah/av-junki-consultation"
+   target="_blank"
+   rel="noopener noreferrer">
+   Schedule Consultation
+</a>
+       
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> AV Junki. All rights reserved.</p>
+      <a href="#top">Back to Top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="dj-player.js"></script>
+</body>
+</html>

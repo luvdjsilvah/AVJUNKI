@@ -1488,3 +1488,14 @@ serviceCards.forEach((card) => {
     meterLoop();
 
 })();
+const mobileDjFilter = document.querySelector('.filter-button[data-filter="dj"]');
+
+if (mobileDjFilter) {
+  mobileDjFilter.addEventListener("click", (event) => {
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.href = "dj.html";
+    }
+  }, true);
+}

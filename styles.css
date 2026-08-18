@@ -1506,3 +1506,44 @@ select {
 .service-card-content {
   margin: 0 !important;
 }
+/* MOBILE AUDIO PLAYER ENTRY */
+.mobile-audio-entry {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-audio-entry {
+    display: block;
+    width: 100%;
+    padding: 24px 18px;
+    text-align: center;
+    background: #050505;
+    border-top: 1px solid rgba(255,255,255,.12);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+
+  .mobile-audio-entry h3 {
+    margin: 0 0 6px;
+    color: #fff;
+    font-size: 1.25rem;
+    letter-spacing: .08em;
+  }
+
+  .mobile-audio-entry p {
+    margin: 0 0 16px;
+    color: #aaa;
+    font-size: .85rem;
+  }
+
+  .mobile-audio-play {
+    min-width: 180px;
+    min-height: 48px;
+    border: 0;
+    border-radius: 4px;
+    background: #e51b23;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: .08em;
+    cursor: pointer;
+  }
+}

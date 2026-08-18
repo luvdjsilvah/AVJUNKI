@@ -284,13 +284,11 @@ select {
   background: rgba(255,255,255,0.92);
 }
 
-.hero-dj-name {
-  color: #d9782a;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.4rem, 1.75vw, 3.2rem);
-  line-height: 1;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
+.hero-dj-logo {
+  display: block;
+  width: clamp(150px, 12vw, 260px);
+  height: auto;
+  object-fit: contain;
 }
 
 .button {

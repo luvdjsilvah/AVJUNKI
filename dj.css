@@ -263,7 +263,7 @@ a { color: inherit; }
   position: absolute;
   z-index: 25;
   left: 7.5%;
-  top: 66%;
+  top: 65%;
   width: min(28%, 440px);
   color: #fff;
   text-shadow: 0 3px 16px rgba(0,0,0,.72);

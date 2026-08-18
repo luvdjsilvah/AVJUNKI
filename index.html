@@ -163,7 +163,10 @@
   onclick="if (window.innerWidth <= 700) { event.stopImmediatePropagation(); window.location.href='dj.html#top'; }">
   DJ
 </button>
-          <button class="filter-button" data-filter="audio">Audio</button>
+          <button class="filter-button" data-filter="audio"
+  onclick="if (window.innerWidth <= 700) { setTimeout(() => document.getElementById('mobile-audio-player')?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100); }">
+  Audio
+</button>
         </div>
 
         <div class="portfolio-grid">

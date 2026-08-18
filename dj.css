@@ -263,7 +263,7 @@ a { color: inherit; }
   position: absolute;
   z-index: 25;
   left: 7.5%;
-  top: 64%;
+  top: 68%;
   width: min(28%, 440px);
   color: #fff;
   text-shadow: 0 3px 16px rgba(0,0,0,.72);
@@ -448,7 +448,7 @@ a { color: inherit; }
 @media (max-width: 1050px) {
   .dj-hero-copy {
     left: 5%;
-    top: 16%;
+   
     width: 31%;
   }
 

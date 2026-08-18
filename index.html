@@ -156,7 +156,10 @@
           <button class="filter-button active" data-filter="all">All</button>
           <button class="filter-button" data-filter="video">Video</button>
           <button class="filter-button" data-filter="photo" onclick="window.location.href='gallery.html';">Photography</button>
-          <button class="filter-button" data-filter="dj">DJ</button>
+          <button class="filter-button" data-filter="dj"
+  onclick="if (window.innerWidth <= 700) { event.stopImmediatePropagation(); window.location.href='dj.html#top'; }">
+  DJ
+</button>
           <button class="filter-button" data-filter="audio">Audio</button>
         </div>
 

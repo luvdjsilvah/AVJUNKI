@@ -23,3 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("pageshow", () => {
+  if (
+    window.matchMedia("(max-width: 760px)").matches &&
+    !window.location.hash
+  ) {
+    window.scrollTo(0, 0);
+  }
+});

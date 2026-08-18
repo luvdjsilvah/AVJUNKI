@@ -87,6 +87,15 @@
         <div class="service-grid">
 
  <article class="service-card"
+  onclick="if (window.innerWidth <= 700) {
+    document.querySelector('.filter-button[data-filter=&quot;audio&quot;]').click();
+    setTimeout(() => {
+      document.getElementById('mobile-audio-player').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }, 100);
+  }">
   onclick="if (window.innerWidth <= 700) { document.getElementById('mobile-audio-player').scrollIntoView({ behavior: 'smooth', block: 'center' }); }">
   <div class="service-image">
     <img src="assets/images/audio-production.jpg"

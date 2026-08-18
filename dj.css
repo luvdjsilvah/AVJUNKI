@@ -555,7 +555,10 @@ body {
     font-size: .72rem;
     padding: 9px 11px !important;
   }
-
+.dj-experience {
+  min-height: 0;
+  display: block;
+}
   .dj-hero-copy,
   .dj-services-overlay {
     display: none;

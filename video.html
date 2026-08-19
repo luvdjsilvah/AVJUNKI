@@ -1,1 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Video Production | AV Junki</title>
+
+  <meta
+    name="description"
+    content="AV Junki professional video production including event videography, commercial video, interviews, music videos, drone shoots, multi-camera production, editing, color grading and audio for video."
+  >
+
+  <link rel="stylesheet" href="video.css">
+</head>
+
+
+<body>
+
+  <main class="video-page">
+
+
+    <!-- =====================================================
+         STUDIO BACKGROUND
+    ====================================================== -->
+
+    <picture class="studio-background">
+
+      <source
+        media="(max-width: 700px)"
+        srcset="assets/images/video-production-mobile.jpg"
+      >
+
+      <img
+        src="assets/images/video-production-desktop.jpg"
+        alt=""
+        aria-hidden="true"
+      >
+
+    </picture>
+
+
+
+    <!-- =====================================================
+         HEADER / NAVIGATION
+    ====================================================== -->
+
+    <header class="video-header">
+
+      <a
+        href="index.html"
+        class="video-logo"
+        aria-label="AV Junki Home"
+      >
+        AV JUNKI
+      </a>
+
+
+      <nav
+        class="video-nav"
+        aria-label="Video Production Navigation"
+      >
+
+        <a href="index.html">
+          HOME
+        </a>
+
+        <a href="index.html#services">
+          SERVICES
+        </a>
+
+        <a href="index.html#portfolio">
+          PORTFOLIO
+        </a>
+
+        <a href="index.html#about">
+          ABOUT
+        </a>
+
+        <a href="index.html#contact">
+          CONTACT
+        </a>
+
+        <a
+          href="https://calendly.com/luvdjsilvah/av-junki-consultation"
+          class="video-book-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BOOK CONSULTATION
+        </a>
+
+      </nav>
+
+
+      <button
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CURVED VIDEO PLAYER
+    ====================================================== -->
+
+    <section
+      class="main-video-screen"
+      aria-label="AV Junki Video Portfolio Player"
+    >
+
+      <video
+        id="main-video"
+        class="main-video"
+        preload="metadata"
+        playsinline
+        poster="assets/images/video-01-event-thumb.jpg"
+      >
+
+        <source
+          src="assets/videos/video-01-event.mp4"
+          type="video/mp4"
+        >
+
+        Your browser does not support HTML5 video.
+
+      </video>
+
+
+
+      <!-- MAIN PLAY BUTTON -->
+
+      <button
+        id="main-play-button"
+        class="main-play-button"
+        type="button"
+        aria-label="Play video"
+      >
+        ▶
+      </button>
+
+
+
+      <!-- VIDEO CONTROLS -->
+
+      <div class="video-controls">
+
+        <button
+          id="video-play-pause"
+          class="video-control-button"
+          type="button"
+          aria-label="Play video"
+        >
+          ▶
+        </button>
+
+
+        <div class="video-progress-wrap">
+
+          <input
+            id="video-progress"
+            class="video-progress"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            aria-label="Video progress"
+          >
+
+        </div>
+
+
+        <span
+          id="video-time"
+          class="video-time"
+        >
+          0:00 / 0:00
+        </span>
+
+
+        <button
+          id="video-mute"
+          class="video-control-button"
+          type="button"
+          aria-label="Mute video"
+        >
+          🔊
+        </button>
+
+
+        <button
+          id="video-fullscreen"
+          class="video-control-button"
+          type="button"
+          aria-label="Enter fullscreen"
+        >
+          ⛶
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SIX VIDEO THUMBNAILS
+    ====================================================== -->
+
+    <section
+      class="video-thumbnail-bank"
+      aria-label="Select a video"
+    >
+
+
+      <!-- VIDEO 01 -->
+
+      <button
+        class="video-thumbnail active"
+        type="button"
+        data-video-number="01"
+        data-video="assets/videos/video-01-event.mp4"
+        data-poster="assets/images/video-01-event-thumb.jpg"
+        aria-label="Play video 1 Event Production"
+      >
+
+        <img
+          src="assets/images/video-01-event-thumb.jpg"
+          alt="Event production video"
+        >
+
+        <span>01</span>
+
+      </button>
+
+
+
+      <!-- VIDEO 02 -->
+
+      <button
+        class="video-thumbnail"
+        type="button"
+        data-video-number="02"
+        data-video="assets/videos/video-02-commercial.mp4"
+        data-poster="assets/images/video-02-commercial-thumb.jpg"
+        aria-label="Play video 2 Commercial Production"
+      >
+
+        <img
+          src="assets/images/video-02-commercial-thumb.jpg"
+          alt="Commercial video production"
+        >
+
+        <span>02</span>
+
+      </button>
+
+
+
+      <!-- VIDEO 03 -->
+
+      <button
+        class="video-thumbnail"
+        type="button"
+        data-video-number="03"
+        data-video="assets/videos/video-03-music-video.mp4"
+        data-poster="assets/images/video-03-music-video-thumb.jpg"
+        aria-label="Play video 3 Music Video Production"
+      >
+
+        <img
+          src="assets/images/video-03-music-video-thumb.jpg"
+          alt="Music video production"
+        >
+
+        <span>03</span>
+
+      </button>
+
+
+
+      <!-- VIDEO 04 -->
+
+      <button
+        class="video-thumbnail"
+        type="button"
+        data-video-number="04"
+        data-video="assets/videos/video-04-interview.mp4"
+        data-poster="assets/images/video-04-interview-thumb.jpg"
+        aria-label="Play video 4 Interview Production"
+      >
+
+        <img
+          src="assets/images/video-04-interview-thumb.jpg"
+          alt="Interview video production"
+        >
+
+        <span>04</span>
+
+      </button>
+
+
+
+      <!-- VIDEO 05 -->
+
+      <button
+        class="video-thumbnail"
+        type="button"
+        data-video-number="05"
+        data-video="assets/videos/video-05-drone.mp4"
+        data-poster="assets/images/video-05-drone-thumb.jpg"
+        aria-label="Play video 5 Drone Production"
+      >
+
+        <img
+          src="assets/images/video-05-drone-thumb.jpg"
+          alt="Drone video production"
+        >
+
+        <span>05</span>
+
+      </button>
+
+
+
+      <!-- VIDEO 06 -->
+
+      <button
+        class="video-thumbnail"
+        type="button"
+        data-video-number="06"
+        data-video="assets/videos/video-06-multicamera.mp4"
+        data-poster="assets/images/video-06-multicamera-thumb.jpg"
+        aria-label="Play video 6 Multi-Camera Production"
+      >
+
+        <img
+          src="assets/images/video-06-multicamera-thumb.jpg"
+          alt="Multi-camera video production"
+        >
+
+        <span>06</span>
+
+      </button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DESK SWITCHER CLICKABLE HOTSPOTS
+    ====================================================== -->
+
+    <section
+      class="switcher-hotspots"
+      aria-label="Desk Video Selector"
+    >
+
+      <button
+        class="switcher-button active"
+        type="button"
+        data-switch-video="01"
+        aria-label="Select video 1"
+      ></button>
+
+      <button
+        class="switcher-button"
+        type="button"
+        data-switch-video="02"
+        aria-label="Select video 2"
+      ></button>
+
+      <button
+        class="switcher-button"
+        type="button"
+        data-switch-video="03"
+        aria-label="Select video 3"
+      ></button>
+
+      <button
+        class="switcher-button"
+        type="button"
+        data-switch-video="04"
+        aria-label="Select video 4"
+      ></button>
+
+      <button
+        class="switcher-button"
+        type="button"
+        data-switch-video="05"
+        aria-label="Select video 5"
+      ></button>
+
+      <button
+        class="switcher-button"
+        type="button"
+        data-switch-video="06"
+        aria-label="Select video 6"
+      ></button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DESKTOP VIDEO PRODUCTION INFORMATION
+    ====================================================== -->
+
+    <section class="video-production-copy">
+
+      <p class="video-eyebrow">
+        AV JUNKI
+      </p>
+
+
+      <h1>
+
+        <span>
+          VIDEO
+        </span>
+
+        PRODUCTION
+
+      </h1>
+
+
+      <h2>
+        CAPTURE. CREATE. DELIVER.
+      </h2>
+
+
+      <p class="video-description">
+
+        Professional video production for businesses,
+        brands, events and creatives. From concept to
+        final cut, we bring your vision to life.
+
+      </p>
+
+
+      <a
+        href="index.html#portfolio"
+        class="portfolio-button"
+      >
+        VIEW PORTFOLIO
+      </a>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DESKTOP SERVICES
+    ====================================================== -->
+
+    <section class="video-services">
+
+      <h2>
+        OUR SERVICES
+      </h2>
+
+
+      <ul>
+
+        <li>
+          Pre-Production
+        </li>
+
+        <li>
+          Multi-Camera Production
+        </li>
+
+        <li>
+          Event Videography
+        </li>
+
+        <li>
+          Interviews
+        </li>
+
+        <li>
+          Commercial Video
+        </li>
+
+        <li>
+          Music Videos
+        </li>
+
+        <li class="drone-service">
+          Drone Shoots
+        </li>
+
+        <li>
+          Post-Production / Editing
+        </li>
+
+        <li>
+          Color Grading
+        </li>
+
+        <li>
+          Audio for Video
+        </li>
+
+      </ul>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MOBILE CONTENT
+    ====================================================== -->
+
+    <section class="mobile-video-content">
+
+      <p class="mobile-video-eyebrow">
+        AV JUNKI
+      </p>
+
+
+      <h1>
+        VIDEO PRODUCTION
+      </h1>
+
+
+      <p class="mobile-video-tagline">
+        CAPTURE. CREATE. DELIVER.
+      </p>
+
+
+      <p class="mobile-video-description">
+
+        Professional video production for businesses,
+        brands, events and creatives.
+
+      </p>
+
+
+      <button
+        id="mobile-services-button"
+        class="mobile-services-button"
+        type="button"
+        aria-expanded="false"
+      >
+        VIEW SERVICES
+      </button>
+
+
+
+      <div
+        id="mobile-services"
+        class="mobile-services-list"
+      >
+
+        <h2>
+          VIDEO PRODUCTION SERVICES
+        </h2>
+
+
+        <ul>
+
+          <li>
+            Pre-Production
+          </li>
+
+          <li>
+            Multi-Camera Production
+          </li>
+
+          <li>
+            Event Videography
+          </li>
+
+          <li>
+            Interviews
+          </li>
+
+          <li>
+            Commercial Video
+          </li>
+
+          <li>
+            Music Videos
+          </li>
+
+          <li class="drone-service">
+            Drone Shoots
+          </li>
+
+          <li>
+            Post-Production / Editing
+          </li>
+
+          <li>
+            Color Grading
+          </li>
+
+          <li>
+            Audio for Video
+          </li>
+
+        </ul>
+
+
+        <a
+          href="https://calendly.com/luvdjsilvah/av-junki-consultation"
+          class="mobile-book-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BOOK CONSULTATION
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <script src="video.js"></script>
+
+</body>
+
+</html>

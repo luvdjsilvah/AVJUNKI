@@ -1003,3 +1003,69 @@ button {
     top: 71.5%;
   }
 }
+/* =========================================================
+   DESKTOP POSITIONING CORRECTIONS
+========================================================= */
+
+@media (min-width: 701px) {
+
+  /* Keep the entire 16:9 video visible on the ultrawide screen */
+  .main-video {
+    object-fit: contain;
+    object-position: center center;
+    background: #000;
+  }
+
+
+  /* Move VIDEO PRODUCTION into the open wall space
+     between the left camera and the main monitor */
+  .video-production-copy {
+    left: 11.8%;
+    top: 29.2%;
+    width: 11.5%;
+  }
+
+  .video-eyebrow {
+    font-size: clamp(7px, 0.5vw, 11px);
+  }
+
+  .video-production-copy h1 {
+    font-size: clamp(24px, 1.85vw, 38px);
+    line-height: 0.95;
+  }
+
+  .video-production-copy h2 {
+    font-size: clamp(8px, 0.58vw, 13px);
+  }
+
+  .video-description {
+    font-size: clamp(8px, 0.53vw, 12px);
+    line-height: 1.55;
+  }
+
+  .portfolio-button {
+    font-size: clamp(8px, 0.56vw, 12px);
+    padding: 0.85em 1.1em;
+  }
+
+
+  /* Move services into the open wall area
+     between the monitor and right-side equipment */
+  .video-services {
+    right: auto;
+    left: 76.5%;
+    top: 29.1%;
+    width: 8.2%;
+  }
+
+  .video-services h2 {
+    font-size: clamp(9px, 0.65vw, 14px);
+  }
+
+  .video-services li {
+    margin-bottom: 0.72em;
+    padding-left: 1.3em;
+    font-size: clamp(7px, 0.52vw, 11px);
+    line-height: 1.25;
+  }
+}

@@ -1548,3 +1548,57 @@ button {
   }
 
 }
+/* =========================================================
+   MEASURED VIDEO WALL VECTOR
+========================================================= */
+
+@media (min-width: 701px) {
+
+  .video-wall-copy {
+    position: absolute;
+    z-index: 7;
+
+    /*
+      Position measured from the mockup,
+      then anchored against the left edge
+      of the real desktop monitor.
+    */
+    left: 6.2%;
+    top: 20.85%;
+
+    width: 15.25%;
+    height: 36.15%;
+
+    display: block;
+    overflow: visible;
+
+    pointer-events: none;
+  }
+
+  .video-wall-copy .wall-portfolio {
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  .video-wall-copy .wall-portfolio rect {
+    transition: fill 0.2s ease;
+  }
+
+  .video-wall-copy .wall-portfolio:hover rect {
+    fill: #d71920;
+  }
+
+  .video-wall-copy .wall-portfolio:hover polygon {
+    fill: #ffffff;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .video-wall-copy {
+    display: none;
+  }
+
+}

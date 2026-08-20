@@ -1435,3 +1435,116 @@ button {
   }
 
 }
+/* =========================================================
+   FINAL DESKTOP LEFT WALL TEXT
+   DO NOT ADD MORE WALL TEXT OVERRIDES BELOW THIS
+========================================================= */
+
+@media (min-width: 701px) {
+
+  .video-production-copy {
+    position: absolute !important;
+    z-index: 7 !important;
+
+    left: 7.2% !important;
+    top: 20.5% !important;
+    width: 16.5% !important;
+
+    color: #111 !important;
+
+    /*
+      One unified perspective plane.
+      This makes the complete graphic recede with the wall
+      instead of bending individual letters and sentences.
+    */
+    transform:
+      perspective(1100px)
+      rotateY(14deg)
+      skewY(-0.8deg) !important;
+
+    transform-origin: left center !important;
+  }
+
+  .video-production-copy .video-eyebrow {
+    margin: 0 0 1em !important;
+
+    color: #d71920 !important;
+
+    font-size: clamp(8px, 0.6vw, 14px) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.18em !important;
+
+    transform: none !important;
+  }
+
+  .video-production-copy h1 {
+    margin: 0 !important;
+
+    color: #080808 !important;
+
+    font-size: clamp(28px, 2.45vw, 56px) !important;
+    font-weight: 800 !important;
+
+    line-height: 0.94 !important;
+    letter-spacing: -0.05em !important;
+
+    transform: none !important;
+  }
+
+  .video-production-copy h1 span {
+    display: block !important;
+    color: #d71920 !important;
+
+    transform: none !important;
+  }
+
+  .video-production-copy h2 {
+    margin: 1.35em 0 1.1em !important;
+
+    color: #111 !important;
+
+    font-size: clamp(9px, 0.7vw, 16px) !important;
+    font-weight: 800 !important;
+
+    transform: none !important;
+  }
+
+  .video-production-copy .video-description {
+    margin: 0 !important;
+
+    color: #222 !important;
+
+    font-size: clamp(8px, 0.62vw, 14px) !important;
+    font-weight: 500 !important;
+
+    line-height: 1.7 !important;
+
+    transform: none !important;
+  }
+
+  .video-production-copy .portfolio-button {
+    display: inline-block !important;
+
+    margin-top: 1.8em !important;
+    padding: 0.9em 1.35em !important;
+
+    background: #080808 !important;
+    color: #fff !important;
+
+    border: 1px solid #111 !important;
+
+    text-decoration: none !important;
+
+    font-size: clamp(8px, 0.65vw, 15px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+
+    transform: none !important;
+  }
+
+  .video-production-copy .portfolio-button:hover {
+    background: #d71920 !important;
+    color: #fff !important;
+  }
+
+}

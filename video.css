@@ -1336,3 +1336,102 @@ button {
   }
 
 }
+/* =========================================================
+   FINAL LEFT WALL TEXT CURVE
+========================================================= */
+
+@media (min-width: 701px) {
+
+  .video-production-copy {
+    transform: none !important;
+  }
+
+  .video-production-copy .wall-title {
+    margin: 0 !important;
+    line-height: 0.94 !important;
+  }
+
+  /* ACTUAL SEGMENTED CURVE ACROSS VIDEO / PRODUCTION */
+  .video-production-copy .wall-word {
+    display: flex !important;
+    width: max-content !important;
+    max-width: 100% !important;
+
+    color: inherit;
+
+    perspective: 420px;
+    transform: none !important;
+    transform-style: preserve-3d;
+  }
+
+  .video-production-copy .video-word {
+    color: #d71920 !important;
+  }
+
+  .video-production-copy .production-word {
+    color: #080808 !important;
+  }
+
+  .video-production-copy .curve-seg {
+    display: inline-block !important;
+
+    color: inherit !important;
+
+    transform-origin: left center !important;
+    backface-visibility: hidden;
+  }
+
+  .video-production-copy .curve-a {
+    transform: rotateY(2deg) !important;
+  }
+
+  .video-production-copy .curve-b {
+    transform: rotateY(18deg) !important;
+    margin-left: -0.02em;
+  }
+
+  .video-production-copy .curve-c {
+    transform: rotateY(34deg) !important;
+    margin-left: -0.05em;
+  }
+
+  /* SMALLER TEXT FOLLOWS THE SAME WALL */
+  .video-production-copy .wall-row {
+    display: block !important;
+
+    width: max-content;
+    max-width: 100%;
+
+    transform:
+      perspective(460px)
+      rotateY(24deg)
+      skewY(-0.7deg) !important;
+
+    transform-origin: left center !important;
+  }
+
+  .video-production-copy h2.wall-row {
+    margin-top: 1.35em !important;
+    margin-bottom: 1.15em !important;
+  }
+
+  .video-production-copy .video-description {
+    margin: 0 !important;
+    line-height: 1.7 !important;
+  }
+
+  .video-production-copy .video-description .wall-row {
+    margin-bottom: 0.22em;
+  }
+
+  .video-production-copy .wall-button {
+    margin-top: 1.9em !important;
+
+    transform:
+      perspective(460px)
+      rotateY(22deg) !important;
+
+    transform-origin: left center !important;
+  }
+
+}

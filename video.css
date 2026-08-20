@@ -445,7 +445,40 @@ button {
   transform: perspective(1800px) rotateY(4deg) skewY(-0.5deg);
   transform-origin: left center;
 }
+/* LEFT WALL TEXT WRAP */
+.video-production-copy {
+  transform: none;
+}
 
+.video-eyebrow {
+  transform: perspective(1400px) rotateY(10deg);
+  transform-origin: left center;
+}
+
+.video-production-copy h1 {
+  transform: perspective(1400px) rotateY(8deg);
+  transform-origin: left center;
+}
+
+.video-production-copy h1 span {
+  transform: perspective(1400px) rotateY(4deg);
+  transform-origin: left center;
+}
+
+.video-production-copy h2 {
+  transform: perspective(1400px) rotateY(6deg);
+  transform-origin: left center;
+}
+
+.video-description {
+  transform: perspective(1400px) rotateY(4deg);
+  transform-origin: left center;
+}
+
+.portfolio-button {
+  transform: perspective(1400px) rotateY(2deg);
+  transform-origin: left center;
+}
   transform: perspective(1400px) rotateY(-11deg) skewY(-1deg);
   transform-origin: left center;
 }

@@ -47,32 +47,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     "01": {
       src: "assets/videos/video-01-event.mp4",
-      poster: "assets/images/video-01-event-thumb.jpg"
+      poster: "assets/images/video-01-event-poster.jpg"
     },
 
     "02": {
       src: "assets/videos/video-02-commercial.mp4",
-      poster: "assets/images/video-02-commercial-thumb.jpg"
+      poster: "assets/images/video-02-commercial-poster.jpg"
     },
 
     "03": {
       src: "assets/videos/video-03-music-video.mp4",
-      poster: "assets/images/video-03-music-video-thumb.jpg"
+     poster: "assets/images/video-03-music-video-poster.jpg"
     },
 
     "04": {
       src: "assets/videos/video-04-interview.mp4",
-      poster: "assets/images/video-04-interview-thumb.jpg"
+      poster: "assets/images/video-04-interview-poster.jpg"
     },
 
     "05": {
       src: "assets/videos/video-05-drone.mp4",
-      poster: "assets/images/video-05-drone-thumb.jpg"
+      poster: "assets/images/video-05-drone-poster.jpg"
     },
 
     "06": {
       src: "assets/videos/video-06-multicamera.mp4",
-      poster: "assets/images/video-06-multicamera-thumb.jpg"
+     poster: "assets/images/video-06-multicamera-poster.jpg"
     }
 
   };

@@ -435,10 +435,10 @@ button {
   position: absolute;
   z-index: 7;
 
-  left: 5.25%;
-  top: 28.5%;
+ left: 12.8%;
+ top: 23.8%;
 
-  width: 16.3%;
+ width: 11.2%;
 
   color: #111;
 }
@@ -458,7 +458,7 @@ button {
 
   color: #080808;
 
-  font-size: clamp(25px, 2.65vw, 62px);
+  font-size: clamp(23px, 1.7vw, 38px);
   font-weight: 800;
 
   line-height: 0.94;
@@ -475,7 +475,7 @@ button {
 
   color: #111;
 
-  font-size: clamp(9px, 0.72vw, 17px);
+  font-size: clamp(8px, 0.58vw, 13px);
   font-weight: 800;
 }
 
@@ -484,10 +484,10 @@ button {
 
   color: #222;
 
-  font-size: clamp(8px, 0.67vw, 16px);
+  font-size: clamp(8px, 0.54vw, 12px);
   font-weight: 500;
 
-  line-height: 1.65;
+ line-height: 1.55;
 }
 
 .portfolio-button {
@@ -503,7 +503,7 @@ button {
 
   text-decoration: none;
 
-  font-size: clamp(8px, 0.68vw, 16px);
+  font-size: clamp(8px, 0.56vw, 12px);
   font-weight: 700;
 
   letter-spacing: 0.04em;

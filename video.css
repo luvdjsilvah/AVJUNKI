@@ -435,12 +435,16 @@ button {
   position: absolute;
   z-index: 7;
 
-  left: 14.2%;
+  left: 7.2%;
   top: 21.2%;
 
-  width: 18.4%;
+  width: 15.5%;
 
   color: #111;
+
+  transform: perspective(1800px) rotateY(4deg) skewY(-0.5deg);
+  transform-origin: left center;
+}
 
   transform: perspective(1400px) rotateY(-11deg) skewY(-1deg);
   transform-origin: left center;

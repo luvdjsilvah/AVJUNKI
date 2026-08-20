@@ -435,10 +435,10 @@ button {
   position: absolute;
   z-index: 7;
 
- left: 12.8%;
- top: 23.8%;
+  left: 7.2%;
+  top: 22.8%;
 
- width: 11.2%;
+  width: 15.5%;
 
   color: #111;
 }
@@ -458,7 +458,7 @@ button {
 
   color: #080808;
 
-  font-size: clamp(23px, 1.7vw, 38px);
+  font-size: clamp(28px, 2.45vw, 56px);
   font-weight: 800;
 
   line-height: 0.94;
@@ -471,11 +471,11 @@ button {
 }
 
 .video-production-copy h2 {
-  margin: 1.15em 0 0.9em;
+  margin: 1.05em 0 0.9em;
 
   color: #111;
 
-  font-size: clamp(8px, 0.58vw, 13px);
+  font-size: clamp(9px, 0.7vw, 16px);
   font-weight: 800;
 }
 
@@ -484,16 +484,16 @@ button {
 
   color: #222;
 
-  font-size: clamp(8px, 0.54vw, 12px);
+  font-size: clamp(8px, 0.62vw, 14px);
   font-weight: 500;
 
- line-height: 1.55;
+  line-height: 1.6;
 }
 
 .portfolio-button {
   display: inline-block;
 
-  margin-top: 1.7em;
+  margin-top: 1.6em;
   padding: 0.9em 1.35em;
 
   background: #080808;
@@ -503,7 +503,15 @@ button {
 
   text-decoration: none;
 
-  font-size: clamp(8px, 0.56vw, 12px);
+  font-size: clamp(8px, 0.65vw, 15px);
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
   font-weight: 700;
 
   letter-spacing: 0.04em;

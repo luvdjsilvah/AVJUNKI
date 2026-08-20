@@ -435,16 +435,19 @@ button {
   position: absolute;
   z-index: 7;
 
-  left: 7.2%;
-  top: 19.2%;
+  left: 14.2%;
+  top: 21.2%;
 
-  width: 15.5%;
+  width: 18.4%;
 
   color: #111;
+
+  transform: perspective(1400px) rotateY(-11deg) skewY(-1deg);
+  transform-origin: left center;
 }
 
 .video-eyebrow {
-  margin: 0 0 0.8em;
+  margin: 0 0 1.05em;
 
   color: #d71920;
 
@@ -471,7 +474,7 @@ button {
 }
 
 .video-production-copy h2 {
-  margin: 1.05em 0 0.9em;
+  margin: 1.25em 0 1.2em;
 
   color: #111;
 
@@ -487,13 +490,13 @@ button {
   font-size: clamp(8px, 0.62vw, 14px);
   font-weight: 500;
 
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .portfolio-button {
   display: inline-block;
 
-  margin-top: 1.6em;
+  margin-top: 2em;
   padding: 0.9em 1.35em;
 
   background: #080808;
@@ -511,6 +514,7 @@ button {
   transition:
     background 0.2s ease,
     color 0.2s ease;
+}
 }
   font-weight: 700;
 

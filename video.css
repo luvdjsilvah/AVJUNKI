@@ -1119,8 +1119,7 @@ button {
     inset: 0 !important;
 
     width: 100% !important;
-    height: 100% !important;
-
+   height: 76% !important;
     object-fit: cover !important;
     object-position: center center !important;
 
@@ -1133,9 +1132,27 @@ button {
     They were extending outside the physical screens.
     The numbered desk selector remains available.
   */
-  .video-thumbnail span {
-    display: none !important;
-  }
+.video-thumbnail span {
+  display: flex !important;
+
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+
+  width: 100% !important;
+  height: 24% !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: rgba(0, 0, 0, 0.88) !important;
+  color: #fff !important;
+
+  font-size: clamp(8px, 0.62vw, 14px) !important;
+  font-weight: 700 !important;
+
+  z-index: 5 !important;
+}
 
 
   /* =======================================================

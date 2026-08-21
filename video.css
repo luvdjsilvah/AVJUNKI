@@ -657,13 +657,12 @@ button {
   ----------------------------------------- */
 
   .main-video-screen {
-    left: 7.8%;
-    top: 18.75%;
-
-    width: 84.4%;
-    height: 18.0%;
-
-    border-radius: 1.5% 1.5% 3% 3%;
+  left: 15%;
+  top: 22%;
+  width: 72.5%;
+  height: 20%;
+  border-radius: 1% 1% 2.5% 2.5%;
+}
   }
 
   .main-play-button {
@@ -693,14 +692,13 @@ button {
   ----------------------------------------- */
 
   .video-thumbnail-bank {
-    left: 7.2%;
-    top: 37.15%;
-
-    width: 85.6%;
-    height: 7.25%;
-
-    gap: 0.6%;
-  }
+    .video-thumbnail-bank {
+  left: 7.8%;
+  top: 43.4%;
+  width: 84.6%;
+  height: 7.4%;
+  gap: 1%;
+}
 
   .video-thumbnail img {
     height: 74%;
@@ -717,16 +715,38 @@ button {
   ----------------------------------------- */
 
   .switcher-hotspots {
-    left: 14.2%;
-    top: 46.2%;
+  left: 14.5%;
+  top: 55.7%;
+  width: 71.3%;
+  height: 4.6%;
+  gap: 4.1%;
+}
 
-    width: 71.6%;
-    height: 7.3%;
+.switcher-button {
+  position: relative;
+}
 
-    gap: 3.2%;
-  }
+.switcher-button::after {
+  content: attr(data-switch-video);
 
+  position: absolute;
+  inset: 0;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  font-size: clamp(14px, 5vw, 24px);
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+
+  pointer-events: none;
+}
   /* -----------------------------------------
      HIDE DESKTOP TEXT
   ----------------------------------------- */

@@ -663,7 +663,7 @@ button {
   height: 20%;
   border-radius: 1% 1% 2.5% 2.5%;
 }
-  }
+  
 
   .main-play-button {
     width: clamp(48px, 14vw, 68px);
@@ -692,7 +692,7 @@ button {
   ----------------------------------------- */
 
   .video-thumbnail-bank {
-    .video-thumbnail-bank {
+   
   left: 7.8%;
   top: 43.4%;
   width: 84.6%;
@@ -751,9 +751,11 @@ button {
      HIDE DESKTOP TEXT
   ----------------------------------------- */
 
-  .video-production-copy,
-  .video-services {
-    display: none;
+ .video-production-copy,
+.video-services,
+.video-text-overlay {
+  display: none !important;
+}
   }
 
 
@@ -918,16 +920,7 @@ button {
 
 @media (max-width: 420px) {
 
-  .main-video-screen {
-    top: 18.8%;
-  }
-
-  .video-thumbnail-bank {
-    top: 37.2%;
-  }
-
-  .switcher-hotspots {
-    top: 46.15%;
+ 
   }
 
   .mobile-video-content {

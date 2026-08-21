@@ -1,0 +1,1296 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #000;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   VIDEO PAGE
+========================================================= */
+
+.video-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+
+/* =========================================================
+   MASTER BACKGROUND
+========================================================= */
+
+.studio-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.studio-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.video-header {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8.5%;
+  padding: 0 4.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.92),
+    rgba(0, 0, 0, 0.48),
+    transparent
+  );
+}
+
+.video-logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(14px, 1.15vw, 28px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.video-logo::first-letter {
+  color: #e11d24;
+}
+
+.video-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 42px);
+}
+
+.video-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(10px, 0.72vw, 17px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s ease;
+}
+
+.video-nav a:hover {
+  opacity: 0.72;
+}
+
+.video-nav .video-book-button {
+  padding: 0.8em 1.25em;
+  background: #d71920;
+  border: 1px solid #ef2b32;
+  color: #fff;
+  font-weight: 700;
+}
+
+.video-nav .video-book-button:hover {
+  opacity: 1;
+  background: #ef1f28;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+
+/* =========================================================
+   MAIN VIDEO SCREEN
+========================================================= */
+
+.main-video-screen {
+  position: absolute;
+  z-index: 5;
+
+  left: 24.55%;
+  top: 19.45%;
+
+  width: 51.25%;
+  height: 34.1%;
+
+  overflow: hidden;
+
+  background: #030303;
+
+  border-radius: 1% 1% 2.5% 2.5%;
+}
+
+.main-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  background: #000;
+}
+
+
+/* =========================================================
+   MAIN PLAY BUTTON
+========================================================= */
+
+.main-play-button {
+  position: absolute;
+  z-index: 8;
+
+  left: 50%;
+  top: 50%;
+
+  width: clamp(48px, 4.8vw, 100px);
+  height: clamp(48px, 4.8vw, 100px);
+
+  transform: translate(-50%, -50%);
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.68);
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 0.12em;
+
+  font-size: clamp(20px, 2vw, 42px);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.main-play-button:hover {
+  background: rgba(215, 25, 32, 0.88);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+
+/* =========================================================
+   VIDEO CONTROLS
+========================================================= */
+
+.video-controls {
+  position: absolute;
+  z-index: 9;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 13%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 1%;
+
+  padding: 0 2%;
+
+  color: #fff;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92),
+    rgba(0, 0, 0, 0.1)
+  );
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.main-video-screen:hover .video-controls,
+.main-video-screen.controls-visible .video-controls {
+  opacity: 1;
+}
+
+.video-control-button {
+  flex: 0 0 auto;
+
+  border: 0;
+  background: transparent;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  font-size: clamp(11px, 0.85vw, 20px);
+
+  padding: 4px;
+}
+
+.video-progress-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.video-progress {
+  display: block;
+  width: 100%;
+  accent-color: #d71920;
+  cursor: pointer;
+}
+
+.video-time {
+  flex: 0 0 auto;
+  white-space: nowrap;
+
+  font-size: clamp(8px, 0.62vw, 15px);
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   SIX THUMBNAIL SCREENS
+========================================================= */
+
+.video-thumbnail-bank {
+  position: absolute;
+  z-index: 6;
+
+  left: 26.35%;
+  top: 56.15%;
+
+  width: 47.55%;
+  height: 10.85%;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 0.55%;
+
+  background: transparent;
+}
+
+.video-thumbnail {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: #050505;
+
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.video-thumbnail img {
+  display: block;
+
+  width: 100%;
+  height: 76%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.video-thumbnail span {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 24%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(5, 5, 5, 0.95);
+
+  color: #fff;
+
+  font-size: clamp(8px, 0.75vw, 16px);
+  font-weight: 700;
+}
+
+.video-thumbnail.active {
+  border: 2px solid #e51d26;
+  box-shadow:
+    0 0 8px rgba(229, 29, 38, 0.8),
+    0 0 20px rgba(229, 29, 38, 0.35);
+}
+
+.video-thumbnail.active span {
+  background: #d71920;
+}
+
+
+/* =========================================================
+   DESK SWITCHER HOTSPOTS
+========================================================= */
+
+.switcher-hotspots {
+  position: absolute;
+  z-index: 10;
+
+  left: 34.2%;
+  top: 73.9%;
+
+  width: 31.7%;
+  height: 9.5%;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 3%;
+
+  pointer-events: none;
+}
+
+.switcher-button {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  border-radius: 8%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+}
+
+.switcher-button:hover,
+.switcher-button.active {
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+
+
+  background: #d71920;
+  color: #fff;
+}
+
+
+/* =========================================================
+   SERVICES - DESKTOP
+========================================================= */
+
+.video-services {
+  position: absolute;
+  z-index: 7;
+
+  right: 7%;
+  top: 27.8%;
+
+  width: 16.5%;
+
+  color: #111;
+}
+
+.video-services h2 {
+  margin: 0 0 1em;
+
+  color: #d71920;
+
+  font-size: clamp(10px, 0.8vw, 19px);
+  font-weight: 800;
+}
+
+.video-services ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.video-services li {
+  position: relative;
+
+  margin: 0 0 0.9em;
+  padding-left: 1.6em;
+
+  color: #151515;
+
+  font-size: clamp(8px, 0.67vw, 16px);
+  font-weight: 600;
+
+  line-height: 1.2;
+}
+
+.video-services li::before {
+  content: "□";
+
+  position: absolute;
+
+  left: 0;
+  top: -0.08em;
+
+  color: #111;
+
+  font-weight: 700;
+}
+
+.video-services .drone-service {
+  color: #d71920;
+  font-weight: 800;
+}
+
+.video-services .drone-service::before {
+  color: #d71920;
+}
+
+
+/* =========================================================
+   MOBILE CONTENT - HIDDEN ON DESKTOP
+========================================================= */
+
+.mobile-video-content {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) and (min-width: 701px) {
+
+  .video-nav {
+    gap: 16px;
+  }
+
+  .video-production-copy {
+    left: 4%;
+    width: 18%;
+  }
+
+  .video-services {
+    right: 3%;
+    width: 18%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  html,
+  body {
+    background: #050505;
+  }
+
+  .video-page {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE BACKGROUND
+  ----------------------------------------- */
+
+  .studio-background img {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE HEADER
+  ----------------------------------------- */
+
+  .video-header {
+    height: 6.5%;
+    padding: 0 5%;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.95),
+      rgba(0, 0, 0, 0.45),
+      transparent
+    );
+  }
+
+  .video-logo {
+    font-size: clamp(12px, 4vw, 20px);
+  }
+
+  .video-nav {
+    position: absolute;
+
+    top: 100%;
+    right: 4%;
+
+    width: min(260px, 75vw);
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 12px;
+
+    background: rgba(0, 0, 0, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .video-nav.open {
+    display: flex;
+  }
+
+  .video-nav a {
+    display: block;
+
+    padding: 13px 12px;
+
+    font-size: 12px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .video-nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .video-nav .video-book-button {
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .mobile-menu-button {
+    width: 34px;
+    height: 30px;
+
+    padding: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+  .mobile-menu-button span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: #fff;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE MAIN SCREEN
+  ----------------------------------------- */
+
+  .main-video-screen {
+  left: 15%;
+  top: 22%;
+  width: 72.5%;
+  height: 20%;
+  border-radius: 1% 1% 2.5% 2.5%;
+}
+  
+
+  .main-play-button {
+    width: clamp(48px, 14vw, 68px);
+    height: clamp(48px, 14vw, 68px);
+
+    font-size: clamp(20px, 6vw, 30px);
+  }
+
+  .video-controls {
+    height: 18%;
+    padding: 0 2%;
+    gap: 1%;
+  }
+
+  .video-time {
+    display: none;
+  }
+
+  .video-control-button {
+    font-size: 13px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE THUMBNAILS
+  ----------------------------------------- */
+
+  .video-thumbnail-bank {
+   
+  left: 7.8%;
+  top: 43.4%;
+  width: 84.6%;
+  height: 7.4%;
+  gap: 1%;
+}
+
+  .video-thumbnail img {
+    height: 74%;
+  }
+
+  .video-thumbnail span {
+    height: 26%;
+    font-size: clamp(7px, 2.5vw, 11px);
+  }
+
+
+  /* -----------------------------------------
+     MOBILE DESK SWITCHER
+  ----------------------------------------- */
+
+  .switcher-hotspots {
+  left: 14.5%;
+  top: 55.7%;
+  width: 71.3%;
+  height: 4.6%;
+  gap: 4.1%;
+}
+
+.switcher-button {
+  position: relative;
+}
+
+.switcher-button::after {
+  content: attr(data-switch-video);
+
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  font-size: clamp(14px, 5vw, 24px);
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+
+  pointer-events: none;
+}
+  /* -----------------------------------------
+     HIDE DESKTOP TEXT
+  ----------------------------------------- */
+
+ .video-production-copy,
+.video-services,
+.video-text-overlay {
+  display: none !important;
+}
+  }
+
+
+  /* -----------------------------------------
+     MOBILE TEXT AREA
+  ----------------------------------------- */
+
+  .mobile-video-content {
+    position: absolute;
+    z-index: 8;
+
+    left: 8%;
+    top: 75%;
+    width: 84%;
+
+    display: block;
+
+    color: #fff;
+
+    text-align: center;
+  }
+
+  .mobile-video-eyebrow {
+    margin: 0 0 1em;
+
+    color: #d71920;
+
+    font-size: clamp(8px, 2.8vw, 12px);
+    font-weight: 800;
+
+    letter-spacing: 0.22em;
+  }
+
+  .mobile-video-content h1 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: clamp(28px, 9vw, 50px);
+    font-weight: 800;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.045em;
+  }
+
+  .mobile-video-tagline {
+    margin: 1.2em 0 0;
+
+    color: #fff;
+
+    font-size: clamp(9px, 3vw, 13px);
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+  }
+
+  .mobile-video-description {
+    width: 90%;
+
+    margin: 1.4em auto 0;
+
+    color: #c8c8c8;
+
+    font-size: clamp(10px, 3.1vw, 14px);
+
+    line-height: 1.6;
+  }
+
+  .mobile-services-button {
+    margin-top: 1.8em;
+
+    padding: 1em 1.8em;
+
+    border: 1px solid #ed2229;
+
+    background: #d71920;
+    color: #fff;
+
+    font-size: clamp(10px, 3.1vw, 14px);
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+  }
+
+  .mobile-services-list {
+    display: none;
+
+    width: 100%;
+
+    margin-top: 1.4em;
+    padding: 1.5em;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    text-align: left;
+  }
+
+  .mobile-services-list.open {
+    display: block;
+  }
+
+  .mobile-services-list h2 {
+    margin: 0 0 1em;
+
+    color: #d71920;
+
+    font-size: clamp(12px, 4vw, 18px);
+    font-weight: 800;
+  }
+
+  .mobile-services-list ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .mobile-services-list li {
+    margin-bottom: 0.75em;
+
+    color: #eee;
+
+    font-size: clamp(10px, 3vw, 14px);
+
+    line-height: 1.4;
+  }
+
+  .mobile-services-list .drone-service {
+    color: #ef252d;
+    font-weight: 800;
+  }
+
+  .mobile-book-button {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 1.5em;
+    padding: 1em;
+
+    background: #d71920;
+    color: #fff;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-size: clamp(10px, 3.2vw, 14px);
+    font-weight: 800;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+ 
+  }
+
+  .mobile-video-content {
+    top: 71.5%;
+  }
+}
+/* =========================================================
+   EXACT DESKTOP MONITOR FIT
+   Measured against the desktop master image
+========================================================= */
+
+@media (min-width: 701px) {
+
+  /* =======================================================
+     LARGE CURVED MONITOR
+  ======================================================= */
+
+  .main-video-screen {
+    left: 24.22% !important;
+    top: 18.32% !important;
+    width: 52.00% !important;
+    height: 36.72% !important;
+
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    background: #000 !important;
+
+    /*
+      Follows the curved top and bottom edges
+      of the actual black monitor opening.
+    */
+    clip-path: polygon(
+      0% 0.5%,
+      8.3% 1.9%,
+      16.6% 3.1%,
+      25% 4.3%,
+      33.3% 5%,
+      41.6% 5.5%,
+      50% 5.7%,
+      58.3% 5.5%,
+      66.6% 5%,
+      75% 4.3%,
+      83.3% 3.1%,
+      91.6% 1.7%,
+      100% 0.2%,
+
+      100% 100%,
+      91.6% 99.1%,
+      83.3% 98.3%,
+      75% 97.6%,
+      66.6% 97.2%,
+      58.3% 96.9%,
+      50% 96.9%,
+      41.6% 96.9%,
+      33.3% 97.4%,
+      25% 97.9%,
+      16.6% 98.3%,
+      8.3% 99.1%,
+      0% 100%
+    ) !important;
+  }
+
+
+  /*
+    Keep the complete 16:9 video visible.
+    The unused left/right area remains black,
+    which blends naturally with the monitor.
+  */
+  .main-video {
+    width: 100% !important;
+    height: 100% !important;
+
+   object-fit: cover !important;
+    object-position: center center !important;
+
+    background: #000 !important;
+  }
+
+
+  /* =======================================================
+     THUMBNAIL BANK
+     Turn the old grid into a full-page positioning layer.
+  ======================================================= */
+
+  .video-thumbnail-bank {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+
+    background: transparent !important;
+
+    pointer-events: none;
+  }
+
+
+  .video-thumbnail {
+    position: absolute !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    overflow: hidden !important;
+
+    background: #000 !important;
+
+    pointer-events: auto;
+
+    box-shadow: none !important;
+  }
+
+
+  .video-thumbnail img {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+   height: 76% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    display: block !important;
+  }
+
+
+  /*
+    Remove the old number bars.
+    They were extending outside the physical screens.
+    The numbered desk selector remains available.
+  */
+.video-thumbnail span {
+  display: flex !important;
+
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+
+  width: 100% !important;
+  height: 24% !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: rgba(0, 0, 0, 0.88) !important;
+  color: #fff !important;
+
+  font-size: clamp(8px, 0.62vw, 14px) !important;
+  font-weight: 700 !important;
+
+  z-index: 5 !important;
+}
+
+
+  /* =======================================================
+     SCREEN 01
+  ======================================================= */
+
+  .video-thumbnail:nth-child(1) {
+    left: 26.66% !important;
+    top: 56.42% !important;
+
+    width: 7.37% !important;
+    height: 7.81% !important;
+
+    clip-path: polygon(
+      0% 5.6%,
+      99.3% 0%,
+      99.3% 90%,
+      0.7% 98.9%
+    ) !important;
+  }
+
+
+  /* =======================================================
+     SCREEN 02
+  ======================================================= */
+
+  .video-thumbnail:nth-child(2) {
+    left: 34.77% !important;
+    top: 56.08% !important;
+
+    width: 7.28% !important;
+    height: 7.47% !important;
+
+    clip-path: polygon(
+      0% 4.7%,
+      98.7% 0%,
+      98.7% 94.2%,
+      0% 98.8%
+    ) !important;
+  }
+
+
+  /* =======================================================
+     SCREEN 03
+  ======================================================= */
+
+  .video-thumbnail:nth-child(3) {
+    left: 42.72% !important;
+    top: 55.90% !important;
+
+    width: 7.13% !important;
+    height: 7.20% !important;
+
+    clip-path: polygon(
+      0% 2.4%,
+      98.6% 1.2%,
+      98.6% 96.4%,
+      0% 98.8%
+    ) !important;
+  }
+
+
+  /* =======================================================
+     SCREEN 04
+  ======================================================= */
+
+  .video-thumbnail:nth-child(4) {
+    left: 50.49% !important;
+    top: 55.90% !important;
+
+    width: 6.98% !important;
+    height: 7.12% !important;
+
+    clip-path: polygon(
+      0.7% 0%,
+      98.6% 1.2%,
+      99.3% 98.8%,
+      0% 97.6%
+    ) !important;
+  }
+
+
+  /* =======================================================
+     SCREEN 05
+  ======================================================= */
+
+  .video-thumbnail:nth-child(5) {
+    left: 58.15% !important;
+    top: 55.99% !important;
+
+    width: 7.23% !important;
+    height: 7.47% !important;
+
+    clip-path: polygon(
+      0% 1.2%,
+      98.6% 3.5%,
+      99.3% 97.7%,
+      0% 94.2%
+    ) !important;
+  }
+
+
+  /* =======================================================
+     SCREEN 06
+  ======================================================= */
+
+  .video-thumbnail:nth-child(6) {
+    left: 66.11% !important;
+    top: 56.34% !important;
+
+    width: 7.37% !important;
+    height: 7.81% !important;
+
+    clip-path: polygon(
+      0% 0%,
+      99.3% 5.6%,
+      99.3% 97.8%,
+      0% 91.1%
+    ) !important;
+  }
+
+
+  /* =======================================================
+     ACTIVE VIDEO INDICATOR
+  ======================================================= */
+
+  .video-thumbnail.active {
+    box-shadow:
+      inset 0 0 0 3px #e11d24,
+      inset 0 0 14px rgba(225, 29, 36, 0.45)
+      !important;
+  }
+
+}
+
+
+}
+/* =========================================================
+   FINAL DESKTOP LEFT WALL TEXT
+   DO NOT ADD MORE WALL TEXT OVERRIDES BELOW THIS
+========================================================= */
+
+@media (min-width: 701px) {
+
+  .video-production-copy {
+    position: absolute !important;
+    z-index: 7 !important;
+
+    left: 7.2% !important;
+    top: 20.5% !important;
+    width: 16.5% !important;
+
+    color: #111 !important;
+
+    /*
+      One unified perspective plane.
+      This makes the complete graphic recede with the wall
+      instead of bending individual letters and sentences.
+    */
+    transform:
+      perspective(1100px)
+      rotateY(14deg)
+      skewY(-0.8deg) !important;
+
+    transform-origin: left center !important;
+  }
+
+  .video-production-copy .video-eyebrow {
+    margin: 0 0 1em !important;
+
+    color: #d71920 !important;
+
+    font-size: clamp(8px, 0.6vw, 14px) !important;
+
+
+    display: block;
+    overflow: visible;
+
+    pointer-events: none;
+  }
+
+ \
+
+}
+
+
+/* =========================================================
+   FIX DESKTOP VIDEO SERVICES POSITION
+========================================================= */
+
+@media (min-width: 701px) {
+
+  .video-services {
+    position: absolute !important;
+    right: 5.5% !important;
+    top: 27% !important;
+    width: 16% !important;
+    z-index: 10 !important;
+  }
+
+}
+/* =========================================================
+   VIDEO WALL TEXT PNG OVERLAY
+========================================================= */
+
+.video-text-overlay {
+  position: absolute;
+  inset: 0;
+  width: 96%;
+  height: 96%;
+  object-fit: contain;
+   transform: translate(0, 1%);
+  z-index: 6;
+  pointer-events: none;
+}

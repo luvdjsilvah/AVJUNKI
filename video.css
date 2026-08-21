@@ -1268,3 +1268,16 @@ button {
   }
 
 }
+/* =========================================================
+   VIDEO WALL TEXT PNG OVERLAY
+========================================================= */
+
+.video-text-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 6;
+  pointer-events: none;
+}

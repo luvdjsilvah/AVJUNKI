@@ -34,10 +34,56 @@ filterButtons.forEach((button) => {
 
       item.classList.toggle("hidden", !shouldShow);
     });
+
+    requestAnimationFrame(layoutPortfolioMasonry);
   });
 });
-
 document.getElementById("year").textContent = new Date().getFullYear();
+/* =========================================================
+   PORTFOLIO MASONRY LAYOUT
+   ========================================================= */
+
+const portfolioGrid = document.querySelector(".portfolio-grid");
+
+function layoutPortfolioMasonry() {
+  if (!portfolioGrid) return;
+
+  /* Leave the approved mobile layout alone */
+  if (window.innerWidth <= 700) {
+    portfolioItems.forEach((item) => {
+      item.style.gridRowEnd = "";
+    });
+    return;
+  }
+
+  const rowHeight = 8;
+  const itemGap = 28;
+
+  portfolioItems.forEach((item) => {
+    item.style.gridRowEnd = "";
+  });
+
+  portfolioItems.forEach((item) => {
+    if (item.classList.contains("hidden")) return;
+
+    const itemHeight = item.getBoundingClientRect().height;
+    const rowSpan = Math.ceil((itemHeight + itemGap) / rowHeight);
+
+    item.style.gridRowEnd = `span ${rowSpan}`;
+  });
+}
+
+window.addEventListener("load", layoutPortfolioMasonry);
+window.addEventListener("resize", layoutPortfolioMasonry);
+
+document
+  .querySelectorAll(".portfolio-item img, .portfolio-item video")
+  .forEach((media) => {
+    media.addEventListener("load", layoutPortfolioMasonry);
+    media.addEventListener("loadedmetadata", layoutPortfolioMasonry);
+  });
+
+layoutPortfolioMasonry();
 /* =========================================================
    SERVICE CARD NAVIGATION
    ========================================================= */

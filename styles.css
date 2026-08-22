@@ -403,6 +403,15 @@ select {
   gap: 28px;
 }
 
+@media (min-width: 701px) {
+  .portfolio-grid {
+    grid-auto-rows: 8px;
+    column-gap: 28px;
+    row-gap: 0;
+    align-items: start;
+  }
+}
+
 .portfolio-item.hidden {
   display: none;
 }

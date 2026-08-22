@@ -88,7 +88,18 @@ button {
   pointer-events: none;
   user-select: none;
 }
-
+/* CLICKABLE VIEW PORTFOLIO BUTTON */
+.video-portfolio-hotspot {
+  position: absolute;
+  z-index: 6;
+  left: 11.9%;
+  top: 54.2%;
+  width: 10.8%;
+  height: 4.2%;
+  display: block;
+  background: transparent;
+  cursor: pointer;
+}
 
 /* =========================================================
    4. HEADER / NAVIGATION
@@ -572,7 +583,9 @@ button {
 ========================================================= */
 
 @media (max-width: 700px) {
-
+.video-portfolio-hotspot {
+  display: none !important;
+}
   html,
   body {
     margin: 0;

@@ -104,7 +104,14 @@
     </div>
   </article>
 
-  <article class="service-card">
+  <article
+  class="service-card"
+  role="link"
+  tabindex="0"
+  style="cursor:pointer;"
+  onclick="window.location.href='video.html';"
+  onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='video.html';}"
+>
     <div class="service-image">
       <img src="assets/images/video-production.jpg"
            alt="AV Junki video production"
@@ -157,7 +164,13 @@
 
         <div class="portfolio-filters" role="group" aria-label="Portfolio filters">
           <button class="filter-button active" data-filter="all">All</button>
-          <button class="filter-button" data-filter="video">Video</button>
+        <button
+  class="filter-button"
+  data-filter="video"
+  onclick="window.location.href='video.html';"
+>
+  Video
+</button>
           <button class="filter-button" data-filter="photo" onclick="window.location.href='gallery.html';">Photography</button>
           <button class="filter-button" data-filter="dj"
   onclick="if (window.innerWidth <= 700) { event.stopImmediatePropagation(); window.location.href='dj.html#top'; }">

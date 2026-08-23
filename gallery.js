@@ -22,7 +22,9 @@ const galleryImages = [
   "assets/images/V-pic-22.jpg",
   "assets/images/V-pic-23.jpg",
   "assets/images/V-pic-24.jpg",
-  "assets/images/V-pic-25.jpg"
+  "assets/images/V-pic-25.jpg",
+  "assets/images/V-pic-26.jpg",
+  "assets/images/V-pic-27.jpg"
 ];
 
 

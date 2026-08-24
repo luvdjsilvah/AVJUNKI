@@ -485,7 +485,20 @@ select {
   grid-template-columns: 0.9fr 1.1fr;
   gap: 80px;
 }
+.about-copy {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
 
+.audio-services-showcase {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.audio-filmstrip {
+  max-width: 100%;
+}
 .about-copy p {
   font-size: 1.06rem;
   margin-bottom: 22px;

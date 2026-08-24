@@ -239,7 +239,7 @@ function startSlideshow() {
 
     showNextImage();
 
-  }, 4000);
+ }, 3000);
 
 }
 

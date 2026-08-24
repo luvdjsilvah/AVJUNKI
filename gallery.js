@@ -37,7 +37,8 @@ const galleryPhoto =
 
 const galleryPlayButton =
   document.getElementById("gallery-play");
-
+const galleryHeadPlayButton =
+  document.getElementById("gallery-head-play");
 const galleryPrevButton =
   document.getElementById("gallery-prev");
 

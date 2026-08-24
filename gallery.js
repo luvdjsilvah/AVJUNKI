@@ -575,6 +575,14 @@ if (galleryPlayButton) {
 }
 
 
+if (galleryHeadPlayButton) {
+
+  galleryHeadPlayButton.addEventListener(
+    "click",
+    toggleSlideshow
+  );
+
+}
 if (galleryNextButton) {
 
   galleryNextButton.addEventListener(

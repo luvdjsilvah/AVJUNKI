@@ -1640,3 +1640,116 @@ if (mobileDjFilter) {
     requestAnimationFrame(animateFilmstrip);
   });
 })();
+/* =========================================================
+   PRO AUDIO SERVICES LIGHTBOX
+   ========================================================= */
+
+(() => {
+  const lightbox = document.getElementById("audio-lightbox");
+  const lightboxImage = document.getElementById("audio-lightbox-image");
+  const closeButton = document.getElementById("audio-lightbox-close");
+  const prevButton = document.getElementById("audio-lightbox-prev");
+  const nextButton = document.getElementById("audio-lightbox-next");
+
+  if (!lightbox || !lightboxImage || !closeButton || !prevButton || !nextButton) return;
+
+  const uniqueSlides = [];
+  const seenSources = new Set();
+
+  document
+    .querySelectorAll(".audio-filmstrip-track .audio-install-image img")
+    .forEach((img) => {
+      const src = img.getAttribute("src");
+      const alt = img.getAttribute("alt") || "AV Junki installation image";
+
+      if (!src || seenSources.has(src)) return;
+
+      seenSources.add(src);
+      uniqueSlides.push({ src, alt });
+    });
+
+  if (!uniqueSlides.length) return;
+
+  let currentIndex = 0;
+
+  function renderSlide() {
+    const slide = uniqueSlides[currentIndex];
+    if (!slide) return;
+
+    lightboxImage.src = slide.src;
+    lightboxImage.alt = slide.alt;
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    renderSlide();
+
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function showPrevious() {
+    currentIndex =
+      (currentIndex - 1 + uniqueSlides.length) % uniqueSlides.length;
+
+    renderSlide();
+  }
+
+  function showNext() {
+    currentIndex =
+      (currentIndex + 1) % uniqueSlides.length;
+
+    renderSlide();
+  }
+
+  document
+    .querySelectorAll(".audio-filmstrip-track .audio-install-image")
+    .forEach((button) => {
+      button.addEventListener("click", () => {
+        const img = button.querySelector("img");
+        if (!img) return;
+
+        const src = img.getAttribute("src");
+
+        const slideIndex =
+          uniqueSlides.findIndex((slide) => slide.src === src);
+
+        if (slideIndex === -1) return;
+
+        openLightbox(slideIndex);
+      });
+    });
+
+  closeButton.addEventListener("click", closeLightbox);
+  prevButton.addEventListener("click", showPrevious);
+  nextButton.addEventListener("click", showNext);
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("is-open")) return;
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (event.key === "ArrowLeft") {
+      showPrevious();
+    }
+
+    if (event.key === "ArrowRight") {
+      showNext();
+    }
+  });
+})();

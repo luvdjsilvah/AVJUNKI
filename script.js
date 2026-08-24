@@ -99,7 +99,7 @@ serviceCards.forEach((card) => {
 
   /* AUDIO PRODUCTION */
 
-  if (title.textContent.trim() === "Audio Production") {
+if (title.textContent.trim() === "Listen to AV Junki") {
 
     card.style.cursor = "pointer";
 

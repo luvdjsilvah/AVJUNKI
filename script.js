@@ -1545,3 +1545,98 @@ if (mobileDjFilter) {
     }
   }, true);
 }
+/* =========================================================
+   PRO AUDIO SERVICES FILM STRIP LOOP
+   ========================================================= */
+
+(() => {
+  const track = document.querySelector(".audio-filmstrip-track");
+
+  if (!track || track.dataset.loopReady === "true") return;
+
+  track.dataset.loopReady = "true";
+
+  const originalItems = Array.from(track.children);
+
+  if (!originalItems.length) return;
+
+  originalItems.forEach((item) => {
+    const clone = item.cloneNode(true);
+
+    clone.setAttribute("aria-hidden", "true");
+    clone.tabIndex = -1;
+
+    track.appendChild(clone);
+  });
+
+  const firstItem = track.children[0];
+  const firstClone = track.children[originalItems.length];
+
+  let offset = 0;
+  let loopWidth = 0;
+  let lastTime = 0;
+  let paused = false;
+
+  const speed = 28;
+
+  track.style.willChange = "transform";
+
+  function measureLoop() {
+    loopWidth = firstClone.offsetLeft - firstItem.offsetLeft;
+
+    if (loopWidth > 0 && offset >= loopWidth) {
+      offset = offset % loopWidth;
+    }
+  }
+
+  function animateFilmstrip(time) {
+    if (!lastTime) {
+      lastTime = time;
+    }
+
+    const delta = Math.min((time - lastTime) / 1000, 0.05);
+
+    lastTime = time;
+
+    if (
+      window.innerWidth > 700 &&
+      !paused &&
+      loopWidth > 0 &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      offset += speed * delta;
+
+      if (offset >= loopWidth) {
+        offset -= loopWidth;
+      }
+
+      track.style.transform =
+        `translate3d(${-offset}px, 0, 0)`;
+    }
+
+    requestAnimationFrame(animateFilmstrip);
+  }
+
+  track.addEventListener("mouseenter", () => {
+    paused = true;
+  });
+
+  track.addEventListener("mouseleave", () => {
+    paused = false;
+  });
+
+  track.addEventListener("focusin", () => {
+    paused = true;
+  });
+
+  track.addEventListener("focusout", () => {
+    paused = false;
+  });
+
+  window.addEventListener("resize", measureLoop);
+
+  requestAnimationFrame(() => {
+    measureLoop();
+    requestAnimationFrame(animateFilmstrip);
+  });
+})();

@@ -1097,3 +1097,37 @@ button {
     font-size: 0.7rem;
   }
 }
+
+@media (max-width: 600px) {
+
+  .gallery-head-play-wrap {
+    left: 27%;
+    top: 125px;
+    width: 170px;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+
+  .gallery-head-play {
+    display: none;
+  }
+
+  .gallery-head-play-wrap p {
+    margin: 0;
+    font-size: 0;
+    text-align: center;
+  }
+
+  .gallery-head-play-wrap p::after {
+    content: "Scroll Down To View Gallery";
+    display: block;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+}

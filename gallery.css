@@ -296,8 +296,8 @@ button {
 .gallery-head-play-wrap {
   position: absolute;
 
-  left: 78%;
-  top: 55px;
+ left: 102%;
+  top: -95px;
 
   transform: translateX(-50%);
 

@@ -48,6 +48,133 @@
         alt="AV Junki DJ experience"
         draggable="false"
       >
+            <!-- =====================================================
+           DJ MIX SAMPLE PLAYER
+           ===================================================== -->
+      <div class="dj-mix-player" id="dj-mix-player">
+
+        <!-- LEFT SPEAKER TRACKS -->
+        <button class="dj-track-hotspot dj-speaker-track track-1"
+                type="button"
+                data-track="1"
+                aria-label="Play DJ sample 1">
+          <span>TRACK 1</span>
+        </button>
+
+        <button class="dj-track-hotspot dj-speaker-track track-2"
+                type="button"
+                data-track="2"
+                aria-label="Play DJ sample 2">
+          <span>TRACK 2</span>
+        </button>
+
+        <button class="dj-track-hotspot dj-speaker-track track-3"
+                type="button"
+                data-track="3"
+                aria-label="Play DJ sample 3">
+          <span>TRACK 3</span>
+        </button>
+
+
+        <!-- MIXER FADERS -->
+        <div class="dj-fader-bank" aria-label="DJ mix samples">
+
+          <button class="dj-fader-channel"
+                  type="button"
+                  data-track="1"
+                  aria-label="Play DJ sample 1">
+            <span class="dj-fader-cap"></span>
+          </button>
+
+          <button class="dj-fader-channel"
+                  type="button"
+                  data-track="2"
+                  aria-label="Play DJ sample 2">
+            <span class="dj-fader-cap"></span>
+          </button>
+
+          <button class="dj-fader-channel"
+                  type="button"
+                  data-track="3"
+                  aria-label="Play DJ sample 3">
+            <span class="dj-fader-cap"></span>
+          </button>
+
+          <button class="dj-fader-channel"
+                  type="button"
+                  data-track="4"
+                  aria-label="Play DJ sample 4">
+            <span class="dj-fader-cap"></span>
+          </button>
+
+          <button class="dj-fader-channel"
+                  type="button"
+                  data-track="5"
+                  aria-label="Play DJ sample 5">
+            <span class="dj-fader-cap"></span>
+          </button>
+
+          <button class="dj-fader-channel"
+                  type="button"
+                  data-track="6"
+                  aria-label="Play DJ sample 6">
+            <span class="dj-fader-cap"></span>
+          </button>
+
+        </div>
+
+
+        <!-- MIXER DISPLAY -->
+        <div class="dj-mix-display" aria-live="polite">
+          <span class="dj-display-label">DJ MIX SAMPLES</span>
+          <strong id="dj-now-playing">SELECT 1–6</strong>
+          <span id="dj-track-time">0:00 / 0:00</span>
+        </div>
+
+
+        <!-- RIGHT SPEAKER TRACKS -->
+        <button class="dj-track-hotspot dj-speaker-track track-4"
+                type="button"
+                data-track="4"
+                aria-label="Play DJ sample 4">
+          <span>TRACK 4</span>
+        </button>
+
+        <button class="dj-track-hotspot dj-speaker-track track-5"
+                type="button"
+                data-track="5"
+                aria-label="Play DJ sample 5">
+          <span>TRACK 5</span>
+        </button>
+
+        <button class="dj-track-hotspot dj-speaker-track track-6"
+                type="button"
+                data-track="6"
+                aria-label="Play DJ sample 6">
+          <span>TRACK 6</span>
+        </button>
+
+
+        <!-- AUDIO FILES -->
+        <audio id="dj-audio-1" preload="metadata"
+               src="assets/audio/dj-sample-01.mp3"></audio>
+
+        <audio id="dj-audio-2" preload="metadata"
+               src="assets/audio/dj-sample-02.mp3"></audio>
+
+        <audio id="dj-audio-3" preload="metadata"
+               src="assets/audio/dj-sample-03.mp3"></audio>
+
+        <audio id="dj-audio-4" preload="metadata"
+               src="assets/audio/dj-sample-04.mp3"></audio>
+
+        <audio id="dj-audio-5" preload="metadata"
+               src="assets/audio/dj-sample-05.mp3"></audio>
+
+        <audio id="dj-audio-6" preload="metadata"
+               src="assets/audio/dj-sample-06.mp3"></audio>
+
+      </div>
 
       <div class="dj-screen" aria-label="AV Junki video display">
         <video

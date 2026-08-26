@@ -383,16 +383,11 @@ a { color: inherit; }
 .dj-mix-display {
   position: absolute;
 
-  left: 41.3%;
-  top: 3.3%;
+  left: 41.5%;
+  top: 2.52%;
 
-  width: 17.4%;
-  height: 7.1%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 10.84%;
+  height: 7.73%;
 
   text-align: center;
 
@@ -400,30 +395,62 @@ a { color: inherit; }
 }
 
 .dj-display-label {
+  position: absolute;
+  left: 0;
+  top: 27%;
+
+  width: 100%;
+
+  transform: translateY(-50%);
+
   font-size: clamp(.38rem, .58vw, .70rem);
   font-weight: 800;
+  line-height: 1;
   letter-spacing: .08em;
+
+  white-space: nowrap;
 
   color: #ffd54d;
 }
 
 #dj-now-playing {
-  margin-top: 2px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  width: 100%;
+
+  transform: translateY(-50%);
+
+  margin: 0;
 
   font-size: clamp(.42rem, .72vw, .85rem);
   font-weight: 800;
+  line-height: 1;
+
+  white-space: nowrap;
 
   color: #ffffff;
 }
 
 #dj-track-time {
-  margin-top: 2px;
+  position: absolute;
+  left: 0;
+  top: 80%;
+
+  width: 100%;
+
+  transform: translateY(-50%);
+
+  margin: 0;
 
   font-size: clamp(.32rem, .48vw, .58rem);
+  line-height: 1;
+
+  white-space: nowrap;
 
   color: rgba(255,255,255,.80);
 }
-
 /* VIDEO */
 
 .dj-screen {

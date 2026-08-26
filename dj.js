@@ -23,6 +23,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+/* Reveal mixer only after hero image is ready */
+document.addEventListener("DOMContentLoaded", () => {
+  const heroImage = document.querySelector(".dj-master");
+
+  const revealMixer = () => {
+    document.body.classList.add("dj-mixer-ready");
+  };
+
+  if (!heroImage) {
+    revealMixer();
+    return;
+  }
+
+  if (heroImage.complete && heroImage.naturalWidth > 0) {
+    revealMixer();
+  } else {
+    heroImage.addEventListener("load", revealMixer, { once: true });
+    heroImage.addEventListener("error", revealMixer, { once: true });
+  }
+});
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }

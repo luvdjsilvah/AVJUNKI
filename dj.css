@@ -403,7 +403,7 @@ a { color: inherit; }
 
   transform: translateY(-50%);
 
-  font-size: clamp(.38rem, .58vw, .70rem);
+  font-size: clamp(.46rem, .66vw, .80rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: .08em;

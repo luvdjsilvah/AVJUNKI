@@ -126,8 +126,13 @@ a { color: inherit; }
   inset: 0;
   z-index: 20;
   pointer-events: none;
+  opacity: 0;
+visibility: hidden;
 }
-
+body.dj-mixer-ready .dj-mix-player {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* -----------------------------------------
    SPEAKER TRACK BUTTONS

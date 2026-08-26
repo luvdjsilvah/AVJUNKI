@@ -162,47 +162,49 @@ a { color: inherit; }
 .dj-speaker-track.track-1 {
   left: 6.1%;
   top: 3.1%;
-  width: 8.2%;
-  height: 8.1%;
+  width: 7.55%;
+  height: 7.7%;
 }
 
 .dj-speaker-track.track-2 {
   left: 6.1%;
-  top: 11.3%;
-  width: 8.2%;
-  height: 8.0%;
+  top: 11.4%;
+  width: 7.55%;
+  height: 7.4%;
 }
 
 .dj-speaker-track.track-3 {
   left: 6.1%;
-  top: 19.4%;
-  width: 8.2%;
-  height: 8.2%;
+  top: 19.7%;
+  width: 7.35%;
+  height: 6.5%;
 }
+
 
 
 /* RIGHT SPEAKER */
 
 .dj-speaker-track.track-4 {
-  left: 86.2%;
+  left: 87.0%;
   top: 3.1%;
-  width: 8.2%;
-  height: 8.1%;
+  width: 7.35%;
+  height: 7.7%;
 }
 
 .dj-speaker-track.track-5 {
-  left: 86.2%;
-  top: 11.3%;
-  width: 8.2%;
-  height: 8.0%;
+  left: 87.0%;
+  top: 11.4%;
+  width: 7.35%;
+  height: 7.4%;
 }
 
 .dj-speaker-track.track-6 {
-  left: 86.2%;
-  top: 19.4%;
-  width: 8.2%;
-  height: 8.2%;
+  left: 87.0%;
+  top: 19.7%;
+  width: 7.15%;
+  height: 6.5%;
 }
+
 
 
 /* Active speaker track */

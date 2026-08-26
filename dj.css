@@ -304,6 +304,82 @@ a { color: inherit; }
 
 
 /* -----------------------------------------
+   MASTER VOLUME FADER
+   ----------------------------------------- */
+
+.dj-master-fader-wrap {
+  position: absolute;
+
+  left: 50.73%;
+  top: 11.1%;
+
+  width: 1.575%;
+  height: 11.4%;
+
+  z-index: 21;
+
+  pointer-events: auto;
+}
+
+.dj-master-fader {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 407%;
+  height: 25%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-90deg);
+
+  transform-origin: center;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.dj-master-fader::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 0;
+}
+
+.dj-master-fader::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 10%;
+  height: 64%;
+
+  border-radius: 2px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2c2c2c 0%,
+      #090909 48%,
+      #262626 100%
+    );
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.75),
+    inset 0 1px 1px rgba(255,255,255,.22);
+
+  cursor: pointer;
+}
+
+
+
+/* -----------------------------------------
    MIXER DISPLAY
    ----------------------------------------- */
 

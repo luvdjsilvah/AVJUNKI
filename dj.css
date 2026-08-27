@@ -180,7 +180,20 @@ body.dj-mixer-ready .dj-mix-player {
   pointer-events: none;
 }
 /* LEFT SPEAKER */
+/* Fine-tune left speaker labels */
+.dj-speaker-track.track-1 span,
+.dj-speaker-track.track-2 span,
+.dj-speaker-track.track-3 span {
+  bottom: 15%;
+}
 
+/* Fine-tune right speaker labels */
+.dj-speaker-track.track-4 span,
+.dj-speaker-track.track-5 span,
+.dj-speaker-track.track-6 span {
+  left: 54%;
+  bottom: 15%;
+}
 .dj-speaker-track.track-1 {
   left: 6.1%;
   top: 3.1%;

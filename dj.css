@@ -303,7 +303,22 @@ body.dj-mixer-ready .dj-mix-player {
     0 0 9px rgba(255,205,70,.75),
     0 0 18px rgba(189,77,255,.45);
 }
+/* First-load hint: gently pulse the six channel faders */
+body.dj-mixer-ready .dj-fader-channel .dj-fader-cap {
+  animation: djFaderHint .9s ease-in-out 2;
+}
 
+@keyframes djFaderHint {
+  0%, 100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter:
+      brightness(1.65)
+      drop-shadow(0 0 5px rgba(255, 213, 77, .85));
+  }
+}
 
 /* -----------------------------------------
    MASTER VOLUME FADER

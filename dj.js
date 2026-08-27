@@ -377,3 +377,310 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* =========================================================
+   LIVE DJ VU METER
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("dj-vu-meter");
+
+  if (!canvas) return;
+
+  const meterContext = canvas.getContext("2d");
+
+  const sampleAudios = [
+    document.getElementById("dj-audio-1"),
+    document.getElementById("dj-audio-2"),
+    document.getElementById("dj-audio-3"),
+    document.getElementById("dj-audio-4"),
+    document.getElementById("dj-audio-5"),
+    document.getElementById("dj-audio-6")
+  ].filter(Boolean);
+
+  const AudioContextClass =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+  let audioContext = null;
+  let mixBus = null;
+  let splitter = null;
+  let analyserLeft = null;
+  let analyserRight = null;
+  let leftData = null;
+  let rightData = null;
+  let graphReady = false;
+
+  let leftLevel = 0;
+  let rightLevel = 0;
+
+  function setupAudioGraph() {
+    if (
+      graphReady ||
+      !AudioContextClass ||
+      !sampleAudios.length
+    ) {
+      return;
+    }
+
+    audioContext = new AudioContextClass();
+
+    mixBus = audioContext.createGain();
+    splitter = audioContext.createChannelSplitter(2);
+
+    analyserLeft = audioContext.createAnalyser();
+    analyserRight = audioContext.createAnalyser();
+
+    analyserLeft.fftSize = 256;
+    analyserRight.fftSize = 256;
+
+    analyserLeft.smoothingTimeConstant = 0.75;
+    analyserRight.smoothingTimeConstant = 0.75;
+
+    sampleAudios.forEach((audio) => {
+      const source =
+        audioContext.createMediaElementSource(audio);
+
+      source.connect(mixBus);
+    });
+
+    /* Normal audio output */
+    mixBus.connect(audioContext.destination);
+
+    /* Meter analysis path */
+    mixBus.connect(splitter);
+
+    splitter.connect(analyserLeft, 0, 0);
+    splitter.connect(analyserRight, 1, 0);
+
+    leftData =
+      new Uint8Array(analyserLeft.fftSize);
+
+    rightData =
+      new Uint8Array(analyserRight.fftSize);
+
+    graphReady = true;
+  }
+
+  function wakeAudioMeter() {
+    setupAudioGraph();
+
+    if (
+      audioContext &&
+      audioContext.state === "suspended"
+    ) {
+      audioContext.resume().catch(() => {});
+    }
+  }
+
+  /* Start Web Audio before a fader/speaker click */
+  document.addEventListener(
+    "pointerdown",
+    (event) => {
+      if (
+        event.target.closest(
+          "[data-track], #dj-master-volume"
+        )
+      ) {
+        wakeAudioMeter();
+      }
+    },
+    true
+  );
+
+  sampleAudios.forEach((audio) => {
+    audio.addEventListener(
+      "play",
+      wakeAudioMeter
+    );
+  });
+
+  function getLevel(analyser, data) {
+    if (!analyser || !data) return 0;
+
+    analyser.getByteTimeDomainData(data);
+
+    let sum = 0;
+
+    for (let i = 0; i < data.length; i++) {
+      const sample =
+        (data[i] - 128) / 128;
+
+      sum += sample * sample;
+    }
+
+    const rms =
+      Math.sqrt(sum / data.length);
+
+    return Math.min(1, rms * 3.6);
+  }
+
+  function resizeMeter() {
+    const rect =
+      canvas.getBoundingClientRect();
+
+    const ratio =
+      window.devicePixelRatio || 1;
+
+    canvas.width =
+      Math.max(1, Math.round(rect.width * ratio));
+
+    canvas.height =
+      Math.max(1, Math.round(rect.height * ratio));
+
+    meterContext.setTransform(
+      ratio,
+      0,
+      0,
+      ratio,
+      0,
+      0
+    );
+  }
+
+  window.addEventListener(
+    "resize",
+    resizeMeter
+  );
+
+  resizeMeter();
+
+  function drawMeterRow(
+    level,
+    y,
+    width,
+    height,
+    label
+  ) {
+    const segmentCount = 10;
+
+    const labelWidth = width * 0.13;
+    const rightPadding = width * 0.05;
+
+    const meterWidth =
+      width -
+      labelWidth -
+      rightPadding;
+
+    const gap =
+      Math.max(1, width * 0.008);
+
+    const segmentWidth =
+      (
+        meterWidth -
+        gap * (segmentCount - 1)
+      ) / segmentCount;
+
+    const activeSegments =
+      Math.round(level * segmentCount);
+
+    meterContext.font =
+      `${Math.max(6, height * 0.22)}px Montserrat, Arial`;
+
+    meterContext.textAlign = "center";
+    meterContext.textBaseline = "middle";
+    meterContext.fillStyle = "#ffffff";
+
+    meterContext.fillText(
+      label,
+      labelWidth * 0.45,
+      y + height / 2
+    );
+
+    for (
+      let index = 0;
+      index < segmentCount;
+      index++
+    ) {
+      const x =
+        labelWidth +
+        index *
+          (segmentWidth + gap);
+
+      if (index < activeSegments) {
+        if (index >= 9) {
+          meterContext.fillStyle =
+            "#ff3b30";
+        } else if (index >= 7) {
+          meterContext.fillStyle =
+            "#ffd54d";
+        } else {
+          meterContext.fillStyle =
+            "#9cff00";
+        }
+      } else {
+        meterContext.fillStyle =
+          "rgba(255,255,255,.10)";
+      }
+
+      meterContext.fillRect(
+        x,
+        y,
+        segmentWidth,
+        height
+      );
+    }
+  }
+
+  function drawVuMeter() {
+    requestAnimationFrame(drawVuMeter);
+
+    const width =
+      canvas.clientWidth;
+
+    const height =
+      canvas.clientHeight;
+
+    if (!width || !height) return;
+
+    meterContext.clearRect(
+      0,
+      0,
+      width,
+      height
+    );
+
+    const newLeft =
+      getLevel(
+        analyserLeft,
+        leftData
+      );
+
+    const newRight =
+      getLevel(
+        analyserRight,
+        rightData
+      );
+
+    /* Fast rise / slower fall */
+    leftLevel =
+      newLeft > leftLevel
+        ? newLeft
+        : leftLevel * 0.86;
+
+    rightLevel =
+      newRight > rightLevel
+        ? newRight
+        : rightLevel * 0.86;
+
+    const rowHeight =
+      height * 0.25;
+
+    drawMeterRow(
+      leftLevel,
+      height * 0.18,
+      width,
+      rowHeight,
+      "L"
+    );
+
+    drawMeterRow(
+      rightLevel,
+      height * 0.57,
+      width,
+      rowHeight,
+      "R"
+    );
+  }
+
+  drawVuMeter();
+});

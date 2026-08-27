@@ -305,7 +305,7 @@ body.dj-mixer-ready .dj-mix-player {
 }
 /* First-load hint: gently pulse the six channel faders */
 body.dj-mixer-ready .dj-fader-channel .dj-fader-cap {
-  animation: djFaderHint .9s ease-in-out 2;
+ animation: djFaderHint 1s ease-in-out 4;
 }
 
 @keyframes djFaderHint {
@@ -314,9 +314,9 @@ body.dj-mixer-ready .dj-fader-channel .dj-fader-cap {
   }
 
   50% {
-    filter:
-      brightness(1.65)
-      drop-shadow(0 0 5px rgba(255, 213, 77, .85));
+   filter:
+  brightness(2.1)
+  drop-shadow(0 0 8px rgba(255, 213, 77, .95));
   }
 }
 

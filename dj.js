@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
     clearActiveState();
 
     if (nowPlaying) {
-      nowPlaying.textContent = "SELECT 1–6";
+     nowPlaying.textContent = "CLICK FADER 1–6";
     }
 
     if (trackTime) {

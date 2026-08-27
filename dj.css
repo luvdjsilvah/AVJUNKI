@@ -164,9 +164,9 @@ body.dj-mixer-ready .dj-mix-player {
 
   transform: translateX(-50%);
 
-  color: #ffd54d;
+  color: #9cff00;
 
-  font-size: clamp(.34rem, .48vw, .58rem);
+  font-size: clamp(.50rem, .72vw, .90rem);
   font-weight: 800;
   letter-spacing: .08em;
   line-height: 1;

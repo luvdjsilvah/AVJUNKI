@@ -1075,19 +1075,19 @@ height: 4.95%;
     margin-top: 13px;
   }
 }
-/* DJ SERVICE CARDS - FADE + 10 SECOND OFF TIME */
+/* DJ SERVICE CARDS - SMOOTH FADE + 10 SECOND OFF TIME */
 .dj-service-card {
-  animation: djServiceCardFade 17s ease-in-out infinite;
+  animation: djServiceCardFade 19s ease-in-out infinite;
 }
 
 @keyframes djServiceCardFade {
   0%,
-  29% {
+  26% {
     opacity: 1;
   }
 
-  35%,
-  94% {
+  37%,
+  89% {
     opacity: 0;
   }
 

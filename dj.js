@@ -279,43 +279,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /*
+
+   /*
      MASTER VOLUME
   */
 
   if (masterVolume) {
+    masterVolume.addEventListener("input", () => {
+      const volume = Number(masterVolume.value);
 
-    const startingVolume =
-      Number(masterVolume.value);
-
-    audioTracks.forEach((audio) => {
-
-      if (audio) {
-        audio.volume = startingVolume;
-      }
-
+      window.dispatchEvent(
+        new CustomEvent("dj-master-volume-change", {
+          detail: volume
+        })
+      );
     });
-
-
-    masterVolume.addEventListener(
-      "input",
-      () => {
-
-        const volume =
-          Number(masterVolume.value);
-
-        audioTracks.forEach((audio) => {
-
-          if (audio) {
-            audio.volume = volume;
-          }
-
-        });
-
-      }
-    );
   }
-
 
   /*
      LCD TIMER
@@ -424,8 +403,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audioContext = new AudioContextClass();
 
-    mixBus = audioContext.createGain();
-    splitter = audioContext.createChannelSplitter(2);
+mixBus = audioContext.createGain();
+
+const masterVolumeControl =
+  document.getElementById("dj-master-volume");
+
+if (masterVolumeControl) {
+  mixBus.gain.value =
+    Number(masterVolumeControl.value);
+}
+
+splitter = audioContext.createChannelSplitter(2);
 
     analyserLeft = audioContext.createAnalyser();
     analyserRight = audioContext.createAnalyser();
@@ -460,7 +448,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     graphReady = true;
   }
+window.addEventListener(
+  "dj-master-volume-change",
+  (event) => {
+    if (!mixBus || !audioContext) return;
 
+    mixBus.gain.setTargetAtTime(
+      event.detail,
+      audioContext.currentTime,
+      0.01
+    );
+  }
+);
   function wakeAudioMeter() {
     setupAudioGraph();
 

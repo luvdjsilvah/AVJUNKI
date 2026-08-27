@@ -155,7 +155,30 @@ body.dj-mixer-ready .dj-mix-player {
 
   pointer-events: auto;
 }
+/* Visible TRACK 1–6 labels on speaker faces */
+.dj-speaker-track span {
+  position: absolute;
 
+  left: 50%;
+  bottom: 8%;
+
+  transform: translateX(-50%);
+
+  color: #ffd54d;
+
+  font-size: clamp(.34rem, .48vw, .58rem);
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 1px 3px rgba(0,0,0,.95),
+    0 0 5px rgba(0,0,0,.75);
+
+  pointer-events: none;
+}
 /* LEFT SPEAKER */
 
 .dj-speaker-track.track-1 {

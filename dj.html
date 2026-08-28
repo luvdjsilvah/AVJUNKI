@@ -189,7 +189,49 @@
                src="assets/audio/dj-sample-06.mp3"></audio>
 
       </div>
+      <!-- =====================================================
+           MOBILE DJ MIX PLAYER
+           ===================================================== -->
+      <section class="dj-mobile-player" id="dj-mobile-player">
 
+        <div class="dj-mobile-player-head">
+          <span>DJ MIX SAMPLES</span>
+          <strong id="dj-mobile-now-playing">SELECT A TRACK</strong>
+          <span id="dj-mobile-track-time">0:00 / 0:00</span>
+        </div>
+
+        <div class="dj-mobile-track-grid">
+          <button type="button" data-mobile-track="1">TRACK 1</button>
+          <button type="button" data-mobile-track="2">TRACK 2</button>
+          <button type="button" data-mobile-track="3">TRACK 3</button>
+          <button type="button" data-mobile-track="4">TRACK 4</button>
+          <button type="button" data-mobile-track="5">TRACK 5</button>
+          <button type="button" data-mobile-track="6">TRACK 6</button>
+        </div>
+
+        <div class="dj-mobile-controls">
+          <button
+            type="button"
+            id="dj-mobile-play-pause"
+            aria-label="Play or pause selected DJ mix"
+          >
+            PLAY / PAUSE
+          </button>
+
+          <label for="dj-mobile-volume">VOLUME</label>
+
+          <input
+            id="dj-mobile-volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.80"
+            aria-label="Mobile DJ player volume"
+          >
+        </div>
+
+      </section>
       <div class="dj-screen" aria-label="AV Junki video display">
         <video
           id="dj-screen-video"

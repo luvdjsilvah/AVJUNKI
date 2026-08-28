@@ -1039,7 +1039,9 @@ height: 4.95%;
 
 #dj-mobile-lcd-text {
   color: #9cff00;
-  font-size: clamp(5px, 1.25vw, 9px);
+  font-size: clamp(3px, .72vw, 6px);
+   -webkit-text-size-adjust: none;
+text-size-adjust: none;
   font-weight: 800;
   line-height: 1;
   letter-spacing: .03em;

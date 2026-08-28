@@ -683,3 +683,262 @@ window.addEventListener(
 
   drawVuMeter();
 });
+/* =========================================================
+   MOBILE DJ MIX PLAYER
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const mobilePlayer =
+    document.getElementById("dj-mobile-player");
+
+  if (!mobilePlayer) return;
+
+  const trackButtons =
+    mobilePlayer.querySelectorAll("[data-mobile-track]");
+
+  const playPauseButton =
+    document.getElementById("dj-mobile-play-pause");
+
+  const nowPlaying =
+    document.getElementById("dj-mobile-now-playing");
+
+  const trackTime =
+    document.getElementById("dj-mobile-track-time");
+
+  const volumeControl =
+    document.getElementById("dj-mobile-volume");
+
+  const desktopVolume =
+    document.getElementById("dj-master-volume");
+
+  const audioTracks = [
+    document.getElementById("dj-audio-1"),
+    document.getElementById("dj-audio-2"),
+    document.getElementById("dj-audio-3"),
+    document.getElementById("dj-audio-4"),
+    document.getElementById("dj-audio-5"),
+    document.getElementById("dj-audio-6")
+  ];
+
+  let activeTrack = null;
+  let activeTrackNumber = null;
+
+
+  function formatTime(seconds) {
+
+    if (!Number.isFinite(seconds)) {
+      return "0:00";
+    }
+
+    const minutes =
+      Math.floor(seconds / 60);
+
+    const remainingSeconds =
+      Math.floor(seconds % 60)
+        .toString()
+        .padStart(2, "0");
+
+    return `${minutes}:${remainingSeconds}`;
+  }
+
+
+  function clearButtons() {
+
+    trackButtons.forEach((button) => {
+      button.classList.remove("is-active");
+    });
+  }
+
+
+  function setActiveButton(trackNumber) {
+
+    clearButtons();
+
+    const button =
+      mobilePlayer.querySelector(
+        `[data-mobile-track="${trackNumber}"]`
+      );
+
+    if (button) {
+      button.classList.add("is-active");
+    }
+  }
+
+
+  function stopOtherTracks(trackNumber) {
+
+    audioTracks.forEach((audio, index) => {
+
+      if (!audio) return;
+
+      if (index + 1 !== trackNumber) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+  }
+
+
+  function startTrack(trackNumber) {
+
+    const audio =
+      audioTracks[trackNumber - 1];
+
+    if (!audio) return;
+
+    stopOtherTracks(trackNumber);
+
+    activeTrack = audio;
+    activeTrackNumber = trackNumber;
+
+    audio.currentTime = 0;
+
+    setActiveButton(trackNumber);
+
+    if (nowPlaying) {
+      nowPlaying.textContent =
+        `TRACK ${trackNumber} — PLAYING`;
+    }
+
+    audio.play().catch(() => {});
+  }
+
+
+  trackButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const trackNumber =
+        Number(button.dataset.mobileTrack);
+
+      if (
+        trackNumber >= 1 &&
+        trackNumber <= 6
+      ) {
+        startTrack(trackNumber);
+      }
+    });
+  });
+
+
+  if (playPauseButton) {
+
+    playPauseButton.addEventListener("click", () => {
+
+      if (!activeTrack) return;
+
+      if (activeTrack.paused) {
+
+        activeTrack.play().catch(() => {});
+
+        if (nowPlaying) {
+          nowPlaying.textContent =
+            `TRACK ${activeTrackNumber} — PLAYING`;
+        }
+
+      } else {
+
+        activeTrack.pause();
+
+        if (nowPlaying) {
+          nowPlaying.textContent =
+            `TRACK ${activeTrackNumber} — PAUSED`;
+        }
+      }
+    });
+  }
+
+
+  if (volumeControl) {
+
+    volumeControl.addEventListener("input", () => {
+
+      const volume =
+        Number(volumeControl.value);
+
+      /*
+         Keep mobile and desktop master volumes synced.
+      */
+
+      if (desktopVolume) {
+        desktopVolume.value = volume;
+      }
+
+      window.dispatchEvent(
+        new CustomEvent(
+          "dj-master-volume-change",
+          {
+            detail: volume
+          }
+        )
+      );
+    });
+  }
+
+
+  audioTracks.forEach((audio, index) => {
+
+    if (!audio) return;
+
+    const trackNumber = index + 1;
+
+    audio.addEventListener(
+      "loadedmetadata",
+      () => {
+
+        if (
+          activeTrackNumber === trackNumber &&
+          trackTime
+        ) {
+          trackTime.textContent =
+            `0:00 / ${formatTime(audio.duration)}`;
+        }
+      }
+    );
+
+
+    audio.addEventListener(
+      "timeupdate",
+      () => {
+
+        if (
+          activeTrackNumber !== trackNumber ||
+          !trackTime
+        ) {
+          return;
+        }
+
+        trackTime.textContent =
+          `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+      }
+    );
+
+
+    audio.addEventListener(
+      "ended",
+      () => {
+
+        if (activeTrackNumber !== trackNumber) {
+          return;
+        }
+
+        activeTrack = null;
+        activeTrackNumber = null;
+
+        clearButtons();
+
+        if (nowPlaying) {
+          nowPlaying.textContent =
+            "SELECT A TRACK";
+        }
+
+        if (trackTime) {
+          trackTime.textContent =
+            "0:00 / 0:00";
+        }
+      }
+    );
+  });
+
+});

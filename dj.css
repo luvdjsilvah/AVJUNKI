@@ -856,6 +856,10 @@ height: 4.95%;
 /* MOBILE DJ PLAYER — hidden on desktop */
 .dj-mobile-player {
   display: none;
+} 
+/* MOBILE MIXER LCD — hidden on desktop */
+.dj-mobile-lcd {
+  display: none;
 }
 /* RESPONSIVE */
 
@@ -1017,6 +1021,30 @@ height: 4.95%;
 
 #dj-mobile-volume {
   width: 100%;
+}
+   /* Mobile mixer LCD overlay */
+.dj-mobile-lcd {
+  display: flex;
+  position: absolute;
+  z-index: 24;
+  left: 41.5%;
+  top: 1.4175vw;
+  width: 10.84%;
+  height: 4.348125vw;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#dj-mobile-lcd-text {
+  color: #9cff00;
+  font-size: clamp(5px, 1.25vw, 9px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .03em;
+  white-space: nowrap;
+  text-shadow: 0 0 4px rgba(156,255,0,.65);
 }
   /* Keep the original DJ artwork locked to the top 16:9 area. */
   .dj-master {

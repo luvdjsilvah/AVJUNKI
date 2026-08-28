@@ -923,7 +923,15 @@ height: 4.95%;
     padding-top: 56.25vw;
     background: #000;
   }
-
+  /* Keep DJ mixer controls locked to the 16:9 hero on mobile */
+  .dj-mix-player {
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 56.25vw;
+  }
   /* Keep the original DJ artwork locked to the top 16:9 area. */
   .dj-master {
     position: absolute;

@@ -853,7 +853,10 @@ height: 4.95%;
   background: var(--red);
 }
 
-
+/* MOBILE DJ PLAYER — hidden on desktop */
+.dj-mobile-player {
+  display: none;
+}
 /* RESPONSIVE */
 
 @media (max-width: 1050px) {

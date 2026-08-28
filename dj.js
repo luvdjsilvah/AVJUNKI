@@ -711,7 +711,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const desktopVolume =
     document.getElementById("dj-master-volume");
-
+const mobileLcdText =
+  document.getElementById("dj-mobile-lcd-text");
   const audioTracks = [
     document.getElementById("dj-audio-1"),
     document.getElementById("dj-audio-2"),
@@ -800,7 +801,11 @@ document.addEventListener("DOMContentLoaded", () => {
       nowPlaying.textContent =
         `TRACK ${trackNumber} — PLAYING`;
     }
-
+if (mobileLcdText) {
+  mobileLcdText.textContent =
+    `TRACK ${trackNumber} PLAYING`;
+}
+   
     audio.play().catch(() => {});
   }
 
@@ -836,7 +841,10 @@ document.addEventListener("DOMContentLoaded", () => {
           nowPlaying.textContent =
             `TRACK ${activeTrackNumber} — PLAYING`;
         }
-
+if (mobileLcdText) {
+  mobileLcdText.textContent =
+    `TRACK ${activeTrackNumber} PLAYING`;
+}
       } else {
 
         activeTrack.pause();
@@ -845,6 +853,10 @@ document.addEventListener("DOMContentLoaded", () => {
           nowPlaying.textContent =
             `TRACK ${activeTrackNumber} — PAUSED`;
         }
+        if (mobileLcdText) {
+  mobileLcdText.textContent =
+    `TRACK ${activeTrackNumber} PAUSED`;
+}
       }
     });
   }
@@ -932,7 +944,10 @@ document.addEventListener("DOMContentLoaded", () => {
           nowPlaying.textContent =
             "SELECT A TRACK";
         }
-
+if (mobileLcdText) {
+  mobileLcdText.textContent =
+    "NOW PLAYING";
+}
         if (trackTime) {
           trackTime.textContent =
             "0:00 / 0:00";

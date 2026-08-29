@@ -957,3 +957,53 @@ if (mobileLcdText) {
   });
 
 });
+/* =========================================================
+   TRACK 6 EXPLICIT CONTENT WARNING
+   ========================================================= */
+
+const explicitWarning =
+  document.getElementById("dj-explicit-warning");
+
+const explicitPlay =
+  document.getElementById("dj-explicit-play");
+
+const explicitCancel =
+  document.getElementById("dj-explicit-cancel");
+
+let pendingExplicitAction = null;
+
+window.djExplicitGate = {
+  request(action) {
+    pendingExplicitAction = action;
+
+    if (explicitWarning) {
+      explicitWarning.hidden = false;
+    }
+  }
+};
+
+if (explicitCancel) {
+  explicitCancel.addEventListener("click", () => {
+    pendingExplicitAction = null;
+
+    if (explicitWarning) {
+      explicitWarning.hidden = true;
+    }
+  });
+}
+
+if (explicitPlay) {
+  explicitPlay.addEventListener("click", () => {
+    const action = pendingExplicitAction;
+
+    pendingExplicitAction = null;
+
+    if (explicitWarning) {
+      explicitWarning.hidden = true;
+    }
+
+    if (typeof action === "function") {
+      action();
+    }
+  });
+}

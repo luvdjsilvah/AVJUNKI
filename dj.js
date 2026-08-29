@@ -237,7 +237,21 @@ document.addEventListener("DOMContentLoaded", () => {
     /*
        Start a new track.
     */
+if (
+  trackNumber === 6 &&
+  audio.dataset.explicitApproved !== "yes"
+) {
+  window.djExplicitGate.request(() => {
+    audio.dataset.explicitApproved = "yes";
+    playTrack(trackNumber);
+  });
 
+  return;
+}
+
+if (trackNumber === 6) {
+  audio.dataset.explicitApproved = "";
+}
     stopOtherTracks(trackNumber);
 
     activeTrack = trackNumber;
@@ -787,7 +801,21 @@ const mobileLcdText =
       audioTracks[trackNumber - 1];
 
     if (!audio) return;
+if (
+  trackNumber === 6 &&
+  audio.dataset.explicitApproved !== "yes"
+) {
+  window.djExplicitGate.request(() => {
+    audio.dataset.explicitApproved = "yes";
+    startTrack(trackNumber);
+  });
 
+  return;
+}
+
+if (trackNumber === 6) {
+  audio.dataset.explicitApproved = "";
+}
     stopOtherTracks(trackNumber);
 
     activeTrack = audio;

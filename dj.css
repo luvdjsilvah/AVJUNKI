@@ -922,14 +922,14 @@ height: 4.95%;
      2) DJ copy
      3) service cards
   */
-  .dj-stage {
-    width: 100%;
-    max-width: none;
-    aspect-ratio: auto;
-    overflow: visible;
-    padding-top: 56.25vw;
-    background: #000;
-  }
+ .dj-stage {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: auto;
+  overflow: visible;
+  padding-top: 177.7777778vw;
+  background: #000;
+}
   /* Hide desktop mixer controls on mobile */
 .dj-mix-player {
   display: none !important;
@@ -1049,17 +1049,24 @@ text-size-adjust: none;
   text-shadow: 0 0 4px rgba(156,255,0,.65);
 }
   /* Keep the original DJ artwork locked to the top 16:9 area. */
-  .dj-master {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    height: 56.25vw;
-    object-fit: contain;
-  }
-
+ .dj-master {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  height: 177.7777778vw;
+  object-fit: cover;
+  object-position: top center;
+}
+/* Hide old desktop hero overlays on mobile */
+.dj-screen,
+.dj-lighting,
+.dj-smoke,
+.dj-mobile-lcd {
+  display: none !important;
+}
   /* Keep the video aligned to the screen in the 16:9 artwork. */
   .dj-screen {
     left: var(--screen-left);

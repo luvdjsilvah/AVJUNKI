@@ -954,16 +954,27 @@ background: transparent;
 
 .dj-mobile-player-head {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-bottom: 16px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 0 4px;
+}
+.dj-mobile-player-title {
+  color: #d76cff;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-align: left;
 }
 
-.dj-mobile-player-head > span:first-child {
-  color: #ffd54d;
-  font-size: .72rem;
-  font-weight: 800;
-  letter-spacing: .14em;
+.dj-mobile-track-count {
+  color: #ffffff;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-align: right;
 }
 
 #dj-mobile-now-playing {

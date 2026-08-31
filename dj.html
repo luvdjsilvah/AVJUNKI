@@ -343,27 +343,107 @@
 </button>
         </div>
 
-        <div class="dj-mobile-controls">
-          <button
-            type="button"
-            id="dj-mobile-play-pause"
-            aria-label="Play or pause selected DJ mix"
-          >
-            PLAY / PAUSE
-          </button>
+     <div class="dj-mobile-controls">
 
-          <label for="dj-mobile-volume">VOLUME</label>
+  <div class="dj-mobile-now-card">
 
-          <input
-            id="dj-mobile-volume"
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value="0.80"
-            aria-label="Mobile DJ player volume"
-          >
-        </div>
+    <div class="dj-mobile-now-top">
+
+      <img
+        id="dj-mobile-now-art"
+        class="dj-mobile-now-art"
+        src="assets/images/strip-tease.webp"
+        alt="Now playing album cover"
+      >
+
+      <div class="dj-mobile-now-meta">
+        <strong id="dj-mobile-now-playing">STRIP TEASE</strong>
+        <span>DJ Silvah</span>
+      </div>
+
+      <span id="dj-mobile-track-time">0:00 / 2:48</span>
+
+    </div>
+
+    <input
+      id="dj-mobile-progress"
+      class="dj-mobile-progress"
+      type="range"
+      min="0"
+      max="100"
+      step="0.1"
+      value="0"
+      aria-label="Track progress"
+    >
+
+    <div class="dj-mobile-transport">
+
+      <button
+        type="button"
+        class="dj-mobile-transport-small"
+        id="dj-mobile-shuffle"
+        aria-label="Shuffle"
+      >
+        ⤨
+      </button>
+
+      <button
+        type="button"
+        class="dj-mobile-transport-small"
+        id="dj-mobile-prev"
+        aria-label="Previous track"
+      >
+        ◀
+      </button>
+
+      <button
+        type="button"
+        id="dj-mobile-play-pause"
+        class="dj-mobile-play-main"
+        aria-label="Play or pause selected DJ mix"
+      >
+        ▶
+      </button>
+
+      <button
+        type="button"
+        class="dj-mobile-transport-small"
+        id="dj-mobile-next"
+        aria-label="Next track"
+      >
+        ▶
+      </button>
+
+      <button
+        type="button"
+        class="dj-mobile-transport-small"
+        id="dj-mobile-repeat"
+        aria-label="Repeat track"
+      >
+        ↻
+      </button>
+
+    </div>
+
+    <div class="dj-mobile-volume-row">
+
+      <label for="dj-mobile-volume">VOLUME</label>
+
+      <input
+        id="dj-mobile-volume"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.80"
+        aria-label="Mobile DJ player volume"
+      >
+
+    </div>
+
+  </div>
+
+</div>
 
       </section>
       <!-- TRACK 6 EXPLICIT CONTENT WARNING -->

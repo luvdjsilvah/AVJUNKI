@@ -945,8 +945,9 @@ height: 4.95%;
   position: relative;
   z-index: 30;
   width: 100%;
+   margin-top: -118vw;
   padding: 22px 16px 24px;
-  background: #050509;
+background: transparent;
   color: #fff;
   text-align: center;
 }

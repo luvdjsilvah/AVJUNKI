@@ -1064,6 +1064,21 @@ text-size-adjust: none;
   object-fit: cover;
   object-position: top center;
 }
+   /* DJ Silvah console badge — mobile position */
+.dj-console-logo {
+  display: block;
+  position: absolute;
+  z-index: 32;
+
+  left: 50%;
+  top: 82vw;
+  width: 38%;
+  height: auto;
+
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
 /* Hide old desktop hero overlays on mobile */
 .dj-screen,
 .dj-lighting,

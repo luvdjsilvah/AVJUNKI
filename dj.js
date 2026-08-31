@@ -922,7 +922,15 @@ if (mobileLcdText) {
     if (!audio) return;
 
     const trackNumber = index + 1;
+const rowButton =
+  mobilePlayer.querySelector(
+    `[data-mobile-track="${trackNumber}"]`
+  );
 
+const rowDuration =
+  rowButton
+    ? rowButton.querySelector(".dj-mobile-track-duration")
+    : null;
     audio.addEventListener(
       "loadedmetadata",
       () => {

@@ -1091,32 +1091,169 @@ background: transparent;
     0 0 18px rgba(8,169,238,.32);
 }
 .dj-mobile-controls {
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
-#dj-mobile-play-pause {
-  width: 100%;
-  min-height: 48px;
-  margin-bottom: 16px;
-  border: 0;
-  border-radius: 6px;
-  background: #e51b23;
+.dj-mobile-now-card {
+  padding: 14px 14px 16px;
+  border: 1px solid rgba(189,77,255,.48);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20,13,31,.98),
+      rgba(8,8,15,.98)
+    );
+  box-shadow:
+    0 0 22px rgba(189,77,255,.12),
+    inset 0 0 28px rgba(116,40,170,.06);
+}
+
+.dj-mobile-now-top {
+  display: grid;
+  grid-template-columns: 66px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.dj-mobile-now-art {
+  width: 66px;
+  height: 66px;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(189,77,255,.28);
+}
+
+.dj-mobile-now-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.dj-mobile-now-meta strong,
+#dj-mobile-now-playing {
   color: #fff;
-  font-family: inherit;
-  font-weight: 800;
-  letter-spacing: .08em;
+  font-size: .92rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.dj-mobile-controls label {
+.dj-mobile-now-meta span {
+  color: rgba(255,255,255,.66);
+  font-size: .70rem;
+  font-weight: 500;
+}
+
+#dj-mobile-track-time {
+  color: #d76cff;
+  font-size: .70rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dj-mobile-progress {
+  width: 100%;
+  height: 4px;
+  margin: 14px 0 16px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 999px;
+  background: rgba(189,77,255,.22);
+  outline: none;
+}
+
+.dj-mobile-progress::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 50%;
+  background: #f2b915;
+  box-shadow:
+    0 0 8px rgba(255,190,20,.85),
+    0 0 14px rgba(189,77,255,.45);
+}
+
+.dj-mobile-transport {
+  display: grid;
+  grid-template-columns: 1fr 1fr 82px 1fr 1fr;
+  align-items: center;
+  gap: 7px;
+}
+
+.dj-mobile-transport button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.dj-mobile-transport-small {
+  width: 44px;
+  height: 44px;
+  justify-self: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #bd4dff;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+#dj-mobile-play-pause.dj-mobile-play-main {
+  width: 76px;
+  height: 76px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  justify-self: center;
+
+  border: 1px solid #ffc928;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 40% 35%,
+      #ffe58a 0%,
+      #d89b0c 32%,
+      #6b4500 66%,
+      #171008 100%
+    );
+
+  color: #fff1a8;
+  font-size: 1.8rem;
+  line-height: 1;
+
+  box-shadow:
+    0 0 10px rgba(255,197,24,.75),
+    0 0 24px rgba(189,77,255,.62),
+    inset 0 0 12px rgba(255,255,255,.18);
+
+  text-shadow:
+    0 1px 3px rgba(0,0,0,.65);
+
+  letter-spacing: 0;
+}
+
+.dj-mobile-volume-row {
+  margin-top: 14px;
+}
+
+.dj-mobile-volume-row label {
   display: block;
   margin-bottom: 7px;
-  font-size: .68rem;
-  font-weight: 800;
+  color: rgba(255,255,255,.72);
+  font-size: .62rem;
+  font-weight: 700;
   letter-spacing: .12em;
 }
 
 #dj-mobile-volume {
   width: 100%;
+  accent-color: #bd4dff;
+}
 }
    /* Mobile mixer LCD overlay */
 .dj-mobile-lcd {

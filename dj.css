@@ -1071,8 +1071,8 @@ text-size-adjust: none;
   z-index: 32;
 
   left: 50%;
-  top: 82vw;
-  width: 38%;
+top: 85vw;
+width: 34%;
   height: auto;
 
   transform: translateX(-50%);

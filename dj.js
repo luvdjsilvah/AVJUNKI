@@ -934,7 +934,10 @@ const rowDuration =
     audio.addEventListener(
       "loadedmetadata",
       () => {
-
+if (rowDuration) {
+  rowDuration.textContent =
+    formatTime(audio.duration);
+}
         if (
           activeTrackNumber === trackNumber &&
           trackTime

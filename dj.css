@@ -1068,10 +1068,20 @@ background: transparent;
   text-align: center;
 }
 .dj-mobile-track-grid button.is-active {
-  background: #9cff00;
-  color: #050505;
-}
+  background: linear-gradient(
+    135deg,
+    #08a9ee 0%,
+    #078fd4 55%,
+    #056fae 100%
+  );
 
+  color: #ffffff;
+  border-color: rgba(8,169,238,.90);
+
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.08),
+    0 0 18px rgba(8,169,238,.32);
+}
 .dj-mobile-controls {
   margin-top: 16px;
 }

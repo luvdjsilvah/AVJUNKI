@@ -905,7 +905,10 @@ let activeTrackNumber = null;
 
     playPauseButton.addEventListener("click", () => {
 
-      if (!activeTrack) return;
+    if (!activeTrack) {
+  startTrack(1);
+  return;
+}
 
 
       if (activeTrack.paused) {

@@ -949,22 +949,33 @@ if (rowDuration) {
     );
 
 
-    audio.addEventListener(
-      "timeupdate",
-      () => {
+   audio.addEventListener(
+  "timeupdate",
+  () => {
 
-        if (
-          activeTrackNumber !== trackNumber ||
-          !trackTime
-        ) {
-          return;
-        }
+    if (activeTrackNumber !== trackNumber) {
+      return;
+    }
 
-        trackTime.textContent =
-          `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
-      }
-    );
+    if (trackTime) {
+      trackTime.textContent =
+        `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    }
 
+    const progressControl =
+      document.getElementById("dj-mobile-progress");
+
+    if (
+      progressControl &&
+      Number.isFinite(audio.duration) &&
+      audio.duration > 0
+    ) {
+      progressControl.value =
+        (audio.currentTime / audio.duration) * 100;
+    }
+
+  }
+);
 
     audio.addEventListener(
       "ended",

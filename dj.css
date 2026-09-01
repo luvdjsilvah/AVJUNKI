@@ -1332,8 +1332,8 @@ background: transparent;
 #dj-mobile-play-pause.dj-mobile-play-main {
   position: relative;
 
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   min-height: 0;
 
   margin: 0;
@@ -1341,47 +1341,74 @@ background: transparent;
 
   justify-self: center;
 
-  border: 1.5px solid #ffc928;
+  border: 2px solid #d89b0c;
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle at 48% 44%,
-      #3a2d12 0%,
-      #18130b 42%,
-      #080707 72%,
+      circle at 42% 34%,
+      #493913 0%,
+      #21190a 38%,
+      #0b0906 68%,
       #020202 100%
     );
 
   color: transparent;
-
   font-size: 0;
   letter-spacing: 0;
 
   box-shadow:
-    0 0 5px rgba(255,197,24,.75),
-    0 0 16px rgba(189,77,255,.70),
-    inset 0 0 12px rgba(255,190,35,.18);
+    0 0 4px #ffd45a,
+    0 0 13px rgba(189,77,255,.80),
+
+    inset 0 2px 2px rgba(255,230,130,.55),
+    inset 0 -3px 4px rgba(0,0,0,.90),
+    inset 3px 0 5px rgba(255,183,0,.15),
+    inset -3px 0 5px rgba(0,0,0,.65);
 }
+
+
+/* 3D GOLD PLAY TRIANGLE */
 
 #dj-mobile-play-pause.dj-mobile-play-main::before {
   content: "";
 
   position: absolute;
 
-  left: 22px;
+  left: 23px;
   top: 17px;
 
-  width: 0;
-  height: 0;
+  width: 24px;
+  height: 30px;
 
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 16px solid #ffc928;
+  clip-path: polygon(
+    0 0,
+    100% 50%,
+    0 100%
+  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.72) 0%,
+      rgba(255,255,255,.15) 27%,
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #ffe276 0%,
+      #ffc322 38%,
+      #d39100 68%,
+      #795000 100%
+    );
+
+  box-shadow:
+    inset 2px 2px 2px rgba(255,255,255,.55),
+    inset -3px -3px 4px rgba(0,0,0,.50);
 
   filter:
-    drop-shadow(0 0 4px rgba(255,195,30,.80))
-    drop-shadow(0 1px 1px rgba(0,0,0,.85));
+    drop-shadow(0 3px 2px rgba(0,0,0,.85))
+    drop-shadow(0 0 3px rgba(255,190,25,.65));
 }
 
 

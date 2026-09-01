@@ -708,11 +708,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!mobilePlayer) return;
 
+
   const trackButtons =
     mobilePlayer.querySelectorAll("[data-mobile-track]");
 
   const playPauseButton =
     document.getElementById("dj-mobile-play-pause");
+
+  const shuffleButton =
+    document.getElementById("dj-mobile-shuffle");
+
+  const repeatButton =
+    document.getElementById("dj-mobile-repeat");
 
   const nowPlaying =
     document.getElementById("dj-mobile-now-playing");
@@ -720,13 +727,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const trackTime =
     document.getElementById("dj-mobile-track-time");
 
+  const progressControl =
+    document.getElementById("dj-mobile-progress");
+
   const volumeControl =
     document.getElementById("dj-mobile-volume");
 
   const desktopVolume =
     document.getElementById("dj-master-volume");
-const mobileLcdText =
-  document.getElementById("dj-mobile-lcd-text");
+
+  const mobileLcdText =
+    document.getElementById("dj-mobile-lcd-text");
+
+
   const audioTracks = [
     document.getElementById("dj-audio-1"),
     document.getElementById("dj-audio-2"),
@@ -736,8 +749,12 @@ const mobileLcdText =
     document.getElementById("dj-audio-6")
   ];
 
+
   let activeTrack = null;
   let activeTrackNumber = null;
+
+  let shuffleEnabled = false;
+  let repeatEnabled = false;
 
 
   function formatTime(seconds) {
@@ -791,6 +808,7 @@ const mobileLcdText =
         audio.pause();
         audio.currentTime = 0;
       }
+
     });
   }
 
@@ -801,42 +819,66 @@ const mobileLcdText =
       audioTracks[trackNumber - 1];
 
     if (!audio) return;
-if (
-  trackNumber === 6 &&
-  audio.dataset.explicitApproved !== "yes"
-) {
-  window.djExplicitGate.request(() => {
-    audio.dataset.explicitApproved = "yes";
-    startTrack(trackNumber);
-  });
 
-  return;
-}
 
-if (trackNumber === 6) {
-  audio.dataset.explicitApproved = "";
-}
+    /* TRACK 6 EXPLICIT WARNING */
+
+    if (
+      trackNumber === 6 &&
+      audio.dataset.explicitApproved !== "yes"
+    ) {
+
+      window.djExplicitGate.request(() => {
+
+        audio.dataset.explicitApproved = "yes";
+
+        startTrack(trackNumber);
+
+      });
+
+      return;
+    }
+
+
+    if (trackNumber === 6) {
+      audio.dataset.explicitApproved = "";
+    }
+
+
     stopOtherTracks(trackNumber);
 
     activeTrack = audio;
     activeTrackNumber = trackNumber;
 
+    audio.loop = repeatEnabled;
     audio.currentTime = 0;
 
     setActiveButton(trackNumber);
+
+
+    if (progressControl) {
+      progressControl.value = 0;
+    }
+
 
     if (nowPlaying) {
       nowPlaying.textContent =
         `TRACK ${trackNumber} — PLAYING`;
     }
-if (mobileLcdText) {
-  mobileLcdText.textContent =
-    `TRACK ${trackNumber} PLAYING`;
-}
-   
+
+
+    if (mobileLcdText) {
+      mobileLcdText.textContent =
+        `TRACK ${trackNumber} PLAYING`;
+    }
+
+
     audio.play().catch(() => {});
+
   }
 
+
+  /* TRACK BUTTONS */
 
   trackButtons.forEach((button) => {
 
@@ -851,9 +893,13 @@ if (mobileLcdText) {
       ) {
         startTrack(trackNumber);
       }
+
     });
+
   });
 
+
+  /* PLAY / PAUSE */
 
   if (playPauseButton) {
 
@@ -861,34 +907,111 @@ if (mobileLcdText) {
 
       if (!activeTrack) return;
 
+
       if (activeTrack.paused) {
 
         activeTrack.play().catch(() => {});
+
 
         if (nowPlaying) {
           nowPlaying.textContent =
             `TRACK ${activeTrackNumber} — PLAYING`;
         }
-if (mobileLcdText) {
-  mobileLcdText.textContent =
-    `TRACK ${activeTrackNumber} PLAYING`;
-}
+
+
+        if (mobileLcdText) {
+          mobileLcdText.textContent =
+            `TRACK ${activeTrackNumber} PLAYING`;
+        }
+
+
       } else {
 
         activeTrack.pause();
+
 
         if (nowPlaying) {
           nowPlaying.textContent =
             `TRACK ${activeTrackNumber} — PAUSED`;
         }
+
+
         if (mobileLcdText) {
-  mobileLcdText.textContent =
-    `TRACK ${activeTrackNumber} PAUSED`;
-}
+          mobileLcdText.textContent =
+            `TRACK ${activeTrackNumber} PAUSED`;
+        }
+
       }
+
     });
+
   }
 
+
+  /* SHUFFLE */
+
+  if (shuffleButton) {
+
+    shuffleButton.setAttribute(
+      "aria-pressed",
+      "false"
+    );
+
+
+    shuffleButton.addEventListener("click", () => {
+
+      shuffleEnabled = !shuffleEnabled;
+
+      shuffleButton.classList.toggle(
+        "is-on",
+        shuffleEnabled
+      );
+
+      shuffleButton.setAttribute(
+        "aria-pressed",
+        String(shuffleEnabled)
+      );
+
+    });
+
+  }
+
+
+  /* REPEAT */
+
+  if (repeatButton) {
+
+    repeatButton.setAttribute(
+      "aria-pressed",
+      "false"
+    );
+
+
+    repeatButton.addEventListener("click", () => {
+
+      repeatEnabled = !repeatEnabled;
+
+      repeatButton.classList.toggle(
+        "is-on",
+        repeatEnabled
+      );
+
+      repeatButton.setAttribute(
+        "aria-pressed",
+        String(repeatEnabled)
+      );
+
+
+      if (activeTrack) {
+        activeTrack.loop = repeatEnabled;
+      }
+
+    });
+
+  }
+
+
+  /* VOLUME */
 
   if (volumeControl) {
 
@@ -897,13 +1020,11 @@ if (mobileLcdText) {
       const volume =
         Number(volumeControl.value);
 
-      /*
-         Keep mobile and desktop master volumes synced.
-      */
 
       if (desktopVolume) {
         desktopVolume.value = volume;
       }
+
 
       window.dispatchEvent(
         new CustomEvent(
@@ -913,95 +1034,168 @@ if (mobileLcdText) {
           }
         )
       );
+
     });
+
   }
 
+
+  /* AUDIO EVENTS */
 
   audioTracks.forEach((audio, index) => {
 
     if (!audio) return;
 
-    const trackNumber = index + 1;
-const rowButton =
-  mobilePlayer.querySelector(
-    `[data-mobile-track="${trackNumber}"]`
-  );
 
-const rowDuration =
-  rowButton
-    ? rowButton.querySelector(".dj-mobile-track-duration")
-    : null;
+    const trackNumber =
+      index + 1;
+
+
+    const rowButton =
+      mobilePlayer.querySelector(
+        `[data-mobile-track="${trackNumber}"]`
+      );
+
+
+    const rowDuration =
+      rowButton
+        ? rowButton.querySelector(
+            ".dj-mobile-track-duration"
+          )
+        : null;
+
+
     audio.addEventListener(
       "loadedmetadata",
       () => {
-if (rowDuration) {
-  rowDuration.textContent =
-    formatTime(audio.duration);
-}
+
+        if (rowDuration) {
+
+          rowDuration.textContent =
+            formatTime(audio.duration);
+
+        }
+
+
         if (
           activeTrackNumber === trackNumber &&
           trackTime
         ) {
+
           trackTime.textContent =
             `0:00 / ${formatTime(audio.duration)}`;
+
         }
+
       }
     );
 
 
-   audio.addEventListener(
-  "timeupdate",
-  () => {
+    audio.addEventListener(
+      "timeupdate",
+      () => {
 
-    if (activeTrackNumber !== trackNumber) {
-      return;
-    }
+        if (
+          activeTrackNumber !== trackNumber
+        ) {
+          return;
+        }
 
-    if (trackTime) {
-      trackTime.textContent =
-        `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
-    }
 
-    const progressControl =
-      document.getElementById("dj-mobile-progress");
+        if (trackTime) {
 
-    if (
-      progressControl &&
-      Number.isFinite(audio.duration) &&
-      audio.duration > 0
-    ) {
-      progressControl.value =
-        (audio.currentTime / audio.duration) * 100;
-    }
+          trackTime.textContent =
+            `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
 
-  }
-);
+        }
+
+
+        if (
+          progressControl &&
+          Number.isFinite(audio.duration) &&
+          audio.duration > 0
+        ) {
+
+          progressControl.value =
+            (audio.currentTime / audio.duration) * 100;
+
+        }
+
+      }
+    );
+
 
     audio.addEventListener(
       "ended",
       () => {
 
-        if (activeTrackNumber !== trackNumber) {
+        if (
+          activeTrackNumber !== trackNumber
+        ) {
           return;
         }
+
+
+        /* SHUFFLE TO ANOTHER TRACK */
+
+        if (shuffleEnabled) {
+
+          const availableTracks =
+            [1, 2, 3, 4, 5, 6].filter(
+              (number) =>
+                number !== trackNumber
+            );
+
+
+          const randomTrack =
+            availableTracks[
+              Math.floor(
+                Math.random() *
+                availableTracks.length
+              )
+            ];
+
+
+          startTrack(randomTrack);
+
+          return;
+        }
+
 
         activeTrack = null;
         activeTrackNumber = null;
 
         clearButtons();
 
+
+        if (progressControl) {
+          progressControl.value = 0;
+        }
+
+
         if (nowPlaying) {
           nowPlaying.textContent =
             "SELECT A TRACK";
         }
-if (mobileLcdText) {
-  mobileLcdText.textContent =
-    "NOW PLAYING";
-}
+
+
+        if (mobileLcdText) {
+          mobileLcdText.textContent =
+            "NOW PLAYING";
+        }
+
+
         if (trackTime) {
           trackTime.textContent =
             "0:00 / 0:00";
         }
+
+      }
+    );
+
+  });
+
+});
       }
     );
   });

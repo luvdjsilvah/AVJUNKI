@@ -1091,11 +1091,11 @@ background: transparent;
     0 0 18px rgba(8,169,238,.32);
 }
 .dj-mobile-controls {
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .dj-mobile-now-card {
-  padding: 14px 14px 16px;
+  padding: 10px 12px 11px;
   border: 1px solid rgba(189,77,255,.48);
   border-radius: 14px;
   background:
@@ -1105,106 +1105,161 @@ background: transparent;
       rgba(8,8,15,.98)
     );
   box-shadow:
-    0 0 22px rgba(189,77,255,.12),
-    inset 0 0 28px rgba(116,40,170,.06);
+    0 0 18px rgba(189,77,255,.12),
+    inset 0 0 24px rgba(116,40,170,.06);
 }
 
 .dj-mobile-now-top {
   display: grid;
-  grid-template-columns: 66px 1fr auto;
+  grid-template-columns: 56px minmax(0,1fr) auto;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-align: left;
 }
 
 .dj-mobile-now-art {
-  width: 66px;
-  height: 66px;
+  width: 56px;
+  height: 56px;
   display: block;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 7px;
   border: 1px solid rgba(189,77,255,.28);
 }
 
 .dj-mobile-now-meta {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   min-width: 0;
 }
 
 .dj-mobile-now-meta strong,
 #dj-mobile-now-playing {
   color: #fff;
-  font-size: .92rem;
+  font-size: .86rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 .dj-mobile-now-meta span {
   color: rgba(255,255,255,.66);
-  font-size: .70rem;
+  font-size: .64rem;
   font-weight: 500;
 }
 
 #dj-mobile-track-time {
   color: #d76cff;
-  font-size: .70rem;
+  font-size: .66rem;
   font-weight: 700;
   white-space: nowrap;
 }
 
 .dj-mobile-progress {
   width: 100%;
-  height: 4px;
-  margin: 14px 0 16px;
+  height: 3px;
+  margin: 10px 0 9px;
   -webkit-appearance: none;
   appearance: none;
   border-radius: 999px;
-  background: rgba(189,77,255,.22);
+  background: rgba(189,77,255,.24);
   outline: none;
 }
 
 .dj-mobile-progress::-webkit-slider-thumb {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   -webkit-appearance: none;
   appearance: none;
   border: 0;
   border-radius: 50%;
   background: #f2b915;
   box-shadow:
-    0 0 8px rgba(255,190,20,.85),
-    0 0 14px rgba(189,77,255,.45);
+    0 0 7px rgba(255,190,20,.80),
+    0 0 11px rgba(189,77,255,.38);
 }
 
 .dj-mobile-transport {
   display: grid;
-  grid-template-columns: 1fr 1fr 82px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 66px 1fr 1fr;
   align-items: center;
-  gap: 7px;
+  gap: 4px;
 }
 
 .dj-mobile-transport button {
+  position: relative;
   font-family: inherit;
   cursor: pointer;
 }
 
 .dj-mobile-transport-small {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   justify-self: center;
   padding: 0;
   border: 0;
   background: transparent;
   color: #bd4dff;
-  font-size: 1.45rem;
+  font-size: 1.18rem;
   line-height: 1;
 }
 
+/* Remove iPhone emoji rendering from Previous / Next */
+#dj-mobile-prev,
+#dj-mobile-next {
+  font-size: 0;
+}
+
+#dj-mobile-prev::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 11px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 11px solid #bd4dff;
+}
+
+#dj-mobile-prev::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  width: 3px;
+  height: 16px;
+  border-radius: 2px;
+  background: #bd4dff;
+}
+
+#dj-mobile-next::before {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 11px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid #bd4dff;
+}
+
+#dj-mobile-next::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  width: 3px;
+  height: 16px;
+  border-radius: 2px;
+  background: #bd4dff;
+}
+
 #dj-mobile-play-pause.dj-mobile-play-main {
-  width: 76px;
-  height: 76px;
+  position: relative;
+
+  width: 64px;
+  height: 64px;
   min-height: 0;
   margin: 0;
   padding: 0;
@@ -1222,38 +1277,36 @@ background: transparent;
       #171008 100%
     );
 
-  color: #fff1a8;
-  font-size: 1.8rem;
-  line-height: 1;
+  color: transparent;
+  font-size: 0;
 
   box-shadow:
-    0 0 10px rgba(255,197,24,.75),
-    0 0 24px rgba(189,77,255,.62),
-    inset 0 0 12px rgba(255,255,255,.18);
-
-  text-shadow:
-    0 1px 3px rgba(0,0,0,.65);
+    0 0 9px rgba(255,197,24,.70),
+    0 0 19px rgba(189,77,255,.55),
+    inset 0 0 10px rgba(255,255,255,.18);
 
   letter-spacing: 0;
 }
 
+#dj-mobile-play-pause.dj-mobile-play-main::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 20px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid #fff0a6;
+
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.65));
+}
+
+/* Hide the large volume section to keep the player compact */
 .dj-mobile-volume-row {
-  margin-top: 14px;
-}
-
-.dj-mobile-volume-row label {
-  display: block;
-  margin-bottom: 7px;
-  color: rgba(255,255,255,.72);
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-}
-
-#dj-mobile-volume {
-  width: 100%;
-  accent-color: #bd4dff;
-}
+  display: none;
 }
    /* Mobile mixer LCD overlay */
 .dj-mobile-lcd {

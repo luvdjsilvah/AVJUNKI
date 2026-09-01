@@ -948,69 +948,143 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* SHUFFLE */
+/* MOBILE TRANSPORT CONTROLS */
 
-  if (shuffleButton) {
+const prevButton =
+  document.getElementById("dj-mobile-prev");
+
+const nextButton =
+  document.getElementById("dj-mobile-next");
+
+
+function getRandomTrackNumber(excludeTrack) {
+
+  const availableTracks =
+    [1, 2, 3, 4, 5, 6].filter(
+      (number) => number !== excludeTrack
+    );
+
+  return availableTracks[
+    Math.floor(
+      Math.random() * availableTracks.length
+    )
+  ];
+}
+
+
+/* PREVIOUS */
+
+if (prevButton) {
+
+  prevButton.addEventListener("click", () => {
+
+    let previousTrack =
+      activeTrackNumber
+        ? activeTrackNumber - 1
+        : 1;
+
+    if (previousTrack < 1) {
+      previousTrack = 6;
+    }
+
+    startTrack(previousTrack);
+
+  });
+
+}
+
+
+/* NEXT */
+
+if (nextButton) {
+
+  nextButton.addEventListener("click", () => {
+
+    let nextTrack =
+      activeTrackNumber
+        ? activeTrackNumber + 1
+        : 1;
+
+    if (nextTrack > 6) {
+      nextTrack = 1;
+    }
+
+    startTrack(nextTrack);
+
+  });
+
+}
+
+
+/* SHUFFLE */
+
+if (shuffleButton) {
+
+  shuffleButton.setAttribute(
+    "aria-pressed",
+    "false"
+  );
+
+  shuffleButton.addEventListener("click", () => {
+
+    shuffleEnabled = !shuffleEnabled;
+
+    shuffleButton.classList.toggle(
+      "is-on",
+      shuffleEnabled
+    );
 
     shuffleButton.setAttribute(
       "aria-pressed",
-      "false"
+      String(shuffleEnabled)
     );
 
+    /* Immediately jump to a random track */
+    if (shuffleEnabled) {
 
-    shuffleButton.addEventListener("click", () => {
+      const randomTrack =
+        getRandomTrackNumber(
+          activeTrackNumber
+        );
 
-      shuffleEnabled = !shuffleEnabled;
+      startTrack(randomTrack);
+    }
 
-      shuffleButton.classList.toggle(
-        "is-on",
-        shuffleEnabled
-      );
+  });
 
-      shuffleButton.setAttribute(
-        "aria-pressed",
-        String(shuffleEnabled)
-      );
-
-    });
-
-  }
+}
 
 
-  /* REPEAT */
+/* REPEAT */
 
-  if (repeatButton) {
+if (repeatButton) {
+
+  repeatButton.setAttribute(
+    "aria-pressed",
+    "false"
+  );
+
+  repeatButton.addEventListener("click", () => {
+
+    repeatEnabled = !repeatEnabled;
+
+    repeatButton.classList.toggle(
+      "is-on",
+      repeatEnabled
+    );
 
     repeatButton.setAttribute(
       "aria-pressed",
-      "false"
+      String(repeatEnabled)
     );
 
+    if (activeTrack) {
+      activeTrack.loop = repeatEnabled;
+    }
 
-    repeatButton.addEventListener("click", () => {
+  });
 
-      repeatEnabled = !repeatEnabled;
-
-      repeatButton.classList.toggle(
-        "is-on",
-        repeatEnabled
-      );
-
-      repeatButton.setAttribute(
-        "aria-pressed",
-        String(repeatEnabled)
-      );
-
-
-      if (activeTrack) {
-        activeTrack.loop = repeatEnabled;
-      }
-
-    });
-
-  }
-
-
+}
   /* VOLUME */
 
   if (volumeControl) {

@@ -1237,22 +1237,47 @@ background: transparent;
 }
 
 .dj-mobile-transport-small {
-  width: 32px;
-  height: 32px;
+  position: relative;
+
+  width: 34px;
+  height: 34px;
 
   justify-self: center;
 
   padding: 0;
 
   border: 0;
+  border-radius: 50%;
 
-  background: transparent;
+  background:
+    radial-gradient(
+      circle at 40% 35%,
+      rgba(65,35,82,.30),
+      rgba(8,6,12,.08) 70%
+    );
 
-  color: #bd4dff;
+  color: #c85cff;
 
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   line-height: 1;
+
+  text-shadow:
+    0 1px 1px rgba(0,0,0,.90),
+    0 0 5px rgba(189,77,255,.90),
+    0 0 10px rgba(189,77,255,.45);
+
+  filter:
+    drop-shadow(0 2px 2px rgba(0,0,0,.75));
+
+  transition:
+    transform 140ms ease,
+    filter 140ms ease;
 }
+
+.dj-mobile-transport-small:active {
+  transform: translateY(1px) scale(.94);
+}
+
 
 
 /* PREVIOUS / NEXT — CSS ICONS */

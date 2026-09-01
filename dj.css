@@ -1090,120 +1090,173 @@ background: transparent;
     inset 0 0 18px rgba(255,255,255,.08),
     0 0 18px rgba(8,169,238,.32);
 }
+/* =========================================================
+   MOBILE NOW-PLAYING / TRANSPORT PLAYER
+   ========================================================= */
+
 .dj-mobile-controls {
   margin-top: 10px;
 }
 
 .dj-mobile-now-card {
-  padding: 10px 12px 11px;
+  padding: 8px 11px 9px;
+
   border: 1px solid rgba(189,77,255,.48);
   border-radius: 14px;
+
   background:
     linear-gradient(
       135deg,
       rgba(20,13,31,.98),
       rgba(8,8,15,.98)
     );
+
   box-shadow:
     0 0 18px rgba(189,77,255,.12),
     inset 0 0 24px rgba(116,40,170,.06);
 }
 
+
+/* NOW PLAYING TOP ROW */
+
 .dj-mobile-now-top {
   display: grid;
-  grid-template-columns: 56px minmax(0,1fr) auto;
+  grid-template-columns: 48px minmax(0,1fr) auto;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+
   text-align: left;
 }
 
 .dj-mobile-now-art {
-  width: 56px;
-  height: 56px;
   display: block;
+
+  width: 48px;
+  height: 48px;
+
   object-fit: cover;
-  border-radius: 7px;
+
   border: 1px solid rgba(189,77,255,.28);
+  border-radius: 7px;
 }
 
 .dj-mobile-now-meta {
   display: flex;
   flex-direction: column;
   gap: 3px;
+
   min-width: 0;
 }
 
 .dj-mobile-now-meta strong,
 #dj-mobile-now-playing {
   color: #fff;
-  font-size: .86rem;
+
+  font-size: .80rem;
   font-weight: 700;
   line-height: 1.15;
 }
 
 .dj-mobile-now-meta span {
   color: rgba(255,255,255,.66);
-  font-size: .64rem;
+
+  font-size: .60rem;
   font-weight: 500;
 }
 
 #dj-mobile-track-time {
   color: #d76cff;
-  font-size: .66rem;
+
+  font-size: .62rem;
   font-weight: 700;
+
   white-space: nowrap;
 }
+
+
+/* PROGRESS BAR */
 
 .dj-mobile-progress {
   width: 100%;
   height: 3px;
-  margin: 10px 0 9px;
+
+  margin: 7px 0 5px;
+
   -webkit-appearance: none;
   appearance: none;
+
+  border: 0;
   border-radius: 999px;
+
   background: rgba(189,77,255,.24);
+
   outline: none;
 }
 
 .dj-mobile-progress::-webkit-slider-thumb {
   width: 12px;
   height: 12px;
+
   -webkit-appearance: none;
   appearance: none;
+
   border: 0;
   border-radius: 50%;
+
   background: #f2b915;
+
   box-shadow:
     0 0 7px rgba(255,190,20,.80),
     0 0 11px rgba(189,77,255,.38);
 }
 
+
+/* TRANSPORT ROW */
+
 .dj-mobile-transport {
   display: grid;
-  grid-template-columns: 1fr 1fr 66px 1fr 1fr;
+
+  grid-template-columns:
+    1fr
+    1fr
+    58px
+    1fr
+    1fr;
+
   align-items: center;
-  gap: 4px;
+
+  gap: 2px;
 }
 
 .dj-mobile-transport button {
   position: relative;
+
   font-family: inherit;
+
   cursor: pointer;
 }
 
 .dj-mobile-transport-small {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
+
   justify-self: center;
+
   padding: 0;
+
   border: 0;
+
   background: transparent;
+
   color: #bd4dff;
-  font-size: 1.18rem;
+
+  font-size: 1.05rem;
   line-height: 1;
 }
 
-/* Remove iPhone emoji rendering from Previous / Next */
+
+/* PREVIOUS / NEXT — CSS ICONS */
+
 #dj-mobile-prev,
 #dj-mobile-next {
   font-size: 0;
@@ -1211,103 +1264,133 @@ background: transparent;
 
 #dj-mobile-prev::before {
   content: "";
+
   position: absolute;
-  left: 12px;
-  top: 11px;
+
+  left: 11px;
+  top: 10px;
+
   width: 0;
   height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-right: 11px solid #bd4dff;
+
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 10px solid #bd4dff;
 }
 
 #dj-mobile-prev::after {
   content: "";
+
   position: absolute;
-  left: 8px;
-  top: 10px;
+
+  left: 7px;
+  top: 9px;
+
   width: 3px;
-  height: 16px;
+  height: 14px;
+
   border-radius: 2px;
+
   background: #bd4dff;
 }
 
 #dj-mobile-next::before {
   content: "";
+
   position: absolute;
-  right: 12px;
-  top: 11px;
+
+  right: 11px;
+  top: 10px;
+
   width: 0;
   height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-left: 11px solid #bd4dff;
+
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid #bd4dff;
 }
 
 #dj-mobile-next::after {
   content: "";
+
   position: absolute;
-  right: 8px;
-  top: 10px;
+
+  right: 7px;
+  top: 9px;
+
   width: 3px;
-  height: 16px;
+  height: 14px;
+
   border-radius: 2px;
+
   background: #bd4dff;
 }
+
+
+/* MAIN GOLD PLAY BUTTON */
 
 #dj-mobile-play-pause.dj-mobile-play-main {
   position: relative;
 
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   min-height: 0;
+
   margin: 0;
   padding: 0;
+
   justify-self: center;
 
-  border: 1px solid #ffc928;
+  border: 1.5px solid #ffc928;
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle at 40% 35%,
-      #ffe58a 0%,
-      #d89b0c 32%,
-      #6b4500 66%,
-      #171008 100%
+      circle at 48% 44%,
+      #3a2d12 0%,
+      #18130b 42%,
+      #080707 72%,
+      #020202 100%
     );
 
   color: transparent;
+
   font-size: 0;
+  letter-spacing: 0;
 
   box-shadow:
-    0 0 9px rgba(255,197,24,.70),
-    0 0 19px rgba(189,77,255,.55),
-    inset 0 0 10px rgba(255,255,255,.18);
-
-  letter-spacing: 0;
+    0 0 5px rgba(255,197,24,.75),
+    0 0 16px rgba(189,77,255,.70),
+    inset 0 0 12px rgba(255,190,35,.18);
 }
 
 #dj-mobile-play-pause.dj-mobile-play-main::before {
   content: "";
+
   position: absolute;
-  left: 26px;
-  top: 20px;
+
+  left: 22px;
+  top: 17px;
 
   width: 0;
   height: 0;
 
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 18px solid #fff0a6;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 16px solid #ffc928;
 
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.65));
+  filter:
+    drop-shadow(0 0 4px rgba(255,195,30,.80))
+    drop-shadow(0 1px 1px rgba(0,0,0,.85));
 }
 
-/* Hide the large volume section to keep the player compact */
+
+/* KEEP VOLUME FUNCTIONAL BUT HIDDEN */
+
 .dj-mobile-volume-row {
   display: none;
 }
+
    /* Mobile mixer LCD overlay */
 .dj-mobile-lcd {
   display: flex;

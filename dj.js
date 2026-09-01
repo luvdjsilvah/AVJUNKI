@@ -750,8 +750,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
 
-  let activeTrack = null;
-  let activeTrackNumber = null;
+ let activeTrack =
+  audioTracks[0] || null;
+
+let activeTrackNumber =
+  activeTrack ? 1 : null;
 
   let shuffleEnabled = false;
   let repeatEnabled = false;

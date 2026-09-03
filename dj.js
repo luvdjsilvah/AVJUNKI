@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const screenVideo = document.getElementById("dj-screen-video");
 
   if (!screenVideo) return;
-
+if (window.matchMedia("(max-width: 760px)").matches) {
+  return;
+}
   screenVideo.muted = true;
 
   const tryPlay = () => {

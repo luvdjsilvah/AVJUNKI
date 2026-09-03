@@ -695,7 +695,9 @@ window.addEventListener(
     );
   }
 
+ if (!window.matchMedia("(max-width: 760px)").matches) {
   drawVuMeter();
+}
 });
 /* =========================================================
    MOBILE DJ MIX PLAYER

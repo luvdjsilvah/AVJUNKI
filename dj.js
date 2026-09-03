@@ -432,8 +432,8 @@ splitter = audioContext.createChannelSplitter(2);
     analyserLeft = audioContext.createAnalyser();
     analyserRight = audioContext.createAnalyser();
 
-    analyserLeft.fftSize = 256;
-    analyserRight.fftSize = 256;
+    analyserLeft.fftSize = 128;
+    analyserRight.fftSize = 128;
 
     analyserLeft.smoothingTimeConstant = 0.75;
     analyserRight.smoothingTimeConstant = 0.75;

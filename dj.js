@@ -3,12 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!screenVideo) return;
 
+  const isMobile =
+    window.matchMedia("(max-width: 760px)").matches;
+
+  if (isMobile) {
+    screenVideo.pause();
+    screenVideo.removeAttribute("autoplay");
+    screenVideo.preload = "none";
+    return;
+  }
+
   screenVideo.muted = true;
 
   const tryPlay = () => {
     const playPromise = screenVideo.play();
 
-    if (playPromise && typeof playPromise.catch === "function") {
+    if (
+      playPromise &&
+      typeof playPromise.catch === "function"
+    ) {
       playPromise.catch(() => {});
     }
   };
@@ -22,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tryPlay();
     }
   });
+});
 });
 /* Reveal mixer only after hero image is ready */
 document.addEventListener("DOMContentLoaded", () => {

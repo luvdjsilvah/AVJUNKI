@@ -1057,9 +1057,10 @@ button {
     max-width: 280px;
   }
 
-  .gallery-controls {
-    width: 95%;
-  }
+.gallery-controls {
+  width: 95%;
+  min-height: 64px;
+}
 
   .gallery-main-play {
     width: 64px;

@@ -1,7 +1,7 @@
 /* =========================================================
    AV JUNKI RADIO
    radio.css
-   Desktop foundation — alignment pass 2
+   Desktop foundation — alignment pass 3
 ========================================================= */
 
 
@@ -73,8 +73,8 @@ button {
 #radio-hero {
   position: absolute;
 
- width: max(100vw, calc(100vh * 16 / 9));
-height: max(100vh, calc(100vw * 9 / 16));
+  width: max(100vw, calc(100vh * 16 / 9));
+  height: max(100vh, calc(100vw * 9 / 16));
 
   left: 50%;
   top: 50%;
@@ -506,11 +506,10 @@ height: max(100vh, calc(100vw * 9 / 16));
   z-index: 35;
 
   display: flex;
-
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  gap: 0.4%;
+  gap: 0;
 
   padding: 0 1%;
 
@@ -530,11 +529,12 @@ height: max(100vh, calc(100vw * 9 / 16));
   align-items: center;
   justify-content: center;
 
-  padding: 5px 8px;
+  padding: 5px 14px;
 
   background: transparent;
 
   border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.38);
 
   color: rgba(255, 255, 255, 0.9);
 
@@ -552,13 +552,15 @@ height: max(100vh, calc(100vw * 9 / 16));
     background 0.2s ease;
 }
 
+#radio-navigation > :last-child {
+  border-right: none;
+}
+
 #radio-navigation a:hover,
 #radio-navigation button:hover {
   color: #fff;
 
   background: rgba(255, 255, 255, 0.07);
-
-  border-radius: 4px;
 }
 
 #radio-navigation a:focus-visible,
@@ -598,8 +600,8 @@ height: max(100vh, calc(100vw * 9 / 16));
 
   #radio-navigation a,
   #radio-navigation button {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
 }

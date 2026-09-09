@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>AV Junki Radio</title>
+
+  <meta
+    name="description"
+    content="AV Junki Radio — 24/7 music, podcasts, live audio, events, artists and interactive radio."
+  />
+
+  <link rel="stylesheet" href="radio.css" />
+</head>
+
+<body>
+
+  <main id="radio-app">
+
+    <!-- =========================================
+         DESKTOP RADIO HERO / MASTER STAGE
+    ========================================== -->
+    <section id="radio-hero">
+
+      <!-- APPROVED RADIO HERO IMAGE -->
+      <img
+        id="radio-hero-image"
+        src="assets/images/Hero-Radio.webp"
+        alt="AV Junki Radio virtual studio"
+      />
+
+
+      <!-- =========================================
+           CEILING GLOBE AREA
+      ========================================== -->
+      <div
+        id="ceiling-globe"
+        class="interactive-layer"
+        aria-hidden="true"
+      ></div>
+
+
+      <!-- =========================================
+           MAIN PROGRAMMABLE CENTER SCREEN
+      ========================================== -->
+      <section
+        id="center-screen"
+        aria-label="AV Junki Radio information screen"
+      >
+        <div id="screen-content">
+
+          <!-- Dynamic content will eventually load here:
+               Now Playing
+               Weather
+               World Time
+               Sports
+               Ads
+               Events
+               Artist of the Week
+               Podcasts
+               Live Streams
+               News
+          -->
+
+        </div>
+      </section>
+
+
+      <!-- =========================================
+           LEFT GENRE PANELS
+      ========================================== -->
+
+      <button
+        class="panel-hotspot"
+        id="hip-hop-panel"
+        data-channel="hip-hop"
+        aria-label="Play Hip Hop"
+      ></button>
+
+      <button
+        class="panel-hotspot"
+        id="rnb-panel"
+        data-channel="rnb"
+        aria-label="Play R&B"
+      ></button>
+
+      <button
+        class="panel-hotspot"
+        id="house-panel"
+        data-channel="house"
+        aria-label="Play House"
+      ></button>
+
+      <button
+        class="panel-hotspot"
+        id="reggae-panel"
+        data-channel="reggae"
+        aria-label="Play Reggae"
+      ></button>
+
+
+      <!-- =========================================
+           RIGHT PANELS
+      ========================================== -->
+
+      <button
+        class="panel-hotspot"
+        id="podcast-panel"
+        data-channel="podcast"
+        aria-label="Open Podcasts"
+      ></button>
+
+      <button
+        class="panel-hotspot"
+        id="live-1-panel"
+        data-channel="live-1"
+        aria-label="Open Live 1"
+      ></button>
+
+      <button
+        class="panel-hotspot"
+        id="live-2-panel"
+        data-channel="live-2"
+        aria-label="Open Live 2"
+      ></button>
+
+      <button
+        class="panel-hotspot"
+        id="gospel-panel"
+        data-channel="gospel"
+        aria-label="Play Gospel"
+      ></button>
+
+
+      <!-- =========================================
+           VIRTUAL CHARLES WELCOME
+      ========================================== -->
+      <section
+        id="virtual-host"
+        aria-label="AV Junki Radio virtual welcome"
+      >
+        <div id="virtual-host-character"></div>
+
+        <button
+          id="skip-welcome"
+          type="button"
+        >
+          Skip Welcome
+        </button>
+      </section>
+
+
+      <!-- =========================================
+           TOP FASCIA — RADIO PLAYER
+      ========================================== -->
+      <section
+        id="radio-player"
+        aria-label="AV Junki Radio player"
+      >
+
+        <div id="player-album-art"></div>
+
+
+        <div id="player-track-info">
+
+          <div id="player-track-title">
+            AV Junki Radio
+          </div>
+
+          <div id="player-artist">
+            Music Lives Here
+          </div>
+
+        </div>
+
+
+        <div id="player-controls">
+
+          <button
+            id="previous-track"
+            type="button"
+            aria-label="Previous"
+          >
+            ◀
+          </button>
+
+          <button
+            id="play-pause"
+            type="button"
+            aria-label="Play"
+          >
+            ▶
+          </button>
+
+          <button
+            id="next-track"
+            type="button"
+            aria-label="Next"
+          >
+            ▶▶
+          </button>
+
+        </div>
+
+
+        <div
+          id="vu-meter"
+          aria-hidden="true"
+        ></div>
+
+
+        <div id="volume-control">
+
+          <label
+            for="volume-slider"
+            class="sr-only"
+          >
+            Volume
+          </label>
+
+          <input
+            id="volume-slider"
+            type="range"
+            min="0"
+            max="100"
+            value="80"
+          />
+
+        </div>
+
+
+        <audio
+          id="radio-audio"
+          preload="none"
+        ></audio>
+
+      </section>
+
+
+      <!-- =========================================
+           BOTTOM FASCIA — WEBSITE NAVIGATION
+      ========================================== -->
+      <nav
+        id="radio-navigation"
+        aria-label="AV Junki Radio navigation"
+      >
+
+        <div id="radio-brand">
+          AV JUNKI RADIO
+        </div>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="radio.html">
+          Radio
+        </a>
+
+        <button
+          type="button"
+          data-screen="podcasts"
+        >
+          Podcasts
+        </button>
+
+        <button
+          type="button"
+          data-screen="events"
+        >
+          Events
+        </button>
+
+        <button
+          type="button"
+          data-screen="news"
+        >
+          News
+        </button>
+
+        <button
+          type="button"
+          data-screen="community"
+        >
+          Community
+        </button>
+
+        <button
+          type="button"
+          data-screen="advertise"
+        >
+          Advertise
+        </button>
+
+        <button
+          type="button"
+          data-screen="search"
+        >
+          Search
+        </button>
+
+      </nav>
+
+
+      <!-- =========================================
+           STATUS / LOADING MESSAGE
+      ========================================== -->
+      <div
+        id="radio-status"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+    </section>
+
+  </main>
+
+  <script src="radio.js"></script>
+
+</body>
+</html>

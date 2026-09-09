@@ -542,7 +542,7 @@ button {
 
   text-decoration: none;
 
- font-size: clamp(10px, 0.9vw, 16px);
+font-size: clamp(12px, 1.15vw, 20px);
   font-weight: 600;
 
   white-space: nowrap;

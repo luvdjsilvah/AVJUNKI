@@ -1,7 +1,7 @@
 /* =========================================================
    AV JUNKI RADIO
    radio.css
-   Desktop foundation — alignment pass 3
+   Desktop foundation — alignment pass 4
 ========================================================= */
 
 
@@ -497,21 +497,21 @@ button {
 #radio-navigation {
   position: absolute;
 
-  left: 18.5%;
+  left: 20%;
   bottom: 11.3%;
 
-  width: 68%;
+  width: 64%;
   height: 5.4%;
 
   z-index: 35;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
   gap: 0;
 
-  padding: 0 1%;
+  padding: 0;
 
   background: transparent;
 }
@@ -525,16 +525,18 @@ button {
 #radio-navigation button {
   position: relative;
 
+  flex: 1 1 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 5px 14px;
+  padding: 5px 10px;
 
   background: transparent;
 
   border: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.38);
+  border-right: 1px solid rgba(255, 255, 255, 0.42);
 
   color: rgba(255, 255, 255, 0.9);
 
@@ -598,10 +600,15 @@ button {
 
 @media (max-width: 1100px) {
 
+  #radio-navigation {
+    left: 18.5%;
+    width: 68%;
+  }
+
   #radio-navigation a,
   #radio-navigation button {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
 }

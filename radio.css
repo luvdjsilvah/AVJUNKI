@@ -73,8 +73,8 @@ button {
 #radio-hero {
   position: absolute;
 
-  width: min(100vw, calc(100vh * 16 / 9));
-  height: min(100vh, calc(100vw * 9 / 16));
+ width: max(100vw, calc(100vh * 16 / 9));
+height: max(100vh, calc(100vw * 9 / 16));
 
   left: 50%;
   top: 50%;

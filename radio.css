@@ -1,1 +1,672 @@
+/* =========================================================
+   AV JUNKI RADIO
+   radio.css
+   Desktop foundation
+========================================================= */
 
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* =========================================================
+   RADIO APP
+========================================================= */
+
+#radio-app {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+
+/* =========================================================
+   MASTER HERO
+========================================================= */
+
+#radio-hero {
+  position: absolute;
+
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  overflow: hidden;
+  background: #000;
+}
+
+
+/* APPROVED HERO IMAGE */
+
+#radio-hero-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+
+  display: block;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* =========================================================
+   CEILING GLOBE AREA
+========================================================= */
+
+#ceiling-globe {
+  position: absolute;
+
+  left: 21%;
+  top: 0%;
+
+  width: 58%;
+  height: 22%;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CENTER PROGRAMMABLE SCREEN
+========================================================= */
+
+#center-screen {
+  position: absolute;
+
+  left: 28.8%;
+  top: 24.5%;
+
+  width: 42.4%;
+  height: 27.7%;
+
+  overflow: hidden;
+
+  z-index: 10;
+
+  background: transparent;
+}
+
+#screen-content {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   WALL PANEL HOTSPOTS
+========================================================= */
+
+.panel-hotspot {
+  position: absolute;
+
+  z-index: 25;
+
+  background: transparent;
+
+  border: none;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  outline: none;
+
+  padding: 0;
+}
+
+
+/* HOVER / KEYBOARD FEEDBACK */
+
+.panel-hotspot:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.panel-hotspot:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: -2px;
+}
+
+
+/* =========================================================
+   LEFT WALL
+========================================================= */
+
+#hip-hop-panel {
+  left: 8.1%;
+  top: 25.5%;
+  width: 15.6%;
+  height: 14.3%;
+}
+
+#rnb-panel {
+  left: 8.1%;
+  top: 41.1%;
+  width: 15.6%;
+  height: 14.1%;
+}
+
+#house-panel {
+  left: 8.1%;
+  top: 56.8%;
+  width: 15.6%;
+  height: 14.1%;
+}
+
+#reggae-panel {
+  left: 8.1%;
+  top: 72.4%;
+  width: 15.6%;
+  height: 13.5%;
+}
+
+
+/* =========================================================
+   RIGHT WALL
+========================================================= */
+
+#podcast-panel {
+  left: 76.3%;
+  top: 25.5%;
+  width: 15.6%;
+  height: 14.3%;
+}
+
+#live-1-panel {
+  left: 76.3%;
+  top: 41.1%;
+  width: 15.6%;
+  height: 14.1%;
+}
+
+#live-2-panel {
+  left: 76.3%;
+  top: 56.8%;
+  width: 15.6%;
+  height: 14.1%;
+}
+
+#gospel-panel {
+  left: 76.3%;
+  top: 72.4%;
+  width: 15.6%;
+  height: 13.5%;
+}
+
+
+/* =========================================================
+   VIRTUAL CHARLES
+========================================================= */
+
+#virtual-host {
+  position: absolute;
+
+  left: 34%;
+  top: 36%;
+
+  width: 32%;
+  height: 50%;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+#virtual-host-character {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+}
+
+
+/* SKIP WELCOME BUTTON */
+
+#skip-welcome {
+  position: absolute;
+
+  left: 50%;
+  bottom: 2%;
+
+  transform: translateX(-50%);
+
+  padding: 8px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  border-radius: 20px;
+
+  color: #fff;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+#virtual-host.active #skip-welcome {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   TOP FASCIA — PLAYER
+========================================================= */
+
+#radio-player {
+  position: absolute;
+
+  left: 15%;
+  bottom: 8.8%;
+
+  width: 70%;
+  height: 9.5%;
+
+  z-index: 30;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1%;
+
+  padding: 0 1%;
+
+  color: #fff;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   ALBUM ART
+========================================================= */
+
+#player-album-art {
+  flex: 0 0 auto;
+
+  width: 7.5%;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TRACK INFORMATION
+========================================================= */
+
+#player-track-info {
+  width: 18%;
+  min-width: 0;
+
+  overflow: hidden;
+}
+
+#player-track-title {
+  color: #fff;
+
+  font-size: clamp(9px, 0.95vw, 18px);
+  font-weight: 700;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#player-artist {
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: clamp(7px, 0.72vw, 14px);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   PLAYER CONTROLS
+========================================================= */
+
+#player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(5px, 0.5vw, 12px);
+
+  flex: 0 0 auto;
+}
+
+#player-controls button {
+  width: clamp(24px, 2.1vw, 42px);
+  height: clamp(24px, 2.1vw, 42px);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #fff;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+#player-controls button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+#player-controls button:active {
+  transform: scale(0.94);
+}
+
+
+/* =========================================================
+   VU METER
+========================================================= */
+
+#vu-meter {
+  flex: 1 1 auto;
+
+  min-width: 120px;
+  height: 42%;
+
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(40, 210, 255, 0.35),
+      rgba(80, 130, 255, 0.35),
+      rgba(170, 80, 255, 0.35),
+      rgba(255, 170, 50, 0.35),
+      rgba(255, 70, 70, 0.35)
+    );
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   VOLUME
+========================================================= */
+
+#volume-control {
+  flex: 0 0 12%;
+
+  display: flex;
+  align-items: center;
+}
+
+#volume-slider {
+  width: 100%;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   AUDIO ELEMENT
+========================================================= */
+
+#radio-audio {
+  display: none;
+}
+
+
+/* =========================================================
+   BOTTOM FASCIA — NAVIGATION
+========================================================= */
+
+#radio-navigation {
+  position: absolute;
+
+  left: 15%;
+  bottom: 1.7%;
+
+  width: 70%;
+  height: 6%;
+
+  z-index: 35;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 0.5%;
+
+  padding: 0 1%;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   SMALL AV JUNKI RADIO BRAND — FAR LEFT
+========================================================= */
+
+#radio-brand {
+  flex: 0 0 auto;
+
+  margin-right: 1.5%;
+
+  color: #fff;
+
+  font-size: clamp(7px, 0.72vw, 14px);
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS / BUTTONS
+========================================================= */
+
+#radio-navigation a,
+#radio-navigation button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 8px;
+
+  background: transparent;
+
+  border: none;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  text-decoration: none;
+
+  font-size: clamp(7px, 0.68vw, 13px);
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+#radio-navigation a:hover,
+#radio-navigation button:hover {
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border-radius: 4px;
+}
+
+#radio-navigation a:focus-visible,
+#radio-navigation button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RADIO STATUS
+========================================================= */
+
+#radio-status {
+  position: absolute;
+
+  left: 50%;
+  bottom: 18.8%;
+
+  transform: translateX(-50%);
+
+  z-index: 50;
+
+  color: #fff;
+
+  font-size: clamp(8px, 0.75vw, 14px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SMALL DESKTOP / LAPTOP SAFETY
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  #radio-navigation a,
+  #radio-navigation button {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  #radio-brand {
+    margin-right: 0.5%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Dedicated mobile build comes later.
+========================================================= */
+
+@media (max-width: 767px) {
+
+  body {
+    overflow: auto;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}

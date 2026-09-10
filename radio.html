@@ -2,23 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AV Junki Radio</title>
 
   <meta
     name="description"
-    content="AV Junki Radio — music, podcasts, live audio, events, artists and interactive radio."
+    content="AV Junki Radio — 24/7 music, podcasts, live audio, events, artists and interactive radio."
   />
 
-  <link
-    rel="stylesheet"
-    href="radio.css?v=6"
-  />
+  <link rel="stylesheet" href="radio.css?v=4" />
 </head>
 
 <body>
@@ -27,27 +19,17 @@
 
     <section id="radio-hero">
 
-      <!-- LOCKED MASTER HERO -->
       <img
         id="radio-hero-image"
         src="assets/images/Hero-Radio.webp"
         alt="AV Junki Radio virtual studio"
       />
 
-
-      <!-- =========================================
-           CEILING GLOBE AREA
-      ========================================== -->
-
       <div
         id="ceiling-globe"
+        class="interactive-layer"
         aria-hidden="true"
       ></div>
-
-
-      <!-- =========================================
-           INVISIBLE BAKED-NAV HOTSPOTS
-      ========================================== -->
 
       <nav
         id="radio-navigation"
@@ -59,25 +41,28 @@
           class="nav-hotspot"
           href="index.html"
           aria-label="Home"
-          title="Home"
-        ></a>
+        >
+          Home
+        </a>
 
         <a
           id="nav-radio"
           class="nav-hotspot"
           href="radio.html"
           aria-label="Radio"
-          title="Radio"
-        ></a>
+        >
+          Radio
+        </a>
 
         <button
           id="nav-podcast"
           class="nav-hotspot"
           type="button"
           data-screen="podcasts"
-          aria-label="Podcast"
-          title="Podcast"
-        ></button>
+          aria-label="Podcasts"
+        >
+          Podcasts
+        </button>
 
         <button
           id="nav-events"
@@ -85,8 +70,9 @@
           type="button"
           data-screen="events"
           aria-label="Events"
-          title="Events"
-        ></button>
+        >
+          Events
+        </button>
 
         <button
           id="nav-news"
@@ -94,8 +80,9 @@
           type="button"
           data-screen="news"
           aria-label="News"
-          title="News"
-        ></button>
+        >
+          News
+        </button>
 
         <button
           id="nav-shop"
@@ -103,8 +90,9 @@
           type="button"
           data-screen="shop"
           aria-label="Shop"
-          title="Shop"
-        ></button>
+        >
+          Shop
+        </button>
 
         <button
           id="nav-community"
@@ -112,8 +100,9 @@
           type="button"
           data-screen="community"
           aria-label="Community"
-          title="Community"
-        ></button>
+        >
+          Community
+        </button>
 
         <button
           id="nav-advertise"
@@ -121,8 +110,9 @@
           type="button"
           data-screen="advertise"
           aria-label="Advertise"
-          title="Advertise"
-        ></button>
+        >
+          Advertise
+        </button>
 
         <button
           id="nav-contact"
@@ -130,8 +120,9 @@
           type="button"
           data-screen="contact"
           aria-label="Contact"
-          title="Contact"
-        ></button>
+        >
+          Contact
+        </button>
 
         <button
           id="nav-search"
@@ -139,8 +130,9 @@
           type="button"
           data-screen="search"
           aria-label="Search"
-          title="Search"
-        ></button>
+        >
+          Search
+        </button>
 
         <button
           id="nav-inquiry"
@@ -148,8 +140,9 @@
           type="button"
           data-screen="inquiry"
           aria-label="Inquiry"
-          title="Inquiry"
-        ></button>
+        >
+          Inquiry
+        </button>
 
         <button
           id="nav-about"
@@ -157,15 +150,12 @@
           type="button"
           data-screen="about"
           aria-label="About"
-          title="About"
-        ></button>
+        >
+          About
+        </button>
 
       </nav>
 
-
-      <!-- =========================================
-           CENTER SCREEN
-      ========================================== -->
 
       <section
         id="center-screen"
@@ -175,91 +165,63 @@
       </section>
 
 
-      <!-- =========================================
-           LEFT GENRE HOTSPOTS
-      ========================================== -->
-
       <button
+        class="panel-hotspot"
         id="hip-hop-panel"
-        class="panel-hotspot"
-        type="button"
         data-channel="hip-hop"
-        data-preset="music"
-        aria-label="Hip Hop"
+        aria-label="Play Hip Hop"
       ></button>
 
       <button
+        class="panel-hotspot"
         id="rnb-panel"
-        class="panel-hotspot"
-        type="button"
         data-channel="rnb"
-        data-preset="music"
-        aria-label="R&B"
+        aria-label="Play R&B"
       ></button>
 
       <button
+        class="panel-hotspot"
         id="house-panel"
-        class="panel-hotspot"
-        type="button"
         data-channel="house"
-        data-preset="music"
-        aria-label="House"
+        aria-label="Play House"
       ></button>
 
       <button
+        class="panel-hotspot"
         id="reggae-panel"
-        class="panel-hotspot"
-        type="button"
         data-channel="reggae"
-        data-preset="music"
-        aria-label="Reggae"
+        aria-label="Play Reggae"
       ></button>
 
 
-      <!-- =========================================
-           RIGHT PANEL HOTSPOTS
-      ========================================== -->
-
       <button
+        class="panel-hotspot"
         id="podcast-panel"
-        class="panel-hotspot"
-        type="button"
         data-channel="podcast"
-        data-preset="podcast"
-        aria-label="Podcast"
+        aria-label="Open Podcasts"
       ></button>
 
       <button
+        class="panel-hotspot"
         id="live-1-panel"
-        class="panel-hotspot"
-        type="button"
         data-channel="live-1"
-        data-preset="live"
-        aria-label="Live 1"
+        aria-label="Open Live 1"
       ></button>
 
       <button
+        class="panel-hotspot"
         id="live-2-panel"
-        class="panel-hotspot"
-        type="button"
         data-channel="live-2"
-        data-preset="live"
-        aria-label="Live 2"
+        aria-label="Open Live 2"
       ></button>
 
       <button
-        id="gospel-panel"
         class="panel-hotspot"
-        type="button"
+        id="gospel-panel"
         data-channel="gospel"
-        data-preset="music"
-        aria-label="Gospel"
+        aria-label="Play Gospel"
       ></button>
 
-
-      <!-- =========================================
-           VIRTUAL CHARLES
-      ========================================== -->
 
       <section
         id="virtual-host"
@@ -278,20 +240,14 @@
       </section>
 
 
-      <!-- =========================================
-           NEW BROADCAST PLAYER
-      ========================================== -->
-
       <section
         id="broadcast-player"
         aria-label="AV Junki Radio broadcast player"
       >
 
-        <!-- ALBUM ART -->
         <div id="player-album-art"></div>
 
 
-        <!-- TRACK INFO -->
         <div id="player-track-info">
 
           <div id="player-track-title">
@@ -305,7 +261,6 @@
         </div>
 
 
-        <!-- SPECTRUM -->
         <div id="spectrum-wrap">
 
           <canvas
@@ -316,7 +271,6 @@
         </div>
 
 
-        <!-- ANALOG VU -->
         <div id="analog-vu">
 
           <img
@@ -330,17 +284,17 @@
         </div>
 
 
-        <!-- GAIN REDUCTION -->
-        <div id="gr-meter-wrap">
+        <div
+          id="gr-meter-wrap"
+          aria-label="Gain reduction meter"
+        >
 
           <div id="gr-label">
             GR
           </div>
 
           <div id="gr-meter">
-
             <div id="gr-fill"></div>
-
           </div>
 
           <div id="gr-value">
@@ -350,8 +304,10 @@
         </div>
 
 
-        <!-- DSP STATUS -->
-        <div id="dsp-status">
+        <div
+          id="dsp-status"
+          aria-label="DSP status"
+        >
 
           <span id="dsp-light"></span>
 
@@ -362,13 +318,12 @@
         </div>
 
 
-        <!-- TRANSPORT -->
         <div id="player-controls">
 
           <button
             id="previous-track"
             type="button"
-            aria-label="Previous"
+            aria-label="Previous track"
           >
             ◀
           </button>
@@ -384,7 +339,7 @@
           <button
             id="next-track"
             type="button"
-            aria-label="Next"
+            aria-label="Next track"
           >
             ▶
           </button>
@@ -392,8 +347,40 @@
         </div>
 
 
-        <!-- VOLUME -->
+        <button
+          id="mainstream-status"
+          type="button"
+          aria-label="Mainstream status: Off Air"
+        >
+
+          <span id="mainstream-label">
+            MAINSTREAM
+          </span>
+
+          <span
+            id="mainstream-rule"
+            aria-hidden="true"
+          ></span>
+
+          <span id="stream-state">
+            OFF AIR
+          </span>
+
+          <span
+            id="stream-light"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
         <div id="volume-control">
+
+          <img
+            id="volume-vu-face"
+            src="assets/images/av-junki-volume-vu.png"
+            alt="Volume VU control"
+          />
 
           <label
             for="volume-slider"
@@ -408,12 +395,12 @@
             min="0"
             max="100"
             value="80"
+            aria-label="Volume"
           />
 
         </div>
 
 
-        <!-- AUDIO ENGINE -->
         <audio
           id="radio-audio"
           preload="metadata"
@@ -422,10 +409,6 @@
 
       </section>
 
-
-      <!-- =========================================
-           STATUS
-      ========================================== -->
 
       <div
         id="radio-status"
@@ -437,7 +420,7 @@
 
   </main>
 
-  <script src="radio.js"></script>
+  <script src="radio.js?v=4"></script>
 
 </body>
 </html>

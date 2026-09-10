@@ -1,7 +1,7 @@
 /* =========================================================
    AV JUNKI RADIO
    radio.css
-   Desktop foundation — alignment pass 5
+   Desktop foundation — NAV FINAL POSITION PASS
 ========================================================= */
 
 
@@ -492,16 +492,20 @@ button {
 
 /* =========================================================
    UPPER CURVED FASCIA — WEBSITE NAVIGATION
+
+   FINAL POSITION PASS:
+   Text sits INSIDE the black fascia between the two
+   illuminated rails instead of riding on the upper rail.
 ========================================================= */
 
 #radio-navigation {
   position: absolute;
 
-  left: 10.8%;
-  top: 7.9%;
+  left: 10.5%;
+  top: 8.15%;
 
-  width: 78.4%;
-  height: 11%;
+  width: 79%;
+  height: 12%;
 
   z-index: 40;
 
@@ -509,7 +513,7 @@ button {
   grid-template-columns: repeat(10, minmax(0, 1fr));
   align-items: start;
 
-  column-gap: 0.15%;
+  column-gap: 0;
 
   padding: 0;
 
@@ -533,20 +537,20 @@ button {
   align-items: center;
   justify-content: center;
 
-  padding: 5px 2px;
+  padding: 5px 1px;
 
   background: transparent;
   border: none;
 
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.96);
 
   text-decoration: none;
   text-transform: uppercase;
 
-  font-size: clamp(10px, 0.78vw, 16px);
+  font-size: clamp(10px, 0.76vw, 16px);
   font-weight: 700;
 
-  letter-spacing: 0.025em;
+  letter-spacing: 0.018em;
   line-height: 1;
 
   white-space: nowrap;
@@ -555,7 +559,7 @@ button {
 
   text-shadow:
     0 1px 2px rgba(0, 0, 0, 0.95),
-    0 0 7px rgba(255, 150, 40, 0.13);
+    0 0 7px rgba(255, 150, 40, 0.12);
 
   transition:
     color 0.2s ease,
@@ -565,6 +569,7 @@ button {
 
 /* =========================================================
    DIVIDER BARS
+   These move with each individual nav item.
 ========================================================= */
 
 #radio-navigation .nav-item:not(:last-child)::after {
@@ -576,7 +581,7 @@ button {
   top: 50%;
 
   width: 1px;
-  height: 1.25em;
+  height: 1.4em;
 
   transform: translateY(-50%);
 
@@ -588,47 +593,51 @@ button {
 
 /* =========================================================
    NAVIGATION ARC
-   NEWS = VISUAL LOW POINT
+
+   SCREENSHOT-BASED CURVE:
+   HOME / SEARCH = high
+   NEWS = lowest point
+   COMMUNITY = begins rising
 ========================================================= */
 
 #radio-navigation .nav-home {
-  transform: translateY(0.00vw);
+  transform: translateY(0.55vw);
 }
 
 #radio-navigation .nav-radio {
-  transform: translateY(0.38vw);
+  transform: translateY(1.05vw);
 }
 
 #radio-navigation .nav-podcasts {
-  transform: translateY(0.78vw);
+  transform: translateY(1.60vw);
 }
 
 #radio-navigation .nav-events {
-  transform: translateY(1.18vw);
+  transform: translateY(2.15vw);
 }
 
 #radio-navigation .nav-news {
-  transform: translateY(1.58vw);
+  transform: translateY(2.75vw);
 }
 
 #radio-navigation .nav-community {
-  transform: translateY(1.48vw);
+  transform: translateY(2.62vw);
 }
 
 #radio-navigation .nav-shop {
-  transform: translateY(1.18vw);
+  transform: translateY(2.15vw);
 }
 
 #radio-navigation .nav-advertise {
-  transform: translateY(0.78vw);
+  transform: translateY(1.60vw);
 }
 
 #radio-navigation .nav-contact {
-  transform: translateY(0.38vw);
+  transform: translateY(1.05vw);
 }
 
 #radio-navigation .nav-search {
-  transform: translateY(0.00vw);
+  transform: translateY(0.55vw);
 }
 
 
@@ -680,15 +689,15 @@ button {
 @media (max-width: 1100px) {
 
   #radio-navigation {
-    left: 9.5%;
-    width: 81%;
+    left: 8.75%;
+    width: 82.5%;
   }
 
   #radio-navigation .nav-item {
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
 
-    font-size: clamp(9px, 0.74vw, 13px);
+    font-size: clamp(9px, 0.72vw, 13px);
     letter-spacing: 0;
   }
 

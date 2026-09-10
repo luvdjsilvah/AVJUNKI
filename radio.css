@@ -1,7 +1,12 @@
 /* =========================================================
    AV JUNKI RADIO
    radio.css
-   Desktop foundation — NAV FINAL POSITION PASS
+
+   LOCKED MASTER ARTWORK:
+   3840 x 2160
+
+   Navigation lettering is baked into artwork.
+   HTML navigation = transparent hotspots only.
 ========================================================= */
 
 
@@ -41,13 +46,19 @@ button {
 
 .sr-only {
   position: absolute;
+
   width: 1px;
   height: 1px;
+
   padding: 0;
   margin: -1px;
+
   overflow: hidden;
+
   clip: rect(0, 0, 0, 0);
+
   white-space: nowrap;
+
   border: 0;
 }
 
@@ -58,16 +69,22 @@ button {
 
 #radio-app {
   position: fixed;
+
   inset: 0;
+
   width: 100vw;
   height: 100vh;
+
   overflow: hidden;
+
   background: #000;
 }
 
 
 /* =========================================================
    MASTER HERO
+
+   Maintain exact 16:9 geometry and cover browser.
 ========================================================= */
 
 #radio-hero {
@@ -82,14 +99,18 @@ button {
   transform: translate(-50%, -50%);
 
   overflow: hidden;
+
   background: #000;
 }
 
 
-/* APPROVED HERO IMAGE */
+/* =========================================================
+   LOCKED HERO IMAGE
+========================================================= */
 
 #radio-hero-image {
   position: absolute;
+
   inset: 0;
 
   width: 100%;
@@ -124,17 +145,225 @@ button {
 
 
 /* =========================================================
+   BAKED NAVIGATION HOTSPOTS
+
+   No visible text.
+   No CSS arc.
+   No divider bars.
+   No background.
+
+   Each zone independently follows its baked word.
+========================================================= */
+
+#radio-navigation {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 40;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   COMMON NAV HOTSPOT
+========================================================= */
+
+.nav-hotspot {
+  position: absolute;
+
+  display: block;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  border-radius: 4px;
+
+  background: transparent;
+
+  color: transparent;
+
+  text-decoration: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  outline: none;
+}
+
+
+/* =========================================================
+   NAVIGATION HOTSPOT POSITIONS
+   MASTER REFERENCE: 3840 x 2160
+========================================================= */
+
+
+/* HOME */
+
+#nav-home {
+  left: 9.5%;
+  top: 2.6%;
+
+  width: 5.0%;
+  height: 4.5%;
+}
+
+
+/* RADIO */
+
+#nav-radio {
+  left: 15.6%;
+  top: 4.7%;
+
+  width: 5.2%;
+  height: 4.4%;
+}
+
+
+/* PODCAST */
+
+#nav-podcast {
+  left: 21.7%;
+  top: 6.6%;
+
+  width: 6.8%;
+  height: 4.4%;
+}
+
+
+/* EVENTS */
+
+#nav-events {
+  left: 28.2%;
+  top: 8.1%;
+
+  width: 6.5%;
+  height: 4.4%;
+}
+
+
+/* NEWS */
+
+#nav-news {
+  left: 35.1%;
+  top: 9.4%;
+
+  width: 5.1%;
+  height: 4.3%;
+}
+
+
+/* SHOP */
+
+#nav-shop {
+  left: 41.7%;
+  top: 10.1%;
+
+  width: 5.1%;
+  height: 4.2%;
+}
+
+
+/* COMMUNITY */
+
+#nav-community {
+  left: 47.5%;
+  top: 10.1%;
+
+  width: 8.4%;
+  height: 4.2%;
+}
+
+
+/* ADVERTISE */
+
+#nav-advertise {
+  left: 56.1%;
+  top: 9.6%;
+
+  width: 7.7%;
+  height: 4.3%;
+}
+
+
+/* CONTACT */
+
+#nav-contact {
+  left: 64.2%;
+  top: 8.7%;
+
+  width: 6.9%;
+  height: 4.4%;
+}
+
+
+/* SEARCH */
+
+#nav-search {
+  left: 71.9%;
+  top: 7.1%;
+
+  width: 6.3%;
+  height: 4.4%;
+}
+
+
+/* INQUIRY */
+
+#nav-inquiry {
+  left: 78.9%;
+  top: 5.2%;
+
+  width: 7.0%;
+  height: 4.5%;
+}
+
+
+/* ABOUT */
+
+#nav-about {
+  left: 86.5%;
+  top: 2.9%;
+
+  width: 5.7%;
+  height: 4.6%;
+}
+
+
+/* =========================================================
+   NAV ACCESSIBILITY
+
+   Invisible during normal use.
+   Keyboard focus gives a subtle temporary outline.
+========================================================= */
+
+.nav-hotspot:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: -2px;
+}
+
+
+/* =========================================================
    CENTER PROGRAMMABLE SCREEN
 ========================================================= */
 
 #center-screen {
   position: absolute;
 
-  left: 34.2%;
-  top: 22.2%;
+  left: 28.3%;
+  top: 19.8%;
 
-  width: 31.6%;
-  height: 32.8%;
+  width: 43%;
+  height: 36.9%;
 
   overflow: hidden;
 
@@ -146,6 +375,7 @@ button {
 #screen-content {
   width: 100%;
   height: 100%;
+
   overflow: hidden;
 }
 
@@ -162,6 +392,7 @@ button {
   background: transparent;
 
   border: none;
+
   padding: 0;
 
   cursor: pointer;
@@ -173,7 +404,7 @@ button {
 }
 
 .panel-hotspot:hover {
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .panel-hotspot:focus-visible {
@@ -187,31 +418,35 @@ button {
 ========================================================= */
 
 #hip-hop-panel {
-  left: 4.1%;
-  top: 10.3%;
-  width: 7.2%;
-  height: 45.5%;
+  left: 1.2%;
+  top: 8.6%;
+
+  width: 7.0%;
+  height: 50.5%;
 }
 
 #rnb-panel {
-  left: 11.5%;
-  top: 12.3%;
-  width: 6.8%;
-  height: 43.5%;
+  left: 8.7%;
+  top: 12.1%;
+
+  width: 6.5%;
+  height: 46.0%;
 }
 
 #house-panel {
-  left: 18.3%;
-  top: 17.2%;
-  width: 6.4%;
-  height: 38.6%;
+  left: 15.7%;
+  top: 16.2%;
+
+  width: 6.0%;
+  height: 41.1%;
 }
 
 #reggae-panel {
-  left: 25.0%;
-  top: 20.6%;
-  width: 6.5%;
-  height: 35.2%;
+  left: 22.2%;
+  top: 18.5%;
+
+  width: 5.7%;
+  height: 38.2%;
 }
 
 
@@ -220,31 +455,35 @@ button {
 ========================================================= */
 
 #podcast-panel {
-  left: 68.5%;
-  top: 20.6%;
-  width: 6.5%;
-  height: 35.2%;
+  left: 72.2%;
+  top: 18.5%;
+
+  width: 5.8%;
+  height: 38.2%;
 }
 
 #live-1-panel {
-  left: 75.1%;
-  top: 17.2%;
-  width: 6.4%;
-  height: 38.6%;
+  left: 78.4%;
+  top: 16.2%;
+
+  width: 6.0%;
+  height: 41.1%;
 }
 
 #live-2-panel {
-  left: 81.7%;
-  top: 12.3%;
-  width: 6.8%;
-  height: 43.5%;
+  left: 84.8%;
+  top: 12.1%;
+
+  width: 6.5%;
+  height: 46.0%;
 }
 
 #gospel-panel {
-  left: 88.9%;
-  top: 10.3%;
+  left: 91.8%;
+  top: 8.6%;
+
   width: 7.0%;
-  height: 45.5%;
+  height: 50.5%;
 }
 
 
@@ -313,14 +552,14 @@ button {
 
 
 /* =========================================================
-   TOP FASCIA — RADIO PLAYER
+   FRONT FASCIA — RADIO PLAYER
 ========================================================= */
 
 #radio-player {
   position: absolute;
 
   left: 13.3%;
-  bottom: 20.0%;
+  bottom: 20%;
 
   width: 73.5%;
   height: 8.6%;
@@ -328,6 +567,7 @@ button {
   z-index: 30;
 
   display: flex;
+
   align-items: center;
 
   gap: 1%;
@@ -367,6 +607,7 @@ button {
 
 #player-track-info {
   width: 17%;
+
   min-width: 0;
 
   overflow: hidden;
@@ -376,10 +617,13 @@ button {
   color: #fff;
 
   font-size: clamp(9px, 0.9vw, 18px);
+
   font-weight: 700;
 
   white-space: nowrap;
+
   overflow: hidden;
+
   text-overflow: ellipsis;
 }
 
@@ -391,7 +635,9 @@ button {
   font-size: clamp(7px, 0.7vw, 14px);
 
   white-space: nowrap;
+
   overflow: hidden;
+
   text-overflow: ellipsis;
 }
 
@@ -402,6 +648,7 @@ button {
 
 #player-controls {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -444,6 +691,7 @@ button {
   flex: 1 1 auto;
 
   min-width: 120px;
+
   height: 48%;
 
   border-radius: 4px;
@@ -472,11 +720,13 @@ button {
   flex: 0 0 12%;
 
   display: flex;
+
   align-items: center;
 }
 
 #volume-slider {
   width: 100%;
+
   cursor: pointer;
 }
 
@@ -487,176 +737,6 @@ button {
 
 #radio-audio {
   display: none;
-}
-
-
-/* =========================================================
-   UPPER CURVED FASCIA — WEBSITE NAVIGATION
-
-   FINAL POSITION PASS:
-   Text sits INSIDE the black fascia between the two
-   illuminated rails instead of riding on the upper rail.
-========================================================= */
-
-#radio-navigation {
-  position: absolute;
-
-  left: 10.5%;
-  top: 8.15%;
-
-  width: 79%;
-  height: 12%;
-
-  z-index: 40;
-
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  align-items: start;
-
-  column-gap: 0;
-
-  padding: 0;
-
-  background: transparent;
-
-  pointer-events: auto;
-}
-
-
-/* =========================================================
-   NAVIGATION TEXT
-========================================================= */
-
-#radio-navigation .nav-item {
-  position: relative;
-
-  width: 100%;
-  min-width: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 5px 1px;
-
-  background: transparent;
-  border: none;
-
-  color: rgba(255, 255, 255, 0.96);
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  font-size: clamp(10px, 0.76vw, 16px);
-  font-weight: 700;
-
-  letter-spacing: 0.018em;
-  line-height: 1;
-
-  white-space: nowrap;
-
-  cursor: pointer;
-
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.95),
-    0 0 7px rgba(255, 150, 40, 0.12);
-
-  transition:
-    color 0.2s ease,
-    text-shadow 0.2s ease;
-}
-
-
-/* =========================================================
-   DIVIDER BARS
-   These move with each individual nav item.
-========================================================= */
-
-#radio-navigation .nav-item:not(:last-child)::after {
-  content: "";
-
-  position: absolute;
-
-  right: 0;
-  top: 50%;
-
-  width: 1px;
-  height: 1.4em;
-
-  transform: translateY(-50%);
-
-  background: rgba(255, 255, 255, 0.38);
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   NAVIGATION ARC
-
-   SCREENSHOT-BASED CURVE:
-   HOME / SEARCH = high
-   NEWS = lowest point
-   COMMUNITY = begins rising
-========================================================= */
-
-#radio-navigation .nav-home {
-  transform: translateY(0.55vw);
-}
-
-#radio-navigation .nav-radio {
-  transform: translateY(1.05vw);
-}
-
-#radio-navigation .nav-podcasts {
-  transform: translateY(1.60vw);
-}
-
-#radio-navigation .nav-events {
-  transform: translateY(2.15vw);
-}
-
-#radio-navigation .nav-news {
-  transform: translateY(2.75vw);
-}
-
-#radio-navigation .nav-community {
-  transform: translateY(2.62vw);
-}
-
-#radio-navigation .nav-shop {
-  transform: translateY(2.15vw);
-}
-
-#radio-navigation .nav-advertise {
-  transform: translateY(1.60vw);
-}
-
-#radio-navigation .nav-contact {
-  transform: translateY(1.05vw);
-}
-
-#radio-navigation .nav-search {
-  transform: translateY(0.55vw);
-}
-
-
-/* =========================================================
-   NAV HOVER / FOCUS
-========================================================= */
-
-#radio-navigation .nav-item:hover {
-  color: #fff;
-
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.95),
-    0 0 10px rgba(255, 170, 70, 0.32);
-}
-
-#radio-navigation .nav-item:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.95);
-  outline-offset: 2px;
-  border-radius: 3px;
 }
 
 
@@ -683,30 +763,9 @@ button {
 
 
 /* =========================================================
-   SMALL LAPTOP SAFETY
-========================================================= */
-
-@media (max-width: 1100px) {
-
-  #radio-navigation {
-    left: 8.75%;
-    width: 82.5%;
-  }
-
-  #radio-navigation .nav-item {
-    padding-left: 1px;
-    padding-right: 1px;
-
-    font-size: clamp(9px, 0.72vw, 13px);
-    letter-spacing: 0;
-  }
-
-}
-
-
-/* =========================================================
    MOBILE
-   Dedicated mobile layout comes later.
+
+   Dedicated mobile interface comes later.
 ========================================================= */
 
 @media (max-width: 767px) {

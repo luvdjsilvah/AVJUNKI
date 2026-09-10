@@ -953,12 +953,7 @@ button {
 
 /* =========================================================
    VOLUME MODULE
-
-   MAJOR CHANGE:
-   - LOWER
-   - SHORTER
-   - ROTATION REVERSED
-   - NOW DESCENDS WITH RIGHT-HAND FASCIA
+   RECESSED BROADCAST FADER BUILD
 ========================================================= */
 
 #volume-control {
@@ -972,16 +967,31 @@ button {
 
   pointer-events: auto;
 
-  transform:
-    rotate(-6.5deg);
+  transform: rotate(-6.5deg);
+  transform-origin: 0% 50%;
 
-  transform-origin:
-    0% 50%;
+  border-radius: 8px 18px 18px 8px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(45,45,45,.82) 0%,
+      rgba(17,17,17,.92) 34%,
+      rgba(5,5,5,.96) 100%
+    );
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.09),
+    inset 0 -4px 9px rgba(0,0,0,.72),
+    0 4px 9px rgba(0,0,0,.48);
 }
 
 
 /* =========================================================
-   VOLUME SWEEP HOUSING
+   RECESSED FADER CHANNEL
 ========================================================= */
 
 #volume-control::before {
@@ -989,76 +999,79 @@ button {
 
   position: absolute;
 
-  left: 1%;
-  top: 7%;
+  left: 7%;
+  top: 39%;
 
-  width: 98%;
-  height: 62%;
+  width: 86%;
+  height: 18%;
 
-  border-top:
-    2px solid rgba(241,161,57,.72);
-
-  border-radius:
-    50% 50% 0 0 /
-    100% 100% 0 0;
+  border-radius: 999px;
 
   background:
     linear-gradient(
-      to bottom,
-      rgba(255,183,71,.045),
-      transparent 55%
+      180deg,
+      rgba(0,0,0,.98) 0%,
+      rgba(18,18,18,.96) 48%,
+      rgba(3,3,3,.98) 100%
     );
 
+  border:
+    1px solid rgba(255,255,255,.055);
+
   box-shadow:
-    0 -2px 5px rgba(241,161,57,.12);
+    inset 0 3px 5px rgba(0,0,0,.95),
+    inset 0 -1px 1px rgba(255,255,255,.05),
+    0 1px 1px rgba(255,255,255,.035);
 
   pointer-events: none;
 }
 
 
 /* =========================================================
-   VOLUME MARKINGS
+   FADER SCALE / HARDWARE MARKINGS
 ========================================================= */
 
 #volume-control::after {
-  content: "−       •       •       •       +";
+  content: "−        •        •        •        +";
 
   position: absolute;
 
-  left: 5%;
-  top: 47%;
+  left: 7%;
+  top: 66%;
 
-  width: 90%;
+  width: 86%;
 
-  color: rgba(255,255,255,.34);
+  color: rgba(255,255,255,.46);
 
-  font-size:
-    clamp(6px, .36vw, 9px);
+  font-size: clamp(6px, .37vw, 9px);
 
   font-weight: 700;
 
-  letter-spacing: .02em;
+  letter-spacing: .03em;
 
   text-align: center;
 
   white-space: pre;
 
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.95);
+
   pointer-events: none;
 }
 
 
 /* =========================================================
-   FUNCTIONAL VOLUME SLIDER
+   FUNCTIONAL FADER
 ========================================================= */
 
 #volume-slider {
   position: absolute;
 
-  left: 6%;
-  top: 14%;
+  left: 8%;
+  top: 29%;
 
-  width: 88%;
-  height: 38%;
+  width: 84%;
+  height: 36%;
 
   appearance: none;
   -webkit-appearance: none;
@@ -1068,64 +1081,94 @@ button {
   cursor: pointer;
 
   outline: none;
+
+  z-index: 3;
 }
 
 
-/* SAFARI / CHROME */
+/* =========================================================
+   SAFARI / CHROME TRACK
+========================================================= */
 
 #volume-slider::-webkit-slider-runnable-track {
   width: 100%;
-  height: 3px;
+  height: 5px;
 
   border-radius: 999px;
 
   background:
     linear-gradient(
       90deg,
-      rgba(48,178,255,.72) 0%,
-      rgba(86,197,255,.85) 26%,
-      rgba(180,173,111,.88) 58%,
-      rgba(241,161,57,.92) 82%,
-      rgba(255,190,84,.98) 100%
+      rgba(40,161,230,.95) 0%,
+      rgba(61,190,245,.98) 25%,
+      rgba(137,190,186,.95) 48%,
+      rgba(225,161,73,.98) 72%,
+      rgba(255,180,69,1) 100%
     );
 
   box-shadow:
-    0 0 6px rgba(241,161,57,.18);
+    0 0 4px rgba(61,190,245,.24),
+    0 0 7px rgba(241,161,57,.18),
+    inset 0 1px 1px rgba(255,255,255,.18);
 }
+
+
+/* =========================================================
+   SAFARI / CHROME FADER CAP
+========================================================= */
 
 #volume-slider::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
 
-  width: 15px;
-  height: 15px;
+  width: 27px;
+  height: 17px;
 
   margin-top: -6px;
 
-  border-radius: 50%;
+  border-radius: 4px;
 
   border:
-    1px solid rgba(255,219,159,.95);
+    1px solid rgba(255,221,167,.75);
 
   background:
-    radial-gradient(
-      circle at 35% 30%,
-      #ffe1ad 0%,
-      #eaa34a 43%,
-      #75431b 100%
+    linear-gradient(
+      180deg,
+      #e8c895 0%,
+      #9b7444 17%,
+      #3b3024 47%,
+      #171717 51%,
+      #6e512f 57%,
+      #d2a15e 100%
     );
 
   box-shadow:
-    0 0 6px rgba(241,161,57,.58),
-    0 2px 4px rgba(0,0,0,.8);
+    inset 0 1px 1px rgba(255,255,255,.55),
+    inset 0 -2px 2px rgba(0,0,0,.6),
+    0 0 7px rgba(241,161,57,.38),
+    0 3px 5px rgba(0,0,0,.82);
+
+  cursor: grab;
+}
+
+#volume-slider:active::-webkit-slider-thumb {
+  cursor: grabbing;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.55),
+    inset 0 -2px 2px rgba(0,0,0,.6),
+    0 0 11px rgba(241,161,57,.65),
+    0 3px 5px rgba(0,0,0,.82);
 }
 
 
-/* FIREFOX */
+/* =========================================================
+   FIREFOX TRACK
+========================================================= */
 
 #volume-slider::-moz-range-track {
   width: 100%;
-  height: 3px;
+  height: 5px;
 
   border: 0;
 
@@ -1134,40 +1177,56 @@ button {
   background:
     linear-gradient(
       90deg,
-      rgba(48,178,255,.72) 0%,
-      rgba(86,197,255,.85) 26%,
-      rgba(180,173,111,.88) 58%,
-      rgba(241,161,57,.92) 82%,
-      rgba(255,190,84,.98) 100%
+      rgba(40,161,230,.95) 0%,
+      rgba(61,190,245,.98) 25%,
+      rgba(137,190,186,.95) 48%,
+      rgba(225,161,73,.98) 72%,
+      rgba(255,180,69,1) 100%
     );
 
   box-shadow:
-    0 0 6px rgba(241,161,57,.18);
+    0 0 4px rgba(61,190,245,.24),
+    0 0 7px rgba(241,161,57,.18),
+    inset 0 1px 1px rgba(255,255,255,.18);
 }
+
+
+/* =========================================================
+   FIREFOX FADER CAP
+========================================================= */
 
 #volume-slider::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
+  width: 27px;
+  height: 17px;
 
-  border-radius: 50%;
+  border-radius: 4px;
 
   border:
-    1px solid rgba(255,219,159,.95);
+    1px solid rgba(255,221,167,.75);
 
   background:
-    radial-gradient(
-      circle at 35% 30%,
-      #ffe1ad 0%,
-      #eaa34a 43%,
-      #75431b 100%
+    linear-gradient(
+      180deg,
+      #e8c895 0%,
+      #9b7444 17%,
+      #3b3024 47%,
+      #171717 51%,
+      #6e512f 57%,
+      #d2a15e 100%
     );
 
   box-shadow:
-    0 0 6px rgba(241,161,57,.58),
-    0 2px 4px rgba(0,0,0,.8);
+    inset 0 1px 1px rgba(255,255,255,.55),
+    inset 0 -2px 2px rgba(0,0,0,.6),
+    0 0 7px rgba(241,161,57,.38),
+    0 3px 5px rgba(0,0,0,.82);
+
+  cursor: grab;
 }
 
-
+#volume-slider:active::-moz-range-thumb {
+  cursor: grabbing;
+}
 /* =========================================================
    AUDIO
 ========================================================= */

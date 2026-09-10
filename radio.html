@@ -20,10 +20,11 @@
 
     <!-- =========================================
          DESKTOP RADIO HERO / MASTER STAGE
+         MASTER ARTWORK: 3840 x 2160
     ========================================== -->
     <section id="radio-hero">
 
-      <!-- APPROVED RADIO HERO IMAGE -->
+      <!-- LOCKED HERO IMAGE -->
       <img
         id="radio-hero-image"
         src="assets/images/Hero-Radio.webp"
@@ -42,84 +43,118 @@
 
 
       <!-- =========================================
-           CURVED UPPER FASCIA — WEBSITE NAVIGATION
+           BAKED NAVIGATION — INVISIBLE HOTSPOTS ONLY
       ========================================== -->
       <nav
         id="radio-navigation"
         aria-label="AV Junki Radio navigation"
       >
 
-        <a class="nav-item nav-home" href="index.html">
-          Home
-        </a>
+        <a
+          id="nav-home"
+          class="nav-hotspot"
+          href="index.html"
+          aria-label="Home"
+          title="Home"
+        ></a>
 
-        <a class="nav-item nav-radio" href="radio.html">
-          Radio
-        </a>
+        <a
+          id="nav-radio"
+          class="nav-hotspot"
+          href="radio.html"
+          aria-label="Radio"
+          title="Radio"
+        ></a>
 
         <button
-          class="nav-item nav-podcasts"
+          id="nav-podcast"
+          class="nav-hotspot"
           type="button"
           data-screen="podcasts"
-        >
-          Podcasts
-        </button>
+          aria-label="Podcast"
+          title="Podcast"
+        ></button>
 
         <button
-          class="nav-item nav-events"
+          id="nav-events"
+          class="nav-hotspot"
           type="button"
           data-screen="events"
-        >
-          Events
-        </button>
+          aria-label="Events"
+          title="Events"
+        ></button>
 
         <button
-          class="nav-item nav-news"
+          id="nav-news"
+          class="nav-hotspot"
           type="button"
           data-screen="news"
-        >
-          News
-        </button>
+          aria-label="News"
+          title="News"
+        ></button>
 
         <button
-          class="nav-item nav-community"
-          type="button"
-          data-screen="community"
-        >
-          Community
-        </button>
-
-        <button
-          class="nav-item nav-shop"
+          id="nav-shop"
+          class="nav-hotspot"
           type="button"
           data-screen="shop"
-        >
-          Shop
-        </button>
+          aria-label="Shop"
+          title="Shop"
+        ></button>
 
         <button
-          class="nav-item nav-advertise"
+          id="nav-community"
+          class="nav-hotspot"
+          type="button"
+          data-screen="community"
+          aria-label="Community"
+          title="Community"
+        ></button>
+
+        <button
+          id="nav-advertise"
+          class="nav-hotspot"
           type="button"
           data-screen="advertise"
-        >
-          Advertise
-        </button>
+          aria-label="Advertise"
+          title="Advertise"
+        ></button>
 
         <button
-          class="nav-item nav-contact"
+          id="nav-contact"
+          class="nav-hotspot"
           type="button"
           data-screen="contact"
-        >
-          Contact
-        </button>
+          aria-label="Contact"
+          title="Contact"
+        ></button>
 
         <button
-          class="nav-item nav-search"
+          id="nav-search"
+          class="nav-hotspot"
           type="button"
           data-screen="search"
-        >
-          Search
-        </button>
+          aria-label="Search"
+          title="Search"
+        ></button>
+
+        <button
+          id="nav-inquiry"
+          class="nav-hotspot"
+          type="button"
+          data-screen="inquiry"
+          aria-label="Inquiry"
+          title="Inquiry"
+        ></button>
+
+        <button
+          id="nav-about"
+          class="nav-hotspot"
+          type="button"
+          data-screen="about"
+          aria-label="About"
+          title="About"
+        ></button>
 
       </nav>
 
@@ -208,6 +243,7 @@
         id="virtual-host"
         aria-label="AV Junki Radio virtual welcome"
       >
+
         <div id="virtual-host-character"></div>
 
         <button
@@ -216,6 +252,7 @@
         >
           Skip Welcome
         </button>
+
       </section>
 
 
@@ -314,6 +351,7 @@
         role="status"
         aria-live="polite"
       ></div>
+
 
     </section>
 

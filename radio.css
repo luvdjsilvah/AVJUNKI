@@ -1,8 +1,7 @@
 /* =========================================================
    AV JUNKI RADIO
    radio.css
-   Desktop foundation — NEW HERO / NAV ARC PASS
-   Hero reference geometry: 2048 x 1152 (16:9)
+   Desktop foundation — alignment pass 5
 ========================================================= */
 
 
@@ -116,166 +115,11 @@ button {
   top: 0%;
 
   width: 58%;
-  height: 8.8%;
+  height: 22%;
 
   z-index: 5;
 
   pointer-events: none;
-}
-
-
-/* =========================================================
-   CURVED UPPER FASCIA — WEBSITE NAVIGATION
-========================================================= */
-
-#radio-navigation {
-  position: absolute;
-
-  left: 11.5%;
-  top: 8.2%;
-
-  width: 77%;
-  height: 10.5%;
-
-  z-index: 40;
-
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  align-items: start;
-
-  background: transparent;
-  pointer-events: auto;
-}
-
-
-/* =========================================================
-   NAVIGATION LINKS / BUTTONS
-========================================================= */
-
-#radio-navigation .nav-item {
-  position: relative;
-
-  width: 100%;
-  min-width: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 6px 5px;
-
-  background: transparent;
-  border: none;
-
-  color: rgba(255, 255, 255, 0.94);
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  font-size: clamp(11px, 0.88vw, 18px);
-  font-weight: 700;
-  letter-spacing: 0.035em;
-
-  line-height: 1;
-  white-space: nowrap;
-
-  cursor: pointer;
-
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.95),
-    0 0 8px rgba(255, 154, 48, 0.12);
-
-  transition:
-    color 0.2s ease,
-    text-shadow 0.2s ease,
-    background 0.2s ease;
-}
-
-
-/* DIVIDER BARS */
-
-#radio-navigation .nav-item:not(:last-child)::after {
-  content: "";
-
-  position: absolute;
-
-  right: 0;
-  top: 50%;
-
-  width: 1px;
-  height: 1.35em;
-
-  transform: translateY(-50%);
-
-  background: rgba(255, 255, 255, 0.42);
-
-  box-shadow: 0 0 5px rgba(255, 169, 72, 0.13);
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   NAVIGATION ARC
-========================================================= */
-
-#radio-navigation .nav-home {
-  transform: translateY(0.15vw);
-}
-
-#radio-navigation .nav-radio {
-  transform: translateY(0.60vw);
-}
-
-#radio-navigation .nav-podcasts {
-  transform: translateY(1.00vw);
-}
-
-#radio-navigation .nav-events {
-  transform: translateY(1.30vw);
-}
-
-#radio-navigation .nav-news {
-  transform: translateY(1.48vw);
-}
-
-#radio-navigation .nav-community {
-  transform: translateY(1.48vw);
-}
-
-#radio-navigation .nav-shop {
-  transform: translateY(1.30vw);
-}
-
-#radio-navigation .nav-advertise {
-  transform: translateY(1.00vw);
-}
-
-#radio-navigation .nav-contact {
-  transform: translateY(0.60vw);
-}
-
-#radio-navigation .nav-search {
-  transform: translateY(0.15vw);
-}
-
-
-/* NAV INTERACTION */
-
-#radio-navigation .nav-item:hover {
-  color: #fff;
-
-  background: rgba(255, 255, 255, 0.045);
-
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.95),
-    0 0 10px rgba(255, 170, 70, 0.32);
-}
-
-#radio-navigation .nav-item:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.95);
-  outline-offset: 2px;
-  border-radius: 3px;
 }
 
 
@@ -286,11 +130,11 @@ button {
 #center-screen {
   position: absolute;
 
-  left: 28.3%;
-  top: 19.8%;
+  left: 34.2%;
+  top: 22.2%;
 
-  width: 43.0%;
-  height: 36.9%;
+  width: 31.6%;
+  height: 32.8%;
 
   overflow: hidden;
 
@@ -343,31 +187,31 @@ button {
 ========================================================= */
 
 #hip-hop-panel {
-  left: 1.15%;
-  top: 8.7%;
-  width: 7.0%;
-  height: 50.4%;
+  left: 4.1%;
+  top: 10.3%;
+  width: 7.2%;
+  height: 45.5%;
 }
 
 #rnb-panel {
-  left: 8.65%;
+  left: 11.5%;
   top: 12.3%;
-  width: 6.5%;
-  height: 45.8%;
+  width: 6.8%;
+  height: 43.5%;
 }
 
 #house-panel {
-  left: 15.65%;
-  top: 16.5%;
-  width: 6.0%;
-  height: 40.9%;
+  left: 18.3%;
+  top: 17.2%;
+  width: 6.4%;
+  height: 38.6%;
 }
 
 #reggae-panel {
-  left: 22.15%;
-  top: 18.7%;
-  width: 5.6%;
-  height: 38.0%;
+  left: 25.0%;
+  top: 20.6%;
+  width: 6.5%;
+  height: 35.2%;
 }
 
 
@@ -376,31 +220,31 @@ button {
 ========================================================= */
 
 #podcast-panel {
-  left: 72.25%;
-  top: 18.7%;
-  width: 5.7%;
-  height: 38.0%;
+  left: 68.5%;
+  top: 20.6%;
+  width: 6.5%;
+  height: 35.2%;
 }
 
 #live-1-panel {
-  left: 78.45%;
-  top: 16.5%;
-  width: 6.0%;
-  height: 40.9%;
+  left: 75.1%;
+  top: 17.2%;
+  width: 6.4%;
+  height: 38.6%;
 }
 
 #live-2-panel {
-  left: 84.85%;
+  left: 81.7%;
   top: 12.3%;
-  width: 6.5%;
-  height: 45.8%;
+  width: 6.8%;
+  height: 43.5%;
 }
 
 #gospel-panel {
-  left: 91.85%;
-  top: 8.7%;
+  left: 88.9%;
+  top: 10.3%;
   width: 7.0%;
-  height: 50.4%;
+  height: 45.5%;
 }
 
 
@@ -469,7 +313,7 @@ button {
 
 
 /* =========================================================
-   FRONT FASCIA — RADIO PLAYER
+   TOP FASCIA — RADIO PLAYER
 ========================================================= */
 
 #radio-player {
@@ -593,7 +437,7 @@ button {
 
 
 /* =========================================================
-   WAVE-STYLE VU METER
+   VU METER
 ========================================================= */
 
 #vu-meter {
@@ -647,6 +491,167 @@ button {
 
 
 /* =========================================================
+   UPPER CURVED FASCIA — WEBSITE NAVIGATION
+========================================================= */
+
+#radio-navigation {
+  position: absolute;
+
+  left: 10.8%;
+  top: 7.9%;
+
+  width: 78.4%;
+  height: 11%;
+
+  z-index: 40;
+
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  align-items: start;
+
+  column-gap: 0.15%;
+
+  padding: 0;
+
+  background: transparent;
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   NAVIGATION TEXT
+========================================================= */
+
+#radio-navigation .nav-item {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 2px;
+
+  background: transparent;
+  border: none;
+
+  color: rgba(255, 255, 255, 0.95);
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  font-size: clamp(10px, 0.78vw, 16px);
+  font-weight: 700;
+
+  letter-spacing: 0.025em;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.95),
+    0 0 7px rgba(255, 150, 40, 0.13);
+
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   DIVIDER BARS
+========================================================= */
+
+#radio-navigation .nav-item:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: 50%;
+
+  width: 1px;
+  height: 1.25em;
+
+  transform: translateY(-50%);
+
+  background: rgba(255, 255, 255, 0.38);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   NAVIGATION ARC
+   NEWS = VISUAL LOW POINT
+========================================================= */
+
+#radio-navigation .nav-home {
+  transform: translateY(0.00vw);
+}
+
+#radio-navigation .nav-radio {
+  transform: translateY(0.38vw);
+}
+
+#radio-navigation .nav-podcasts {
+  transform: translateY(0.78vw);
+}
+
+#radio-navigation .nav-events {
+  transform: translateY(1.18vw);
+}
+
+#radio-navigation .nav-news {
+  transform: translateY(1.58vw);
+}
+
+#radio-navigation .nav-community {
+  transform: translateY(1.48vw);
+}
+
+#radio-navigation .nav-shop {
+  transform: translateY(1.18vw);
+}
+
+#radio-navigation .nav-advertise {
+  transform: translateY(0.78vw);
+}
+
+#radio-navigation .nav-contact {
+  transform: translateY(0.38vw);
+}
+
+#radio-navigation .nav-search {
+  transform: translateY(0.00vw);
+}
+
+
+/* =========================================================
+   NAV HOVER / FOCUS
+========================================================= */
+
+#radio-navigation .nav-item:hover {
+  color: #fff;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.95),
+    0 0 10px rgba(255, 170, 70, 0.32);
+}
+
+#radio-navigation .nav-item:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.95);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+
+/* =========================================================
    STATUS
 ========================================================= */
 
@@ -675,15 +680,15 @@ button {
 @media (max-width: 1100px) {
 
   #radio-navigation {
-    left: 9%;
-    width: 82%;
+    left: 9.5%;
+    width: 81%;
   }
 
   #radio-navigation .nav-item {
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
 
-    font-size: clamp(9px, 0.86vw, 14px);
+    font-size: clamp(9px, 0.74vw, 13px);
     letter-spacing: 0;
   }
 
@@ -692,6 +697,7 @@ button {
 
 /* =========================================================
    MOBILE
+   Dedicated mobile layout comes later.
 ========================================================= */
 
 @media (max-width: 767px) {

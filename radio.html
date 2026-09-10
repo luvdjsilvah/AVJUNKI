@@ -2,29 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>AV Junki Radio</title>
 
   <meta
     name="description"
-    content="AV Junki Radio — 24/7 music, podcasts, live audio, events, artists and interactive radio."
+    content="AV Junki Radio — music, podcasts, live audio, events, artists and interactive radio."
   />
 
-  <link rel="stylesheet" href="radio.css" />
+  <link
+    rel="stylesheet"
+    href="radio.css"
+  />
 </head>
 
 <body>
 
   <main id="radio-app">
 
-    <!-- =========================================
-         DESKTOP RADIO HERO / MASTER STAGE
-         MASTER ARTWORK: 3840 x 2160
-    ========================================== -->
     <section id="radio-hero">
 
-      <!-- LOCKED HERO IMAGE -->
+      <!-- LOCKED MASTER HERO -->
       <img
         id="radio-hero-image"
         src="assets/images/Hero-Radio.webp"
@@ -35,16 +38,17 @@
       <!-- =========================================
            CEILING GLOBE AREA
       ========================================== -->
+
       <div
         id="ceiling-globe"
-        class="interactive-layer"
         aria-hidden="true"
       ></div>
 
 
       <!-- =========================================
-           BAKED NAVIGATION — INVISIBLE HOTSPOTS ONLY
+           INVISIBLE BAKED-NAV HOTSPOTS
       ========================================== -->
+
       <nav
         id="radio-navigation"
         aria-label="AV Junki Radio navigation"
@@ -160,8 +164,9 @@
 
 
       <!-- =========================================
-           MAIN PROGRAMMABLE CENTER SCREEN
+           CENTER SCREEN
       ========================================== -->
+
       <section
         id="center-screen"
         aria-label="AV Junki Radio information screen"
@@ -171,74 +176,91 @@
 
 
       <!-- =========================================
-           LEFT GENRE PANELS
+           LEFT GENRE HOTSPOTS
       ========================================== -->
 
       <button
-        class="panel-hotspot"
         id="hip-hop-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="hip-hop"
-        aria-label="Play Hip Hop"
+        data-preset="music"
+        aria-label="Hip Hop"
       ></button>
 
       <button
-        class="panel-hotspot"
         id="rnb-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="rnb"
-        aria-label="Play R&B"
+        data-preset="music"
+        aria-label="R&B"
       ></button>
 
       <button
-        class="panel-hotspot"
         id="house-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="house"
-        aria-label="Play House"
+        data-preset="music"
+        aria-label="House"
       ></button>
 
       <button
-        class="panel-hotspot"
         id="reggae-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="reggae"
-        aria-label="Play Reggae"
+        data-preset="music"
+        aria-label="Reggae"
       ></button>
 
 
       <!-- =========================================
-           RIGHT PANELS
+           RIGHT PANEL HOTSPOTS
       ========================================== -->
 
       <button
-        class="panel-hotspot"
         id="podcast-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="podcast"
-        aria-label="Open Podcasts"
+        data-preset="podcast"
+        aria-label="Podcast"
       ></button>
 
       <button
-        class="panel-hotspot"
         id="live-1-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="live-1"
-        aria-label="Open Live 1"
+        data-preset="live"
+        aria-label="Live 1"
       ></button>
 
       <button
-        class="panel-hotspot"
         id="live-2-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="live-2"
-        aria-label="Open Live 2"
+        data-preset="live"
+        aria-label="Live 2"
       ></button>
 
       <button
-        class="panel-hotspot"
         id="gospel-panel"
+        class="panel-hotspot"
+        type="button"
         data-channel="gospel"
-        aria-label="Play Gospel"
+        data-preset="music"
+        aria-label="Gospel"
       ></button>
 
 
       <!-- =========================================
-           VIRTUAL CHARLES WELCOME
+           VIRTUAL CHARLES
       ========================================== -->
+
       <section
         id="virtual-host"
         aria-label="AV Junki Radio virtual welcome"
@@ -257,16 +279,19 @@
 
 
       <!-- =========================================
-           FRONT FASCIA — RADIO PLAYER
+           NEW BROADCAST PLAYER
       ========================================== -->
+
       <section
-        id="radio-player"
-        aria-label="AV Junki Radio player"
+        id="broadcast-player"
+        aria-label="AV Junki Radio broadcast player"
       >
 
+        <!-- ALBUM ART -->
         <div id="player-album-art"></div>
 
 
+        <!-- TRACK INFO -->
         <div id="player-track-info">
 
           <div id="player-track-title">
@@ -280,6 +305,64 @@
         </div>
 
 
+        <!-- SPECTRUM -->
+        <div id="spectrum-wrap">
+
+          <canvas
+            id="spectrum-canvas"
+            aria-label="Audio spectrum analyzer"
+          ></canvas>
+
+        </div>
+
+
+        <!-- ANALOG VU -->
+        <div id="analog-vu">
+
+          <img
+            id="vu-face"
+            src="assets/images/vu-meter.png"
+            alt="Analog VU meter"
+          />
+
+          <div id="vu-needle"></div>
+
+        </div>
+
+
+        <!-- GAIN REDUCTION -->
+        <div id="gr-meter-wrap">
+
+          <div id="gr-label">
+            GR
+          </div>
+
+          <div id="gr-meter">
+
+            <div id="gr-fill"></div>
+
+          </div>
+
+          <div id="gr-value">
+            0 dB
+          </div>
+
+        </div>
+
+
+        <!-- DSP STATUS -->
+        <div id="dsp-status">
+
+          <span id="dsp-light"></span>
+
+          <span id="dsp-text">
+            DSP
+          </span>
+
+        </div>
+
+
+        <!-- TRANSPORT -->
         <div id="player-controls">
 
           <button
@@ -303,18 +386,13 @@
             type="button"
             aria-label="Next"
           >
-            ▶▶
+            ▶
           </button>
 
         </div>
 
 
-        <div
-          id="vu-meter"
-          aria-hidden="true"
-        ></div>
-
-
+        <!-- VOLUME -->
         <div id="volume-control">
 
           <label
@@ -335,23 +413,25 @@
         </div>
 
 
+        <!-- AUDIO ENGINE -->
         <audio
           id="radio-audio"
-          preload="none"
+          preload="metadata"
+          crossorigin="anonymous"
         ></audio>
 
       </section>
 
 
       <!-- =========================================
-           STATUS / LOADING MESSAGE
+           STATUS
       ========================================== -->
+
       <div
         id="radio-status"
         role="status"
         aria-live="polite"
       ></div>
-
 
     </section>
 

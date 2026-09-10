@@ -669,14 +669,13 @@ button {
 
 /* =========================================================
    MAINSTREAM / OFF AIR HARDWARE MODULE
-   SCREENSHOT ALIGNMENT PASS
+   FINAL HORIZONTAL ALIGNMENT PASS
 ========================================================= */
 
 #mainstream-status {
   position: absolute;
 
-  /* nudged left + up, slightly enlarged */
-  left: 72.85%;
+  left: 73.10%;
   top: 83.90%;
   width: 7.15%;
   height: 7.35%;

@@ -1071,7 +1071,7 @@ button {
   z-index: 7;
 
   border: 0;
-  border-radius: 50%;
+  border-radius: 0%;
 
   appearance: none;
   -webkit-appearance: none;

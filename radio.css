@@ -974,7 +974,7 @@ button {
 
   /* JS will update these later */
   --volume-angle: -38deg;
-  --volume-knob-angle: -135deg;
+  --volume-knob-angle: 0deg;
 }
 
 

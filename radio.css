@@ -1277,3 +1277,17 @@ button {
   }
 
 }
+#player-controls #previous-track,
+#player-controls #next-track {
+  border: 4px solid #7dd3fc !important;
+  box-shadow:
+    0 0 12px #7dd3fc,
+    0 0 24px rgba(125,211,252,.85) !important;
+}
+
+#player-controls #play-pause {
+  border: 4px solid #e5ac4c !important;
+  box-shadow:
+    0 0 12px #e5ac4c,
+    0 0 24px rgba(229,172,76,.85) !important;
+}

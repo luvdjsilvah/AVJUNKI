@@ -476,10 +476,6 @@ button {
 
 /* =========================================================
    BROADCAST PLAYER MASTER OVERLAY
-========================================================= */
-
-/* =========================================================
-   BROADCAST PLAYER MASTER OVERLAY
    Full-hero positioning against the 3840 x 2160 master.
 ========================================================= */
 
@@ -787,10 +783,9 @@ button {
   width: 6.9%;
   height: 7.1%;
   padding: 0;
-transform: rotate(-2deg);
+  transform: rotate(-2deg);
   border-radius: 5px;
 
-  /* THICKER OUTER BEZEL */
   border: 3px solid rgba(190, 198, 202, 0.96);
 
   background:
@@ -835,7 +830,7 @@ transform: rotate(-2deg);
 
   text-align: center;
 
- font-size: clamp(8px, .62vw, 14px);
+  font-size: clamp(8px, .62vw, 14px);
   font-weight: 900;
   letter-spacing: .045em;
   line-height: 1;
@@ -872,14 +867,14 @@ transform: rotate(-2deg);
   text-align: left;
 
   font-family: "Courier New", monospace;
- font-size: clamp(8px, .60vw, 13px);
+  font-size: clamp(8px, .60vw, 13px);
   font-weight: 900;
   letter-spacing: .05em;
 
   color: rgba(104, 205, 244, 0.94);
 
   text-shadow:
-  0 0 5px rgba(70, 190, 235, 0.58);
+    0 0 5px rgba(70, 190, 235, 0.58);
 }
 
 
@@ -965,100 +960,399 @@ transform: rotate(-2deg);
     0 0 9px rgba(68,255,91,0.72);
 }
 
+
 /* =========================================================
-   VOLUME VU
+   VOLUME VU + ROTARY VOLUME KNOB
    Uses assets/images/av-junki-volume-vu.png.
-   No rotation. The PNG supplies the hardware face; the slider
-   is overlaid inside the lower face of the meter.
+
+   - Original horizontal slider appearance removed.
+   - Existing slider input is visually converted into the
+     #16 black / gold rotary knob.
+   - Knob sits directly to the right of the Volume VU.
+   - Volume VU housing remains in its current location.
+   - --volume-angle controls the animated VU needle.
 ========================================================= */
 
 #volume-control {
   position: absolute;
+
   left: 79.75%;
   top: 80.55%;
+
   width: 11.25%;
   height: 11.9%;
+
   pointer-events: auto;
+
   transform: none;
+
   background: transparent;
+
   overflow: visible;
+
+  --volume-angle: -38deg;
 }
+
+
+/* VOLUME VU FACE */
 
 #volume-vu-face {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: contain;
+
   display: block;
+
   pointer-events: none;
   user-select: none;
-  filter: drop-shadow(0 4px 7px rgba(0,0,0,.68));
+
+  z-index: 1;
+
+  filter:
+    drop-shadow(0 4px 7px rgba(0,0,0,.68));
 }
+
+
+/* MOVING NEEDLE */
+
+#volume-control::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 27%;
+
+  width: 1.5px;
+  height: 43%;
+
+  z-index: 4;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      to top,
+      #351d0a 0%,
+      #b16e22 34%,
+      #ffd36f 72%,
+      #fff0b4 100%
+    );
+
+  transform-origin: 50% 100%;
+
+  transform:
+    translateX(-50%)
+    rotate(var(--volume-angle));
+
+  transition:
+    transform 80ms linear;
+
+  box-shadow:
+    0 0 2px rgba(0,0,0,.95),
+    0 0 3px rgba(245,170,61,.42);
+
+  pointer-events: none;
+}
+
+
+/* NEEDLE PIVOT */
+
+#volume-control::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 66.4%;
+
+  width: 4.4%;
+  height: 7.4%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 5;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,211,132,.88);
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #ffe9b5 0%,
+      #c98a35 31%,
+      #5b3516 64%,
+      #17100b 100%
+    );
+
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.85),
+    0 0 4px rgba(222,147,48,.35);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ROTARY VOLUME KNOB — DESIGN #16
+========================================================= */
 
 #volume-slider {
   position: absolute;
-  left: 31.5%;
-  top: 70.5%;
-  width: 37%;
-  height: 20%;
+
+  left: 102.5%;
+  top: 24%;
+
+  width: 31%;
+  height: 52%;
+
   margin: 0;
+  padding: 0;
+
+  z-index: 7;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(221,164,74,.98);
+
+  outline: none;
+
   appearance: none;
   -webkit-appearance: none;
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-  z-index: 3;
+
+  cursor: ew-resize;
+
+  background-image:
+
+    /* INDICATOR */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 20%,
+      #ffe0a1 20%,
+      #ffe0a1 80%,
+      transparent 80%,
+      transparent 100%
+    ),
+
+    /* TOP RIVET */
+    radial-gradient(
+      circle at 50% 10%,
+      #fff0bd 0%,
+      #d69a43 1.6%,
+      #593611 2.5%,
+      transparent 2.8%
+    ),
+
+    /* UPPER RIGHT RIVET */
+    radial-gradient(
+      circle at 80% 23%,
+      #fff0bd 0%,
+      #d69a43 1.6%,
+      #593611 2.5%,
+      transparent 2.8%
+    ),
+
+    /* LOWER RIGHT RIVET */
+    radial-gradient(
+      circle at 87% 62%,
+      #fff0bd 0%,
+      #d69a43 1.6%,
+      #593611 2.5%,
+      transparent 2.8%
+    ),
+
+    /* BOTTOM RIVET */
+    radial-gradient(
+      circle at 50% 90%,
+      #fff0bd 0%,
+      #d69a43 1.6%,
+      #593611 2.5%,
+      transparent 2.8%
+    ),
+
+    /* LOWER LEFT RIVET */
+    radial-gradient(
+      circle at 13% 62%,
+      #fff0bd 0%,
+      #d69a43 1.6%,
+      #593611 2.5%,
+      transparent 2.8%
+    ),
+
+    /* UPPER LEFT RIVET */
+    radial-gradient(
+      circle at 20% 23%,
+      #fff0bd 0%,
+      #d69a43 1.6%,
+      #593611 2.5%,
+      transparent 2.8%
+    ),
+
+    /* BLACK CENTER */
+    radial-gradient(
+      circle at 45% 37%,
+      #343434 0%,
+      #151515 30%,
+      #080808 57%,
+      #030303 63%,
+      transparent 64%
+    ),
+
+    /* GOLD OUTER RING */
+    conic-gradient(
+      from 0deg,
+      #754515,
+      #e5aa50,
+      #8b571e,
+      #f0c170,
+      #81501c,
+      #d6983d,
+      #6d4013,
+      #f1be64,
+      #754515
+    );
+
+  background-size:
+    4% 24%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+
+  background-position:
+    50% 14%,
+    center,
+    center,
+    center,
+    center,
+    center,
+    center,
+    center,
+    center;
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(20,12,5,.92),
+    inset 0 0 0 4px rgba(235,177,84,.30),
+    inset 0 3px 5px rgba(255,227,174,.16),
+    inset 0 -5px 8px rgba(0,0,0,.90),
+    0 0 0 1px rgba(92,55,18,.95),
+    0 4px 7px rgba(0,0,0,.82),
+    0 0 8px rgba(225,151,48,.16);
+
+  transition:
+    filter .15s ease,
+    box-shadow .15s ease;
 }
+
+
+/* REMOVE OLD RANGE TRACK */
 
 #volume-slider::-webkit-slider-runnable-track {
   width: 100%;
-  height: 4px;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, #6f451f 0%, #d89236 45%, #ffb94d 100%);
-  box-shadow:
-    inset 0 1px 1px rgba(0,0,0,.75),
-    0 0 5px rgba(241,161,57,.38);
+  height: 100%;
+
+  border: 0;
+
+  background: transparent;
+
+  box-shadow: none;
 }
+
+
+/* HIDE OLD MOVING THUMB */
 
 #volume-slider::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  margin-top: -5.5px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,226,181,.95);
-  background:
-    radial-gradient(circle at 35% 30%, #fff0cf 0%, #e8ad61 35%, #7b4b21 75%, #2a1a0e 100%);
-  box-shadow:
-    0 0 5px rgba(242,170,72,.62),
-    0 2px 4px rgba(0,0,0,.82);
+
+  width: 1px;
+  height: 1px;
+
+  margin: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  opacity: 0;
+
+  box-shadow: none;
 }
+
+
+/* FIREFOX TRACK */
 
 #volume-slider::-moz-range-track {
   width: 100%;
-  height: 4px;
+  height: 100%;
+
   border: 0;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, #6f451f 0%, #d89236 45%, #ffb94d 100%);
-  box-shadow:
-    inset 0 1px 1px rgba(0,0,0,.75),
-    0 0 5px rgba(241,161,57,.38);
+
+  background: transparent;
+
+  box-shadow: none;
 }
 
+
+/* FIREFOX THUMB */
+
 #volume-slider::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,226,181,.95);
-  background:
-    radial-gradient(circle at 35% 30%, #fff0cf 0%, #e8ad61 35%, #7b4b21 75%, #2a1a0e 100%);
+  width: 1px;
+  height: 1px;
+
+  border: 0;
+
+  background: transparent;
+
+  opacity: 0;
+
+  box-shadow: none;
+}
+
+
+/* KNOB HOVER */
+
+#volume-slider:hover {
+  filter: brightness(1.08);
+
   box-shadow:
-    0 0 5px rgba(242,170,72,.62),
-    0 2px 4px rgba(0,0,0,.82);
+    inset 0 0 0 2px rgba(20,12,5,.92),
+    inset 0 0 0 4px rgba(235,177,84,.36),
+    inset 0 3px 5px rgba(255,227,174,.18),
+    inset 0 -5px 8px rgba(0,0,0,.90),
+    0 0 0 1px rgba(92,55,18,.95),
+    0 4px 7px rgba(0,0,0,.82),
+    0 0 10px rgba(225,151,48,.26);
+}
+
+
+/* KNOB FOCUS */
+
+#volume-slider:focus-visible {
+  outline: 1px solid rgba(255,215,144,.95);
+  outline-offset: 3px;
 }
 
 

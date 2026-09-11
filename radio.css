@@ -1,776 +1,7 @@
 /* =========================================================
-   AV JUNKI RADIO
-   radio.css
-
-   MASTER ARTWORK: 3840 x 2160
-   FASCIA HARDWARE ALIGNMENT BUILD
-========================================================= */
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #000;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-button,
-a,
-input {
-  font: inherit;
-}
-
-button {
-  border: 0;
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-
-/* =========================================================
-   RADIO APP
-========================================================= */
-
-#radio-app {
-  position: fixed;
-  inset: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  overflow: hidden;
-
-  background: #000;
-}
-
-
-/* =========================================================
-   MASTER HERO
-========================================================= */
-
-#radio-hero {
-  position: absolute;
-
-  width: max(100vw, calc(100vh * 16 / 9));
-  height: max(100vh, calc(100vw * 9 / 16));
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  overflow: hidden;
-
-  background: #000;
-}
-
-#radio-hero-image {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: fill;
-
-  display: block;
-
-  pointer-events: none;
-  user-select: none;
-}
-
-
-/* =========================================================
-   CEILING GLOBE
-========================================================= */
-
-#ceiling-globe {
-  position: absolute;
-
-  left: 21%;
-  top: 0;
-
-  width: 58%;
-  height: 22%;
-
-  z-index: 5;
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   BAKED NAVIGATION HOTSPOTS
-========================================================= */
-
-#radio-navigation {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: 40;
-
-  pointer-events: none;
-}
-
-.nav-hotspot {
-  position: absolute;
-
-  display: block;
-
-  padding: 0;
-  margin: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  color: transparent;
-
-  cursor: pointer;
-  pointer-events: auto;
-
-  outline: none;
-
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-.nav-hotspot:focus-visible {
-  outline: 2px solid rgba(255,255,255,.9);
-  outline-offset: -2px;
-}
-
-
-/* HOME */
-
-#nav-home {
-  left: 9.5%;
-  top: 2.6%;
-  width: 5%;
-  height: 4.5%;
-}
-
-
-/* RADIO */
-
-#nav-radio {
-  left: 15.6%;
-  top: 4.7%;
-  width: 5.2%;
-  height: 4.4%;
-}
-
-
-/* PODCAST */
-
-#nav-podcast {
-  left: 21.7%;
-  top: 6.6%;
-  width: 6.8%;
-  height: 4.4%;
-}
-
-
-/* EVENTS */
-
-#nav-events {
-  left: 28.2%;
-  top: 8.1%;
-  width: 6.5%;
-  height: 4.4%;
-}
-
-
-/* NEWS */
-
-#nav-news {
-  left: 35.1%;
-  top: 9.4%;
-  width: 5.1%;
-  height: 4.3%;
-}
-
-
-/* SHOP */
-
-#nav-shop {
-  left: 41.7%;
-  top: 10.1%;
-  width: 5.1%;
-  height: 4.2%;
-}
-
-
-/* COMMUNITY */
-
-#nav-community {
-  left: 47.5%;
-  top: 10.1%;
-  width: 8.4%;
-  height: 4.2%;
-}
-
-
-/* ADVERTISE */
-
-#nav-advertise {
-  left: 56.1%;
-  top: 9.6%;
-  width: 7.7%;
-  height: 4.3%;
-}
-
-
-/* CONTACT */
-
-#nav-contact {
-  left: 64.2%;
-  top: 8.7%;
-  width: 6.9%;
-  height: 4.4%;
-}
-
-
-/* SEARCH */
-
-#nav-search {
-  left: 71.9%;
-  top: 7.1%;
-  width: 6.3%;
-  height: 4.4%;
-}
-
-
-/* INQUIRY */
-
-#nav-inquiry {
-  left: 78.9%;
-  top: 5.2%;
-  width: 7%;
-  height: 4.5%;
-}
-
-
-/* ABOUT */
-
-#nav-about {
-  left: 86.5%;
-  top: 2.9%;
-  width: 5.7%;
-  height: 4.6%;
-}
-
-
-/* =========================================================
-   CENTER PROGRAMMABLE SCREEN
-========================================================= */
-
-#center-screen {
-  position: absolute;
-
-  left: 28.3%;
-  top: 19.8%;
-
-  width: 43%;
-  height: 36.9%;
-
-  overflow: hidden;
-
-  z-index: 10;
-
-  background: transparent;
-}
-
-#screen-content {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-
-/* =========================================================
-   PANEL HOTSPOTS
-========================================================= */
-
-.panel-hotspot {
-  position: absolute;
-
-  z-index: 25;
-
-  padding: 0;
-
-  background: transparent;
-
-  cursor: pointer;
-
-  appearance: none;
-  -webkit-appearance: none;
-
-  outline: none;
-}
-
-.panel-hotspot:focus-visible {
-  outline: 2px solid rgba(255,255,255,.9);
-  outline-offset: -2px;
-}
-
-
-/* =========================================================
-   LEFT WALL
-========================================================= */
-
-#hip-hop-panel {
-  left: 1.2%;
-  top: 8.6%;
-  width: 7%;
-  height: 50.5%;
-}
-
-#rnb-panel {
-  left: 8.7%;
-  top: 12.1%;
-  width: 6.5%;
-  height: 46%;
-}
-
-#house-panel {
-  left: 15.7%;
-  top: 16.2%;
-  width: 6%;
-  height: 41.1%;
-}
-
-#reggae-panel {
-  left: 22.2%;
-  top: 18.5%;
-  width: 5.7%;
-  height: 38.2%;
-}
-
-
-/* =========================================================
-   RIGHT WALL
-========================================================= */
-
-#podcast-panel {
-  left: 72.2%;
-  top: 18.5%;
-  width: 5.8%;
-  height: 38.2%;
-}
-
-#live-1-panel {
-  left: 78.4%;
-  top: 16.2%;
-  width: 6%;
-  height: 41.1%;
-}
-
-#live-2-panel {
-  left: 84.8%;
-  top: 12.1%;
-  width: 6.5%;
-  height: 46%;
-}
-
-#gospel-panel {
-  left: 91.8%;
-  top: 8.6%;
-  width: 7%;
-  height: 50.5%;
-}
-
-
-/* =========================================================
-   VIRTUAL CHARLES
-========================================================= */
-
-#virtual-host {
-  position: absolute;
-
-  left: 35%;
-  top: 35%;
-
-  width: 30%;
-  height: 48%;
-
-  z-index: 20;
-
-  pointer-events: none;
-}
-
-#virtual-host-character {
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: contain;
-}
-
-#skip-welcome {
-  position: absolute;
-
-  left: 50%;
-  bottom: 2%;
-
-  transform: translateX(-50%);
-
-  padding: 8px 16px;
-
-  border: 1px solid rgba(255,255,255,.65);
-  border-radius: 20px;
-
-  background: rgba(0,0,0,.65);
-
-  color: #fff;
-
-  cursor: pointer;
-
-  pointer-events: auto;
-
-  opacity: 0;
-}
-
-#virtual-host.active #skip-welcome {
-  opacity: 1;
-}
-
-
-/* =========================================================
-   BROADCAST PLAYER MASTER OVERLAY
-========================================================= */
-
-#broadcast-player {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 35;
-  display: block;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   ALBUM ART + TRACK INFO
-========================================================= */
-
-#player-album-art {
-  position: absolute;
-  left: 21.8%;
-  top: 82.6%;
-  width: 4.6%;
-  height: 8.2%;
-  border-radius: 5px;
-  background-color: rgba(8,8,8,.84);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.04),
-    0 3px 8px rgba(0,0,0,.72);
-  overflow: hidden;
-}
-
-#player-track-info {
-  position: absolute;
-  left: 26.8%;
-  top: 83.25%;
-  width: 4.0%;
-  height: 5.6%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-}
-
-#player-track-title {
-  color: rgba(255,255,255,.98);
-  font-size: clamp(8px, .56vw, 13px);
-  font-weight: 700;
-  line-height: 1.08;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#player-artist {
-  margin-top: 4px;
-  color: rgba(255,255,255,.62);
-  font-size: clamp(6px, .42vw, 10px);
-  font-weight: 500;
-  line-height: 1.1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
-/* =========================================================
-   DIGITAL SPECTRUM / DIGITAL VU
-========================================================= */
-
-#spectrum-wrap {
-  position: absolute;
-  left: 31.1%;
-  top: 84.0%;
-  width: 11.8%;
-  height: 7.2%;
-  min-width: 0;
-  overflow: hidden;
-  border-radius: 4px;
-  border: 1px solid rgba(255,255,255,.055);
-  background:
-    linear-gradient(180deg, rgba(5,9,14,.96), rgba(0,0,0,.89));
-  box-shadow:
-    inset 0 0 12px rgba(0,0,0,.9),
-    0 2px 5px rgba(0,0,0,.55);
-}
-
-#spectrum-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-
-/* =========================================================
-   ANALOG PROGRAM VU
-========================================================= */
-
-#analog-vu {
-  position: absolute;
-  left: 43.7%;
-  top: 84.0%;
-  width: 9.25%;
-  height: 9.7%;
-  overflow: hidden;
-}
-
-#vu-face {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  pointer-events: none;
-}
-
-#vu-needle {
-  position: absolute;
-  left: 50%;
-  bottom: 10.5%;
-  width: 1.35px;
-  height: 52%;
-  background: linear-gradient(to top, #060606 0%, #111 80%, #272727 100%);
-  transform-origin: 50% 100%;
-  transform: translateX(-50%) rotate(-42deg);
-  transition: transform 48ms linear;
-  box-shadow: 0 0 2px rgba(0,0,0,.95);
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   GAIN REDUCTION + DSP
-========================================================= */
-
-#gr-meter-wrap {
-  position: absolute;
-  left: 53.25%;
-  top: 84.55%;
-  width: 2.8%;
-  height: 7.8%;
-  display: grid;
-  grid-template-rows: 18% 59% 23%;
-  align-items: center;
-  justify-items: center;
-}
-
-#gr-label {
-  color: rgba(255,255,255,.84);
-  font-size: clamp(7px, .47vw, 10px);
-  font-weight: 800;
-  line-height: 1;
-}
-
-#gr-meter {
-  position: relative;
-  width: 34%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 3px;
-  background: rgba(255,255,255,.08);
-  box-shadow: inset 0 0 4px rgba(0,0,0,.8);
-}
-
-#gr-fill {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 0%;
-  border-radius: inherit;
-  background: linear-gradient(to bottom, #ff5e42 0%, #ff9630 43%, #e9b64b 100%);
-  transition: height 60ms linear;
-}
-
-#gr-value {
-  color: rgba(255,255,255,.68);
-  font-size: clamp(6px, .41vw, 9px);
-  font-weight: 600;
-  line-height: 1;
-}
-
-#dsp-status {
-  position: absolute;
-  left: 56.0%;
-  top: 85.0%;
-  width: 2.4%;
-  height: 5.7%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-
-#dsp-light {
-  width: clamp(9px, .56vw, 13px);
-  height: clamp(9px, .56vw, 13px);
-  border-radius: 50%;
-  background: #363636;
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow:
-    inset 0 0 2px rgba(255,255,255,.12),
-    0 0 3px rgba(0,0,0,.9);
-  transition: background .2s ease, box-shadow .2s ease;
-}
-
-#dsp-status.active #dsp-light {
-  background: #67ff73;
-  box-shadow:
-    0 0 4px #67ff73,
-    0 0 9px rgba(103,255,115,.75),
-    0 0 15px rgba(103,255,115,.35);
-}
-
-#dsp-text {
-  color: rgba(255,255,255,.7);
-  font-size: clamp(6px, .42vw, 9px);
-  font-weight: 800;
-  line-height: 1;
-}
-
-
-/* =========================================================
-   TRANSPORT
-========================================================= */
-
-#player-controls {
-  position: absolute;
-  left: 58.55%;
-  top: 85.15%;
-  width: 14.4%;
-  height: 7.8%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7%;
-  pointer-events: auto;
-}
-
-#player-controls button {
-  width: 21.5%;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 50%;
-  color: rgba(255,255,255,.97);
-  background:
-    radial-gradient(circle at 50% 34%, rgba(88,88,88,.86), rgba(18,18,18,.99) 68%);
-  border: 1.25px solid rgba(214,219,224,.78);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.05),
-    0 3px 7px rgba(0,0,0,.76),
-    inset 0 1px 2px rgba(255,255,255,.14);
-  cursor: pointer;
-  line-height: 1;
-  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
-}
-
-#previous-track,
-#next-track {
-  text-shadow: 0 1px 2px rgba(0,0,0,.9);
-}
-
-#play-pause {
-  transform: scale(1.16);
-  border: 2px solid rgba(242,157,49,.95);
-  box-shadow:
-    0 0 9px rgba(242,157,49,.34),
-    0 3px 7px rgba(0,0,0,.76),
-    inset 0 1px 2px rgba(255,255,255,.15);
-}
-
-#player-controls button:hover {
-  background:
-    radial-gradient(circle at 50% 34%, rgba(116,116,116,.92), rgba(28,28,28,.99) 69%);
-}
-
-#player-controls button:active {
-  filter: brightness(1.12);
-}
-
-
-/* =========================================================
-   MAINSTREAM / OFF AIR HARDWARE MODULE
+   MAINSTREAM / OFF AIR
+   DESIGN 3 — VINTAGE LED BROADCAST HARDWARE
+   CSS ONLY — NO IMAGE ASSET REQUIRED
 ========================================================= */
 
 #mainstream-status {
@@ -779,230 +10,247 @@ button {
   top: 84.55%;
   width: 6.9%;
   height: 7.1%;
+
   padding: 0;
-  border-radius: 5px;
-  border: 1px solid rgba(190,202,211,.50);
-  background:
-    linear-gradient(180deg, rgba(20,28,34,.95), rgba(3,7,10,.98));
-  box-shadow:
-    inset 0 0 0 2px rgba(0,0,0,.72),
-    inset 0 1px 2px rgba(255,255,255,.07),
-    0 3px 6px rgba(0,0,0,.66);
-  color: #5ad7ff;
-  cursor: pointer;
-  pointer-events: auto;
   overflow: hidden;
+
+  pointer-events: auto;
+  cursor: pointer;
+
+  border: 1px solid rgba(185, 194, 200, 0.78);
+  border-radius: 4px;
+
+  color: #bfeaff;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    linear-gradient(
+      180deg,
+      #182026 0%,
+      #080d10 48%,
+      #030506 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 2px rgba(0,0,0,0.92),
+    inset 0 0 0 3px rgba(105,118,125,0.25),
+    inset 0 1px 2px rgba(255,255,255,0.12),
+    0 3px 7px rgba(0,0,0,0.85);
 }
 
-#mainstream-label,
-#stream-state,
-#mainstream-rule,
-#stream-light {
+
+/* ---------- VINTAGE CORNER SCREWS ---------- */
+
+#mainstream-status::before,
+#mainstream-status::after {
+  content: "";
   position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  top: 5px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #d8dde0 0%,
+      #8a9398 35%,
+      #333a3e 68%,
+      #111 100%
+    );
+
+  border: 1px solid rgba(220,225,228,0.6);
+
+  box-shadow:
+    inset 0 0 1px rgba(255,255,255,0.55),
+    0 1px 2px rgba(0,0,0,0.9);
 }
+
+#mainstream-status::before {
+  left: 5px;
+}
+
+#mainstream-status::after {
+  right: 5px;
+}
+
+
+/* ---------- MAINSTREAM TITLE ---------- */
 
 #mainstream-label {
+  position: absolute;
+
   left: 8%;
-  top: 18%;
+  top: 15%;
+
   width: 84%;
-  text-align: left;
-  font-size: clamp(6px, .50vw, 11px);
+
+  text-align: center;
+
+  font-size: clamp(6px, 0.52vw, 11px);
   font-weight: 800;
-  letter-spacing: .02em;
+  letter-spacing: 0.06em;
   line-height: 1;
+
+  color: #c8efff;
+
+  text-shadow:
+    0 0 3px rgba(105,205,255,0.65),
+    0 0 7px rgba(70,170,225,0.28);
 }
+
+
+/* ---------- DIVIDER LINE ---------- */
 
 #mainstream-rule {
-  left: 8%;
-  top: 47%;
-  width: 84%;
+  position: absolute;
+
+  left: 9%;
+  top: 43%;
+
+  width: 82%;
   height: 1px;
-  background: rgba(70,188,230,.45);
-  box-shadow: 0 0 5px rgba(70,188,230,.16);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(112,196,235,0.85),
+      transparent
+    );
+
+  box-shadow:
+    0 0 4px rgba(90,190,235,0.3);
 }
+
+
+/* ---------- OFF AIR / ON AIR LED TEXT ---------- */
 
 #stream-state {
-  left: 8%;
-  bottom: 15%;
-  width: 62%;
+  position: absolute;
+
+  left: 9%;
+  bottom: 16%;
+
+  width: 60%;
+
   text-align: left;
-  font-size: clamp(6px, .48vw, 10px);
-  font-weight: 700;
-  color: rgba(91,208,248,.92);
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: clamp(6px, 0.5vw, 11px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+
+  color: #a8dfff;
+
+  text-shadow:
+    0 0 3px rgba(80,185,235,0.7),
+    0 0 8px rgba(80,185,235,0.28);
 }
 
+
+/* ---------- HARDWARE STATUS LAMP ---------- */
+
 #stream-light {
+  position: absolute;
+
   right: 11%;
-  bottom: 18%;
-  width: clamp(7px, .48vw, 11px);
-  height: clamp(7px, .48vw, 11px);
+  bottom: 14%;
+
+  width: clamp(9px, 0.6vw, 13px);
+  height: clamp(9px, 0.6vw, 13px);
+
   border-radius: 50%;
-  border: 1px solid rgba(220,230,236,.76);
-  background: #465057;
+
+  border: 1px solid rgba(205,215,220,0.92);
+
+  background:
+    radial-gradient(
+      circle at 36% 30%,
+      #69747a 0%,
+      #30383d 46%,
+      #111618 75%,
+      #070909 100%
+    );
+
   box-shadow:
-    inset 0 0 2px rgba(255,255,255,.44),
-    0 0 3px rgba(0,0,0,.85);
+    inset 0 0 2px rgba(255,255,255,0.45),
+    0 1px 3px rgba(0,0,0,0.95);
+}
+
+
+/* =========================================================
+   ON AIR STATE
+========================================================= */
+
+#mainstream-status.on-air {
+  border-color: rgba(216, 183, 112, 0.92);
+
+  box-shadow:
+    inset 0 0 0 2px rgba(0,0,0,0.92),
+    inset 0 0 0 3px rgba(145,106,42,0.28),
+    inset 0 1px 2px rgba(255,255,255,0.13),
+    0 0 5px rgba(230,160,55,0.16),
+    0 3px 7px rgba(0,0,0,0.85);
+}
+
+#mainstream-status.on-air #mainstream-label {
+  color: #ffe4ae;
+
+  text-shadow:
+    0 0 3px rgba(255,184,70,0.7),
+    0 0 8px rgba(255,135,25,0.32);
+}
+
+#mainstream-status.on-air #mainstream-rule {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,170,58,0.95),
+      transparent
+    );
+
+  box-shadow:
+    0 0 5px rgba(255,155,35,0.4);
 }
 
 #mainstream-status.on-air #stream-state {
-  color: #ffb24a;
+  color: #ff9e2f;
+
+  text-shadow:
+    0 0 3px rgba(255,141,33,0.95),
+    0 0 7px rgba(255,105,15,0.55);
 }
 
 #mainstream-status.on-air #stream-light {
-  background: #68ff79;
-  box-shadow:
-    0 0 4px #68ff79,
-    0 0 9px rgba(104,255,121,.72);
-}
-
-
-/* =========================================================
-   VOLUME VU
-   Slight counter-clockwise correction.
-========================================================= */
-
-#volume-control {
-  position: absolute;
-  left: 79.75%;
-  top: 80.55%;
-  width: 11.25%;
-  height: 11.9%;
-  pointer-events: auto;
-  transform: rotate(-2deg);
-  transform-origin: center center;
-  background: transparent;
-  overflow: visible;
-}
-
-#volume-vu-face {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  pointer-events: none;
-  user-select: none;
-  filter: drop-shadow(0 4px 7px rgba(0,0,0,.68));
-}
-
-#volume-slider {
-  position: absolute;
-  left: 31.5%;
-  top: 70.5%;
-  width: 37%;
-  height: 20%;
-  margin: 0;
-  appearance: none;
-  -webkit-appearance: none;
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-  z-index: 3;
-}
-
-#volume-slider::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 4px;
-  border-radius: 999px;
   background:
-    linear-gradient(90deg, #6f451f 0%, #d89236 45%, #ffb94d 100%);
+    radial-gradient(
+      circle at 35% 28%,
+      #effff0 0%,
+      #72ff82 24%,
+      #18d844 55%,
+      #087622 82%,
+      #04340f 100%
+    );
+
   box-shadow:
-    inset 0 1px 1px rgba(0,0,0,.75),
-    0 0 5px rgba(241,161,57,.38);
-}
-
-#volume-slider::-webkit-slider-thumb {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  margin-top: -5.5px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,226,181,.95);
-  background:
-    radial-gradient(circle at 35% 30%, #fff0cf 0%, #e8ad61 35%, #7b4b21 75%, #2a1a0e 100%);
-  box-shadow:
-    0 0 5px rgba(242,170,72,.62),
-    0 2px 4px rgba(0,0,0,.82);
-}
-
-#volume-slider::-moz-range-track {
-  width: 100%;
-  height: 4px;
-  border: 0;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, #6f451f 0%, #d89236 45%, #ffb94d 100%);
-  box-shadow:
-    inset 0 1px 1px rgba(0,0,0,.75),
-    0 0 5px rgba(241,161,57,.38);
-}
-
-#volume-slider::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,226,181,.95);
-  background:
-    radial-gradient(circle at 35% 30%, #fff0cf 0%, #e8ad61 35%, #7b4b21 75%, #2a1a0e 100%);
-  box-shadow:
-    0 0 5px rgba(242,170,72,.62),
-    0 2px 4px rgba(0,0,0,.82);
-}
-
-
-/* =========================================================
-   AUDIO
-========================================================= */
-
-#radio-audio {
-  display: none;
-}
-
-#radio-status {
-  position: absolute;
-
-  left: 50%;
-  top: 76.8%;
-
-  transform: translateX(-50%);
-
-  z-index: 50;
-
-  color: #fff;
-
-  font-size: clamp(8px, .7vw, 13px);
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 767px) {
-
-  body {
-    overflow: auto;
-  }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-
+    inset 0 0 2px rgba(255,255,255,0.8),
+    0 0 4px #62ff74,
+    0 0 9px rgba(68,255,91,0.8),
+    0 0 15px rgba(68,255,91,0.35);
 }

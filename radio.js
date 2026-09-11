@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const volumeSlider =
     document.getElementById("volume-slider");
-
+const volumeControl =
+  document.getElementById("volume-control");
   const radioStatus =
     document.getElementById("radio-status");
 
@@ -807,7 +808,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
+function updateVolumeHardware(value) {
 
+  if (!volumeControl) {
+    return;
+  }
+
+  const percent =
+    Math.max(
+      0,
+      Math.min(
+        100,
+        Number(value)
+      )
+    );
+
+  const needleMin = -38;
+  const needleMax = 38;
+
+  const needleAngle =
+    needleMin +
+    (percent / 100) *
+    (needleMax - needleMin);
+
+  volumeControl.style.setProperty(
+    "--volume-angle",
+    `${needleAngle.toFixed(2)}deg`
+  );
+
+}
   if (
     volumeSlider &&
     audio
@@ -817,7 +846,9 @@ document.addEventListener("DOMContentLoaded", () => {
       Number(
         volumeSlider.value
       ) / 100;
-
+updateVolumeHardware(
+  volumeSlider.value
+);
 
     volumeSlider.addEventListener(
       "input",
@@ -827,7 +858,9 @@ document.addEventListener("DOMContentLoaded", () => {
           Number(
             volumeSlider.value
           ) / 100;
-
+updateVolumeHardware(
+  volumeSlider.value
+);
 
         await resumeAudioContext();
 

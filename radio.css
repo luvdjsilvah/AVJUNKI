@@ -1058,12 +1058,12 @@ button {
   position: absolute;
 
   /* right side of VU */
-  left: 103.5%;
-  top: 31%;
+  left: 100.0%;
+  top: 24%;
 
   /* intentionally smaller than the meter */
-  width: 40.0%;
-  height: 66.1%;
+  width: 44.0%;
+  height: 72.5%;
 
   margin: 0;
   padding: 0;

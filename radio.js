@@ -835,7 +835,10 @@ function updateVolumeHardware(value) {
     "--volume-angle",
     `${needleAngle.toFixed(2)}deg`
   );
-
+volumeControl.style.setProperty(
+  "--volume-center-angle",
+  `${(-135 + (percent / 100) * 270 - 5).toFixed(2)}deg`
+);
 }
   if (
     volumeSlider &&

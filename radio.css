@@ -476,7 +476,6 @@ button {
 
 /* =========================================================
    BROADCAST PLAYER MASTER OVERLAY
-   Full-hero positioning against the 3840 x 2160 master.
 ========================================================= */
 
 #broadcast-player {
@@ -710,7 +709,6 @@ button {
 
 /* =========================================================
    TRANSPORT
-   Dark faces, chrome Previous/Next rings, gold Play ring.
 ========================================================= */
 
 #player-controls {
@@ -773,7 +771,6 @@ button {
 
 /* =========================================================
    MAINSTREAM / OFF AIR HARDWARE MODULE
-   DESIGN 3 — VINTAGE BROADCAST HARDWARE
 ========================================================= */
 
 #mainstream-status {
@@ -783,7 +780,9 @@ button {
   width: 6.9%;
   height: 7.1%;
   padding: 0;
+
   transform: rotate(-2deg);
+
   border-radius: 5px;
 
   border: 3px solid rgba(190, 198, 202, 0.96);
@@ -811,8 +810,6 @@ button {
 }
 
 
-/* TEXT + LIGHT POSITIONING */
-
 #mainstream-label,
 #stream-state,
 #mainstream-rule,
@@ -820,8 +817,6 @@ button {
   position: absolute;
 }
 
-
-/* MAINSTREAM */
 
 #mainstream-label {
   left: 10%;
@@ -842,8 +837,6 @@ button {
 }
 
 
-/* DIVIDER */
-
 #mainstream-rule {
   left: 11%;
   top: 47%;
@@ -856,8 +849,6 @@ button {
     0 0 4px rgba(70, 180, 225, 0.25);
 }
 
-
-/* OFF AIR */
 
 #stream-state {
   left: 10%;
@@ -877,8 +868,6 @@ button {
     0 0 5px rgba(70, 190, 235, 0.58);
 }
 
-
-/* STATUS LAMP */
 
 #stream-light {
   right: 12%;
@@ -962,15 +951,7 @@ button {
 
 
 /* =========================================================
-   VOLUME VU + ROTARY VOLUME KNOB
-   Uses assets/images/av-junki-volume-vu.png.
-
-   - Original horizontal slider appearance removed.
-   - Existing slider input is visually converted into the
-     #16 black / gold rotary knob.
-   - Knob sits directly to the right of the Volume VU.
-   - Volume VU housing remains in its current location.
-   - --volume-angle controls the animated VU needle.
+   VOLUME VU
 ========================================================= */
 
 #volume-control {
@@ -994,7 +975,9 @@ button {
 }
 
 
-/* VOLUME VU FACE */
+/* =========================================================
+   VOLUME VU FACE
+========================================================= */
 
 #volume-vu-face {
   position: absolute;
@@ -1018,7 +1001,9 @@ button {
 }
 
 
-/* MOVING NEEDLE */
+/* =========================================================
+   VOLUME VU NEEDLE
+========================================================= */
 
 #volume-control::before {
   content: "";
@@ -1028,7 +1013,7 @@ button {
   left: 50%;
   top: 27%;
 
-  width: 1.5px;
+  width: 1.4px;
   height: 43%;
 
   z-index: 4;
@@ -1071,8 +1056,8 @@ button {
   left: 50%;
   top: 66.4%;
 
-  width: 4.4%;
-  height: 7.4%;
+  width: 4.2%;
+  height: 7%;
 
   transform: translate(-50%, -50%);
 
@@ -1100,174 +1085,159 @@ button {
 
 
 /* =========================================================
-   ROTARY VOLUME KNOB — DESIGN #16
+   ROTARY VOLUME KNOB
+   SCALLOPED HARDWARE STYLE
 ========================================================= */
 
 #volume-slider {
   position: absolute;
 
-  left: 102.5%;
-  top: 24%;
+  left: 103%;
+  top: 30%;
 
-  width: 31%;
-  height: 52%;
+  width: 24%;
+  height: 40%;
 
   margin: 0;
   padding: 0;
 
   z-index: 7;
 
-  border-radius: 50%;
-
-  border: 2px solid rgba(221,164,74,.98);
-
-  outline: none;
-
   appearance: none;
   -webkit-appearance: none;
 
+  outline: none;
+
   cursor: ew-resize;
 
-  background-image:
+  background:
 
-    /* INDICATOR */
+    /* POINTER MARK */
     linear-gradient(
       90deg,
       transparent 0%,
-      transparent 20%,
-      #ffe0a1 20%,
-      #ffe0a1 80%,
-      transparent 80%,
+      transparent 35%,
+      #f8d691 35%,
+      #f8d691 65%,
+      transparent 65%,
       transparent 100%
-    ),
+    )
+    50% 15% / 7% 21%
+    no-repeat,
 
-    /* TOP RIVET */
+    /* BLACK RECESSED CENTER */
     radial-gradient(
-      circle at 50% 10%,
-      #fff0bd 0%,
-      #d69a43 1.6%,
-      #593611 2.5%,
-      transparent 2.8%
+      circle at 47% 39%,
+      #3a3a3a 0%,
+      #1b1b1b 31%,
+      #090909 58%,
+      #020202 67%,
+      transparent 68%
     ),
 
-    /* UPPER RIGHT RIVET */
+    /* INNER BRASS RING */
     radial-gradient(
-      circle at 80% 23%,
-      #fff0bd 0%,
-      #d69a43 1.6%,
-      #593611 2.5%,
-      transparent 2.8%
+      circle,
+      transparent 0%,
+      transparent 64%,
+      #6a421c 65%,
+      #e2a64f 70%,
+      #ffe0a0 73%,
+      #9a6429 78%,
+      transparent 79%
     ),
 
-    /* LOWER RIGHT RIVET */
-    radial-gradient(
-      circle at 87% 62%,
-      #fff0bd 0%,
-      #d69a43 1.6%,
-      #593611 2.5%,
-      transparent 2.8%
-    ),
-
-    /* BOTTOM RIVET */
-    radial-gradient(
-      circle at 50% 90%,
-      #fff0bd 0%,
-      #d69a43 1.6%,
-      #593611 2.5%,
-      transparent 2.8%
-    ),
-
-    /* LOWER LEFT RIVET */
-    radial-gradient(
-      circle at 13% 62%,
-      #fff0bd 0%,
-      #d69a43 1.6%,
-      #593611 2.5%,
-      transparent 2.8%
-    ),
-
-    /* UPPER LEFT RIVET */
-    radial-gradient(
-      circle at 20% 23%,
-      #fff0bd 0%,
-      #d69a43 1.6%,
-      #593611 2.5%,
-      transparent 2.8%
-    ),
-
-    /* BLACK CENTER */
-    radial-gradient(
-      circle at 45% 37%,
-      #343434 0%,
-      #151515 30%,
-      #080808 57%,
-      #030303 63%,
-      transparent 64%
-    ),
-
-    /* GOLD OUTER RING */
+    /* OUTER METAL BODY */
     conic-gradient(
-      from 0deg,
-      #754515,
-      #e5aa50,
-      #8b571e,
-      #f0c170,
-      #81501c,
-      #d6983d,
-      #6d4013,
-      #f1be64,
-      #754515
+      from -12deg,
+      #4e2d0d 0deg,
+      #b8792f 25deg,
+      #f1c36f 48deg,
+      #7c4917 74deg,
+      #d89d47 100deg,
+      #ffdda0 126deg,
+      #784414 154deg,
+      #c68b3b 182deg,
+      #f2c16d 210deg,
+      #704011 238deg,
+      #d99c43 266deg,
+      #ffd993 294deg,
+      #6a3c10 322deg,
+      #c48837 344deg,
+      #4e2d0d 360deg
     );
 
-  background-size:
-    4% 24%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%;
+  clip-path: polygon(
+    50% 0%,
+    60% 8%,
+    72% 4%,
+    79% 17%,
+    92% 18%,
+    91% 32%,
+    100% 42%,
+    94% 53%,
+    100% 65%,
+    89% 73%,
+    89% 87%,
+    75% 87%,
+    66% 100%,
+    54% 94%,
+    43% 100%,
+    34% 91%,
+    20% 95%,
+    16% 81%,
+    3% 76%,
+    8% 62%,
+    0% 51%,
+    8% 40%,
+    3% 26%,
+    17% 21%,
+    20% 7%,
+    34% 11%
+  );
 
-  background-position:
-    50% 14%,
-    center,
-    center,
-    center,
-    center,
-    center,
-    center,
-    center,
-    center;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    60% 8%,
+    72% 4%,
+    79% 17%,
+    92% 18%,
+    91% 32%,
+    100% 42%,
+    94% 53%,
+    100% 65%,
+    89% 73%,
+    89% 87%,
+    75% 87%,
+    66% 100%,
+    54% 94%,
+    43% 100%,
+    34% 91%,
+    20% 95%,
+    16% 81%,
+    3% 76%,
+    8% 62%,
+    0% 51%,
+    8% 40%,
+    3% 26%,
+    17% 21%,
+    20% 7%,
+    34% 11%
+  );
 
-  background-repeat:
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat;
-
-  box-shadow:
-    inset 0 0 0 2px rgba(20,12,5,.92),
-    inset 0 0 0 4px rgba(235,177,84,.30),
-    inset 0 3px 5px rgba(255,227,174,.16),
-    inset 0 -5px 8px rgba(0,0,0,.90),
-    0 0 0 1px rgba(92,55,18,.95),
-    0 4px 7px rgba(0,0,0,.82),
-    0 0 8px rgba(225,151,48,.16);
+  filter:
+    drop-shadow(0 4px 4px rgba(0,0,0,.88))
+    drop-shadow(0 0 2px rgba(232,164,63,.28));
 
   transition:
     filter .15s ease,
-    box-shadow .15s ease;
+    transform .12s ease;
 }
 
 
-/* REMOVE OLD RANGE TRACK */
+/* =========================================================
+   REMOVE ORIGINAL SLIDER TRACK
+========================================================= */
 
 #volume-slider::-webkit-slider-runnable-track {
   width: 100%;
@@ -1281,7 +1251,9 @@ button {
 }
 
 
-/* HIDE OLD MOVING THUMB */
+/* =========================================================
+   HIDE ORIGINAL SLIDER THUMB
+========================================================= */
 
 #volume-slider::-webkit-slider-thumb {
   appearance: none;
@@ -1289,8 +1261,6 @@ button {
 
   width: 1px;
   height: 1px;
-
-  margin: 0;
 
   border: 0;
 
@@ -1332,27 +1302,25 @@ button {
 }
 
 
-/* KNOB HOVER */
+/* =========================================================
+   KNOB INTERACTION
+========================================================= */
 
 #volume-slider:hover {
-  filter: brightness(1.08);
-
-  box-shadow:
-    inset 0 0 0 2px rgba(20,12,5,.92),
-    inset 0 0 0 4px rgba(235,177,84,.36),
-    inset 0 3px 5px rgba(255,227,174,.18),
-    inset 0 -5px 8px rgba(0,0,0,.90),
-    0 0 0 1px rgba(92,55,18,.95),
-    0 4px 7px rgba(0,0,0,.82),
-    0 0 10px rgba(225,151,48,.26);
+  filter:
+    brightness(1.08)
+    drop-shadow(0 4px 4px rgba(0,0,0,.88))
+    drop-shadow(0 0 4px rgba(232,164,63,.34));
 }
 
-
-/* KNOB FOCUS */
+#volume-slider:active {
+  transform: scale(.97);
+}
 
 #volume-slider:focus-visible {
-  outline: 1px solid rgba(255,215,144,.95);
-  outline-offset: 3px;
+  filter:
+    brightness(1.10)
+    drop-shadow(0 0 4px rgba(255,204,110,.48));
 }
 
 

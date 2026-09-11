@@ -1294,15 +1294,29 @@ button {
 }
 #left-info-display {
   position: absolute;
- left: 1%;
-top: 72%;
-width: 20%;
-height: 20%;
+  left: 1%;
+  top: 72%;
+  width: 20%;
+  height: 20%;
+
+  background: #05080a;
+
+  -webkit-mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
+  mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
+
+  z-index: 50;
+}
+
+#left-info-display::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
   background: cyan;
 
   -webkit-mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
   mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
 
-  z-index: 50;
+  transform: scale(.92);
+  transform-origin: center;
 }

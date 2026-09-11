@@ -777,7 +777,7 @@ button {
 
 /* =========================================================
    MAINSTREAM / OFF AIR HARDWARE MODULE
-   Sits immediately to the right of Forward.
+   DESIGN 3 — VINTAGE BROADCAST HARDWARE
 ========================================================= */
 
 #mainstream-status {
@@ -787,19 +787,36 @@ button {
   width: 6.9%;
   height: 7.1%;
   padding: 0;
+
   border-radius: 5px;
-  border: 1px solid rgba(190,202,211,.50);
+
+  /* THICKER OUTER BEZEL */
+  border: 2px solid rgba(190, 198, 202, 0.92);
+
   background:
-    linear-gradient(180deg, rgba(20,28,34,.95), rgba(3,7,10,.98));
+    linear-gradient(
+      180deg,
+      rgba(36, 42, 45, 0.98) 0%,
+      rgba(11, 14, 16, 0.99) 48%,
+      rgba(3, 5, 6, 1) 100%
+    );
+
   box-shadow:
-    inset 0 0 0 2px rgba(0,0,0,.72),
-    inset 0 1px 2px rgba(255,255,255,.07),
-    0 3px 6px rgba(0,0,0,.66);
-  color: #5ad7ff;
+    inset 0 0 0 2px rgba(35, 38, 40, 1),
+    inset 0 0 0 4px rgba(155, 164, 168, 0.34),
+    inset 0 1px 2px rgba(255,255,255,0.18),
+    inset 0 -2px 3px rgba(0,0,0,0.95),
+    0 3px 6px rgba(0,0,0,0.80);
+
+  color: #bdeaff;
+
   cursor: pointer;
   pointer-events: auto;
   overflow: hidden;
 }
+
+
+/* TEXT + LIGHT POSITIONING */
 
 #mainstream-label,
 #stream-state,
@@ -808,60 +825,145 @@ button {
   position: absolute;
 }
 
+
+/* MAINSTREAM */
+
 #mainstream-label {
-  left: 8%;
-  top: 18%;
-  width: 84%;
-  text-align: left;
+  left: 10%;
+  top: 17%;
+  width: 80%;
+
+  text-align: center;
+
   font-size: clamp(6px, .50vw, 11px);
   font-weight: 800;
-  letter-spacing: .02em;
+  letter-spacing: .045em;
   line-height: 1;
+
+  color: rgba(205, 238, 250, 0.96);
+
+  text-shadow:
+    0 0 3px rgba(90, 195, 235, 0.45);
 }
+
+
+/* DIVIDER */
 
 #mainstream-rule {
-  left: 8%;
+  left: 11%;
   top: 47%;
-  width: 84%;
+  width: 78%;
   height: 1px;
-  background: rgba(70,188,230,.45);
-  box-shadow: 0 0 5px rgba(70,188,230,.16);
+
+  background: rgba(99, 185, 220, 0.55);
+
+  box-shadow:
+    0 0 4px rgba(70, 180, 225, 0.25);
 }
+
+
+/* OFF AIR */
 
 #stream-state {
-  left: 8%;
+  left: 10%;
   bottom: 15%;
-  width: 62%;
+  width: 58%;
+
   text-align: left;
+
+  font-family: "Courier New", monospace;
   font-size: clamp(6px, .48vw, 10px);
-  font-weight: 700;
-  color: rgba(91,208,248,.92);
+  font-weight: 800;
+  letter-spacing: .05em;
+
+  color: rgba(104, 205, 244, 0.94);
+
+  text-shadow:
+    0 0 4px rgba(70, 190, 235, 0.48);
 }
 
+
+/* STATUS LAMP */
+
 #stream-light {
-  right: 11%;
-  bottom: 18%;
-  width: clamp(7px, .48vw, 11px);
-  height: clamp(7px, .48vw, 11px);
+  right: 12%;
+  bottom: 17%;
+
+  width: clamp(8px, .52vw, 12px);
+  height: clamp(8px, .52vw, 12px);
+
   border-radius: 50%;
-  border: 1px solid rgba(220,230,236,.76);
-  background: #465057;
+
+  border: 1px solid rgba(215, 220, 222, 0.88);
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #70787c 0%,
+      #343a3d 45%,
+      #121516 78%
+    );
+
   box-shadow:
-    inset 0 0 2px rgba(255,255,255,.44),
-    0 0 3px rgba(0,0,0,.85);
+    inset 0 0 2px rgba(255,255,255,0.45),
+    0 1px 3px rgba(0,0,0,0.92);
+}
+
+
+/* =========================================================
+   ON AIR STATE
+========================================================= */
+
+#mainstream-status.on-air {
+  border-color: rgba(220, 184, 112, 0.98);
+
+  box-shadow:
+    inset 0 0 0 2px rgba(42, 31, 17, 1),
+    inset 0 0 0 4px rgba(186, 137, 55, 0.42),
+    inset 0 1px 2px rgba(255,255,255,0.17),
+    inset 0 -2px 3px rgba(0,0,0,0.95),
+    0 0 7px rgba(230, 160, 55, 0.20),
+    0 3px 6px rgba(0,0,0,0.80);
+}
+
+#mainstream-status.on-air #mainstream-label {
+  color: #ffe1a5;
+
+  text-shadow:
+    0 0 4px rgba(255, 175, 58, 0.55);
+}
+
+#mainstream-status.on-air #mainstream-rule {
+  background: rgba(235, 163, 57, 0.68);
+
+  box-shadow:
+    0 0 5px rgba(245, 150, 35, 0.35);
 }
 
 #mainstream-status.on-air #stream-state {
-  color: #ffb24a;
+  color: #ff9f32;
+
+  text-shadow:
+    0 0 4px rgba(255, 125, 24, 0.80),
+    0 0 8px rgba(255, 105, 15, 0.30);
 }
 
 #mainstream-status.on-air #stream-light {
-  background: #68ff79;
-  box-shadow:
-    0 0 4px #68ff79,
-    0 0 9px rgba(104,255,121,.72);
-}
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      #effff0 0%,
+      #72ff82 24%,
+      #18d844 55%,
+      #087622 82%,
+      #04340f 100%
+    );
 
+  box-shadow:
+    inset 0 0 2px rgba(255,255,255,0.80),
+    0 0 4px #62ff74,
+    0 0 9px rgba(68,255,91,0.72);
+}
 
 /* =========================================================
    VOLUME VU

@@ -61,9 +61,12 @@ button {
 #radio-app {
   position: fixed;
   inset: 0;
+
   width: 100vw;
   height: 100vh;
+
   overflow: hidden;
+
   background: #000;
 }
 
@@ -74,22 +77,32 @@ button {
 
 #radio-hero {
   position: absolute;
+
   width: max(100vw, calc(100vh * 16 / 9));
   height: max(100vh, calc(100vw * 9 / 16));
+
   left: 50%;
   top: 50%;
+
   transform: translate(-50%, -50%);
+
   overflow: hidden;
+
   background: #000;
 }
 
 #radio-hero-image {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: fill;
+
   display: block;
+
   pointer-events: none;
   user-select: none;
 }
@@ -101,11 +114,15 @@ button {
 
 #ceiling-globe {
   position: absolute;
+
   left: 21%;
   top: 0;
+
   width: 58%;
   height: 22%;
+
   z-index: 5;
+
   pointer-events: none;
 }
 
@@ -116,24 +133,36 @@ button {
 
 #radio-navigation {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   z-index: 40;
+
   pointer-events: none;
 }
 
 .nav-hotspot {
   position: absolute;
+
   display: block;
+
   padding: 0;
   margin: 0;
+
   border: 0;
+
   background: transparent;
+
   color: transparent;
+
   cursor: pointer;
   pointer-events: auto;
+
   outline: none;
+
   appearance: none;
   -webkit-appearance: none;
 }
@@ -143,12 +172,18 @@ button {
   outline-offset: -2px;
 }
 
+
+/* HOME */
+
 #nav-home {
   left: 9.5%;
   top: 2.6%;
   width: 5%;
   height: 4.5%;
 }
+
+
+/* RADIO */
 
 #nav-radio {
   left: 15.6%;
@@ -157,12 +192,18 @@ button {
   height: 4.4%;
 }
 
+
+/* PODCAST */
+
 #nav-podcast {
   left: 21.7%;
   top: 6.6%;
   width: 6.8%;
   height: 4.4%;
 }
+
+
+/* EVENTS */
 
 #nav-events {
   left: 28.2%;
@@ -171,12 +212,18 @@ button {
   height: 4.4%;
 }
 
+
+/* NEWS */
+
 #nav-news {
   left: 35.1%;
   top: 9.4%;
   width: 5.1%;
   height: 4.3%;
 }
+
+
+/* SHOP */
 
 #nav-shop {
   left: 41.7%;
@@ -185,12 +232,18 @@ button {
   height: 4.2%;
 }
 
+
+/* COMMUNITY */
+
 #nav-community {
   left: 47.5%;
   top: 10.1%;
   width: 8.4%;
   height: 4.2%;
 }
+
+
+/* ADVERTISE */
 
 #nav-advertise {
   left: 56.1%;
@@ -199,12 +252,18 @@ button {
   height: 4.3%;
 }
 
+
+/* CONTACT */
+
 #nav-contact {
   left: 64.2%;
   top: 8.7%;
   width: 6.9%;
   height: 4.4%;
 }
+
+
+/* SEARCH */
 
 #nav-search {
   left: 71.9%;
@@ -213,12 +272,18 @@ button {
   height: 4.4%;
 }
 
+
+/* INQUIRY */
+
 #nav-inquiry {
   left: 78.9%;
   top: 5.2%;
   width: 7%;
   height: 4.5%;
 }
+
+
+/* ABOUT */
 
 #nav-about {
   left: 86.5%;
@@ -234,12 +299,17 @@ button {
 
 #center-screen {
   position: absolute;
+
   left: 28.3%;
   top: 19.8%;
+
   width: 43%;
   height: 36.9%;
+
   overflow: hidden;
+
   z-index: 10;
+
   background: transparent;
 }
 
@@ -256,12 +326,18 @@ button {
 
 .panel-hotspot {
   position: absolute;
+
   z-index: 25;
+
   padding: 0;
+
   background: transparent;
+
   cursor: pointer;
+
   appearance: none;
   -webkit-appearance: none;
+
   outline: none;
 }
 
@@ -269,6 +345,11 @@ button {
   outline: 2px solid rgba(255,255,255,.9);
   outline-offset: -2px;
 }
+
+
+/* =========================================================
+   LEFT WALL
+========================================================= */
 
 #hip-hop-panel {
   left: 1.2%;
@@ -297,6 +378,11 @@ button {
   width: 5.7%;
   height: 38.2%;
 }
+
+
+/* =========================================================
+   RIGHT WALL
+========================================================= */
 
 #podcast-panel {
   left: 72.2%;
@@ -333,20 +419,27 @@ button {
 
 #virtual-host {
   position: absolute;
+
   left: 35%;
   top: 35%;
+
   width: 30%;
   height: 48%;
+
   z-index: 20;
+
   pointer-events: none;
 }
 
 #virtual-host-character {
   position: absolute;
+
   left: 0;
   bottom: 0;
+
   width: 100%;
   height: 100%;
+
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
@@ -354,16 +447,25 @@ button {
 
 #skip-welcome {
   position: absolute;
+
   left: 50%;
   bottom: 2%;
+
   transform: translateX(-50%);
+
   padding: 8px 16px;
+
   border: 1px solid rgba(255,255,255,.65);
   border-radius: 20px;
+
   background: rgba(0,0,0,.65);
+
   color: #fff;
+
   cursor: pointer;
+
   pointer-events: auto;
+
   opacity: 0;
 }
 
@@ -373,7 +475,7 @@ button {
 
 
 /* =========================================================
-   BROADCAST PLAYER
+   BROADCAST PLAYER MASTER OVERLAY
 ========================================================= */
 
 #broadcast-player {
@@ -415,7 +517,7 @@ button {
   position: absolute;
   left: 26.8%;
   top: 83.25%;
-  width: 4%;
+  width: 4.0%;
   height: 5.6%;
   display: flex;
   flex-direction: column;
@@ -446,13 +548,13 @@ button {
 
 
 /* =========================================================
-   DIGITAL SPECTRUM
+   DIGITAL SPECTRUM / DIGITAL VU
 ========================================================= */
 
 #spectrum-wrap {
   position: absolute;
   left: 31.1%;
-  top: 84%;
+  top: 84.0%;
   width: 11.8%;
   height: 7.2%;
   min-width: 0;
@@ -482,7 +584,7 @@ button {
 #analog-vu {
   position: absolute;
   left: 43.7%;
-  top: 84%;
+  top: 84.0%;
   width: 9.25%;
   height: 9.7%;
   overflow: hidden;
@@ -566,8 +668,8 @@ button {
 
 #dsp-status {
   position: absolute;
-  left: 56%;
-  top: 85%;
+  left: 56.0%;
+  top: 85.0%;
   width: 2.4%;
   height: 5.7%;
   display: flex;
@@ -669,51 +771,27 @@ button {
 
 /* =========================================================
    MAINSTREAM / OFF AIR HARDWARE MODULE
-   FINAL HORIZONTAL ALIGNMENT PASS
 ========================================================= */
 
 #mainstream-status {
   position: absolute;
-
-  left: 73.10%;
-  top: 83.90%;
-  width: 7.15%;
-  height: 7.35%;
-
+  left: 73.25%;
+  top: 84.55%;
+  width: 6.9%;
+  height: 7.1%;
   padding: 0;
-
-  border-radius: 6px;
-  border: 2px solid rgba(205,166,91,.92);
-
+  border-radius: 5px;
+  border: 1px solid rgba(190,202,211,.50);
   background:
-    linear-gradient(180deg, rgba(38,32,22,.98), rgba(5,7,8,.99));
-
+    linear-gradient(180deg, rgba(20,28,34,.95), rgba(3,7,10,.98));
   box-shadow:
-    0 0 0 2px rgba(24,18,10,.96),
-    0 0 0 3px rgba(224,190,115,.34),
-    inset 0 0 0 2px rgba(0,0,0,.82),
-    inset 0 2px 3px rgba(255,226,158,.13),
-    inset 0 -3px 5px rgba(0,0,0,.82),
-    0 4px 8px rgba(0,0,0,.72);
-
-  color: #e2b65e;
-
+    inset 0 0 0 2px rgba(0,0,0,.72),
+    inset 0 1px 2px rgba(255,255,255,.07),
+    0 3px 6px rgba(0,0,0,.66);
+  color: #5ad7ff;
   cursor: pointer;
   pointer-events: auto;
   overflow: hidden;
-
-  transform: rotate(0deg);
-  transform-origin: 50% 50%;
-}
-
-#mainstream-status::before {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border-radius: 3px;
-  border: 1px solid rgba(232,198,126,.24);
-  box-shadow: inset 0 0 10px rgba(0,0,0,.62);
-  pointer-events: none;
 }
 
 #mainstream-label,
@@ -739,8 +817,8 @@ button {
   top: 47%;
   width: 84%;
   height: 1px;
-  background: rgba(210,166,78,.52);
-  box-shadow: 0 0 5px rgba(210,166,78,.18);
+  background: rgba(70,188,230,.45);
+  box-shadow: 0 0 5px rgba(70,188,230,.16);
 }
 
 #stream-state {
@@ -750,7 +828,7 @@ button {
   text-align: left;
   font-size: clamp(6px, .48vw, 10px);
   font-weight: 700;
-  color: rgba(226,182,94,.94);
+  color: rgba(91,208,248,.92);
 }
 
 #stream-light {
@@ -780,16 +858,18 @@ button {
 
 /* =========================================================
    VOLUME VU
+   Slight counter-clockwise correction.
 ========================================================= */
 
 #volume-control {
   position: absolute;
-  left: 79.45%;
-  top: 79.95%;
+  left: 79.75%;
+  top: 80.55%;
   width: 11.25%;
   height: 11.9%;
   pointer-events: auto;
-  transform: none;
+  transform: rotate(-2deg);
+  transform-origin: center center;
   background: transparent;
   overflow: visible;
 }
@@ -882,12 +962,18 @@ button {
 
 #radio-status {
   position: absolute;
+
   left: 50%;
   top: 76.8%;
+
   transform: translateX(-50%);
+
   z-index: 50;
+
   color: #fff;
+
   font-size: clamp(8px, .7vw, 13px);
+
   pointer-events: none;
 }
 
@@ -897,9 +983,11 @@ button {
 ========================================================= */
 
 @media (max-width: 767px) {
+
   body {
     overflow: auto;
   }
+
 }
 
 
@@ -908,6 +996,7 @@ button {
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -915,4 +1004,5 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
+
 }

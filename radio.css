@@ -1279,15 +1279,15 @@ button {
 }
 #player-controls #previous-track,
 #player-controls #next-track {
-  border: 4px solid #7dd3fc !important;
+  border: 2px solid rgba(125, 211, 252, .72) !important;
   box-shadow:
-    0 0 12px #7dd3fc,
-    0 0 24px rgba(125,211,252,.85) !important;
+    0 0 6px rgba(125, 211, 252, .28),
+    0 0 12px rgba(125, 211, 252, .12) !important;
 }
 
 #player-controls #play-pause {
-  border: 4px solid #e5ac4c !important;
+  border: 2px solid rgba(229, 172, 76, .82) !important;
   box-shadow:
-    0 0 12px #e5ac4c,
-    0 0 24px rgba(229,172,76,.85) !important;
+    0 0 6px rgba(229, 172, 76, .30),
+    0 0 12px rgba(229, 172, 76, .14) !important;
 }

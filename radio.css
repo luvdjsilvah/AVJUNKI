@@ -787,7 +787,7 @@ button {
   width: 6.9%;
   height: 7.1%;
   padding: 0;
-
+transform: rotate(79deg);
   border-radius: 5px;
 
   /* THICKER OUTER BEZEL */

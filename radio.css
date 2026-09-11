@@ -951,7 +951,9 @@ button {
 
 
 /* =========================================================
-   VOLUME VU
+   VOLUME VU + PNG ROTARY KNOB
+   VU stays in place.
+   PNG knob sits to the right and remains clearly smaller.
 ========================================================= */
 
 #volume-control {
@@ -968,10 +970,11 @@ button {
   transform: none;
 
   background: transparent;
-
   overflow: visible;
 
+  /* JS will update these later */
   --volume-angle: -38deg;
+  --volume-knob-angle: -135deg;
 }
 
 
@@ -1023,10 +1026,10 @@ button {
   background:
     linear-gradient(
       to top,
-      #351d0a 0%,
-      #b16e22 34%,
-      #ffd36f 72%,
-      #fff0b4 100%
+      #6f451f 0%,
+      #c7832f 32%,
+      #e5ac4c 68%,
+      #ffd981 100%
     );
 
   transform-origin: 50% 100%;
@@ -1040,204 +1043,67 @@ button {
 
   box-shadow:
     0 0 2px rgba(0,0,0,.95),
-    0 0 3px rgba(245,170,61,.42);
-
-  pointer-events: none;
-}
-
-
-/* NEEDLE PIVOT */
-
-#volume-control::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  top: 66.4%;
-
-  width: 4.2%;
-  height: 7%;
-
-  transform: translate(-50%, -50%);
-
-  z-index: 5;
-
-  border-radius: 50%;
-
-  border: 1px solid rgba(255,211,132,.88);
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #ffe9b5 0%,
-      #c98a35 31%,
-      #5b3516 64%,
-      #17100b 100%
-    );
-
-  box-shadow:
-    0 1px 3px rgba(0,0,0,.85),
-    0 0 4px rgba(222,147,48,.35);
+    0 0 3px rgba(229,172,76,.35);
 
   pointer-events: none;
 }
 
 
 /* =========================================================
-   ROTARY VOLUME KNOB
-   SCALLOPED HARDWARE STYLE
+   VOLUME KNOB
+   Existing range input becomes the clickable PNG knob.
 ========================================================= */
 
 #volume-slider {
   position: absolute;
 
-  left: 103%;
-  top: 30%;
+  /* right side of VU */
+  left: 103.5%;
+  top: 31%;
 
-  width: 24%;
-  height: 40%;
+  /* intentionally smaller than the meter */
+  width: 23%;
+  height: 38%;
 
   margin: 0;
   padding: 0;
 
   z-index: 7;
 
+  border: 0;
+  border-radius: 50%;
+
   appearance: none;
   -webkit-appearance: none;
 
   outline: none;
 
-  cursor: ew-resize;
+  cursor: pointer;
 
-  background:
+  background-color: transparent;
 
-    /* POINTER MARK */
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 35%,
-      #f8d691 35%,
-      #f8d691 65%,
-      transparent 65%,
-      transparent 100%
-    )
-    50% 15% / 7% 21%
-    no-repeat,
+  background-image:
+    url("assets/images/volum-knob-gold.png");
 
-    /* BLACK RECESSED CENTER */
-    radial-gradient(
-      circle at 47% 39%,
-      #3a3a3a 0%,
-      #1b1b1b 31%,
-      #090909 58%,
-      #020202 67%,
-      transparent 68%
-    ),
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 
-    /* INNER BRASS RING */
-    radial-gradient(
-      circle,
-      transparent 0%,
-      transparent 64%,
-      #6a421c 65%,
-      #e2a64f 70%,
-      #ffe0a0 73%,
-      #9a6429 78%,
-      transparent 79%
-    ),
+  transform:
+    rotate(var(--volume-knob-angle));
 
-    /* OUTER METAL BODY */
-    conic-gradient(
-      from -12deg,
-      #4e2d0d 0deg,
-      #b8792f 25deg,
-      #f1c36f 48deg,
-      #7c4917 74deg,
-      #d89d47 100deg,
-      #ffdda0 126deg,
-      #784414 154deg,
-      #c68b3b 182deg,
-      #f2c16d 210deg,
-      #704011 238deg,
-      #d99c43 266deg,
-      #ffd993 294deg,
-      #6a3c10 322deg,
-      #c48837 344deg,
-      #4e2d0d 360deg
-    );
-
-  clip-path: polygon(
-    50% 0%,
-    60% 8%,
-    72% 4%,
-    79% 17%,
-    92% 18%,
-    91% 32%,
-    100% 42%,
-    94% 53%,
-    100% 65%,
-    89% 73%,
-    89% 87%,
-    75% 87%,
-    66% 100%,
-    54% 94%,
-    43% 100%,
-    34% 91%,
-    20% 95%,
-    16% 81%,
-    3% 76%,
-    8% 62%,
-    0% 51%,
-    8% 40%,
-    3% 26%,
-    17% 21%,
-    20% 7%,
-    34% 11%
-  );
-
-  -webkit-clip-path: polygon(
-    50% 0%,
-    60% 8%,
-    72% 4%,
-    79% 17%,
-    92% 18%,
-    91% 32%,
-    100% 42%,
-    94% 53%,
-    100% 65%,
-    89% 73%,
-    89% 87%,
-    75% 87%,
-    66% 100%,
-    54% 94%,
-    43% 100%,
-    34% 91%,
-    20% 95%,
-    16% 81%,
-    3% 76%,
-    8% 62%,
-    0% 51%,
-    8% 40%,
-    3% 26%,
-    17% 21%,
-    20% 7%,
-    34% 11%
-  );
+  transform-origin: 50% 50%;
 
   filter:
-    drop-shadow(0 4px 4px rgba(0,0,0,.88))
-    drop-shadow(0 0 2px rgba(232,164,63,.28));
+    drop-shadow(0 3px 4px rgba(0,0,0,.78));
 
   transition:
-    filter .15s ease,
-    transform .12s ease;
+    transform 90ms ease-out,
+    filter .15s ease;
 }
 
 
-/* =========================================================
-   REMOVE ORIGINAL SLIDER TRACK
-========================================================= */
+/* REMOVE OLD HORIZONTAL SLIDER TRACK */
 
 #volume-slider::-webkit-slider-runnable-track {
   width: 100%;
@@ -1251,9 +1117,7 @@ button {
 }
 
 
-/* =========================================================
-   HIDE ORIGINAL SLIDER THUMB
-========================================================= */
+/* REMOVE OLD SLIDER THUMB */
 
 #volume-slider::-webkit-slider-thumb {
   appearance: none;
@@ -1261,6 +1125,8 @@ button {
 
   width: 1px;
   height: 1px;
+
+  margin: 0;
 
   border: 0;
 
@@ -1272,7 +1138,7 @@ button {
 }
 
 
-/* FIREFOX TRACK */
+/* FIREFOX */
 
 #volume-slider::-moz-range-track {
   width: 100%;
@@ -1284,9 +1150,6 @@ button {
 
   box-shadow: none;
 }
-
-
-/* FIREFOX THUMB */
 
 #volume-slider::-moz-range-thumb {
   width: 1px;
@@ -1302,27 +1165,24 @@ button {
 }
 
 
-/* =========================================================
-   KNOB INTERACTION
-========================================================= */
+/* SUBTLE HARDWARE RESPONSE */
 
 #volume-slider:hover {
   filter:
-    brightness(1.08)
-    drop-shadow(0 4px 4px rgba(0,0,0,.88))
-    drop-shadow(0 0 4px rgba(232,164,63,.34));
+    brightness(1.05)
+    drop-shadow(0 3px 5px rgba(0,0,0,.82));
 }
 
 #volume-slider:active {
-  transform: scale(.97);
+  filter:
+    brightness(.96)
+    drop-shadow(0 2px 3px rgba(0,0,0,.78));
 }
 
 #volume-slider:focus-visible {
-  filter:
-    brightness(1.10)
-    drop-shadow(0 0 4px rgba(255,204,110,.48));
+  outline: 1px solid rgba(225,172,76,.72);
+  outline-offset: 3px;
 }
-
 
 /* =========================================================
    AUDIO

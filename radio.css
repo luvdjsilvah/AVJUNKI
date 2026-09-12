@@ -1356,7 +1356,7 @@ background:
   z-index: 2;
 }
 #left-info-logo {
-  animation: leftInfoLogoFade 24s ease-in-out infinite;
+  animation: leftInfoLogoFade 32s ease-in-out infinite;
 }
 
 #left-info-time {
@@ -1369,7 +1369,7 @@ background:
   color: rgba(255,255,255,.96);
   z-index: 1;
   opacity: 0;
-  animation: leftInfoTimeFade 24s ease-in-out infinite;
+  animation: leftInfoTimeFade 32s ease-in-out infinite;
 }
 
 #left-info-clock {
@@ -1396,7 +1396,7 @@ background:
   z-index: 1;
   opacity: 0;
   color: rgba(255,255,255,.96);
-  animation: leftInfoWeatherFade 24s ease-in-out infinite;
+  animation: leftInfoWeatherFade 32s ease-in-out infinite;
 }
 
 #weather-location {
@@ -1437,27 +1437,92 @@ background:
   color: rgba(255,255,255,.66);
 }
 
+#left-info-sports {
+  position: absolute;
+  left: 49%;
+  top: 50%;
+  width: 78%;
+  transform: translate(-50%, -50%) rotate(5deg);
+  text-align: center;
+  color: rgba(255,255,255,.96);
+  z-index: 1;
+  opacity: 0;
+  animation: leftInfoSportsFade 32s ease-in-out infinite;
+}
+
+#sports-label {
+  margin-bottom: 7px;
+  font-size: clamp(9px, .62vw, 14px);
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: rgba(229,172,76,.95);
+}
+
+#sports-matchup {
+  display: grid;
+  grid-template-columns: auto auto 12px auto auto;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+}
+
+#sports-team-a,
+#sports-team-b {
+  font-size: clamp(12px, .9vw, 20px);
+  font-weight: 800;
+  letter-spacing: .05em;
+}
+
+#sports-score-a,
+#sports-score-b {
+  font-size: clamp(20px, 1.55vw, 36px);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+#sports-divider {
+  font-size: clamp(12px, .8vw, 18px);
+  color: rgba(229,172,76,.75);
+}
+
+#sports-status {
+  margin-top: 7px;
+  font-size: clamp(8px, .55vw, 13px);
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.66);
+}
+
 @keyframes leftInfoLogoFade {
   0%   { opacity: 0; }
-  4%   { opacity: 1; }
-  28%  { opacity: 1; }
-  33%  { opacity: 0; }
+  3%   { opacity: 1; }
+  21%  { opacity: 1; }
+  25%  { opacity: 0; }
   100% { opacity: 0; }
 }
 
 @keyframes leftInfoTimeFade {
   0%   { opacity: 0; }
-  28%  { opacity: 0; }
-  33%  { opacity: 1; }
-  61%  { opacity: 1; }
-  66%  { opacity: 0; }
+  21%  { opacity: 0; }
+  25%  { opacity: 1; }
+  46%  { opacity: 1; }
+  50%  { opacity: 0; }
   100% { opacity: 0; }
 }
 
 @keyframes leftInfoWeatherFade {
   0%   { opacity: 0; }
-  61%  { opacity: 0; }
-  66%  { opacity: 1; }
-  94%  { opacity: 1; }
+  46%  { opacity: 0; }
+  50%  { opacity: 1; }
+  71%  { opacity: 1; }
+  75%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes leftInfoSportsFade {
+  0%   { opacity: 0; }
+  71%  { opacity: 0; }
+  75%  { opacity: 1; }
+  96%  { opacity: 1; }
   100% { opacity: 0; }
 }

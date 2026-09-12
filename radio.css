@@ -1312,8 +1312,12 @@ button {
   position: absolute;
   inset: 0;
 
-  background: cyan;
-
+  background:
+  linear-gradient(
+    180deg,
+    rgba(12, 22, 28, .96) 0%,
+    rgba(4, 10, 14, .98) 100%
+  );
   -webkit-mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
   mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
 

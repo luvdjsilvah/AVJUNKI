@@ -1338,13 +1338,20 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      165deg,
-      rgba(255, 255, 255, .10) 0%,
-      rgba(255, 255, 255, .035) 22%,
-      rgba(255, 255, 255, 0) 48%
-    );
+background:
+  linear-gradient(
+    168deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.16) 18%,
+    rgba(255,255,255,.05) 24%,
+    rgba(255,255,255,0) 34%
+  ),
+  linear-gradient(
+    165deg,
+    rgba(255,255,255,.10) 0%,
+    rgba(255,255,255,.035) 22%,
+    rgba(255,255,255,0) 48%
+  );
   pointer-events: none;
   z-index: 2;
 }

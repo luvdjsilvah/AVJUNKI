@@ -1339,10 +1339,8 @@ const sportsRotation = [
   }
 ];
 
-let sportsRotationIndex = 0;
-
-function updateSportsRotation() {
-  const sport = sportsRotation[sportsRotationIndex];
+function showSport(index) {
+  const sport = sportsRotation[index];
 
   document.getElementById("sports-name").textContent = sport.name;
   document.getElementById("sports-team-a").textContent = sport.teamA;
@@ -1350,10 +1348,30 @@ function updateSportsRotation() {
   document.getElementById("sports-team-b").textContent = sport.teamB;
   document.getElementById("sports-score-b").textContent = sport.scoreB;
   document.getElementById("sports-status").textContent = sport.status;
-
-  sportsRotationIndex =
-    (sportsRotationIndex + 1) % sportsRotation.length;
 }
 
-updateSportsRotation();
-setInterval(updateSportsRotation, 8000);
+function runSportsCycle() {
+  let index = 0;
+
+  showSport(index);
+
+  const sportsTimer = setInterval(() => {
+    index++;
+
+    if (index >= sportsRotation.length) {
+      clearInterval(sportsTimer);
+      return;
+    }
+
+    showSport(index);
+  }, 8000);
+}
+
+setTimeout(() => {
+  runSportsCycle();
+
+  setInterval(() => {
+    runSportsCycle();
+  }, 72000);
+
+}, 24000);

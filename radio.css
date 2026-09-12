@@ -1356,14 +1356,28 @@ background:
   z-index: 2;
 }
 #left-info-logo {
-  animation: leftInfoLogoFade 8s ease-in-out infinite;
+  animation: leftInfoLogoFade 16s ease-in-out infinite;
+}
+
+#left-info-time {
+  animation: leftInfoTimeFade 16s ease-in-out infinite;
 }
 
 @keyframes leftInfoLogoFade {
   0%   { opacity: 0; }
-  12%  { opacity: 1; }
-  72%  { opacity: 1; }
+  6%   { opacity: 1; }
+  44%  { opacity: 1; }
+  52%  { opacity: 0; }
   100% { opacity: 0; }
+}
+
+@keyframes leftInfoTimeFade {
+  0%   { opacity: 0; }
+  44%  { opacity: 0; }
+  52%  { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { opacity: 0; }
+}
 }
 #left-info-time {
   position: absolute;

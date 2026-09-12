@@ -1314,37 +1314,9 @@ button {
 
 background:
   linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(229,172,76,.32) 7%,
-    transparent 10%,
-    transparent 88%,
-    rgba(229,172,76,.26) 92%,
-    transparent 100%
-  ),
-  radial-gradient(
-    ellipse at 20% 50%,
-    rgba(38,155,205,.38) 0%,
-    rgba(18,75,100,.18) 34%,
-    transparent 58%
-  ),
-  radial-gradient(
-    ellipse at 82% 52%,
-    rgba(229,172,76,.26) 0%,
-    rgba(229,172,76,.08) 32%,
-    transparent 54%
-  ),
-  repeating-linear-gradient(
-    120deg,
-    rgba(255,255,255,.05) 0px,
-    rgba(255,255,255,.05) 1px,
-    transparent 1px,
-    transparent 12px
-  ),
-  linear-gradient(
     180deg,
-    rgba(14,26,34,.98) 0%,
-    rgba(3,8,12,.99) 100%
+    rgba(12, 22, 28, .96) 0%,
+    rgba(4, 10, 14, .98) 100%
   );
   -webkit-mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
   mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;

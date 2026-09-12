@@ -1266,3 +1266,25 @@ updateVolumeHardware(
   );
 
 });
+function updateLeftInfoTime() {
+  const clock = document.getElementById("left-info-clock");
+  const date = document.getElementById("left-info-date");
+
+  if (!clock || !date) return;
+
+  const now = new Date();
+
+  clock.textContent = now.toLocaleTimeString([], {
+    hour: "numeric",
+    minute: "2-digit"
+  });
+
+  date.textContent = now.toLocaleDateString([], {
+    weekday: "long",
+    month: "long",
+    day: "numeric"
+  });
+}
+
+updateLeftInfoTime();
+setInterval(updateLeftInfoTime, 1000);

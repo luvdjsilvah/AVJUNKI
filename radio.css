@@ -1378,10 +1378,10 @@ background:
   92%  { opacity: 1; }
   100% { opacity: 0; }
 }
-}
+
 #left-info-time {
   position: absolute;
-  left: 50%;
+  left: 54%;
   top: 50%;
   width: 78%;
   transform: translate(-50%, -50%);
@@ -1392,7 +1392,7 @@ background:
 }
 
 #left-info-clock {
-  font-size: clamp(26px, 2.3vw, 54px);
+font-size: clamp(18px, 1.5vw, 36px);
   font-weight: 700;
   letter-spacing: .04em;
   line-height: 1;
@@ -1400,7 +1400,7 @@ background:
 
 #left-info-date {
   margin-top: 10px;
-  font-size: clamp(11px, .9vw, 20px);
+ font-size: clamp(9px, .65vw, 15px);
   font-weight: 500;
   letter-spacing: .08em;
   color: rgba(255,255,255,.66);

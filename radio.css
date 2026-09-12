@@ -1365,3 +1365,29 @@ background:
   72%  { opacity: 1; }
   100% { opacity: 0; }
 }
+#left-info-time {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 78%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgba(255,255,255,.96);
+  z-index: 1;
+  opacity: 0;
+}
+
+#left-info-clock {
+  font-size: clamp(26px, 2.3vw, 54px);
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1;
+}
+
+#left-info-date {
+  margin-top: 10px;
+  font-size: clamp(11px, .9vw, 20px);
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.66);
+}

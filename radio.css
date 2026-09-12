@@ -1334,3 +1334,17 @@ button {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+#left-info-display::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, .10) 0%,
+      rgba(255, 255, 255, .035) 22%,
+      rgba(255, 255, 255, 0) 48%
+    );
+  pointer-events: none;
+  z-index: 2;
+}

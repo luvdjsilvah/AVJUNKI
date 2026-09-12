@@ -1324,3 +1324,13 @@ button {
   transform: scaleX(.92) scaleY(.96);
   transform-origin: center;
 }
+#left-info-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 86%;
+  height: 76%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}

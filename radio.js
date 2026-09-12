@@ -1288,3 +1288,72 @@ function updateLeftInfoTime() {
 
 updateLeftInfoTime();
 setInterval(updateLeftInfoTime, 1000);
+const sportsRotation = [
+  {
+    name: "FOOTBALL",
+    teamA: "LV",
+    scoreA: "--",
+    teamB: "DAL",
+    scoreB: "--",
+    status: "PLACEHOLDER"
+  },
+  {
+    name: "BASKETBALL",
+    teamA: "LV",
+    scoreA: "--",
+    teamB: "PHX",
+    scoreB: "--",
+    status: "PLACEHOLDER"
+  },
+  {
+    name: "BASEBALL",
+    teamA: "LAD",
+    scoreA: "--",
+    teamB: "SF",
+    scoreB: "--",
+    status: "PLACEHOLDER"
+  },
+  {
+    name: "HOCKEY",
+    teamA: "VGK",
+    scoreA: "--",
+    teamB: "LA",
+    scoreB: "--",
+    status: "PLACEHOLDER"
+  },
+  {
+    name: "HORSE RACING",
+    teamA: "RACE",
+    scoreA: "--",
+    teamB: "TRACK",
+    scoreB: "--",
+    status: "PLACEHOLDER"
+  },
+  {
+    name: "SOCCER",
+    teamA: "LV",
+    scoreA: "--",
+    teamB: "LA",
+    scoreB: "--",
+    status: "PLACEHOLDER"
+  }
+];
+
+let sportsRotationIndex = 0;
+
+function updateSportsRotation() {
+  const sport = sportsRotation[sportsRotationIndex];
+
+  document.getElementById("sports-name").textContent = sport.name;
+  document.getElementById("sports-team-a").textContent = sport.teamA;
+  document.getElementById("sports-score-a").textContent = sport.scoreA;
+  document.getElementById("sports-team-b").textContent = sport.teamB;
+  document.getElementById("sports-score-b").textContent = sport.scoreB;
+  document.getElementById("sports-status").textContent = sport.status;
+
+  sportsRotationIndex =
+    (sportsRotationIndex + 1) % sportsRotation.length;
+}
+
+updateSportsRotation();
+setInterval(updateSportsRotation, 8000);

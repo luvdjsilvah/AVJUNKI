@@ -1294,7 +1294,7 @@ button {
 }
 #left-info-display {
   position: absolute;
-  left: 0.5%;
+  left: -1%;
   top: 75.5%;
   width: 20%;
   height: 18%;

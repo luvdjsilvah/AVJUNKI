@@ -1367,11 +1367,19 @@ function runSportsCycle() {
   }, 8000);
 }
 
+function scheduleSportsCycle() {
+  showSport(0);
+
+  setTimeout(() => {
+    runSportsCycle();
+  }, 2000);
+}
+
 setTimeout(() => {
-  runSportsCycle();
+  scheduleSportsCycle();
 
   setInterval(() => {
-    runSportsCycle();
+    scheduleSportsCycle();
   }, 72000);
 
-}, 24000);
+}, 22000);

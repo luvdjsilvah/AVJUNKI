@@ -1450,7 +1450,7 @@ background:
   animation: leftInfoSportsFade 32s ease-in-out infinite;
 }
 
-#sports-label {
+#sports-name {
   margin-bottom: 7px;
   font-size: clamp(9px, .62vw, 14px);
   font-weight: 800;

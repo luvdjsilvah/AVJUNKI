@@ -1317,6 +1317,6 @@ button {
   -webkit-mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
   mask: url("assets/images/front-left-fascia-mask.png") center / contain no-repeat;
 
-  transform: scale(.92);
+  transform: scaleX(.92) scaleY(.96);
   transform-origin: center;
 }

@@ -1356,7 +1356,7 @@ background:
   z-index: 2;
 }
 #left-info-logo {
-  animation: leftInfoLogoFade 88s ease-in-out infinite;
+  animation: leftInfoLogoFade 96s ease-in-out infinite;
 }
 
 #left-info-time {

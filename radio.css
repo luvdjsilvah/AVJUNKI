@@ -1614,6 +1614,7 @@ background:
 
   z-index: 1;
   opacity: 0;
+  animation: leftInfoNewsFade 96s ease-in-out infinite;
 }
 
 #news-title {
@@ -1641,53 +1642,62 @@ background:
 
 
 @keyframes leftInfoLogoFade {
-  0%       { opacity: 0; }
-  1.23%    { opacity: 1; }
-  7.77%    { opacity: 1; }
-  9.09%    { opacity: 0; }
-  100%     { opacity: 0; }
+  0%      { opacity: 0; }
+  1.13%   { opacity: 1; }
+  7.12%   { opacity: 1; }
+  8.33%   { opacity: 0; }
+  100%    { opacity: 0; }
 }
 
 @keyframes leftInfoTimeFade {
-  0%       { opacity: 0; }
-  7.77%    { opacity: 0; }
-  9.09%    { opacity: 1; }
-  16.77%   { opacity: 1; }
-  18.18%   { opacity: 0; }
-  100%     { opacity: 0; }
+  0%      { opacity: 0; }
+  7.12%   { opacity: 0; }
+  8.33%   { opacity: 1; }
+  15.37%  { opacity: 1; }
+  16.67%  { opacity: 0; }
+  100%    { opacity: 0; }
 }
 
 @keyframes leftInfoWeatherFade {
-  0%       { opacity: 0; }
-  16.77%   { opacity: 0; }
-  18.18%   { opacity: 1; }
-  25.77%   { opacity: 1; }
-  27.27%   { opacity: 0; }
-  100%     { opacity: 0; }
+  0%      { opacity: 0; }
+  15.37%  { opacity: 0; }
+  16.67%  { opacity: 1; }
+  23.62%  { opacity: 1; }
+  25%     { opacity: 0; }
+  100%    { opacity: 0; }
 }
 
 @keyframes leftInfoSportsFade {
-  0%       { opacity: 0; }
-  25.77%   { opacity: 0; }
-  27.27%   { opacity: 1; }
-  80.45%   { opacity: 1; }
-  81.82%   { opacity: 0; }
-  100%     { opacity: 0; }
+  0%      { opacity: 0; }
+  23.62%  { opacity: 0; }
+  25%     { opacity: 1; }
+  73.75%  { opacity: 1; }
+  75%     { opacity: 0; }
+  100%    { opacity: 0; }
 }
 
 @keyframes leftInfoDowFade {
-  0%       { opacity: 0; }
-  80.45%   { opacity: 0; }
-  81.82%   { opacity: 1; }
-  89.55%   { opacity: 1; }
-  90.91%   { opacity: 0; }
-  100%     { opacity: 0; }
+  0%      { opacity: 0; }
+  73.75%  { opacity: 0; }
+  75%     { opacity: 1; }
+  82.09%  { opacity: 1; }
+  83.33%  { opacity: 0; }
+  100%    { opacity: 0; }
 }
 
 @keyframes leftInfoTrafficFade {
-  0%       { opacity: 0; }
-  89.55%   { opacity: 0; }
-  90.91%   { opacity: 1; }
-  98.64%   { opacity: 1; }
-  100%     { opacity: 0; }
+  0%      { opacity: 0; }
+  82.09%  { opacity: 0; }
+  83.33%  { opacity: 1; }
+  90.42%  { opacity: 1; }
+  91.67%  { opacity: 0; }
+  100%    { opacity: 0; }
+}
+
+@keyframes leftInfoNewsFade {
+  0%      { opacity: 0; }
+  90.42%  { opacity: 0; }
+  91.67%  { opacity: 1; }
+  98.75%  { opacity: 1; }
+  100%    { opacity: 0; }
 }

@@ -1564,6 +1564,7 @@ background:
 
   z-index: 1;
   opacity: 0;
+   animation: leftInfoTrafficFade 88s ease-in-out infinite;
 }
 
 #traffic-title {

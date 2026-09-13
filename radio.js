@@ -1380,7 +1380,7 @@ setTimeout(() => {
 
   setInterval(() => {
     scheduleSportsCycle();
-  }, 88000);
+  }, 96000);
 
 }, 22000);
 function updateDowDisplay() {

@@ -1383,3 +1383,18 @@ setTimeout(() => {
   }, 80000);
 
 }, 22000);
+function updateDowDisplay() {
+  const value = document.getElementById("dow-value");
+  const points = document.getElementById("dow-points");
+  const percent = document.getElementById("dow-percent");
+  const status = document.getElementById("dow-status");
+
+  if (!value || !points || !percent || !status) return;
+
+  value.textContent = "46,250.00";
+  points.textContent = "+125.50";
+  percent.textContent = "(+0.27%)";
+  status.textContent = "MARKET CLOSED";
+}
+
+updateDowDisplay();

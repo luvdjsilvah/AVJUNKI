@@ -1,7 +1,7 @@
 /* =========================================================
    AV JUNKI RADIO
    radio.js
-   Broadcast player + real-time processing/meter hooks
+   Broadcast player + real-time processing/meter hooks.
 ========================================================= */
 
 "use strict";

@@ -1356,7 +1356,7 @@ background:
   z-index: 2;
 }
 #left-info-logo {
-  animation: leftInfoLogoFade 72s ease-in-out infinite;
+  animation: leftInfoLogoFade 80s ease-in-out infinite;
 }
 
 #left-info-time {
@@ -1369,7 +1369,7 @@ background:
   color: rgba(255,255,255,.96);
   z-index: 1;
   opacity: 0;
-  animation: leftInfoTimeFade 72s ease-in-out infinite;
+  animation: leftInfoTimeFade  80s ease-in-out infinite;
 }
 
 #left-info-clock {
@@ -1396,7 +1396,7 @@ background:
   z-index: 1;
   opacity: 0;
   color: rgba(255,255,255,.96);
-  animation: leftInfoWeatherFade 72s ease-in-out infinite;
+  animation: leftInfoWeatherFade  80s ease-in-out infinite;
 }
 
 #weather-location {
@@ -1447,7 +1447,7 @@ background:
   color: rgba(255,255,255,.96);
   z-index: 1;
   opacity: 0;
-  animation: leftInfoSportsFade 72s ease-in-out infinite;
+  animation: leftInfoSportsFade  80s ease-in-out infinite;
 }
 
 #sports-name {
@@ -1486,6 +1486,61 @@ background:
 }
 
 #sports-status {
+  margin-top: 7px;
+  font-size: clamp(8px, .55vw, 13px);
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.66);
+}
+/* =========================================================
+   DOW JONES / MARKET UPDATE
+========================================================= */
+
+#left-info-dow {
+  position: absolute;
+  left: 49%;
+  top: 50%;
+  width: 78%;
+
+  transform: translate(-50%, -50%) rotate(5deg);
+
+  text-align: center;
+  color: rgba(255,255,255,.96);
+
+  z-index: 1;
+  opacity: 0;
+
+  animation: leftInfoDowFade 80s ease-in-out infinite;
+}
+
+#dow-name {
+  margin-bottom: 5px;
+  font-size: clamp(9px, .62vw, 14px);
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: rgba(229,172,76,.95);
+}
+
+#dow-value {
+  font-size: clamp(22px, 1.7vw, 40px);
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+}
+
+#dow-change {
+  margin-top: 6px;
+  font-size: clamp(9px, .65vw, 15px);
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #72d58a;
+}
+
+#dow-percent {
+  margin-left: 5px;
+}
+
+#dow-status {
   margin-top: 7px;
   font-size: clamp(8px, .55vw, 13px);
   font-weight: 600;
@@ -1554,34 +1609,43 @@ background:
 }
 @keyframes leftInfoLogoFade {
   0%      { opacity: 0; }
-  1.5%    { opacity: 1; }
-  9.5%    { opacity: 1; }
-  11.11%  { opacity: 0; }
+  1.35%   { opacity: 1; }
+  8.55%   { opacity: 1; }
+  10%     { opacity: 0; }
   100%    { opacity: 0; }
 }
 
 @keyframes leftInfoTimeFade {
   0%      { opacity: 0; }
-  9.5%    { opacity: 0; }
-  11.11%  { opacity: 1; }
-  20.5%   { opacity: 1; }
-  22.22%  { opacity: 0; }
+  8.55%   { opacity: 0; }
+  10%     { opacity: 1; }
+  18.45%  { opacity: 1; }
+  20%     { opacity: 0; }
   100%    { opacity: 0; }
 }
 
 @keyframes leftInfoWeatherFade {
   0%      { opacity: 0; }
-  20.5%   { opacity: 0; }
-  22.22%  { opacity: 1; }
-  31.5%   { opacity: 1; }
-  33.33%  { opacity: 0; }
+  18.45%  { opacity: 0; }
+  20%     { opacity: 1; }
+  28.35%  { opacity: 1; }
+  30%     { opacity: 0; }
   100%    { opacity: 0; }
 }
 
 @keyframes leftInfoSportsFade {
   0%      { opacity: 0; }
-  31.5%   { opacity: 0; }
-  33.33%  { opacity: 1; }
+  28.35%  { opacity: 0; }
+  30%     { opacity: 1; }
+  88.5%   { opacity: 1; }
+  90%     { opacity: 0; }
+  100%    { opacity: 0; }
+}
+
+@keyframes leftInfoDowFade {
+  0%      { opacity: 0; }
+  88.5%   { opacity: 0; }
+  90%     { opacity: 1; }
   98.5%   { opacity: 1; }
   100%    { opacity: 0; }
 }

@@ -1380,6 +1380,6 @@ setTimeout(() => {
 
   setInterval(() => {
     scheduleSportsCycle();
-  }, 72000);
+  }, 80000);
 
 }, 22000);

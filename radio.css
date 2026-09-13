@@ -1597,6 +1597,48 @@ background:
   letter-spacing: .08em;
   color: rgba(255,255,255,.66);
 }
+/* =========================================================
+   WORLD NEWS
+========================================================= */
+
+#left-info-news {
+  position: absolute;
+  left: 49%;
+  top: 50%;
+  width: 78%;
+
+  transform: translate(-50%, -50%) rotate(5deg);
+
+  text-align: center;
+  color: rgba(255,255,255,.96);
+
+  z-index: 1;
+  opacity: 0;
+}
+
+#news-title {
+  margin-bottom: 7px;
+  font-size: clamp(9px, .62vw, 14px);
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: rgba(229,172,76,.95);
+}
+
+#news-headline {
+  font-size: clamp(11px, .82vw, 18px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+#news-status {
+  margin-top: 7px;
+  font-size: clamp(8px, .55vw, 13px);
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.66);
+}
+
 
 @keyframes leftInfoLogoFade {
   0%       { opacity: 0; }
